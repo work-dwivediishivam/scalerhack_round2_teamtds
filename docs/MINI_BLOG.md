@@ -1,0 +1,63 @@
+---
+license: mit
+tags:
+  - openenv
+  - reinforcement-learning
+  - grpo
+  - llm-agents
+  - airport-operations
+  - hackathon
+---
+
+# Runway Zero: Training Agents To Recover After The Plan Breaks
+
+Most agent benchmarks ask whether an LLM can make a plan. Runway Zero asks a
+harder question: can it recover when the plan starts failing in real time?
+
+Runway Zero is an OpenEnv-style environment for cascading Indian airport
+operations. The agent begins with a normal national flight schedule, then has to
+respond as disruptions compound: fog hits Delhi, Mumbai loses runway capacity,
+Bengaluru gates jam, an IndiGo aircraft needs maintenance, crews approach
+duty-time limits, Hyderabad receives an emergency arrival, and airlines compete
+for scarce evening slots.
+
+The agent does not answer with prose. It emits structured JSON actions:
+departures, holds, cancellations, aircraft swaps, maintenance requests,
+reroutes, passenger compensation, connection protection, and slot negotiation.
+Those actions are executed inside the simulator. The environment returns a
+decomposed reward over delay, safety, passenger satisfaction, airline money,
+fairness, and action validity.
+
+The environment has three levels:
+
+1. Operations Recovery: a compact four-airport network focused on safe
+   departures, arrivals, aircraft readiness, and delay reduction.
+2. Passenger-Aware Recovery: a larger network with connections, stranded
+   passengers, emergencies, and satisfaction penalties.
+3. Economic Multi-Agent Control: ten Indian airports where IndiGo, Air India,
+   Akasa Air, and SpiceJet compete for slots while Tower Central must stay
+   neutral.
+
+For the demo, the website replays real simulator traces. It shows a custom
+animated India operations board, airport zoom views with runways and gates,
+active disruption context, agent negotiation messages, reward bars, speed
+controls, and base-model-vs-RL-trained comparison rows.
+
+Training evidence is included at three levels. First, deterministic baselines
+and a local all-stage RL controller generate plots and replay traces. Second, a
+local TRL/GRPO smoke run proves the LLM reward loop executes against the real
+environment. Third, a hosted Hugging Face GPU job trained
+Qwen/Qwen2.5-Coder-7B-Instruct with TRL GRPO and 4-bit LoRA across all three
+stages, then uploaded the final artifact bundle to Hugging Face.
+
+Why this matters: deployed agents will not operate in clean, single-turn
+prompt-response tasks. They will operate inside systems where resources
+disappear, stakeholders disagree, APIs fail, and early decisions change future
+state. Runway Zero turns that recovery skill into a measurable training
+environment.
+
+Live demo: https://project-2pdc2.vercel.app/
+
+OpenEnv Space: https://work-dwivediishivam-runway-zero.hf.space/state
+
+Training evidence: https://project-2pdc2.vercel.app/training/

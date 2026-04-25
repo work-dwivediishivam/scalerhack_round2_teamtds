@@ -14,6 +14,16 @@ license: mit
 **Runway Zero** is an OpenEnv-style benchmark for training LLM agents to recover
 airport operations from cascading disruptions.
 
+## Submission Links
+
+- Web demo: https://project-2pdc2.vercel.app/
+- Training/results page: https://project-2pdc2.vercel.app/training/
+- Level 3 replay: https://project-2pdc2.vercel.app/sim/?stage=3
+- OpenEnv/Hugging Face Space API: https://work-dwivediishivam-runway-zero.hf.space/state
+- Hosted Qwen GRPO artifact: https://huggingface.co/work-dwivediishivam/runway-zero-training-artifacts/blob/main/qwen25_coder_7b_hf_grpo/runway_zero_qwen25_coder_7b_hf_grpo.tgz
+- Mini-blog/writeup: [docs/MINI_BLOG.md](docs/MINI_BLOG.md)
+- Hugging Face mini-blog/model card: https://huggingface.co/work-dwivediishivam/runway-zero-training-artifacts/blob/main/README.md
+
 Static planning asks whether an agent can make a schedule. Runway Zero asks
 whether it can keep the schedule alive after fog, runway closures, aircraft
 faults, crew timeouts, gate congestion, and passenger connection failures start
@@ -54,7 +64,6 @@ src/runway_zero/       Simulator, rewards, scenarios, server, baselines
 scripts/               Evaluation, plotting, and replay export scripts
 notebooks/             Colab-oriented training notebooks
 web/                   Next.js visual replay dashboard
-data/                  Airports and scenario definitions
 docs/                  Pitch, reward design, technical plan
 results/               Generated traces and plots
 openenv.yaml           Environment manifest
@@ -185,3 +194,5 @@ Hosted GPU GRPO evidence:
 - [Reward design](docs/REWARD_DESIGN.md)
 - [Training plan](docs/TRAINING.md)
 - [Pitch](docs/PITCH.md)
+- [Mini-blog](docs/MINI_BLOG.md)
+- [Submission checklist](docs/SUBMISSION.md)
