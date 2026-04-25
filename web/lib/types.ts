@@ -53,11 +53,23 @@ export type Frame = {
   time: number;
   actions: Array<Record<string, string | number>>;
   agent_messages: Array<{ from: string; to: string; type: string; message: string }>;
-  active_disruptions: Array<{ disruption_id: string; kind: string; target: string; message: string }>;
+  active_disruptions: Array<{
+    disruption_id: string;
+    kind: string;
+    target: string;
+    severity: number;
+    message: string;
+  }>;
   reward: Reward;
   metrics: Metrics;
   observation: {
     clock: string;
+    challenge_brief?: {
+      title: string;
+      goal: string;
+      win_condition: string;
+    };
+    stakeholders?: Array<{ name: string; objective: string }>;
     airports: Airport[];
     pending_decisions: PendingDecision[];
     network_summary: Metrics;
@@ -79,4 +91,15 @@ export type TraceManifestRow = Metrics & {
   policy: string;
   stage: number;
   total_reward: number;
+};
+
+export type ModelComparisonRow = {
+  model: string;
+  label: string;
+  stage: number;
+  base_reward: number;
+  rl_trained_reward: number;
+  base_delay: number;
+  rl_trained_delay: number;
+  status: string;
 };

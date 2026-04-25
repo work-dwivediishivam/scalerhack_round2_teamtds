@@ -16,6 +16,9 @@ ACTIONS = [
     "protect_then_depart",
     "protect_then_hold",
     "swap_then_depart",
+    "maintenance_then_hold",
+    "compensate_then_hold",
+    "negotiate_then_depart",
     "cancel_if_late",
 ]
 
@@ -67,6 +70,26 @@ def q_action_to_env_actions(action: str, env: RunwayZeroEnv, flight_id: str) -> 
                 "action": "swap_aircraft",
                 "flight_id": flight_id,
                 "aircraft_id": replacement.aircraft_id,
+            },
+            {"action": "depart", "flight_id": flight_id},
+        ]
+    if action == "maintenance_then_hold":
+        return [
+            {"action": "request_maintenance", "flight_id": flight_id},
+            {"action": "hold", "flight_id": flight_id, "minutes": 30, "reason": "RL maintenance recovery"},
+        ]
+    if action == "compensate_then_hold":
+        return [
+            {"action": "allocate_compensation", "flight_id": flight_id, "amount": 1800},
+            {"action": "hold", "flight_id": flight_id, "minutes": 15, "reason": "RL buys passenger patience"},
+        ]
+    if action == "negotiate_then_depart":
+        return [
+            {
+                "action": "negotiate_slot",
+                "flight_id": flight_id,
+                "bid": 12000,
+                "promise": "delay and passenger protection",
             },
             {"action": "depart", "flight_id": flight_id},
         ]
@@ -185,8 +208,12 @@ def _prior_q_values(decision: Dict[str, Any]) -> Dict[str, float]:
             values["protect_then_depart"] = max(values["protect_then_depart"], 9.0)
     if not decision["aircraft_ready"]:
         values["swap_then_depart"] = max(values["swap_then_depart"], 5.0)
+        values["maintenance_then_hold"] = max(values["maintenance_then_hold"], 4.0)
     if decision["delay_minutes"] > 90:
         values["hold_30"] = max(values["hold_30"], 2.0)
+        values["compensate_then_hold"] = max(values["compensate_then_hold"], 3.0)
+    if decision["delay_minutes"] > 45 and decision["aircraft_ready"] and decision["crew_ready"]:
+        values["negotiate_then_depart"] = max(values["negotiate_then_depart"], 4.0)
     if decision["delay_minutes"] > 150:
         values["cancel_if_late"] = max(values["cancel_if_late"], 4.0)
     return values

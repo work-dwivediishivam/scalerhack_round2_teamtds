@@ -16,11 +16,14 @@ Mumbai closes a runway.
 
 Bengaluru loses a gate.
 
-A SkyIndus aircraft reports a technical fault.
+An IndiGo aircraft reports a technical fault.
 
 Crew duty limits start expiring.
 
 Passengers begin missing connections.
+
+IndiGo, Air India, Akasa Air, and SpiceJet begin pushing for their own slots,
+cash protection, and reputation recovery while Tower Central must stay neutral.
 
 The agent is no longer solving a static schedule. It is managing a living system
 where every fix creates a new consequence.
@@ -29,8 +32,9 @@ where every fix creates a new consequence.
 
 Runway Zero is an OpenEnv-style airport operations environment. The agent sees a
 structured airport state and chooses operational actions: depart, hold, cancel,
-swap aircraft, and protect connections. Rewards are based on delay, safety,
-passenger satisfaction, economics, and fairness.
+swap aircraft, request maintenance, reroute, compensate passengers, negotiate
+slots, and protect connections. Rewards are based on delay, safety, passenger
+satisfaction, economics, and fairness.
 
 ## Why It Matters
 
@@ -45,8 +49,7 @@ capability.
 
 1. Show the India network running normally.
 2. Trigger cascading disruptions.
-3. Replay FIFO baseline decisions.
-4. Replay recovery-agent decisions.
+3. Replay base-model decisions.
+4. Replay RL-trained recovery decisions.
 5. Compare reward, delay, stranded passengers, and satisfaction.
 6. Show the TRL/GRPO training path.
-

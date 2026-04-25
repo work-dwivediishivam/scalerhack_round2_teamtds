@@ -4,7 +4,7 @@ from dataclasses import asdict
 from typing import Any, Dict, Iterable, List, Optional
 
 from runway_zero.models import Aircraft, Crew, Flight, RewardBreakdown, StepResult
-from runway_zero.scenarios import build_scenario
+from runway_zero.scenarios import ROUTE_MINUTES, build_scenario
 
 
 class RunwayZeroEnv:
@@ -104,6 +104,8 @@ class RunwayZeroEnv:
             "stage": self.stage,
             "time": self.time,
             "clock": minutes_to_clock(self.time),
+            "challenge_brief": self._challenge_brief(),
+            "stakeholders": self._stakeholders(),
             "airports": [asdict(airport) for airport in self.airports.values()],
             "active_disruptions": [
                 asdict(item) for item in self.disruptions if item.active and not item.resolved
@@ -116,8 +118,59 @@ class RunwayZeroEnv:
                 "cancel": {"flight_id": "string", "reason": "string"},
                 "swap_aircraft": {"flight_id": "string", "aircraft_id": "string"},
                 "protect_connection": {"flight_id": "string"},
+                "reroute": {
+                    "flight_id": "string",
+                    "destination": "airport_code",
+                    "reason": "string",
+                },
+                "request_maintenance": {"flight_id": "string"},
+                "allocate_compensation": {"flight_id": "string", "amount": "int"},
+                "negotiate_slot": {
+                    "flight_id": "string",
+                    "bid": "int",
+                    "promise": "delay|passengers|profit",
+                },
             },
         }
+
+    def _challenge_brief(self) -> Dict[str, Any]:
+        if self.stage == 1:
+            return {
+                "title": "Operations Recovery",
+                "goal": "Clear a compact DEL-BOM-BLR-HYD network while fog, runway loss, and aircraft faults cascade.",
+                "win_condition": "Maximize safe departures and arrivals with minimal delay and cancellation.",
+            }
+        if self.stage == 2:
+            return {
+                "title": "Passenger-Aware Recovery",
+                "goal": "Protect connections, emergencies, and stranded passenger groups across the national network.",
+                "win_condition": "Recover throughput without sacrificing satisfaction or emergency priority.",
+            }
+        return {
+            "title": "Economic Multi-Agent Control",
+            "goal": "Balance tower neutrality against airline agents competing for slots, cash, reputation, and passengers.",
+            "win_condition": "Keep the network efficient while preventing any airline from gaming scarce runway capacity.",
+        }
+
+    def _stakeholders(self) -> List[Dict[str, str]]:
+        items = [
+            {
+                "name": "Tower Central",
+                "objective": "Safety, throughput, fairness, and emergency priority.",
+            },
+            {
+                "name": "Airport Ops",
+                "objective": "Keep gates, stands, fuel, crews, and runways from deadlocking.",
+            },
+        ]
+        for airline in self.airlines.values():
+            items.append(
+                {
+                    "name": airline.name,
+                    "objective": "Protect cash, reputation, slot access, and passenger satisfaction.",
+                }
+            )
+        return items
 
     def pending_decisions(self) -> List[Dict[str, Any]]:
         decisions = []
@@ -225,7 +278,18 @@ class RunwayZeroEnv:
         kind = action.get("action")
         flight_id = action.get("flight_id")
         flight = self.flights.get(flight_id) if flight_id else None
-        if kind not in {"depart", "hold", "cancel", "swap_aircraft", "protect_connection"}:
+        allowed = {
+            "depart",
+            "hold",
+            "cancel",
+            "swap_aircraft",
+            "protect_connection",
+            "reroute",
+            "request_maintenance",
+            "allocate_compensation",
+            "negotiate_slot",
+        }
+        if kind not in allowed:
             reward.action_validity_score -= 8
             return reward
         if flight is None:
@@ -247,6 +311,14 @@ class RunwayZeroEnv:
             return self._swap_aircraft(flight, new_aircraft_id)
         if kind == "protect_connection":
             return self._protect_connection(flight)
+        if kind == "reroute":
+            return self._reroute(flight, str(action.get("destination", "")), action.get("reason", "network recovery"))
+        if kind == "request_maintenance":
+            return self._request_maintenance(flight)
+        if kind == "allocate_compensation":
+            return self._allocate_compensation(flight, float(action.get("amount", 0)))
+        if kind == "negotiate_slot":
+            return self._negotiate_slot(flight, float(action.get("bid", 0)), str(action.get("promise", "")))
         return reward
 
     def _depart(self, flight: Flight) -> RewardBreakdown:
@@ -322,6 +394,71 @@ class RunwayZeroEnv:
         reward.money_score -= 3
         return reward
 
+    def _reroute(self, flight: Flight, destination: str, reason: str) -> RewardBreakdown:
+        reward = RewardBreakdown()
+        if flight.status != "scheduled" or destination not in self.airports or destination == flight.origin:
+            reward.action_validity_score -= 6
+            return reward
+        route = (flight.origin, destination)
+        if route not in ROUTE_MINUTES:
+            reward.action_validity_score -= 5
+            return reward
+        old_destination = flight.destination
+        flight.destination = destination
+        flight.scheduled_arr = flight.scheduled_dep + ROUTE_MINUTES[route]
+        flight.delay_reason = f"rerouted from {old_destination}: {reason}"
+        reward.delay_score += 4 if self.airports[old_destination].weather_delay > 0 else -2
+        reward.passenger_score -= flight.passengers * 0.03
+        reward.money_score -= 8
+        reward.action_validity_score += 2
+        return reward
+
+    def _request_maintenance(self, flight: Flight) -> RewardBreakdown:
+        reward = RewardBreakdown()
+        aircraft = self.aircraft[flight.aircraft_id]
+        if self.time < aircraft.broken_until:
+            repaired_at = max(self.time + 45, aircraft.broken_until - 45)
+            aircraft.broken_until = repaired_at
+            reward.safety_score += 8
+            reward.money_score -= 18
+            reward.action_validity_score += 2
+        else:
+            reward.action_validity_score -= 2
+            reward.money_score -= 4
+        return reward
+
+    def _allocate_compensation(self, flight: Flight, amount: float) -> RewardBreakdown:
+        reward = RewardBreakdown()
+        if amount <= 0:
+            reward.action_validity_score -= 4
+            return reward
+        airline = self.airlines[flight.airline]
+        capped_amount = min(amount, 9000)
+        airline.cash -= capped_amount * flight.passengers
+        for group in flight.passenger_groups:
+            group.satisfaction = min(100, group.satisfaction + min(18, capped_amount / 600))
+        reward.passenger_score += flight.passengers * min(0.18, capped_amount / 50_000)
+        reward.money_score -= capped_amount * flight.passengers / 18_000
+        reward.action_validity_score += 1
+        return reward
+
+    def _negotiate_slot(self, flight: Flight, bid: float, promise: str) -> RewardBreakdown:
+        reward = RewardBreakdown()
+        if self.stage < 3:
+            reward.action_validity_score -= 2
+            return reward
+        airline = self.airlines[flight.airline]
+        bid = max(0, min(50_000, bid))
+        airline.cash -= bid
+        if "passenger" in promise or "delay" in promise:
+            reward.fairness_score += 1.5
+            reward.passenger_score += 1.0
+        else:
+            reward.fairness_score -= 2.5
+        reward.money_score -= bid / 20_000
+        reward.action_validity_score += 1
+        return reward
+
     def _protect_connection(self, flight: Flight) -> RewardBreakdown:
         reward = RewardBreakdown()
         protected = 0
@@ -387,6 +524,15 @@ class RunwayZeroEnv:
                     reward.passenger_score -= group.count * 0.2
             reward.passenger_score -= flight.passengers * 0.005
             reward.money_score -= self.airlines[flight.airline].operating_cost_per_minute * 0.01
+            for disruption in self.disruptions:
+                if not disruption.active:
+                    continue
+                if disruption.kind == "demand_shock" and disruption.target == flight.origin:
+                    reward.passenger_score -= flight.passengers * 0.008 * disruption.severity
+                elif disruption.kind == "fuel_delay" and disruption.target == flight.origin:
+                    reward.money_score -= 2.2 * disruption.severity
+                elif disruption.kind == "slot_conflict" and disruption.target == flight.origin:
+                    reward.fairness_score -= max(0, delay - 30) * 0.006 * disruption.severity
         if self.stage >= 3 and airline_delay:
             values = list(airline_delay.values())
             spread = max(values) - min(values)
@@ -432,6 +578,31 @@ class RunwayZeroEnv:
                     "message": f"{disruption.kind.replace('_', ' ').title()} active at {target}: {disruption.message}",
                 }
             )
+            if self.stage >= 3 and disruption.kind == "slot_conflict":
+                for airline in self.airlines.values():
+                    messages.append(
+                        {
+                            "from": airline.name,
+                            "to": "Tower Central",
+                            "type": "slot_bid",
+                            "message": (
+                                f"{airline.name} requests priority slots at {target}; "
+                                "we can protect connections but need a fast departure bank."
+                            ),
+                        }
+                    )
+            if disruption.kind in {"fuel_delay", "demand_shock"} and disruption.target in self.airports:
+                messages.append(
+                    {
+                        "from": "Airport Ops",
+                        "to": "Airline Agents",
+                        "type": "constraint",
+                        "message": (
+                            f"{self.airports[disruption.target].city} constraint is live. "
+                            "Choose between holding, rerouting, compensation, and slot negotiation."
+                        ),
+                    }
+                )
         for action in actions[:8]:
             flight_id = str(action.get("flight_id", "network"))
             flight = self.flights.get(flight_id)

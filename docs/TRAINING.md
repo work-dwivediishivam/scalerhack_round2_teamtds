@@ -53,6 +53,9 @@ Available action templates:
 - protect passengers then depart
 - protect passengers then hold
 - swap aircraft then depart
+- request maintenance then hold
+- compensate passengers then hold
+- negotiate slot then depart
 - cancel only if late
 
 This is the locally runnable RL proof. It produces saved Q-tables and replay
@@ -68,9 +71,14 @@ The intended RL loop is:
 4. Use the returned scalar reward and reward components.
 5. Optimize with TRL GRPO.
 
-The notebook `notebooks/02_stage1_grpo_operations.ipynb` contains a Colab-ready
-minimal training scaffold using Hugging Face TRL. For stages 2 and 3, reuse the
-same reward function with `build_prompts(stage=2)` and `build_prompts(stage=3)`.
+The notebooks contain Colab-ready training scaffolds using Hugging Face TRL:
+
+- `notebooks/02_stage1_grpo_operations.ipynb`
+- `notebooks/03_stage2_grpo_passenger_satisfaction.ipynb`
+- `notebooks/04_stage3_multi_agent_economics.ipynb`
+- `notebooks/04_llm_grpo_all_stages.ipynb`
+- `notebooks/05_model_comparison.ipynb`
+- `notebooks/06_demo_replay_export.ipynb`
 
 Recommended model progression:
 
@@ -120,11 +128,12 @@ Local verification already completed:
 The full Qwen/Gemma/GPT-OSS runs require GPU/hosted compute, but use the same
 entrypoint and reward function.
 
-## Why The Current Repo Includes Heuristic Recovery
+## Why The Current Repo Includes Local RL And Heuristics
 
 Full LLM RL fine-tuning requires GPU credits and model access. The simulator,
 reward function, local RL controller, baselines, plots, and replay traces are
-runnable locally now.
+runnable locally now, while the hosted GRPO entrypoint uses the same environment
+reward and can be launched on GPU runtimes.
 
-During the onsite compute window, replace the heuristic policy with model
-rollouts and run the GRPO notebook against the same environment.
+During the onsite compute window, replace replay-backed model rows with exact
+Gemma/GPT-OSS/Qwen GRPO results from the same environment.

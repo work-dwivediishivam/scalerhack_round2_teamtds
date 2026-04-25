@@ -15,13 +15,15 @@ AIRPORTS: Dict[str, Airport] = {
     "CCU": Airport("CCU", "Netaji Subhas Chandra Bose", "Kolkata", 22.6547, 88.4467, 2, 7),
     "AMD": Airport("AMD", "Sardar Vallabhbhai Patel", "Ahmedabad", 23.0772, 72.6347, 1, 5),
     "COK": Airport("COK", "Cochin International", "Kochi", 10.1520, 76.4019, 1, 5),
+    "GOX": Airport("GOX", "Manohar International", "Goa", 15.7443, 73.8606, 1, 5),
+    "PNQ": Airport("PNQ", "Pune International", "Pune", 18.5793, 73.9089, 1, 5),
 }
 
 AIRLINES: Dict[str, Airline] = {
-    "SI": Airline("SI", "SkyIndus", 3_000_000),
-    "BA": Airline("BA", "Bharat Air", 3_000_000),
-    "AN": Airline("AN", "AeroNova", 2_500_000),
-    "RW": Airline("RW", "RedWing", 2_000_000),
+    "6E": Airline("6E", "IndiGo", 3_600_000),
+    "AI": Airline("AI", "Air India", 3_400_000),
+    "QP": Airline("QP", "Akasa Air", 2_800_000),
+    "SG": Airline("SG", "SpiceJet", 2_400_000),
 }
 
 ROUTE_MINUTES = {
@@ -47,15 +49,29 @@ ROUTE_MINUTES = {
     ("BLR", "COK"): 65,
     ("MAA", "BLR"): 55,
     ("BLR", "MAA"): 55,
+    ("DEL", "AMD"): 95,
+    ("AMD", "DEL"): 95,
+    ("DEL", "PNQ"): 125,
+    ("PNQ", "DEL"): 125,
+    ("BOM", "GOX"): 65,
+    ("GOX", "BOM"): 65,
+    ("BOM", "PNQ"): 45,
+    ("PNQ", "BOM"): 45,
+    ("HYD", "MAA"): 70,
+    ("MAA", "HYD"): 70,
+    ("CCU", "BLR"): 150,
+    ("BLR", "CCU"): 150,
+    ("COK", "MAA"): 75,
+    ("MAA", "COK"): 75,
 }
 
 
 def build_scenario(stage: int = 1, seed: int = 7) -> dict:
     rng = random.Random(seed)
     airport_codes = ["DEL", "BOM", "BLR", "HYD"] if stage == 1 else list(AIRPORTS)
-    airline_codes = ["SI", "BA"] if stage == 1 else (["SI", "BA", "AN"] if stage == 2 else list(AIRLINES))
-    flight_count = 36 if stage == 1 else (96 if stage == 2 else 180)
-    step_window = 720 if stage == 1 else (900 if stage == 2 else 1080)
+    airline_codes = ["6E", "AI"] if stage == 1 else (["6E", "AI", "QP"] if stage == 2 else list(AIRLINES))
+    flight_count = 44 if stage == 1 else (124 if stage == 2 else 224)
+    step_window = 780 if stage == 1 else (960 if stage == 2 else 1200)
 
     airports = {code: _clone_airport(AIRPORTS[code]) for code in airport_codes}
     airlines = {code: AIRLINES[code] for code in airline_codes}
@@ -186,25 +202,123 @@ def _passenger_groups(
 
 def _build_disruptions(stage: int) -> List[Disruption]:
     base = [
-        Disruption("D1", 480, "weather", "DEL", 120, 2, "Dense fog slows Delhi departures."),
-        Disruption("D2", 555, "runway_closure", "BOM", 90, 3, "Mumbai runway inspection after debris."),
-        Disruption("D3", 615, "aircraft_fault", "SI-A01", 120, 2, "SkyIndus aircraft reports hydraulic warning."),
-        Disruption("D4", 690, "gate_block", "BLR", 75, 2, "Bengaluru gate bridge failure blocks one gate."),
+        Disruption(
+            "D1",
+            465,
+            "weather",
+            "DEL",
+            165,
+            3,
+            "Dense winter fog at Delhi forces low-visibility spacing and turns departures into a queue.",
+        ),
+        Disruption(
+            "D2",
+            540,
+            "runway_closure",
+            "BOM",
+            120,
+            3,
+            "Mumbai closes one runway after debris is found during peak west-coast departures.",
+        ),
+        Disruption(
+            "D3",
+            600,
+            "aircraft_fault",
+            "6E-F003",
+            165,
+            3,
+            "IndiGo aircraft 6E-F003 reports a hydraulic warning and cannot be dispatched.",
+        ),
+        Disruption(
+            "D4",
+            675,
+            "gate_block",
+            "BLR",
+            105,
+            2,
+            "Bengaluru loses a contact stand after a jet bridge fault blocks gate turnaround.",
+        ),
     ]
     if stage >= 2:
         base.extend(
             [
-                Disruption("D5", 735, "crew_timeout", "BA-C01", 180, 3, "Bharat Air crew reaches duty risk."),
-                Disruption("D6", 780, "emergency", "HYD", 45, 5, "Medical emergency arrival requires priority."),
-                Disruption("D7", 840, "weather", "MAA", 90, 2, "Chennai thunderstorm adds ground delay."),
+                Disruption(
+                    "D5",
+                    720,
+                    "crew_timeout",
+                    "AI-K005",
+                    210,
+                    3,
+                    "Air India crew AI-K005 hits duty-time risk after earlier fog delays.",
+                ),
+                Disruption(
+                    "D6",
+                    765,
+                    "emergency",
+                    "HYD",
+                    60,
+                    5,
+                    "A medical emergency inbound to Hyderabad forces tower priority and arrival spacing.",
+                ),
+                Disruption(
+                    "D7",
+                    825,
+                    "weather",
+                    "MAA",
+                    120,
+                    3,
+                    "Chennai thunderstorm blocks ground handling and increases passenger connection risk.",
+                ),
+                Disruption(
+                    "D8",
+                    900,
+                    "gate_block",
+                    "CCU",
+                    90,
+                    2,
+                    "Kolkata loses gate capacity just as missed-connection passengers arrive from Delhi.",
+                ),
             ]
         )
     if stage >= 3:
         base.extend(
             [
-                Disruption("D8", 900, "demand_shock", "DEL", 120, 2, "Business traffic surge increases passenger anger."),
-                Disruption("D9", 960, "fuel_delay", "BOM", 90, 2, "Fuel truck shortage increases turnaround cost."),
-                Disruption("D10", 1020, "slot_conflict", "BLR", 120, 3, "Airlines compete for scarce evening slots."),
+                Disruption(
+                    "D9",
+                    930,
+                    "demand_shock",
+                    "DEL",
+                    180,
+                    3,
+                    "Delhi sees a business-travel surge; every extra delay minute now damages reputation faster.",
+                ),
+                Disruption(
+                    "D10",
+                    990,
+                    "fuel_delay",
+                    "BOM",
+                    135,
+                    3,
+                    "Mumbai fuel trucks are short staffed, raising turnaround cost for every held aircraft.",
+                ),
+                Disruption(
+                    "D11",
+                    1050,
+                    "slot_conflict",
+                    "BLR",
+                    180,
+                    4,
+                    "IndiGo, Air India, Akasa Air, and SpiceJet all demand scarce Bengaluru evening slots.",
+                ),
+                Disruption(
+                    "D12",
+                    1110,
+                    "weather",
+                    "GOX",
+                    120,
+                    2,
+                    "Goa coastal weather triggers diversions and blocks low-fuel aircraft from quick recovery.",
+                ),
             ]
         )
     return base

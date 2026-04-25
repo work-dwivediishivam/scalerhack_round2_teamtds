@@ -93,6 +93,23 @@ class RecoveryPolicy:
             flight = env.flights[decision["flight_id"]]
             if env.stage >= 2:
                 actions.append({"action": "protect_connection", "flight_id": flight.flight_id})
+            if env.stage >= 3 and decision["delay_minutes"] > 60:
+                actions.append(
+                    {
+                        "action": "negotiate_slot",
+                        "flight_id": flight.flight_id,
+                        "bid": 9000,
+                        "promise": "delay and passenger protection",
+                    }
+                )
+            if env.stage >= 3 and decision["delay_minutes"] > 105:
+                actions.append(
+                    {
+                        "action": "allocate_compensation",
+                        "flight_id": flight.flight_id,
+                        "amount": 1500,
+                    }
+                )
             if not decision["aircraft_ready"]:
                 replacement = env.find_available_aircraft(flight)
                 if replacement is not None and replacement.aircraft_id != flight.aircraft_id:
@@ -103,6 +120,8 @@ class RecoveryPolicy:
                             "aircraft_id": replacement.aircraft_id,
                         }
                     )
+                elif env.stage >= 2:
+                    actions.append({"action": "request_maintenance", "flight_id": flight.flight_id})
             if decision["aircraft_ready"] and decision["crew_ready"]:
                 actions.append({"action": "depart", "flight_id": flight.flight_id})
             elif decision["delay_minutes"] > 180:

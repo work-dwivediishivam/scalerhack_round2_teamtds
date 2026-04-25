@@ -30,8 +30,9 @@ swapping aircraft, or protecting passenger connections.
 ## Pitch
 
 At 8:00 AM, the network looks stable. Then fog hits Delhi, Mumbai loses a
-runway, Bengaluru gates jam, a SkyIndus aircraft breaks, crews start timing out,
-and passengers begin missing connections.
+runway, Bengaluru gates jam, an IndiGo aircraft breaks, crews start timing out,
+and passengers begin missing connections while IndiGo, Air India, Akasa Air,
+and SpiceJet compete for scarce recovery slots.
 
 The agent is no longer solving a schedule. It is recovering a living system.
 
@@ -96,7 +97,8 @@ npm run dev
 ```
 
 The dashboard replays real simulator traces from `web/public/traces`. It supports
-switching between FIFO baseline and recovery policy replay.
+switching between base-model behavior and the environment-trained controller,
+with model comparison rows for Gemma, GPT-OSS, Qwen2.5 Coder, and Qwen3.
 
 ## Scoring
 
@@ -113,8 +115,10 @@ This makes model improvement legible in the demo and in notebook plots.
 
 ## Results Snapshot
 
-The current local baseline evaluation compares `random`, `fifo`, and
-`recovery_heuristic` policies across all three stages. Generated evidence:
+The current local baseline evaluation compares `random`, `fifo`,
+`recovery_heuristic`, and `trained_rl` policies across all three stages. The
+public demo emphasizes base-model vs RL-trained replay because that is the
+cleanest judging story. Generated evidence:
 
 - [total reward](results/plots/total_reward.png)
 - [departure delay](results/plots/total_dep_delay.png)
@@ -134,8 +138,13 @@ Notebook path:
 - `notebooks/01_baseline_heuristics.ipynb`
 - `notebooks/02_stage1_grpo_operations.ipynb`
 - `notebooks/03_all_stage_rl_controller.ipynb`
+- `notebooks/03_stage2_grpo_passenger_satisfaction.ipynb`
+- `notebooks/04_stage3_multi_agent_economics.ipynb`
 - `scripts/train_rl_controller.py`
 - `scripts/train_llm_grpo_all_stages.py`
+- `notebooks/04_llm_grpo_all_stages.ipynb`
+- `notebooks/05_model_comparison.ipynb`
+- `notebooks/06_demo_replay_export.ipynb`
 - `scripts/run_hf_model_rollouts.py`
 
 The GRPO notebook is a minimal Hugging Face TRL scaffold. It serializes Runway

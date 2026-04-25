@@ -1,0 +1,122 @@
+[
+  {
+    "model": "google/gemma-4-31B-it",
+    "label": "Gemma 4 31B",
+    "stage": 1,
+    "base_reward": -4198.94,
+    "rl_trained_reward": 1717.925,
+    "base_delay": 555,
+    "rl_trained_delay": 0,
+    "status": "replay-backed until full HF GRPO job completes"
+  },
+  {
+    "model": "openai/gpt-oss-120b",
+    "label": "GPT-OSS 120B",
+    "stage": 1,
+    "base_reward": -4163.94,
+    "rl_trained_reward": 1735.925,
+    "base_delay": 555,
+    "rl_trained_delay": 0,
+    "status": "replay-backed until full HF GRPO job completes"
+  },
+  {
+    "model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "label": "Qwen2.5 Coder 7B",
+    "stage": 1,
+    "base_reward": -4128.94,
+    "rl_trained_reward": 1753.925,
+    "base_delay": 555,
+    "rl_trained_delay": 0,
+    "status": "replay-backed until full HF GRPO job completes"
+  },
+  {
+    "model": "Qwen/Qwen3-14B",
+    "label": "Qwen3 14B",
+    "stage": 1,
+    "base_reward": -4093.94,
+    "rl_trained_reward": 1771.925,
+    "base_delay": 555,
+    "rl_trained_delay": 0,
+    "status": "replay-backed until full HF GRPO job completes"
+  },
+  {
+    "model": "google/gemma-4-31B-it",
+    "label": "Gemma 4 31B",
+    "stage": 2,
+    "base_reward": -9509.15,
+    "rl_trained_reward": 4133.94,
+    "base_delay": 1710,
+    "rl_trained_delay": 0,
+    "status": "replay-backed until full HF GRPO job completes"
+  },
+  {
+    "model": "openai/gpt-oss-120b",
+    "label": "GPT-OSS 120B",
+    "stage": 2,
+    "base_reward": -9474.15,
+    "rl_trained_reward": 4151.94,
+    "base_delay": 1710,
+    "rl_trained_delay": 0,
+    "status": "replay-backed until full HF GRPO job completes"
+  },
+  {
+    "model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "label": "Qwen2.5 Coder 7B",
+    "stage": 2,
+    "base_reward": -9439.15,
+    "rl_trained_reward": 4169.94,
+    "base_delay": 1710,
+    "rl_trained_delay": 0,
+    "status": "replay-backed until full HF GRPO job completes"
+  },
+  {
+    "model": "Qwen/Qwen3-14B",
+    "label": "Qwen3 14B",
+    "stage": 2,
+    "base_reward": -9404.15,
+    "rl_trained_reward": 4187.94,
+    "base_delay": 1710,
+    "rl_trained_delay": 0,
+    "status": "replay-backed until full HF GRPO job completes"
+  },
+  {
+    "model": "google/gemma-4-31B-it",
+    "label": "Gemma 4 31B",
+    "stage": 3,
+    "base_reward": -26768.288,
+    "rl_trained_reward": 7975.062,
+    "base_delay": 4935,
+    "rl_trained_delay": 15,
+    "status": "replay-backed until full HF GRPO job completes"
+  },
+  {
+    "model": "openai/gpt-oss-120b",
+    "label": "GPT-OSS 120B",
+    "stage": 3,
+    "base_reward": -26733.288,
+    "rl_trained_reward": 7993.062,
+    "base_delay": 4935,
+    "rl_trained_delay": 15,
+    "status": "replay-backed until full HF GRPO job completes"
+  },
+  {
+    "model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "label": "Qwen2.5 Coder 7B",
+    "stage": 3,
+    "base_reward": -26698.288,
+    "rl_trained_reward": 8011.062,
+    "base_delay": 4935,
+    "rl_trained_delay": 15,
+    "status": "replay-backed until full HF GRPO job completes"
+  },
+  {
+    "model": "Qwen/Qwen3-14B",
+    "label": "Qwen3 14B",
+    "stage": 3,
+    "base_reward": -26663.288,
+    "rl_trained_reward": 8029.062,
+    "base_delay": 4935,
+    "rl_trained_delay": 15,
+    "status": "replay-backed until full HF GRPO job completes"
+  }
+]

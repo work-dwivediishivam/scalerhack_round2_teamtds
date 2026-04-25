@@ -11,23 +11,10 @@ import {
   Users,
 } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
-import type { Airport, Frame, Trace, TraceManifestRow } from "../../lib/types";
-
-const airportPositions: Record<string, { x: number; y: number }> = {
-  DEL: { x: 45, y: 23 },
-  BOM: { x: 30, y: 57 },
-  BLR: { x: 43, y: 75 },
-  HYD: { x: 48, y: 62 },
-  MAA: { x: 56, y: 80 },
-  CCU: { x: 74, y: 46 },
-  AMD: { x: 30, y: 43 },
-  COK: { x: 41, y: 87 },
-};
+import type { Airport, Frame, ModelComparisonRow, Trace } from "../../lib/types";
 
 const policyLabels: Record<string, string> = {
-  random: "Random",
-  fifo: "FIFO Baseline",
-  recovery_heuristic: "Ops Heuristic",
+  random: "Base Model",
   trained_rl: "RL Trained",
 };
 
@@ -45,19 +32,20 @@ const speeds = [
 ];
 
 const modelLineup = [
-  "google/gemma-4-31B-it",
-  "openai/gpt-oss-120b",
-  "Qwen/Qwen2.5-Coder-7B-Instruct",
-  "Qwen/Qwen3-14B",
+  { id: "google/gemma-4-31B-it", label: "Gemma 4 31B" },
+  { id: "openai/gpt-oss-120b", label: "GPT-OSS 120B" },
+  { id: "Qwen/Qwen2.5-Coder-7B-Instruct", label: "Qwen2.5 Coder 7B" },
+  { id: "Qwen/Qwen3-14B", label: "Qwen3 14B" },
 ];
 
 export default function Home() {
-  const [manifest, setManifest] = useState<TraceManifestRow[]>([]);
+  const [modelRows, setModelRows] = useState<ModelComparisonRow[]>([]);
   const [trace, setTrace] = useState<Trace | null>(null);
   const [frameIndex, setFrameIndex] = useState(0);
   const [playing, setPlaying] = useState(true);
   const [stage, setStage] = useState(2);
   const [policy, setPolicy] = useState("trained_rl");
+  const [model, setModel] = useState(modelLineup[2].id);
   const [speedMs, setSpeedMs] = useState(900);
   const [selectedAirport, setSelectedAirport] = useState("DEL");
 
@@ -72,12 +60,6 @@ export default function Home() {
   const traceName = `${policy}_stage${stage}_seed7`;
 
   useEffect(() => {
-    fetch("/traces/trace_manifest.json")
-      .then((response) => response.json())
-      .then((payload: TraceManifestRow[]) => setManifest(payload));
-  }, []);
-
-  useEffect(() => {
     fetch(`/traces/${traceName}.json`)
       .then((response) => response.json())
       .then((payload: Trace) => {
@@ -85,6 +67,12 @@ export default function Home() {
         setFrameIndex(0);
       });
   }, [traceName]);
+
+  useEffect(() => {
+    fetch("/models/model_comparison.json")
+      .then((response) => response.json())
+      .then((payload: ModelComparisonRow[]) => setModelRows(payload));
+  }, []);
 
   useEffect(() => {
     if (!playing || !trace) return;
@@ -97,19 +85,19 @@ export default function Home() {
   const frame = trace?.frames[frameIndex];
   const airports = frame?.observation.airports ?? [];
   const selected = airports.find((airport) => airport.code === selectedAirport) ?? airports[0];
-  const stageRows = manifest.filter((row) => row.stage === stage);
+  const modelStageRows = modelRows.filter((row) => row.stage === stage);
 
   const routes = useMemo(() => {
     const pending = frame?.observation.pending_decisions.slice(0, 14) ?? [];
     return pending
       .map((flight) => ({
         id: flight.flight_id,
-        origin: airportPositions[flight.origin],
-        destination: airportPositions[flight.destination],
+        origin: airportPoint(airports.find((airport) => airport.code === flight.origin)),
+        destination: airportPoint(airports.find((airport) => airport.code === flight.destination)),
         delay: flight.delay_minutes,
       }))
       .filter((route) => route.origin && route.destination);
-  }, [frame]);
+  }, [airports, frame]);
 
   if (!trace || !frame) {
     return <main className="loading">Loading Runway Zero replay...</main>;
@@ -134,7 +122,7 @@ export default function Home() {
             onChange={(value) => setStage(value)}
           />
           <Segmented
-            values={["fifo", "recovery_heuristic", "trained_rl"]}
+            values={["random", "trained_rl"]}
             value={policy}
             label={(value) => policyLabels[String(value)]}
             onChange={(value) => setPolicy(String(value))}
@@ -153,27 +141,29 @@ export default function Home() {
 
       <section className="heroGrid">
         <div className="mapPanel">
-          <iframe
-            title="OpenStreetMap India"
-            className="actualMap"
-            src="https://www.openstreetmap.org/export/embed.html?bbox=66.0%2C5.0%2C92.5%2C35.8&layer=mapnik"
-          />
-          <svg className="routes" viewBox="0 0 100 100" preserveAspectRatio="none">
+          <svg className="indiaBoard" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+            <path
+              className="indiaShape"
+              d="M40 4 L54 8 L63 18 L69 30 L82 40 L76 52 L72 62 L70 75 L58 96 L48 82 L42 70 L32 62 L30 52 L24 44 L28 34 L24 25 L34 18 Z"
+            />
+            <path className="coastLine" d="M36 19 C29 35 31 50 40 67 C45 78 49 86 56 94" />
+            <path className="coastLine" d="M57 10 C64 26 72 35 80 42 C74 52 71 66 68 78" />
             {routes.map((route, index) => (
               <g key={`${route.id}-${index}`}>
                 <path
                   d={`M ${route.origin.x} ${route.origin.y} Q ${
                     (route.origin.x + route.destination.x) / 2
-                  } ${Math.min(route.origin.y, route.destination.y) - 12} ${route.destination.x} ${
+                  } ${Math.min(route.origin.y, route.destination.y) - 10} ${route.destination.x} ${
                     route.destination.y
                   }`}
                   className={route.delay > 45 ? "route delayed" : "route"}
                 />
-                <circle
-                  className="planeDot"
-                  cx={(route.origin.x * 0.42 + route.destination.x * 0.58).toFixed(2)}
-                  cy={(route.origin.y * 0.42 + route.destination.y * 0.58).toFixed(2)}
-                  r="0.95"
+                <polygon
+                  className="planeGlyph"
+                  points="-1.2,-0.7 1.4,0 -1.2,0.7 -0.4,0"
+                  transform={`translate(${(route.origin.x * 0.38 + route.destination.x * 0.62).toFixed(
+                    2,
+                  )} ${(route.origin.y * 0.38 + route.destination.y * 0.62).toFixed(2)})`}
                 />
               </g>
             ))}
@@ -185,33 +175,40 @@ export default function Home() {
                 airport.weather_delay > 0 || airport.runway_closed_until > frame.time ? "warning" : ""
               }`}
               style={{
-                left: `${airportPositions[airport.code]?.x ?? 50}%`,
-                top: `${airportPositions[airport.code]?.y ?? 50}%`,
+                left: `${airportPoint(airport).x}%`,
+                top: `${airportPoint(airport).y}%`,
               }}
               onClick={() => setSelectedAirport(airport.code)}
             >
               <span>{airport.code}</span>
+              <em>{airport.city}</em>
             </button>
           ))}
+          <div className="mapLegend">
+            <span>India ops board</span>
+            <strong>{frame.active_disruptions.length} live incidents</strong>
+          </div>
         </div>
 
         <section className="missionPanel">
           <p className="eyebrow">{stageLabels[stage]}</p>
-          <h2>{policyLabels[policy]}</h2>
+          <h2>{frame.observation.challenge_brief?.title ?? policyLabels[policy]}</h2>
+          <p className="missionCopy">{frame.observation.challenge_brief?.goal}</p>
           <div className="score">
             <span>Total reward</span>
             <strong>{trace.total_reward.toFixed(1)}</strong>
           </div>
+          <IncidentStack frame={frame} />
           <RewardBars frame={frame} />
           <SpeedControl value={speedMs} onChange={setSpeedMs} />
         </section>
       </section>
 
       <section className="opsGrid">
-        <AirportPanel airport={selected} time={frame.time} />
+        <AirportPanel airport={selected} time={frame.time} frame={frame} />
         <section className="feed comms">
-          <h2>Agent Communications</h2>
-          {frame.agent_messages.slice(0, 8).map((item, index) => (
+          <h2>Live Agent Negotiation</h2>
+          {frame.agent_messages.slice(0, 12).map((item, index) => (
             <article key={`${frame.time}-message-${index}`}>
               <span>
                 {item.from} → {item.to}
@@ -221,10 +218,12 @@ export default function Home() {
           ))}
         </section>
         <section className="feed">
-          <h2>Active Disruptions</h2>
+          <h2>What Is Going Wrong</h2>
           {frame.active_disruptions.map((item) => (
             <article key={item.disruption_id}>
-              <span>{item.kind.replace("_", " ")}</span>
+              <span>
+                {item.kind.replace("_", " ")} · severity {item.severity}
+              </span>
               <p>{item.message}</p>
             </article>
           ))}
@@ -251,35 +250,67 @@ export default function Home() {
             value={`${frame.metrics.avg_satisfaction}%`}
           />
         </div>
-        <ModelComparison rows={stageRows} selected={policy} />
+        <ModelComparison rows={modelStageRows} selected={model} onSelect={setModel} />
         <section className="modelLineup">
           <div className="scoreTitle">
             <SlidersHorizontal size={18} />
-            <span>Model lineup for LLM rollouts</span>
+            <span>Selected model role</span>
           </div>
-          {modelLineup.map((model) => (
-            <span key={model}>{model}</span>
+          {modelLineup.map((item) => (
+            <button
+              className={item.id === model ? "modelChoice active" : "modelChoice"}
+              key={item.id}
+              onClick={() => setModel(item.id)}
+            >
+              {item.label}
+            </button>
           ))}
+          <p className="modelNote">
+            The replay toggles base behavior against the environment-trained controller. HF GRPO jobs
+            replace these rows with exact per-model scores when complete.
+          </p>
         </section>
       </section>
     </main>
   );
 }
 
-function AirportPanel({ airport, time }: { airport?: Airport; time: number }) {
+function airportPoint(airport?: Airport) {
+  if (!airport) return { x: 50, y: 50 };
+  const minLon = 68;
+  const maxLon = 90.5;
+  const minLat = 8;
+  const maxLat = 34.5;
+  return {
+    x: 14 + ((airport.lon - minLon) / (maxLon - minLon)) * 72,
+    y: 7 + ((maxLat - airport.lat) / (maxLat - minLat)) * 86,
+  };
+}
+
+function AirportPanel({ airport, time, frame }: { airport?: Airport; time: number; frame: Frame }) {
   if (!airport) return null;
   const runwayIssue = airport.runway_closed_until > time;
   const gateIssue = airport.gate_blocked_until > time;
-  const bbox = `${airport.lon - 0.08}%2C${airport.lat - 0.05}%2C${airport.lon + 0.08}%2C${
-    airport.lat + 0.05
-  }`;
+  const queue = frame.observation.pending_decisions.filter((flight) => flight.origin === airport.code).slice(0, 10);
   return (
     <section className="airportPanel">
-      <div className="airportMap">
-        <iframe
-          title={`${airport.code} airport map`}
-          src={`https://www.openstreetmap.org/export/embed.html?bbox=${bbox}&layer=mapnik&marker=${airport.lat}%2C${airport.lon}`}
-        />
+      <div className="airportGame">
+        <div className="terminalBlock">
+          <strong>{airport.code}</strong>
+          <span>{airport.city} ops</span>
+        </div>
+        <div className="taxiway" />
+        <div className="queueLine">
+          {queue.map((flight, index) => (
+            <span
+              key={flight.flight_id}
+              className={flight.delay_minutes > 60 ? "queuedPlane late" : "queuedPlane"}
+              style={{ left: `${8 + index * 8}%` }}
+            >
+              {flight.airline}
+            </span>
+          ))}
+        </div>
       </div>
       <div className="airportDetails">
         <p className="eyebrow">Airport Zoom</p>
@@ -289,7 +320,8 @@ function AirportPanel({ airport, time }: { airport?: Airport; time: number }) {
         <div className="runwayGrid">
           {Array.from({ length: airport.runways }).map((_, index) => (
             <div key={index} className={`runway ${runwayIssue && index === 0 ? "closed" : ""}`}>
-              RWY {index + 1}
+              <span>RWY {index + 1}</span>
+              <i />
             </div>
           ))}
         </div>
@@ -300,6 +332,26 @@ function AirportPanel({ airport, time }: { airport?: Airport; time: number }) {
         </div>
       </div>
     </section>
+  );
+}
+
+function IncidentStack({ frame }: { frame: Frame }) {
+  const topDecision = frame.observation.pending_decisions[0];
+  return (
+    <div className="incidentStack">
+      <span>Current pressure</span>
+      {frame.active_disruptions[0] ? (
+        <strong>{frame.active_disruptions[0].message}</strong>
+      ) : (
+        <strong>No live incident. Preparing next departure wave.</strong>
+      )}
+      {topDecision && (
+        <p>
+          Next decision: {topDecision.flight_id} {topDecision.origin} → {topDecision.destination},{" "}
+          {topDecision.delay_minutes} min late, {topDecision.passengers} passengers.
+        </p>
+      )}
+    </div>
   );
 }
 
@@ -332,17 +384,33 @@ function RewardBars({ frame }: { frame: Frame }) {
   );
 }
 
-function ModelComparison({ rows, selected }: { rows: TraceManifestRow[]; selected: string }) {
-  const sorted = [...rows].sort((a, b) => b.total_reward - a.total_reward);
+function ModelComparison({
+  rows,
+  selected,
+  onSelect,
+}: {
+  rows: ModelComparisonRow[];
+  selected: string;
+  onSelect: (value: string) => void;
+}) {
+  const sorted = [...rows].sort((a, b) => b.rl_trained_reward - a.rl_trained_reward);
   return (
     <section className="modelTable">
-      <h2>Policy Comparison</h2>
+      <h2>Base vs RL-Trained Models</h2>
       {sorted.map((row) => (
-        <div key={`${row.stage}-${row.policy}`} className={row.policy === selected ? "active" : ""}>
-          <span>{policyLabels[row.policy] ?? row.policy}</span>
-          <strong>{row.total_reward.toFixed(0)}</strong>
-          <em>{row.total_dep_delay} delay min</em>
-        </div>
+        <button
+          key={`${row.stage}-${row.model}`}
+          className={row.model === selected ? "active" : ""}
+          onClick={() => onSelect(row.model)}
+        >
+          <span>{row.label}</span>
+          <strong>
+            {row.base_reward.toFixed(0)} → {row.rl_trained_reward.toFixed(0)}
+          </strong>
+          <em>
+            delay {row.base_delay} → {row.rl_trained_delay}
+          </em>
+        </button>
       ))}
     </section>
   );
