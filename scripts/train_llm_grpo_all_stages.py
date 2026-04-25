@@ -98,12 +98,52 @@ def load_model(model_name: str, use_unsloth: bool) -> tuple[Any, Any]:
     from transformers import AutoModelForCausalLM, AutoTokenizer
 
     tokenizer = AutoTokenizer.from_pretrained(model_name, token=os.getenv("HF_TOKEN"))
-    model = AutoModelForCausalLM.from_pretrained(
-        model_name,
-        token=os.getenv("HF_TOKEN"),
-        device_map="auto",
-        torch_dtype="auto",
-    )
+    if tokenizer.pad_token is None:
+        tokenizer.pad_token = tokenizer.eos_token
+    if os.getenv("RUNWAY_ZERO_LOAD_IN_4BIT") == "1":
+        import torch
+        from peft import LoraConfig, get_peft_model, prepare_model_for_kbit_training
+        from transformers import BitsAndBytesConfig
+
+        quantization_config = BitsAndBytesConfig(
+            load_in_4bit=True,
+            bnb_4bit_quant_type="nf4",
+            bnb_4bit_compute_dtype=torch.bfloat16,
+            bnb_4bit_use_double_quant=True,
+        )
+        model = AutoModelForCausalLM.from_pretrained(
+            model_name,
+            token=os.getenv("HF_TOKEN"),
+            device_map="auto",
+            quantization_config=quantization_config,
+        )
+        model = prepare_model_for_kbit_training(model)
+        model = get_peft_model(
+            model,
+            LoraConfig(
+                r=16,
+                lora_alpha=32,
+                lora_dropout=0.05,
+                bias="none",
+                task_type="CAUSAL_LM",
+                target_modules=[
+                    "q_proj",
+                    "k_proj",
+                    "v_proj",
+                    "o_proj",
+                    "gate_proj",
+                    "up_proj",
+                    "down_proj",
+                ],
+            ),
+        )
+    else:
+        model = AutoModelForCausalLM.from_pretrained(
+            model_name,
+            token=os.getenv("HF_TOKEN"),
+            device_map="auto",
+            torch_dtype="auto",
+        )
     return model, tokenizer
 
 
