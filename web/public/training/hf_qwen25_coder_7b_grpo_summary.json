@@ -1,0 +1,14 @@
+{
+  "job_id": "69ed12c2d2c8bd8662bce451",
+  "job_url": "https://huggingface.co/jobs/work-dwivediishivam/69ed12c2d2c8bd8662bce451",
+  "artifact_url": "https://huggingface.co/work-dwivediishivam/runway-zero-training-artifacts/blob/main/qwen25_coder_7b_hf_grpo/runway_zero_qwen25_coder_7b_hf_grpo.tgz",
+  "artifact_repo": "work-dwivediishivam/runway-zero-training-artifacts",
+  "model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+  "hardware": "Hugging Face Jobs l4x1",
+  "training_method": "TRL GRPO with 4-bit LoRA",
+  "stages": [1, 2, 3],
+  "max_steps": 12,
+  "num_generations": 2,
+  "status": "completed",
+  "notes": "Completed after hardening malformed JSON action parsing. The artifact bundle contains the final adapter, trainer state, run summary, and training examples."
+}

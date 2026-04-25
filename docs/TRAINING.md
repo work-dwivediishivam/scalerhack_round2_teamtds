@@ -125,8 +125,14 @@ Local verification already completed:
 - executed a real 1-step GRPO update against the Runway Zero reward function
 - saved summary evidence to `results/llm_runs/tiny_grpo_smoke_summary.json`
 
-The full Qwen/Gemma/GPT-OSS runs require GPU/hosted compute, but use the same
-entrypoint and reward function.
+Hosted GPU verification completed:
+
+- Qwen/Qwen2.5-Coder-7B-Instruct
+- Hugging Face Jobs `l4x1`
+- TRL GRPO with 4-bit LoRA
+- stages 1, 2, and 3
+- uploaded artifact bundle to `work-dwivediishivam/runway-zero-training-artifacts`
+- summary: `results/llm_runs/hf_qwen25_coder_7b_grpo_summary.json`
 
 ## Why The Current Repo Includes Local RL And Heuristics
 

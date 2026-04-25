@@ -174,6 +174,11 @@ This repo also includes a completed local TRL/GRPO smoke run summary:
 `results/llm_runs/tiny_grpo_smoke_summary.json`. The full adapter files are
 intentionally ignored because they are generated binary artifacts.
 
+Hosted GPU GRPO evidence:
+
+- `results/llm_runs/hf_qwen25_coder_7b_grpo_summary.json`
+- Artifact bundle: `work-dwivediishivam/runway-zero-training-artifacts/qwen25_coder_7b_hf_grpo/runway_zero_qwen25_coder_7b_hf_grpo.tgz`
+
 ## Docs
 
 - [Technical plan](docs/TECHNICAL_PLAN.md)

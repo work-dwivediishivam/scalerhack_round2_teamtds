@@ -1,5 +1,6 @@
 import { Activity, ArrowLeft, BarChart3, BrainCircuit, PlaneTakeoff, RadioTower } from "lucide-react";
 import baselineMetricsJson from "../../public/training/baseline_metrics.json";
+import hfQwenJson from "../../public/training/hf_qwen25_coder_7b_grpo_summary.json";
 import hostedRolloutJson from "../../public/training/hosted_model_rollout_summary.json";
 import tinySmokeJson from "../../public/training/tiny_grpo_smoke_summary.json";
 import trainingSummaryJson from "../../public/training/training_summary.json";
@@ -50,6 +51,14 @@ const hostedRollout = hostedRolloutJson as {
   total_reward: number;
   steps: number;
   metrics: { avg_satisfaction: number; flights_active: number };
+};
+const hfQwen = hfQwenJson as {
+  job_url: string;
+  artifact_url: string;
+  model: string;
+  hardware: string;
+  max_steps: number;
+  status: string;
 };
 const tinySmoke = tinySmokeJson as {
   run_summary: { model: string; max_steps: number; examples: number };
@@ -106,7 +115,7 @@ export default function TrainingPage() {
       <section className="trainingStats">
         <Stat icon={<RadioTower size={20} />} label="difficulty levels" value="3" />
         <Stat icon={<Activity size={20} />} label="policy replays" value="12" />
-        <Stat icon={<BrainCircuit size={20} />} label="GRPO smoke steps" value={tinySmoke.trainer_state.global_step} />
+        <Stat icon={<BrainCircuit size={20} />} label="HF GRPO steps" value={hfQwen.max_steps} />
         <Stat icon={<PlaneTakeoff size={20} />} label="hosted Qwen rollout reward" value={hostedRollout.total_reward} />
       </section>
 
@@ -178,12 +187,20 @@ export default function TrainingPage() {
               {hostedRollout.steps} steps, {hostedRollout.metrics.avg_satisfaction}% satisfaction
             </em>
           </div>
+          <div className="evidenceRow">
+            <span>GPU GRPO</span>
+            <strong>{hfQwen.model}</strong>
+            <em>
+              {hfQwen.status}, {hfQwen.hardware}
+            </em>
+          </div>
         </article>
       </section>
 
       <section className="trainingCta">
         <a href="/sim/?stage=3">Open Level 3 replay</a>
         <a href="https://work-dwivediishivam-runway-zero.hf.space/state">Open Space API</a>
+        <a href={hfQwen.artifact_url}>Open GRPO artifact</a>
       </section>
     </main>
   );
