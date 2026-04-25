@@ -34,7 +34,9 @@ def parse_actions(text: str) -> List[Dict[str, Any]]:
         start = text.index("[")
         end = text.rindex("]") + 1
         parsed = json.loads(text[start:end])
-        return parsed if isinstance(parsed, list) else []
+        if not isinstance(parsed, list):
+            return []
+        return [item for item in parsed if isinstance(item, dict)]
     except Exception:
         return []
 
