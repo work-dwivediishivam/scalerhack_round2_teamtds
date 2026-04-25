@@ -1,5 +1,5 @@
 :root {
-  --bg: #f6f7f4;
+  --bg: #f5f6f3;
   --panel: #ffffff;
   --ink: #18211f;
   --muted: #66736f;
@@ -37,46 +37,76 @@ button {
 .shell {
   min-height: 100vh;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 390px;
-  gap: 18px;
+  gap: 16px;
   padding: 18px;
-}
-
-.stage,
-.side {
-  min-width: 0;
 }
 
 .topbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 14px;
-  gap: 12px;
+  gap: 16px;
 }
 
 .eyebrow {
   margin: 0 0 4px;
   color: var(--teal);
   font-size: 12px;
-  font-weight: 700;
+  font-weight: 800;
   text-transform: uppercase;
 }
 
 h1,
 h2 {
   margin: 0;
-  font-size: 28px;
   line-height: 1.1;
 }
 
+h1 {
+  font-size: 30px;
+}
+
 h2 {
-  font-size: 20px;
+  font-size: 18px;
 }
 
 h2 span {
   color: var(--muted);
-  font-weight: 600;
+  font-weight: 650;
+}
+
+.controlStrip {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.policySwitch,
+.speedControl div {
+  display: flex;
+  padding: 3px;
+  border: 1px solid var(--line);
+  background: var(--panel);
+}
+
+.policySwitch button,
+.speedControl button {
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  padding: 9px 11px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 850;
+  white-space: nowrap;
+}
+
+.policySwitch button.active,
+.speedControl button.active {
+  background: var(--ink);
+  color: white;
 }
 
 .clock {
@@ -85,34 +115,12 @@ h2 span {
   gap: 8px;
 }
 
-.policySwitch {
-  display: flex;
-  padding: 3px;
-  border: 1px solid var(--line);
-  background: var(--panel);
-}
-
-.policySwitch button {
-  border: 0;
-  background: transparent;
-  color: var(--muted);
-  padding: 9px 12px;
-  cursor: pointer;
-  font-size: 12px;
-  font-weight: 800;
-}
-
-.policySwitch button.active {
-  background: var(--ink);
-  color: white;
-}
-
 .clock span {
   min-width: 82px;
   padding: 10px 12px;
   border: 1px solid var(--line);
   background: var(--panel);
-  font-weight: 800;
+  font-weight: 850;
   text-align: center;
 }
 
@@ -127,48 +135,41 @@ h2 span {
   cursor: pointer;
 }
 
+.heroGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 330px;
+  gap: 16px;
+  min-height: 62vh;
+}
+
 .mapPanel {
   position: relative;
-  min-height: 66vh;
   border: 1px solid var(--line);
-  background:
-    linear-gradient(rgba(31, 111, 184, 0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(31, 111, 184, 0.08) 1px, transparent 1px),
-    #eef5f4;
-  background-size: 36px 36px;
+  background: #e8eeea;
   overflow: hidden;
 }
 
-.indiaShape {
+.actualMap {
   position: absolute;
-  left: 21%;
-  top: 9%;
-  width: 58%;
-  height: 82%;
-  background: #e3ebe5;
-  clip-path: polygon(
-    47% 0%,
-    60% 10%,
-    67% 24%,
-    77% 33%,
-    74% 49%,
-    65% 55%,
-    68% 69%,
-    55% 82%,
-    49% 100%,
-    40% 79%,
-    34% 63%,
-    22% 56%,
-    26% 39%,
-    17% 29%,
-    31% 19%
-  );
-  border: 1px solid rgba(24, 33, 31, 0.12);
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  filter: saturate(0.72) contrast(1.05) brightness(1.02);
+}
+
+.mapPanel::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(245, 246, 243, 0.18);
+  pointer-events: none;
 }
 
 .routes {
   position: absolute;
   inset: 0;
+  z-index: 2;
   width: 100%;
   height: 100%;
   pointer-events: none;
@@ -177,9 +178,9 @@ h2 span {
 .route {
   fill: none;
   stroke: var(--blue);
-  stroke-width: 0.45;
+  stroke-width: 0.42;
   stroke-dasharray: 2 1.5;
-  opacity: 0.65;
+  opacity: 0.75;
 }
 
 .route.delayed {
@@ -188,10 +189,13 @@ h2 span {
 
 .planeDot {
   fill: var(--ink);
+  stroke: white;
+  stroke-width: 0.2;
 }
 
 .airportNode {
   position: absolute;
+  z-index: 3;
   transform: translate(-50%, -50%);
   width: 54px;
   height: 34px;
@@ -201,12 +205,12 @@ h2 span {
   display: grid;
   place-items: center;
   cursor: pointer;
-  box-shadow: 0 8px 18px rgba(24, 33, 31, 0.12);
+  box-shadow: 0 8px 18px rgba(24, 33, 31, 0.16);
 }
 
 .airportNode span {
   font-size: 12px;
-  font-weight: 800;
+  font-weight: 900;
 }
 
 .airportNode.selected {
@@ -216,85 +220,42 @@ h2 span {
 
 .airportNode.warning {
   border-color: var(--amber);
-  box-shadow: 0 0 0 4px rgba(189, 122, 25, 0.16);
+  box-shadow: 0 0 0 4px rgba(189, 122, 25, 0.2);
 }
 
-.airportPanel {
-  margin-top: 14px;
-  display: grid;
-  grid-template-columns: 220px 1fr 170px;
-  align-items: center;
-  gap: 18px;
+.missionPanel,
+.airportPanel,
+.feed,
+.metric,
+.modelTable,
+.modelLineup {
   border: 1px solid var(--line);
   background: var(--panel);
+}
+
+.missionPanel {
   padding: 16px;
-}
-
-.runwayGrid {
   display: grid;
-  gap: 8px;
+  align-content: start;
+  gap: 15px;
 }
 
-.runway {
-  height: 32px;
-  background: #2e3734;
-  color: white;
-  display: flex;
-  align-items: center;
-  padding-left: 12px;
+.score {
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 16px 0;
+}
+
+.score span,
+.speedControl span {
+  color: var(--muted);
   font-size: 12px;
   font-weight: 800;
 }
 
-.runway.closed {
-  background: repeating-linear-gradient(45deg, var(--red), var(--red) 8px, #522 8px, #522 16px);
-}
-
-.gateGrid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 8px;
-}
-
-.gate {
-  aspect-ratio: 1;
-  background: #dbe7e2;
-  border: 1px solid #b8c8c1;
-}
-
-.gate.blocked {
-  background: var(--amber);
-}
-
-.side {
-  display: grid;
-  grid-template-rows: auto auto minmax(120px, 1fr) minmax(120px, 1fr) minmax(120px, 0.8fr);
-  gap: 14px;
-}
-
-.scoreCard,
-.metric,
-.feed {
-  border: 1px solid var(--line);
-  background: var(--panel);
-}
-
-.scoreCard {
-  padding: 16px;
-}
-
-.scoreTitle {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  color: var(--muted);
-  font-size: 13px;
-  font-weight: 700;
-}
-
-.scoreCard strong {
+.score strong {
   display: block;
-  margin: 8px 0 12px;
+  margin-top: 6px;
   font-size: 42px;
   line-height: 1;
 }
@@ -339,6 +300,115 @@ h2 span {
   text-align: right;
 }
 
+.speedControl {
+  display: grid;
+  gap: 8px;
+}
+
+.opsGrid {
+  display: grid;
+  grid-template-columns: minmax(420px, 1.2fr) minmax(280px, 0.9fr) minmax(280px, 0.9fr);
+  gap: 16px;
+}
+
+.airportPanel {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: minmax(220px, 0.9fr) minmax(240px, 1fr);
+}
+
+.airportMap {
+  min-height: 250px;
+}
+
+.airportMap iframe {
+  width: 100%;
+  height: 100%;
+  min-height: 250px;
+  border: 0;
+  filter: saturate(0.7) contrast(1.04);
+}
+
+.airportDetails {
+  padding: 14px;
+}
+
+.runwayGrid {
+  display: grid;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.runway {
+  height: 32px;
+  background: #2e3734;
+  color: white;
+  display: flex;
+  align-items: center;
+  padding-left: 12px;
+  font-size: 12px;
+  font-weight: 850;
+}
+
+.runway.closed {
+  background: repeating-linear-gradient(45deg, var(--red), var(--red) 8px, #522 8px, #522 16px);
+}
+
+.gateGrid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.gate {
+  aspect-ratio: 1;
+  background: #dbe7e2;
+  border: 1px solid #b8c8c1;
+}
+
+.gate.blocked {
+  background: var(--amber);
+}
+
+.feed {
+  padding: 14px;
+  overflow: auto;
+  max-height: 310px;
+}
+
+.feed h2,
+.modelTable h2 {
+  font-size: 15px;
+  margin: 0 0 10px;
+}
+
+.feed article {
+  padding: 10px 0;
+  border-top: 1px solid var(--line);
+}
+
+.feed article span {
+  color: var(--teal);
+  font-size: 12px;
+  font-weight: 850;
+  text-transform: uppercase;
+}
+
+.feed article p,
+.empty {
+  margin: 4px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.35;
+}
+
+.comparison {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr 1fr;
+  gap: 16px;
+}
+
 .metricGrid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -355,7 +425,7 @@ h2 span {
 .metric span {
   color: var(--muted);
   font-size: 12px;
-  font-weight: 700;
+  font-weight: 800;
 }
 
 .metric strong {
@@ -363,51 +433,82 @@ h2 span {
   font-size: 22px;
 }
 
-.feed {
+.modelTable,
+.modelLineup {
   padding: 14px;
-  overflow: auto;
 }
 
-.feed h2 {
-  font-size: 15px;
+.modelTable div {
+  display: grid;
+  grid-template-columns: 1fr 80px 120px;
+  gap: 10px;
+  padding: 9px 0;
+  border-top: 1px solid var(--line);
+  align-items: center;
+}
+
+.modelTable div.active {
+  color: var(--green);
+}
+
+.modelTable span {
+  font-weight: 850;
+}
+
+.modelTable em {
+  color: var(--muted);
+  font-style: normal;
+  font-size: 12px;
+  text-align: right;
+}
+
+.scoreTitle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 800;
   margin-bottom: 10px;
 }
 
-.feed article {
-  padding: 10px 0;
+.modelLineup span {
+  display: block;
+  padding: 7px 0;
   border-top: 1px solid var(--line);
-}
-
-.feed article span {
-  color: var(--teal);
-  font-size: 12px;
-  font-weight: 800;
-  text-transform: uppercase;
-}
-
-.feed article p,
-.empty {
-  margin: 4px 0 0;
   color: var(--muted);
-  font-size: 13px;
-  line-height: 1.35;
+  font-size: 12px;
+  font-weight: 750;
 }
 
-@media (max-width: 980px) {
-  .shell {
-    grid-template-columns: 1fr;
-  }
-
-  .airportPanel {
+@media (max-width: 1120px) {
+  .heroGrid,
+  .opsGrid,
+  .comparison {
     grid-template-columns: 1fr;
   }
 
   .mapPanel {
-    min-height: 58vh;
+    min-height: 60vh;
   }
 
   .topbar {
     align-items: flex-start;
     flex-direction: column;
+  }
+}
+
+@media (max-width: 620px) {
+  .airportPanel,
+  .metricGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .controlStrip {
+    justify-content: flex-start;
+  }
+
+  h1 {
+    font-size: 24px;
   }
 }

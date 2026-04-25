@@ -64,6 +64,7 @@ class RunwayZeroEnv:
         frame = {
             "time": self.time,
             "actions": actions,
+            "agent_messages": self._agent_messages(actions, active_disruptions),
             "active_disruptions": [asdict(item) for item in active_disruptions],
             "reward": reward.to_dict(),
             "metrics": self.metrics(),
@@ -416,6 +417,47 @@ class RunwayZeroEnv:
             if crew.airline == flight.airline and crew.is_available(self.time, flight.origin):
                 return crew
         return None
+
+    def _agent_messages(
+        self, actions: List[Dict[str, Any]], active_disruptions: List[Any]
+    ) -> List[Dict[str, str]]:
+        messages: List[Dict[str, str]] = []
+        for disruption in active_disruptions[:3]:
+            target = disruption.target
+            messages.append(
+                {
+                    "from": "Tower Central",
+                    "to": "Network Ops",
+                    "type": "alert",
+                    "message": f"{disruption.kind.replace('_', ' ').title()} active at {target}: {disruption.message}",
+                }
+            )
+        for action in actions[:8]:
+            flight_id = str(action.get("flight_id", "network"))
+            flight = self.flights.get(flight_id)
+            airline = self.airlines.get(flight.airline).name if flight else "Airline Ops"
+            kind = str(action.get("action", "action")).replace("_", " ")
+            if action.get("action") == "depart" and flight:
+                message = f"Cleared {flight_id} from {flight.origin} to {flight.destination}."
+            elif action.get("action") == "hold":
+                message = f"Holding {flight_id} for {action.get('minutes', 15)} minutes: {action.get('reason', 'operational recovery')}."
+            elif action.get("action") == "swap_aircraft":
+                message = f"Swapping aircraft for {flight_id} to {action.get('aircraft_id')}."
+            elif action.get("action") == "protect_connection":
+                message = f"Protect connection groups on {flight_id}; passenger impact is being prioritized."
+            elif action.get("action") == "cancel":
+                message = f"Cancel {flight_id}; compensation and stranded passenger penalties will apply."
+            else:
+                message = f"{kind.title()} requested for {flight_id}."
+            messages.append(
+                {
+                    "from": airline,
+                    "to": "Tower Central",
+                    "type": str(action.get("action", "decision")),
+                    "message": message,
+                }
+            )
+        return messages
 
 
 def minutes_to_clock(minutes: int) -> str:

@@ -4,15 +4,19 @@ import json
 from pathlib import Path
 
 from runway_zero.baselines import FifoPolicy, RandomPolicy, RecoveryPolicy, rollout
+from runway_zero.qlearning import TrainedRLPolicy
 
 
 def main() -> None:
     out_dir = Path("results")
     out_dir.mkdir(exist_ok=True)
     seeds = [7, 11, 17]
-    policies = [RandomPolicy(1), FifoPolicy(), RecoveryPolicy()]
     rows = []
     for stage in [1, 2, 3]:
+        trained_path = Path(f"results/trained/q_policy_stage{stage}.json")
+        policies = [RandomPolicy(1), FifoPolicy(), RecoveryPolicy()]
+        if trained_path.exists():
+            policies.append(TrainedRLPolicy.from_file(trained_path))
         for seed in seeds:
             for policy in policies:
                 result = rollout(policy, stage=stage, seed=seed)
@@ -37,4 +41,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-

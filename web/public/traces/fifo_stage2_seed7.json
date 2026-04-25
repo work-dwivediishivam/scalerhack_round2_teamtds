@@ -13,15 +13,17 @@
     "stranded_passengers": 0,
     "avg_satisfaction": 100.0,
     "airline_cash": {
-      "SI": 3000000,
-      "BA": 3000000,
-      "AN": 2500000
+      "SI": -3961500.0,
+      "BA": -2285000.0,
+      "AN": -2865500.0
     }
   },
+  "total_reward": 3525.21,
   "frames": [
     {
       "time": 375,
       "actions": [],
+      "agent_messages": [],
       "active_disruptions": [],
       "reward": {
         "delay_score": 0.0,
@@ -42,9 +44,9 @@
         "stranded_passengers": 0,
         "avg_satisfaction": 100.0,
         "airline_cash": {
-          "SI": 3000000,
-          "BA": 3000000,
-          "AN": 2500000
+          "SI": -3961500.0,
+          "BA": -2285000.0,
+          "AN": -2865500.0
         }
       },
       "observation": {
@@ -177,9 +179,9 @@
           "stranded_passengers": 0,
           "avg_satisfaction": 100.0,
           "airline_cash": {
-            "SI": 3000000,
-            "BA": 3000000,
-            "AN": 2500000
+            "SI": -3961500.0,
+            "BA": -2285000.0,
+            "AN": -2865500.0
           }
         },
         "action_schema": {
@@ -208,6 +210,7 @@
     {
       "time": 390,
       "actions": [],
+      "agent_messages": [],
       "active_disruptions": [],
       "reward": {
         "delay_score": 0.0,
@@ -228,9 +231,9 @@
         "stranded_passengers": 0,
         "avg_satisfaction": 100.0,
         "airline_cash": {
-          "SI": 3000000,
-          "BA": 3000000,
-          "AN": 2500000
+          "SI": -3961500.0,
+          "BA": -2285000.0,
+          "AN": -2865500.0
         }
       },
       "observation": {
@@ -406,9 +409,9 @@
           "stranded_passengers": 0,
           "avg_satisfaction": 100.0,
           "airline_cash": {
-            "SI": 3000000,
-            "BA": 3000000,
-            "AN": 2500000
+            "SI": -3961500.0,
+            "BA": -2285000.0,
+            "AN": -2865500.0
           }
         },
         "action_schema": {
@@ -450,6 +453,26 @@
           "flight_id": "BA191"
         }
       ],
+      "agent_messages": [
+        {
+          "from": "AeroNova",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared AN114 from BLR to DEL."
+        },
+        {
+          "from": "SkyIndus",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared SI160 from CCU to DEL."
+        },
+        {
+          "from": "Bharat Air",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared BA191 from BOM to BLR."
+        }
+      ],
       "active_disruptions": [],
       "reward": {
         "delay_score": 45.0,
@@ -470,9 +493,9 @@
         "stranded_passengers": 0,
         "avg_satisfaction": 100.0,
         "airline_cash": {
-          "SI": 3000000,
-          "BA": 3000000,
-          "AN": 2500000
+          "SI": -3961500.0,
+          "BA": -2285000.0,
+          "AN": -2865500.0
         }
       },
       "observation": {
@@ -732,9 +755,9 @@
           "stranded_passengers": 0,
           "avg_satisfaction": 100.0,
           "airline_cash": {
-            "SI": 3000000,
-            "BA": 3000000,
-            "AN": 2500000
+            "SI": -3961500.0,
+            "BA": -2285000.0,
+            "AN": -2865500.0
           }
         },
         "action_schema": {
@@ -796,6 +819,56 @@
           "flight_id": "AN177"
         }
       ],
+      "agent_messages": [
+        {
+          "from": "SkyIndus",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared SI115 from BLR to COK."
+        },
+        {
+          "from": "AeroNova",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared AN120 from BOM to AMD."
+        },
+        {
+          "from": "SkyIndus",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared SI124 from DEL to BOM."
+        },
+        {
+          "from": "Bharat Air",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared BA131 from BOM to BLR."
+        },
+        {
+          "from": "AeroNova",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared AN138 from AMD to BOM."
+        },
+        {
+          "from": "Bharat Air",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared BA152 from HYD to BLR."
+        },
+        {
+          "from": "Bharat Air",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared BA164 from HYD to BLR."
+        },
+        {
+          "from": "AeroNova",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared AN177 from MAA to DEL."
+        }
+      ],
       "active_disruptions": [],
       "reward": {
         "delay_score": 120.0,
@@ -816,9 +889,9 @@
         "stranded_passengers": 0,
         "avg_satisfaction": 100.0,
         "airline_cash": {
-          "SI": 3000000,
-          "BA": 3000000,
-          "AN": 2500000
+          "SI": -3961500.0,
+          "BA": -2285000.0,
+          "AN": -2865500.0
         }
       },
       "observation": {
@@ -980,9 +1053,9 @@
           "stranded_passengers": 0,
           "avg_satisfaction": 100.0,
           "airline_cash": {
-            "SI": 3000000,
-            "BA": 3000000,
-            "AN": 2500000
+            "SI": -3961500.0,
+            "BA": -2285000.0,
+            "AN": -2865500.0
           }
         },
         "action_schema": {
@@ -1020,6 +1093,20 @@
           "flight_id": "BA161"
         }
       ],
+      "agent_messages": [
+        {
+          "from": "Bharat Air",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared BA182 from DEL to BLR."
+        },
+        {
+          "from": "Bharat Air",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared BA161 from BOM to BLR."
+        }
+      ],
       "active_disruptions": [],
       "reward": {
         "delay_score": 29.25,
@@ -1040,9 +1127,9 @@
         "stranded_passengers": 0,
         "avg_satisfaction": 100.0,
         "airline_cash": {
-          "SI": 3000000,
-          "BA": 3000000,
-          "AN": 2500000
+          "SI": -3961500.0,
+          "BA": -2285000.0,
+          "AN": -2865500.0
         }
       },
       "observation": {
@@ -1204,9 +1291,9 @@
           "stranded_passengers": 0,
           "avg_satisfaction": 100.0,
           "airline_cash": {
-            "SI": 3000000,
-            "BA": 3000000,
-            "AN": 2500000
+            "SI": -3961500.0,
+            "BA": -2285000.0,
+            "AN": -2865500.0
           }
         },
         "action_schema": {
@@ -1244,6 +1331,20 @@
           "flight_id": "AN162"
         }
       ],
+      "agent_messages": [
+        {
+          "from": "Bharat Air",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared BA140 from BOM to AMD."
+        },
+        {
+          "from": "AeroNova",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared AN162 from BOM to HYD."
+        }
+      ],
       "active_disruptions": [],
       "reward": {
         "delay_score": 30.0,
@@ -1264,9 +1365,9 @@
         "stranded_passengers": 0,
         "avg_satisfaction": 100.0,
         "airline_cash": {
-          "SI": 3000000,
-          "BA": 3000000,
-          "AN": 2500000
+          "SI": -3961500.0,
+          "BA": -2285000.0,
+          "AN": -2865500.0
         }
       },
       "observation": {
@@ -1456,9 +1557,9 @@
           "stranded_passengers": 0,
           "avg_satisfaction": 100.0,
           "airline_cash": {
-            "SI": 3000000,
-            "BA": 3000000,
-            "AN": 2500000
+            "SI": -3961500.0,
+            "BA": -2285000.0,
+            "AN": -2865500.0
           }
         },
         "action_schema": {
@@ -1504,6 +1605,32 @@
           "flight_id": "AN186"
         }
       ],
+      "agent_messages": [
+        {
+          "from": "AeroNova",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared AN147 from BLR to HYD."
+        },
+        {
+          "from": "Bharat Air",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared BA158 from DEL to MAA."
+        },
+        {
+          "from": "Bharat Air",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared BA185 from CCU to DEL."
+        },
+        {
+          "from": "AeroNova",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared AN186 from AMD to BOM."
+        }
+      ],
       "active_disruptions": [],
       "reward": {
         "delay_score": 60.0,
@@ -1524,9 +1651,9 @@
         "stranded_passengers": 0,
         "avg_satisfaction": 100.0,
         "airline_cash": {
-          "SI": 3000000,
-          "BA": 3000000,
-          "AN": 2500000
+          "SI": -3961500.0,
+          "BA": -2285000.0,
+          "AN": -2865500.0
         }
       },
       "observation": {
@@ -1730,9 +1857,9 @@
           "stranded_passengers": 0,
           "avg_satisfaction": 100.0,
           "airline_cash": {
-            "SI": 3000000,
-            "BA": 3000000,
-            "AN": 2500000
+            "SI": -3961500.0,
+            "BA": -2285000.0,
+            "AN": -2865500.0
           }
         },
         "action_schema": {
@@ -1782,6 +1909,38 @@
           "flight_id": "BA176"
         }
       ],
+      "agent_messages": [
+        {
+          "from": "AeroNova",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared AN105 from DEL to CCU."
+        },
+        {
+          "from": "Bharat Air",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared BA128 from MAA to BLR."
+        },
+        {
+          "from": "SkyIndus",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared SI157 from BLR to HYD."
+        },
+        {
+          "from": "AeroNova",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared AN159 from BOM to HYD."
+        },
+        {
+          "from": "Bharat Air",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared BA176 from DEL to BOM."
+        }
+      ],
       "active_disruptions": [],
       "reward": {
         "delay_score": 75.0,
@@ -1802,9 +1961,9 @@
         "stranded_passengers": 0,
         "avg_satisfaction": 100.0,
         "airline_cash": {
-          "SI": 3000000,
-          "BA": 3000000,
-          "AN": 2500000
+          "SI": -3961500.0,
+          "BA": -2285000.0,
+          "AN": -2865500.0
         }
       },
       "observation": {
@@ -1980,9 +2139,9 @@
           "stranded_passengers": 0,
           "avg_satisfaction": 100.0,
           "airline_cash": {
-            "SI": 3000000,
-            "BA": 3000000,
-            "AN": 2500000
+            "SI": -3961500.0,
+            "BA": -2285000.0,
+            "AN": -2865500.0
           }
         },
         "action_schema": {
@@ -2024,6 +2183,32 @@
           "flight_id": "SI142"
         }
       ],
+      "agent_messages": [
+        {
+          "from": "Tower Central",
+          "to": "Network Ops",
+          "type": "alert",
+          "message": "Weather active at DEL: Dense fog slows Delhi departures."
+        },
+        {
+          "from": "SkyIndus",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared SI118 from BOM to BLR."
+        },
+        {
+          "from": "AeroNova",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared AN141 from DEL to CCU."
+        },
+        {
+          "from": "SkyIndus",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared SI142 from BOM to DEL."
+        }
+      ],
       "active_disruptions": [
         {
           "disruption_id": "D1",
@@ -2056,9 +2241,9 @@
         "stranded_passengers": 0,
         "avg_satisfaction": 100.0,
         "airline_cash": {
-          "SI": 3000000,
-          "BA": 3000000,
-          "AN": 2500000
+          "SI": -3961500.0,
+          "BA": -2285000.0,
+          "AN": -2865500.0
         }
       },
       "observation": {
@@ -2218,9 +2403,9 @@
           "stranded_passengers": 0,
           "avg_satisfaction": 100.0,
           "airline_cash": {
-            "SI": 3000000,
-            "BA": 3000000,
-            "AN": 2500000
+            "SI": -3961500.0,
+            "BA": -2285000.0,
+            "AN": -2865500.0
           }
         },
         "action_schema": {
@@ -2252,6 +2437,20 @@
         {
           "action": "depart",
           "flight_id": "SI154"
+        }
+      ],
+      "agent_messages": [
+        {
+          "from": "Tower Central",
+          "to": "Network Ops",
+          "type": "alert",
+          "message": "Weather active at DEL: Dense fog slows Delhi departures."
+        },
+        {
+          "from": "SkyIndus",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared SI154 from DEL to BLR."
         }
       ],
       "active_disruptions": [
@@ -2286,9 +2485,9 @@
         "stranded_passengers": 0,
         "avg_satisfaction": 100.0,
         "airline_cash": {
-          "SI": 3000000,
-          "BA": 3000000,
-          "AN": 2500000
+          "SI": -3961500.0,
+          "BA": -2285000.0,
+          "AN": -2865500.0
         }
       },
       "observation": {
@@ -2476,9 +2675,9 @@
           "stranded_passengers": 0,
           "avg_satisfaction": 100.0,
           "airline_cash": {
-            "SI": 3000000,
-            "BA": 3000000,
-            "AN": 2500000
+            "SI": -3961500.0,
+            "BA": -2285000.0,
+            "AN": -2865500.0
           }
         },
         "action_schema": {
@@ -2520,6 +2719,32 @@
           "flight_id": "SI169"
         }
       ],
+      "agent_messages": [
+        {
+          "from": "Tower Central",
+          "to": "Network Ops",
+          "type": "alert",
+          "message": "Weather active at DEL: Dense fog slows Delhi departures."
+        },
+        {
+          "from": "SkyIndus",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared SI133 from BOM to AMD."
+        },
+        {
+          "from": "SkyIndus",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared SI136 from DEL to MAA."
+        },
+        {
+          "from": "SkyIndus",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared SI169 from BOM to DEL."
+        }
+      ],
       "active_disruptions": [
         {
           "disruption_id": "D1",
@@ -2552,9 +2777,9 @@
         "stranded_passengers": 0,
         "avg_satisfaction": 100.0,
         "airline_cash": {
-          "SI": 3000000,
-          "BA": 3000000,
-          "AN": 2500000
+          "SI": -3961500.0,
+          "BA": -2285000.0,
+          "AN": -2865500.0
         }
       },
       "observation": {
@@ -2714,9 +2939,9 @@
           "stranded_passengers": 0,
           "avg_satisfaction": 100.0,
           "airline_cash": {
-            "SI": 3000000,
-            "BA": 3000000,
-            "AN": 2500000
+            "SI": -3961500.0,
+            "BA": -2285000.0,
+            "AN": -2865500.0
           }
         },
         "action_schema": {
@@ -2748,6 +2973,20 @@
         {
           "action": "depart",
           "flight_id": "AN156"
+        }
+      ],
+      "agent_messages": [
+        {
+          "from": "Tower Central",
+          "to": "Network Ops",
+          "type": "alert",
+          "message": "Weather active at DEL: Dense fog slows Delhi departures."
+        },
+        {
+          "from": "AeroNova",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared AN156 from MAA to DEL."
         }
       ],
       "active_disruptions": [
@@ -2782,9 +3021,9 @@
         "stranded_passengers": 0,
         "avg_satisfaction": 100.0,
         "airline_cash": {
-          "SI": 3000000,
-          "BA": 3000000,
-          "AN": 2500000
+          "SI": -3961500.0,
+          "BA": -2285000.0,
+          "AN": -2865500.0
         }
       },
       "observation": {
@@ -2944,9 +3183,9 @@
           "stranded_passengers": 0,
           "avg_satisfaction": 100.0,
           "airline_cash": {
-            "SI": 3000000,
-            "BA": 3000000,
-            "AN": 2500000
+            "SI": -3961500.0,
+            "BA": -2285000.0,
+            "AN": -2865500.0
           }
         },
         "action_schema": {
@@ -2978,6 +3217,20 @@
         {
           "action": "depart",
           "flight_id": "AN150"
+        }
+      ],
+      "agent_messages": [
+        {
+          "from": "Tower Central",
+          "to": "Network Ops",
+          "type": "alert",
+          "message": "Weather active at DEL: Dense fog slows Delhi departures."
+        },
+        {
+          "from": "AeroNova",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared AN150 from DEL to CCU."
         }
       ],
       "active_disruptions": [
@@ -3012,9 +3265,9 @@
         "stranded_passengers": 0,
         "avg_satisfaction": 100.0,
         "airline_cash": {
-          "SI": 3000000,
-          "BA": 3000000,
-          "AN": 2500000
+          "SI": -3961500.0,
+          "BA": -2285000.0,
+          "AN": -2865500.0
         }
       },
       "observation": {
@@ -3202,9 +3455,9 @@
           "stranded_passengers": 0,
           "avg_satisfaction": 100.0,
           "airline_cash": {
-            "SI": 3000000,
-            "BA": 3000000,
-            "AN": 2500000
+            "SI": -3961500.0,
+            "BA": -2285000.0,
+            "AN": -2865500.0
           }
         },
         "action_schema": {
@@ -3244,6 +3497,38 @@
         {
           "action": "depart",
           "flight_id": "SI172"
+        }
+      ],
+      "agent_messages": [
+        {
+          "from": "Tower Central",
+          "to": "Network Ops",
+          "type": "alert",
+          "message": "Weather active at DEL: Dense fog slows Delhi departures."
+        },
+        {
+          "from": "Tower Central",
+          "to": "Network Ops",
+          "type": "alert",
+          "message": "Runway Closure active at BOM: Mumbai runway inspection after debris."
+        },
+        {
+          "from": "SkyIndus",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared SI139 from BOM to BLR."
+        },
+        {
+          "from": "Bharat Air",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared BA155 from BOM to DEL."
+        },
+        {
+          "from": "SkyIndus",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared SI172 from CCU to DEL."
         }
       ],
       "active_disruptions": [
@@ -3289,9 +3574,9 @@
         "stranded_passengers": 0,
         "avg_satisfaction": 100.0,
         "airline_cash": {
-          "SI": 3000000,
-          "BA": 3000000,
-          "AN": 2500000
+          "SI": -3961500.0,
+          "BA": -2285000.0,
+          "AN": -2865500.0
         }
       },
       "observation": {
@@ -3447,9 +3732,9 @@
           "stranded_passengers": 0,
           "avg_satisfaction": 100.0,
           "airline_cash": {
-            "SI": 3000000,
-            "BA": 3000000,
-            "AN": 2500000
+            "SI": -3961500.0,
+            "BA": -2285000.0,
+            "AN": -2865500.0
           }
         },
         "action_schema": {
@@ -3478,6 +3763,20 @@
     {
       "time": 585,
       "actions": [],
+      "agent_messages": [
+        {
+          "from": "Tower Central",
+          "to": "Network Ops",
+          "type": "alert",
+          "message": "Weather active at DEL: Dense fog slows Delhi departures."
+        },
+        {
+          "from": "Tower Central",
+          "to": "Network Ops",
+          "type": "alert",
+          "message": "Runway Closure active at BOM: Mumbai runway inspection after debris."
+        }
+      ],
       "active_disruptions": [
         {
           "disruption_id": "D1",
@@ -3521,9 +3820,9 @@
         "stranded_passengers": 0,
         "avg_satisfaction": 100.0,
         "airline_cash": {
-          "SI": 3000000,
-          "BA": 3000000,
-          "AN": 2500000
+          "SI": -3961500.0,
+          "BA": -2285000.0,
+          "AN": -2865500.0
         }
       },
       "observation": {
@@ -3679,9 +3978,9 @@
           "stranded_passengers": 0,
           "avg_satisfaction": 100.0,
           "airline_cash": {
-            "SI": 3000000,
-            "BA": 3000000,
-            "AN": 2500000
+            "SI": -3961500.0,
+            "BA": -2285000.0,
+            "AN": -2865500.0
           }
         },
         "action_schema": {
@@ -3710,6 +4009,20 @@
     {
       "time": 600,
       "actions": [],
+      "agent_messages": [
+        {
+          "from": "Tower Central",
+          "to": "Network Ops",
+          "type": "alert",
+          "message": "Weather active at DEL: Dense fog slows Delhi departures."
+        },
+        {
+          "from": "Tower Central",
+          "to": "Network Ops",
+          "type": "alert",
+          "message": "Runway Closure active at BOM: Mumbai runway inspection after debris."
+        }
+      ],
       "active_disruptions": [
         {
           "disruption_id": "D1",
@@ -3753,9 +4066,9 @@
         "stranded_passengers": 0,
         "avg_satisfaction": 100.0,
         "airline_cash": {
-          "SI": 3000000,
-          "BA": 3000000,
-          "AN": 2500000
+          "SI": -3961500.0,
+          "BA": -2285000.0,
+          "AN": -2865500.0
         }
       },
       "observation": {
@@ -3940,9 +4253,9 @@
           "stranded_passengers": 0,
           "avg_satisfaction": 100.0,
           "airline_cash": {
-            "SI": 3000000,
-            "BA": 3000000,
-            "AN": 2500000
+            "SI": -3961500.0,
+            "BA": -2285000.0,
+            "AN": -2865500.0
           }
         },
         "action_schema": {
@@ -3980,6 +4293,26 @@
           "flight_id": "AN126"
         }
       ],
+      "agent_messages": [
+        {
+          "from": "Tower Central",
+          "to": "Network Ops",
+          "type": "alert",
+          "message": "Runway Closure active at BOM: Mumbai runway inspection after debris."
+        },
+        {
+          "from": "AeroNova",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared AN123 from MAA to DEL."
+        },
+        {
+          "from": "AeroNova",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared AN126 from BLR to DEL."
+        }
+      ],
       "active_disruptions": [
         {
           "disruption_id": "D2",
@@ -4012,9 +4345,9 @@
         "stranded_passengers": 0,
         "avg_satisfaction": 100.0,
         "airline_cash": {
-          "SI": 3000000,
-          "BA": 3000000,
-          "AN": 2500000
+          "SI": -3961500.0,
+          "BA": -2285000.0,
+          "AN": -2865500.0
         }
       },
       "observation": {
@@ -4159,9 +4492,9 @@
           "stranded_passengers": 0,
           "avg_satisfaction": 100.0,
           "airline_cash": {
-            "SI": 3000000,
-            "BA": 3000000,
-            "AN": 2500000
+            "SI": -3961500.0,
+            "BA": -2285000.0,
+            "AN": -2865500.0
           }
         },
         "action_schema": {
@@ -4190,6 +4523,20 @@
     {
       "time": 630,
       "actions": [],
+      "agent_messages": [
+        {
+          "from": "Tower Central",
+          "to": "Network Ops",
+          "type": "alert",
+          "message": "Runway Closure active at BOM: Mumbai runway inspection after debris."
+        },
+        {
+          "from": "Tower Central",
+          "to": "Network Ops",
+          "type": "alert",
+          "message": "Aircraft Fault active at SI-A01: SkyIndus aircraft reports hydraulic warning."
+        }
+      ],
       "active_disruptions": [
         {
           "disruption_id": "D2",
@@ -4233,9 +4580,9 @@
         "stranded_passengers": 0,
         "avg_satisfaction": 100.0,
         "airline_cash": {
-          "SI": 3000000,
-          "BA": 3000000,
-          "AN": 2500000
+          "SI": -3961500.0,
+          "BA": -2285000.0,
+          "AN": -2865500.0
         }
       },
       "observation": {
@@ -4434,9 +4781,9 @@
           "stranded_passengers": 0,
           "avg_satisfaction": 100.0,
           "airline_cash": {
-            "SI": 3000000,
-            "BA": 3000000,
-            "AN": 2500000
+            "SI": -3961500.0,
+            "BA": -2285000.0,
+            "AN": -2865500.0
           }
         },
         "action_schema": {
@@ -4476,6 +4823,38 @@
         {
           "action": "depart",
           "flight_id": "SI187"
+        }
+      ],
+      "agent_messages": [
+        {
+          "from": "Tower Central",
+          "to": "Network Ops",
+          "type": "alert",
+          "message": "Runway Closure active at BOM: Mumbai runway inspection after debris."
+        },
+        {
+          "from": "Tower Central",
+          "to": "Network Ops",
+          "type": "alert",
+          "message": "Aircraft Fault active at SI-A01: SkyIndus aircraft reports hydraulic warning."
+        },
+        {
+          "from": "Bharat Air",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared BA116 from MAA to BLR."
+        },
+        {
+          "from": "Bharat Air",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared BA149 from BOM to BLR."
+        },
+        {
+          "from": "SkyIndus",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared SI187 from DEL to BLR."
         }
       ],
       "active_disruptions": [
@@ -4521,9 +4900,9 @@
         "stranded_passengers": 0,
         "avg_satisfaction": 100.0,
         "airline_cash": {
-          "SI": 3000000,
-          "BA": 3000000,
-          "AN": 2500000
+          "SI": -3961500.0,
+          "BA": -2285000.0,
+          "AN": -2865500.0
         }
       },
       "observation": {
@@ -4694,9 +5073,9 @@
           "stranded_passengers": 0,
           "avg_satisfaction": 100.0,
           "airline_cash": {
-            "SI": 3000000,
-            "BA": 3000000,
-            "AN": 2500000
+            "SI": -3961500.0,
+            "BA": -2285000.0,
+            "AN": -2865500.0
           }
         },
         "action_schema": {
@@ -4728,6 +5107,20 @@
         {
           "action": "depart",
           "flight_id": "SI175"
+        }
+      ],
+      "agent_messages": [
+        {
+          "from": "Tower Central",
+          "to": "Network Ops",
+          "type": "alert",
+          "message": "Aircraft Fault active at SI-A01: SkyIndus aircraft reports hydraulic warning."
+        },
+        {
+          "from": "SkyIndus",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared SI175 from DEL to CCU."
         }
       ],
       "active_disruptions": [
@@ -4762,9 +5155,9 @@
         "stranded_passengers": 0,
         "avg_satisfaction": 100.0,
         "airline_cash": {
-          "SI": 3000000,
-          "BA": 3000000,
-          "AN": 2500000
+          "SI": -3961500.0,
+          "BA": -2285000.0,
+          "AN": -2865500.0
         }
       },
       "observation": {
@@ -4980,9 +5373,9 @@
           "stranded_passengers": 0,
           "avg_satisfaction": 100.0,
           "airline_cash": {
-            "SI": 3000000,
-            "BA": 3000000,
-            "AN": 2500000
+            "SI": -3961500.0,
+            "BA": -2285000.0,
+            "AN": -2865500.0
           }
         },
         "action_schema": {
@@ -5032,6 +5425,44 @@
           "flight_id": "SI193"
         }
       ],
+      "agent_messages": [
+        {
+          "from": "Tower Central",
+          "to": "Network Ops",
+          "type": "alert",
+          "message": "Aircraft Fault active at SI-A01: SkyIndus aircraft reports hydraulic warning."
+        },
+        {
+          "from": "AeroNova",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared AN102 from CCU to DEL."
+        },
+        {
+          "from": "Bharat Air",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared BA104 from DEL to HYD."
+        },
+        {
+          "from": "SkyIndus",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared SI109 from BOM to HYD."
+        },
+        {
+          "from": "SkyIndus",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared SI163 from DEL to HYD."
+        },
+        {
+          "from": "SkyIndus",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared SI193 from AMD to BOM."
+        }
+      ],
       "active_disruptions": [
         {
           "disruption_id": "D3",
@@ -5064,9 +5495,9 @@
         "stranded_passengers": 0,
         "avg_satisfaction": 100.0,
         "airline_cash": {
-          "SI": 3000000,
-          "BA": 3000000,
-          "AN": 2500000
+          "SI": -3961500.0,
+          "BA": -2285000.0,
+          "AN": -2865500.0
         }
       },
       "observation": {
@@ -5240,9 +5671,9 @@
           "stranded_passengers": 0,
           "avg_satisfaction": 100.0,
           "airline_cash": {
-            "SI": 3000000,
-            "BA": 3000000,
-            "AN": 2500000
+            "SI": -3961500.0,
+            "BA": -2285000.0,
+            "AN": -2865500.0
           }
         },
         "action_schema": {
@@ -5280,6 +5711,26 @@
           "flight_id": "BA194"
         }
       ],
+      "agent_messages": [
+        {
+          "from": "Tower Central",
+          "to": "Network Ops",
+          "type": "alert",
+          "message": "Aircraft Fault active at SI-A01: SkyIndus aircraft reports hydraulic warning."
+        },
+        {
+          "from": "SkyIndus",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared SI148 from BLR to MAA."
+        },
+        {
+          "from": "Bharat Air",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared BA194 from DEL to HYD."
+        }
+      ],
       "active_disruptions": [
         {
           "disruption_id": "D3",
@@ -5312,9 +5763,9 @@
         "stranded_passengers": 0,
         "avg_satisfaction": 100.0,
         "airline_cash": {
-          "SI": 3000000,
-          "BA": 3000000,
-          "AN": 2500000
+          "SI": -3961500.0,
+          "BA": -2285000.0,
+          "AN": -2865500.0
         }
       },
       "observation": {
@@ -5459,9 +5910,9 @@
           "stranded_passengers": 0,
           "avg_satisfaction": 100.0,
           "airline_cash": {
-            "SI": 3000000,
-            "BA": 3000000,
-            "AN": 2500000
+            "SI": -3961500.0,
+            "BA": -2285000.0,
+            "AN": -2865500.0
           }
         },
         "action_schema": {
@@ -5490,6 +5941,20 @@
     {
       "time": 705,
       "actions": [],
+      "agent_messages": [
+        {
+          "from": "Tower Central",
+          "to": "Network Ops",
+          "type": "alert",
+          "message": "Aircraft Fault active at SI-A01: SkyIndus aircraft reports hydraulic warning."
+        },
+        {
+          "from": "Tower Central",
+          "to": "Network Ops",
+          "type": "alert",
+          "message": "Gate Block active at BLR: Bengaluru gate bridge failure blocks one gate."
+        }
+      ],
       "active_disruptions": [
         {
           "disruption_id": "D3",
@@ -5533,9 +5998,9 @@
         "stranded_passengers": 0,
         "avg_satisfaction": 100.0,
         "airline_cash": {
-          "SI": 3000000,
-          "BA": 3000000,
-          "AN": 2500000
+          "SI": -3961500.0,
+          "BA": -2285000.0,
+          "AN": -2865500.0
         }
       },
       "observation": {
@@ -5720,9 +6185,9 @@
           "stranded_passengers": 0,
           "avg_satisfaction": 100.0,
           "airline_cash": {
-            "SI": 3000000,
-            "BA": 3000000,
-            "AN": 2500000
+            "SI": -3961500.0,
+            "BA": -2285000.0,
+            "AN": -2865500.0
           }
         },
         "action_schema": {
@@ -5758,6 +6223,32 @@
         {
           "action": "depart",
           "flight_id": "BA173"
+        }
+      ],
+      "agent_messages": [
+        {
+          "from": "Tower Central",
+          "to": "Network Ops",
+          "type": "alert",
+          "message": "Aircraft Fault active at SI-A01: SkyIndus aircraft reports hydraulic warning."
+        },
+        {
+          "from": "Tower Central",
+          "to": "Network Ops",
+          "type": "alert",
+          "message": "Gate Block active at BLR: Bengaluru gate bridge failure blocks one gate."
+        },
+        {
+          "from": "SkyIndus",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared SI151 from MAA to DEL."
+        },
+        {
+          "from": "Bharat Air",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared BA173 from HYD to BLR."
         }
       ],
       "active_disruptions": [
@@ -5803,9 +6294,9 @@
         "stranded_passengers": 0,
         "avg_satisfaction": 100.0,
         "airline_cash": {
-          "SI": 3000000,
-          "BA": 3000000,
-          "AN": 2500000
+          "SI": -3961500.0,
+          "BA": -2285000.0,
+          "AN": -2865500.0
         }
       },
       "observation": {
@@ -5990,9 +6481,9 @@
           "stranded_passengers": 0,
           "avg_satisfaction": 100.0,
           "airline_cash": {
-            "SI": 3000000,
-            "BA": 3000000,
-            "AN": 2500000
+            "SI": -3961500.0,
+            "BA": -2285000.0,
+            "AN": -2865500.0
           }
         },
         "action_schema": {
@@ -6028,6 +6519,32 @@
         {
           "action": "depart",
           "flight_id": "AN174"
+        }
+      ],
+      "agent_messages": [
+        {
+          "from": "Tower Central",
+          "to": "Network Ops",
+          "type": "alert",
+          "message": "Aircraft Fault active at SI-A01: SkyIndus aircraft reports hydraulic warning."
+        },
+        {
+          "from": "Tower Central",
+          "to": "Network Ops",
+          "type": "alert",
+          "message": "Gate Block active at BLR: Bengaluru gate bridge failure blocks one gate."
+        },
+        {
+          "from": "SkyIndus",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared SI103 from CCU to DEL."
+        },
+        {
+          "from": "AeroNova",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared AN174 from DEL to HYD."
         }
       ],
       "active_disruptions": [
@@ -6073,9 +6590,9 @@
         "stranded_passengers": 0,
         "avg_satisfaction": 100.0,
         "airline_cash": {
-          "SI": 3000000,
-          "BA": 3000000,
-          "AN": 2500000
+          "SI": -3961500.0,
+          "BA": -2285000.0,
+          "AN": -2865500.0
         }
       },
       "observation": {
@@ -6231,9 +6748,9 @@
           "stranded_passengers": 0,
           "avg_satisfaction": 100.0,
           "airline_cash": {
-            "SI": 3000000,
-            "BA": 3000000,
-            "AN": 2500000
+            "SI": -3961500.0,
+            "BA": -2285000.0,
+            "AN": -2865500.0
           }
         },
         "action_schema": {
@@ -6262,6 +6779,20 @@
     {
       "time": 750,
       "actions": [],
+      "agent_messages": [
+        {
+          "from": "Tower Central",
+          "to": "Network Ops",
+          "type": "alert",
+          "message": "Gate Block active at BLR: Bengaluru gate bridge failure blocks one gate."
+        },
+        {
+          "from": "Tower Central",
+          "to": "Network Ops",
+          "type": "alert",
+          "message": "Crew Timeout active at BA-C01: Bharat Air crew reaches duty risk."
+        }
+      ],
       "active_disruptions": [
         {
           "disruption_id": "D4",
@@ -6305,9 +6836,9 @@
         "stranded_passengers": 0,
         "avg_satisfaction": 100.0,
         "airline_cash": {
-          "SI": 3000000,
-          "BA": 3000000,
-          "AN": 2500000
+          "SI": -3961500.0,
+          "BA": -2285000.0,
+          "AN": -2865500.0
         }
       },
       "observation": {
@@ -6520,9 +7051,9 @@
           "stranded_passengers": 0,
           "avg_satisfaction": 100.0,
           "airline_cash": {
-            "SI": 3000000,
-            "BA": 3000000,
-            "AN": 2500000
+            "SI": -3961500.0,
+            "BA": -2285000.0,
+            "AN": -2865500.0
           }
         },
         "action_schema": {
@@ -6568,6 +7099,44 @@
           "flight_id": "BA188"
         }
       ],
+      "agent_messages": [
+        {
+          "from": "Tower Central",
+          "to": "Network Ops",
+          "type": "alert",
+          "message": "Gate Block active at BLR: Bengaluru gate bridge failure blocks one gate."
+        },
+        {
+          "from": "Tower Central",
+          "to": "Network Ops",
+          "type": "alert",
+          "message": "Crew Timeout active at BA-C01: Bharat Air crew reaches duty risk."
+        },
+        {
+          "from": "Bharat Air",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared BA107 from BLR to MAA."
+        },
+        {
+          "from": "AeroNova",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared AN153 from DEL to BOM."
+        },
+        {
+          "from": "AeroNova",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared AN183 from BLR to DEL."
+        },
+        {
+          "from": "Bharat Air",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared BA188 from DEL to CCU."
+        }
+      ],
       "active_disruptions": [
         {
           "disruption_id": "D4",
@@ -6611,9 +7180,9 @@
         "stranded_passengers": 0,
         "avg_satisfaction": 100.0,
         "airline_cash": {
-          "SI": 3000000,
-          "BA": 3000000,
-          "AN": 2500000
+          "SI": -3961500.0,
+          "BA": -2285000.0,
+          "AN": -2865500.0
         }
       },
       "observation": {
@@ -6784,9 +7353,9 @@
           "stranded_passengers": 0,
           "avg_satisfaction": 100.0,
           "airline_cash": {
-            "SI": 3000000,
-            "BA": 3000000,
-            "AN": 2500000
+            "SI": -3961500.0,
+            "BA": -2285000.0,
+            "AN": -2865500.0
           }
         },
         "action_schema": {
@@ -6818,6 +7387,20 @@
         {
           "action": "depart",
           "flight_id": "SI130"
+        }
+      ],
+      "agent_messages": [
+        {
+          "from": "Tower Central",
+          "to": "Network Ops",
+          "type": "alert",
+          "message": "Crew Timeout active at BA-C01: Bharat Air crew reaches duty risk."
+        },
+        {
+          "from": "SkyIndus",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared SI130 from CCU to DEL."
         }
       ],
       "active_disruptions": [
@@ -6852,9 +7435,9 @@
         "stranded_passengers": 0,
         "avg_satisfaction": 100.0,
         "airline_cash": {
-          "SI": 3000000,
-          "BA": 3000000,
-          "AN": 2500000
+          "SI": -3961500.0,
+          "BA": -2285000.0,
+          "AN": -2865500.0
         }
       },
       "observation": {
@@ -6999,9 +7582,9 @@
           "stranded_passengers": 0,
           "avg_satisfaction": 100.0,
           "airline_cash": {
-            "SI": 3000000,
-            "BA": 3000000,
-            "AN": 2500000
+            "SI": -3961500.0,
+            "BA": -2285000.0,
+            "AN": -2865500.0
           }
         },
         "action_schema": {
@@ -7030,6 +7613,20 @@
     {
       "time": 795,
       "actions": [],
+      "agent_messages": [
+        {
+          "from": "Tower Central",
+          "to": "Network Ops",
+          "type": "alert",
+          "message": "Crew Timeout active at BA-C01: Bharat Air crew reaches duty risk."
+        },
+        {
+          "from": "Tower Central",
+          "to": "Network Ops",
+          "type": "alert",
+          "message": "Emergency active at HYD: Medical emergency arrival requires priority."
+        }
+      ],
       "active_disruptions": [
         {
           "disruption_id": "D5",
@@ -7073,9 +7670,9 @@
         "stranded_passengers": 0,
         "avg_satisfaction": 100.0,
         "airline_cash": {
-          "SI": 3000000,
-          "BA": 3000000,
-          "AN": 2500000
+          "SI": -3961500.0,
+          "BA": -2285000.0,
+          "AN": -2865500.0
         }
       },
       "observation": {
@@ -7288,9 +7885,9 @@
           "stranded_passengers": 0,
           "avg_satisfaction": 100.0,
           "airline_cash": {
-            "SI": 3000000,
-            "BA": 3000000,
-            "AN": 2500000
+            "SI": -3961500.0,
+            "BA": -2285000.0,
+            "AN": -2865500.0
           }
         },
         "action_schema": {
@@ -7336,6 +7933,44 @@
           "flight_id": "BA170"
         }
       ],
+      "agent_messages": [
+        {
+          "from": "Tower Central",
+          "to": "Network Ops",
+          "type": "alert",
+          "message": "Crew Timeout active at BA-C01: Bharat Air crew reaches duty risk."
+        },
+        {
+          "from": "Tower Central",
+          "to": "Network Ops",
+          "type": "alert",
+          "message": "Emergency active at HYD: Medical emergency arrival requires priority."
+        },
+        {
+          "from": "SkyIndus",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared SI106 from BOM to BLR."
+        },
+        {
+          "from": "AeroNova",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared AN129 from BLR to BOM."
+        },
+        {
+          "from": "Bharat Air",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared BA134 from BOM to BLR."
+        },
+        {
+          "from": "Bharat Air",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared BA170 from BOM to HYD."
+        }
+      ],
       "active_disruptions": [
         {
           "disruption_id": "D5",
@@ -7379,9 +8014,9 @@
         "stranded_passengers": 0,
         "avg_satisfaction": 100.0,
         "airline_cash": {
-          "SI": 3000000,
-          "BA": 3000000,
-          "AN": 2500000
+          "SI": -3961500.0,
+          "BA": -2285000.0,
+          "AN": -2865500.0
         }
       },
       "observation": {
@@ -7594,9 +8229,9 @@
           "stranded_passengers": 0,
           "avg_satisfaction": 100.0,
           "airline_cash": {
-            "SI": 3000000,
-            "BA": 3000000,
-            "AN": 2500000
+            "SI": -3961500.0,
+            "BA": -2285000.0,
+            "AN": -2865500.0
           }
         },
         "action_schema": {
@@ -7642,6 +8277,44 @@
           "flight_id": "BA146"
         }
       ],
+      "agent_messages": [
+        {
+          "from": "Tower Central",
+          "to": "Network Ops",
+          "type": "alert",
+          "message": "Crew Timeout active at BA-C01: Bharat Air crew reaches duty risk."
+        },
+        {
+          "from": "Tower Central",
+          "to": "Network Ops",
+          "type": "alert",
+          "message": "Emergency active at HYD: Medical emergency arrival requires priority."
+        },
+        {
+          "from": "Bharat Air",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared BA113 from DEL to HYD."
+        },
+        {
+          "from": "Bharat Air",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared BA125 from HYD to BLR."
+        },
+        {
+          "from": "Bharat Air",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared BA143 from DEL to BLR."
+        },
+        {
+          "from": "Bharat Air",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared BA146 from DEL to HYD."
+        }
+      ],
       "active_disruptions": [
         {
           "disruption_id": "D5",
@@ -7685,9 +8358,9 @@
         "stranded_passengers": 0,
         "avg_satisfaction": 100.0,
         "airline_cash": {
-          "SI": 3000000,
-          "BA": 3000000,
-          "AN": 2500000
+          "SI": -3961500.0,
+          "BA": -2285000.0,
+          "AN": -2865500.0
         }
       },
       "observation": {
@@ -7858,9 +8531,9 @@
           "stranded_passengers": 0,
           "avg_satisfaction": 100.0,
           "airline_cash": {
-            "SI": 3000000,
-            "BA": 3000000,
-            "AN": 2500000
+            "SI": -3961500.0,
+            "BA": -2285000.0,
+            "AN": -2865500.0
           }
         },
         "action_schema": {
@@ -7892,6 +8565,20 @@
         {
           "action": "depart",
           "flight_id": "SI100"
+        }
+      ],
+      "agent_messages": [
+        {
+          "from": "Tower Central",
+          "to": "Network Ops",
+          "type": "alert",
+          "message": "Crew Timeout active at BA-C01: Bharat Air crew reaches duty risk."
+        },
+        {
+          "from": "SkyIndus",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared SI100 from COK to BLR."
         }
       ],
       "active_disruptions": [
@@ -7926,9 +8613,9 @@
         "stranded_passengers": 0,
         "avg_satisfaction": 100.0,
         "airline_cash": {
-          "SI": 3000000,
-          "BA": 3000000,
-          "AN": 2500000
+          "SI": -3961500.0,
+          "BA": -2285000.0,
+          "AN": -2865500.0
         }
       },
       "observation": {
@@ -8088,9 +8775,9 @@
           "stranded_passengers": 0,
           "avg_satisfaction": 100.0,
           "airline_cash": {
-            "SI": 3000000,
-            "BA": 3000000,
-            "AN": 2500000
+            "SI": -3961500.0,
+            "BA": -2285000.0,
+            "AN": -2865500.0
           }
         },
         "action_schema": {
@@ -8122,6 +8809,26 @@
         {
           "action": "depart",
           "flight_id": "SI112"
+        }
+      ],
+      "agent_messages": [
+        {
+          "from": "Tower Central",
+          "to": "Network Ops",
+          "type": "alert",
+          "message": "Crew Timeout active at BA-C01: Bharat Air crew reaches duty risk."
+        },
+        {
+          "from": "Tower Central",
+          "to": "Network Ops",
+          "type": "alert",
+          "message": "Weather active at MAA: Chennai thunderstorm adds ground delay."
+        },
+        {
+          "from": "SkyIndus",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared SI112 from BLR to DEL."
         }
       ],
       "active_disruptions": [
@@ -8167,9 +8874,9 @@
         "stranded_passengers": 0,
         "avg_satisfaction": 100.0,
         "airline_cash": {
-          "SI": 3000000,
-          "BA": 3000000,
-          "AN": 2500000
+          "SI": -3961500.0,
+          "BA": -2285000.0,
+          "AN": -2865500.0
         }
       },
       "observation": {
@@ -8354,9 +9061,9 @@
           "stranded_passengers": 0,
           "avg_satisfaction": 100.0,
           "airline_cash": {
-            "SI": 3000000,
-            "BA": 3000000,
-            "AN": 2500000
+            "SI": -3961500.0,
+            "BA": -2285000.0,
+            "AN": -2865500.0
           }
         },
         "action_schema": {
@@ -8392,6 +9099,32 @@
         {
           "action": "depart",
           "flight_id": "BA179"
+        }
+      ],
+      "agent_messages": [
+        {
+          "from": "Tower Central",
+          "to": "Network Ops",
+          "type": "alert",
+          "message": "Crew Timeout active at BA-C01: Bharat Air crew reaches duty risk."
+        },
+        {
+          "from": "Tower Central",
+          "to": "Network Ops",
+          "type": "alert",
+          "message": "Weather active at MAA: Chennai thunderstorm adds ground delay."
+        },
+        {
+          "from": "AeroNova",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared AN117 from BLR to DEL."
+        },
+        {
+          "from": "Bharat Air",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared BA179 from BLR to HYD."
         }
       ],
       "active_disruptions": [
@@ -8437,9 +9170,9 @@
         "stranded_passengers": 0,
         "avg_satisfaction": 100.0,
         "airline_cash": {
-          "SI": 3000000,
-          "BA": 3000000,
-          "AN": 2500000
+          "SI": -3961500.0,
+          "BA": -2285000.0,
+          "AN": -2865500.0
         }
       },
       "observation": {
@@ -8680,9 +9413,9 @@
           "stranded_passengers": 0,
           "avg_satisfaction": 100.0,
           "airline_cash": {
-            "SI": 3000000,
-            "BA": 3000000,
-            "AN": 2500000
+            "SI": -3961500.0,
+            "BA": -2285000.0,
+            "AN": -2865500.0
           }
         },
         "action_schema": {
@@ -8736,6 +9469,56 @@
           "flight_id": "AN195"
         }
       ],
+      "agent_messages": [
+        {
+          "from": "Tower Central",
+          "to": "Network Ops",
+          "type": "alert",
+          "message": "Crew Timeout active at BA-C01: Bharat Air crew reaches duty risk."
+        },
+        {
+          "from": "Tower Central",
+          "to": "Network Ops",
+          "type": "alert",
+          "message": "Weather active at MAA: Chennai thunderstorm adds ground delay."
+        },
+        {
+          "from": "Bharat Air",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared BA122 from BOM to AMD."
+        },
+        {
+          "from": "AeroNova",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared AN135 from HYD to BOM."
+        },
+        {
+          "from": "SkyIndus",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared SI145 from DEL to CCU."
+        },
+        {
+          "from": "Bharat Air",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared BA167 from MAA to DEL."
+        },
+        {
+          "from": "SkyIndus",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared SI181 from AMD to BOM."
+        },
+        {
+          "from": "AeroNova",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared AN195 from DEL to BLR."
+        }
+      ],
       "active_disruptions": [
         {
           "disruption_id": "D5",
@@ -8779,9 +9562,9 @@
         "stranded_passengers": 0,
         "avg_satisfaction": 100.0,
         "airline_cash": {
-          "SI": 3000000,
-          "BA": 3000000,
-          "AN": 2500000
+          "SI": -3961500.0,
+          "BA": -2285000.0,
+          "AN": -2865500.0
         }
       },
       "observation": {
@@ -8994,9 +9777,9 @@
           "stranded_passengers": 0,
           "avg_satisfaction": 100.0,
           "airline_cash": {
-            "SI": 3000000,
-            "BA": 3000000,
-            "AN": 2500000
+            "SI": -3961500.0,
+            "BA": -2285000.0,
+            "AN": -2865500.0
           }
         },
         "action_schema": {
@@ -9042,6 +9825,44 @@
           "flight_id": "SI178"
         }
       ],
+      "agent_messages": [
+        {
+          "from": "Tower Central",
+          "to": "Network Ops",
+          "type": "alert",
+          "message": "Crew Timeout active at BA-C01: Bharat Air crew reaches duty risk."
+        },
+        {
+          "from": "Tower Central",
+          "to": "Network Ops",
+          "type": "alert",
+          "message": "Weather active at MAA: Chennai thunderstorm adds ground delay."
+        },
+        {
+          "from": "Bharat Air",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared BA119 from BLR to BOM."
+        },
+        {
+          "from": "SkyIndus",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared SI121 from BOM to HYD."
+        },
+        {
+          "from": "Bharat Air",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared BA137 from COK to BLR."
+        },
+        {
+          "from": "SkyIndus",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared SI178 from COK to BLR."
+        }
+      ],
       "active_disruptions": [
         {
           "disruption_id": "D5",
@@ -9085,9 +9906,9 @@
         "stranded_passengers": 0,
         "avg_satisfaction": 100.0,
         "airline_cash": {
-          "SI": 3000000,
-          "BA": 3000000,
-          "AN": 2500000
+          "SI": -3961500.0,
+          "BA": -2285000.0,
+          "AN": -2865500.0
         }
       },
       "observation": {
@@ -9258,9 +10079,9 @@
           "stranded_passengers": 0,
           "avg_satisfaction": 100.0,
           "airline_cash": {
-            "SI": 3000000,
-            "BA": 3000000,
-            "AN": 2500000
+            "SI": -3961500.0,
+            "BA": -2285000.0,
+            "AN": -2865500.0
           }
         },
         "action_schema": {
@@ -9292,6 +10113,26 @@
         {
           "action": "depart",
           "flight_id": "SI184"
+        }
+      ],
+      "agent_messages": [
+        {
+          "from": "Tower Central",
+          "to": "Network Ops",
+          "type": "alert",
+          "message": "Crew Timeout active at BA-C01: Bharat Air crew reaches duty risk."
+        },
+        {
+          "from": "Tower Central",
+          "to": "Network Ops",
+          "type": "alert",
+          "message": "Weather active at MAA: Chennai thunderstorm adds ground delay."
+        },
+        {
+          "from": "SkyIndus",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared SI184 from MAA to BLR."
         }
       ],
       "active_disruptions": [
@@ -9337,9 +10178,9 @@
         "stranded_passengers": 0,
         "avg_satisfaction": 100.0,
         "airline_cash": {
-          "SI": 3000000,
-          "BA": 3000000,
-          "AN": 2500000
+          "SI": -3961500.0,
+          "BA": -2285000.0,
+          "AN": -2865500.0
         }
       },
       "observation": {
@@ -9510,9 +10351,9 @@
           "stranded_passengers": 0,
           "avg_satisfaction": 100.0,
           "airline_cash": {
-            "SI": 3000000,
-            "BA": 3000000,
-            "AN": 2500000
+            "SI": -3961500.0,
+            "BA": -2285000.0,
+            "AN": -2865500.0
           }
         },
         "action_schema": {
@@ -9544,6 +10385,20 @@
         {
           "action": "depart",
           "flight_id": "AN165"
+        }
+      ],
+      "agent_messages": [
+        {
+          "from": "Tower Central",
+          "to": "Network Ops",
+          "type": "alert",
+          "message": "Weather active at MAA: Chennai thunderstorm adds ground delay."
+        },
+        {
+          "from": "AeroNova",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared AN165 from AMD to BOM."
         }
       ],
       "active_disruptions": [
@@ -9578,9 +10433,9 @@
         "stranded_passengers": 0,
         "avg_satisfaction": 100.0,
         "airline_cash": {
-          "SI": 3000000,
-          "BA": 3000000,
-          "AN": 2500000
+          "SI": -3961500.0,
+          "BA": -2285000.0,
+          "AN": -2865500.0
         }
       },
       "observation": {
@@ -9740,9 +10595,9 @@
           "stranded_passengers": 0,
           "avg_satisfaction": 100.0,
           "airline_cash": {
-            "SI": 3000000,
-            "BA": 3000000,
-            "AN": 2500000
+            "SI": -3961500.0,
+            "BA": -2285000.0,
+            "AN": -2865500.0
           }
         },
         "action_schema": {
@@ -9776,6 +10631,14 @@
           "flight_id": "BA110"
         }
       ],
+      "agent_messages": [
+        {
+          "from": "Bharat Air",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared BA110 from BLR to COK."
+        }
+      ],
       "active_disruptions": [],
       "reward": {
         "delay_score": 27.0,
@@ -9796,9 +10659,9 @@
         "stranded_passengers": 0,
         "avg_satisfaction": 100.0,
         "airline_cash": {
-          "SI": 3000000,
-          "BA": 3000000,
-          "AN": 2500000
+          "SI": -3961500.0,
+          "BA": -2285000.0,
+          "AN": -2865500.0
         }
       },
       "observation": {
@@ -9931,9 +10794,9 @@
           "stranded_passengers": 0,
           "avg_satisfaction": 100.0,
           "airline_cash": {
-            "SI": 3000000,
-            "BA": 3000000,
-            "AN": 2500000
+            "SI": -3961500.0,
+            "BA": -2285000.0,
+            "AN": -2865500.0
           }
         },
         "action_schema": {
@@ -9962,6 +10825,7 @@
     {
       "time": 960,
       "actions": [],
+      "agent_messages": [],
       "active_disruptions": [],
       "reward": {
         "delay_score": 48.0,
@@ -9982,9 +10846,9 @@
         "stranded_passengers": 0,
         "avg_satisfaction": 100.0,
         "airline_cash": {
-          "SI": 3000000,
-          "BA": 3000000,
-          "AN": 2500000
+          "SI": -3961500.0,
+          "BA": -2285000.0,
+          "AN": -2865500.0
         }
       },
       "observation": {
@@ -10132,9 +10996,9 @@
           "stranded_passengers": 0,
           "avg_satisfaction": 100.0,
           "airline_cash": {
-            "SI": 3000000,
-            "BA": 3000000,
-            "AN": 2500000
+            "SI": -3961500.0,
+            "BA": -2285000.0,
+            "AN": -2865500.0
           }
         },
         "action_schema": {
@@ -10168,6 +11032,14 @@
           "flight_id": "AN132"
         }
       ],
+      "agent_messages": [
+        {
+          "from": "AeroNova",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared AN132 from BLR to COK."
+        }
+      ],
       "active_disruptions": [],
       "reward": {
         "delay_score": 50.0,
@@ -10188,9 +11060,9 @@
         "stranded_passengers": 0,
         "avg_satisfaction": 100.0,
         "airline_cash": {
-          "SI": 3000000,
-          "BA": 3000000,
-          "AN": 2500000
+          "SI": -3961500.0,
+          "BA": -2285000.0,
+          "AN": -2865500.0
         }
       },
       "observation": {
@@ -10338,9 +11210,9 @@
           "stranded_passengers": 0,
           "avg_satisfaction": 100.0,
           "airline_cash": {
-            "SI": 3000000,
-            "BA": 3000000,
-            "AN": 2500000
+            "SI": -3961500.0,
+            "BA": -2285000.0,
+            "AN": -2865500.0
           }
         },
         "action_schema": {
@@ -10374,6 +11246,14 @@
           "flight_id": "SI127"
         }
       ],
+      "agent_messages": [
+        {
+          "from": "SkyIndus",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared SI127 from BLR to COK."
+        }
+      ],
       "active_disruptions": [],
       "reward": {
         "delay_score": 38.6,
@@ -10394,9 +11274,9 @@
         "stranded_passengers": 0,
         "avg_satisfaction": 100.0,
         "airline_cash": {
-          "SI": 3000000,
-          "BA": 3000000,
-          "AN": 2500000
+          "SI": -3961500.0,
+          "BA": -2285000.0,
+          "AN": -2865500.0
         }
       },
       "observation": {
@@ -10529,9 +11409,9 @@
           "stranded_passengers": 0,
           "avg_satisfaction": 100.0,
           "airline_cash": {
-            "SI": 3000000,
-            "BA": 3000000,
-            "AN": 2500000
+            "SI": -3961500.0,
+            "BA": -2285000.0,
+            "AN": -2865500.0
           }
         },
         "action_schema": {
@@ -10560,6 +11440,7 @@
     {
       "time": 1005,
       "actions": [],
+      "agent_messages": [],
       "active_disruptions": [],
       "reward": {
         "delay_score": 34.6,
@@ -10580,9 +11461,9 @@
         "stranded_passengers": 0,
         "avg_satisfaction": 100.0,
         "airline_cash": {
-          "SI": 3000000,
-          "BA": 3000000,
-          "AN": 2500000
+          "SI": -3961500.0,
+          "BA": -2285000.0,
+          "AN": -2865500.0
         }
       },
       "observation": {
@@ -10744,9 +11625,9 @@
           "stranded_passengers": 0,
           "avg_satisfaction": 100.0,
           "airline_cash": {
-            "SI": 3000000,
-            "BA": 3000000,
-            "AN": 2500000
+            "SI": -3961500.0,
+            "BA": -2285000.0,
+            "AN": -2865500.0
           }
         },
         "action_schema": {
@@ -10784,6 +11665,20 @@
           "flight_id": "SI190"
         }
       ],
+      "agent_messages": [
+        {
+          "from": "AeroNova",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared AN189 from MAA to BLR."
+        },
+        {
+          "from": "SkyIndus",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared SI190 from BOM to HYD."
+        }
+      ],
       "active_disruptions": [],
       "reward": {
         "delay_score": 53.4,
@@ -10804,9 +11699,9 @@
         "stranded_passengers": 0,
         "avg_satisfaction": 100.0,
         "airline_cash": {
-          "SI": 3000000,
-          "BA": 3000000,
-          "AN": 2500000
+          "SI": -3961500.0,
+          "BA": -2285000.0,
+          "AN": -2865500.0
         }
       },
       "observation": {
@@ -10982,9 +11877,9 @@
           "stranded_passengers": 0,
           "avg_satisfaction": 100.0,
           "airline_cash": {
-            "SI": 3000000,
-            "BA": 3000000,
-            "AN": 2500000
+            "SI": -3961500.0,
+            "BA": -2285000.0,
+            "AN": -2865500.0
           }
         },
         "action_schema": {
@@ -11026,6 +11921,26 @@
           "flight_id": "AN171"
         }
       ],
+      "agent_messages": [
+        {
+          "from": "AeroNova",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared AN108 from HYD to DEL."
+        },
+        {
+          "from": "SkyIndus",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared SI166 from BLR to DEL."
+        },
+        {
+          "from": "AeroNova",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared AN171 from AMD to BOM."
+        }
+      ],
       "active_disruptions": [],
       "reward": {
         "delay_score": 68.4,
@@ -11046,9 +11961,9 @@
         "stranded_passengers": 0,
         "avg_satisfaction": 100.0,
         "airline_cash": {
-          "SI": 3000000,
-          "BA": 3000000,
-          "AN": 2500000
+          "SI": -3961500.0,
+          "BA": -2285000.0,
+          "AN": -2865500.0
         }
       },
       "observation": {
@@ -11196,9 +12111,9 @@
           "stranded_passengers": 0,
           "avg_satisfaction": 100.0,
           "airline_cash": {
-            "SI": 3000000,
-            "BA": 3000000,
-            "AN": 2500000
+            "SI": -3961500.0,
+            "BA": -2285000.0,
+            "AN": -2865500.0
           }
         },
         "action_schema": {
@@ -11232,6 +12147,14 @@
           "flight_id": "AN111"
         }
       ],
+      "agent_messages": [
+        {
+          "from": "AeroNova",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared AN111 from CCU to DEL."
+        }
+      ],
       "active_disruptions": [],
       "reward": {
         "delay_score": 38.4,
@@ -11252,9 +12175,9 @@
         "stranded_passengers": 0,
         "avg_satisfaction": 100.0,
         "airline_cash": {
-          "SI": 3000000,
-          "BA": 3000000,
-          "AN": 2500000
+          "SI": -3961500.0,
+          "BA": -2285000.0,
+          "AN": -2865500.0
         }
       },
       "observation": {
@@ -11430,9 +12353,9 @@
           "stranded_passengers": 0,
           "avg_satisfaction": 100.0,
           "airline_cash": {
-            "SI": 3000000,
-            "BA": 3000000,
-            "AN": 2500000
+            "SI": -3961500.0,
+            "BA": -2285000.0,
+            "AN": -2865500.0
           }
         },
         "action_schema": {
@@ -11474,6 +12397,26 @@
           "flight_id": "AN192"
         }
       ],
+      "agent_messages": [
+        {
+          "from": "Bharat Air",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared BA101 from BOM to DEL."
+        },
+        {
+          "from": "AeroNova",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared AN144 from DEL to HYD."
+        },
+        {
+          "from": "AeroNova",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared AN192 from BLR to DEL."
+        }
+      ],
       "active_disruptions": [],
       "reward": {
         "delay_score": 56.6,
@@ -11494,9 +12437,9 @@
         "stranded_passengers": 0,
         "avg_satisfaction": 100.0,
         "airline_cash": {
-          "SI": 3000000,
-          "BA": 3000000,
-          "AN": 2500000
+          "SI": -3961500.0,
+          "BA": -2285000.0,
+          "AN": -2865500.0
         }
       },
       "observation": {
@@ -11658,9 +12601,9 @@
           "stranded_passengers": 0,
           "avg_satisfaction": 100.0,
           "airline_cash": {
-            "SI": 3000000,
-            "BA": 3000000,
-            "AN": 2500000
+            "SI": -3961500.0,
+            "BA": -2285000.0,
+            "AN": -2865500.0
           }
         },
         "action_schema": {
@@ -11698,6 +12641,20 @@
           "flight_id": "AN180"
         }
       ],
+      "agent_messages": [
+        {
+          "from": "AeroNova",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared AN168 from DEL to HYD."
+        },
+        {
+          "from": "AeroNova",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared AN180 from BOM to DEL."
+        }
+      ],
       "active_disruptions": [],
       "reward": {
         "delay_score": 41.8,
@@ -11718,9 +12675,9 @@
         "stranded_passengers": 0,
         "avg_satisfaction": 100.0,
         "airline_cash": {
-          "SI": 3000000,
-          "BA": 3000000,
-          "AN": 2500000
+          "SI": -3961500.0,
+          "BA": -2285000.0,
+          "AN": -2865500.0
         }
       },
       "observation": {
@@ -11853,9 +12810,9 @@
           "stranded_passengers": 0,
           "avg_satisfaction": 100.0,
           "airline_cash": {
-            "SI": 3000000,
-            "BA": 3000000,
-            "AN": 2500000
+            "SI": -3961500.0,
+            "BA": -2285000.0,
+            "AN": -2865500.0
           }
         },
         "action_schema": {
@@ -11884,6 +12841,7 @@
     {
       "time": 1095,
       "actions": [],
+      "agent_messages": [],
       "active_disruptions": [],
       "reward": {
         "delay_score": 10.4,
@@ -11904,9 +12862,9 @@
         "stranded_passengers": 0,
         "avg_satisfaction": 100.0,
         "airline_cash": {
-          "SI": 3000000,
-          "BA": 3000000,
-          "AN": 2500000
+          "SI": -3961500.0,
+          "BA": -2285000.0,
+          "AN": -2865500.0
         }
       },
       "observation": {
@@ -12039,9 +12997,9 @@
           "stranded_passengers": 0,
           "avg_satisfaction": 100.0,
           "airline_cash": {
-            "SI": 3000000,
-            "BA": 3000000,
-            "AN": 2500000
+            "SI": -3961500.0,
+            "BA": -2285000.0,
+            "AN": -2865500.0
           }
         },
         "action_schema": {
@@ -12070,6 +13028,7 @@
     {
       "time": 1110,
       "actions": [],
+      "agent_messages": [],
       "active_disruptions": [],
       "reward": {
         "delay_score": 23.8,
@@ -12090,9 +13049,9 @@
         "stranded_passengers": 0,
         "avg_satisfaction": 100.0,
         "airline_cash": {
-          "SI": 3000000,
-          "BA": 3000000,
-          "AN": 2500000
+          "SI": -3961500.0,
+          "BA": -2285000.0,
+          "AN": -2865500.0
         }
       },
       "observation": {
@@ -12225,9 +13184,9 @@
           "stranded_passengers": 0,
           "avg_satisfaction": 100.0,
           "airline_cash": {
-            "SI": 3000000,
-            "BA": 3000000,
-            "AN": 2500000
+            "SI": -3961500.0,
+            "BA": -2285000.0,
+            "AN": -2865500.0
           }
         },
         "action_schema": {
@@ -12256,6 +13215,7 @@
     {
       "time": 1125,
       "actions": [],
+      "agent_messages": [],
       "active_disruptions": [],
       "reward": {
         "delay_score": 0.0,
@@ -12276,9 +13236,9 @@
         "stranded_passengers": 0,
         "avg_satisfaction": 100.0,
         "airline_cash": {
-          "SI": 3000000,
-          "BA": 3000000,
-          "AN": 2500000
+          "SI": -3961500.0,
+          "BA": -2285000.0,
+          "AN": -2865500.0
         }
       },
       "observation": {
@@ -12411,9 +13371,9 @@
           "stranded_passengers": 0,
           "avg_satisfaction": 100.0,
           "airline_cash": {
-            "SI": 3000000,
-            "BA": 3000000,
-            "AN": 2500000
+            "SI": -3961500.0,
+            "BA": -2285000.0,
+            "AN": -2865500.0
           }
         },
         "action_schema": {
@@ -12442,6 +13402,7 @@
     {
       "time": 1140,
       "actions": [],
+      "agent_messages": [],
       "active_disruptions": [],
       "reward": {
         "delay_score": 0.0,
@@ -12462,9 +13423,9 @@
         "stranded_passengers": 0,
         "avg_satisfaction": 100.0,
         "airline_cash": {
-          "SI": 3000000,
-          "BA": 3000000,
-          "AN": 2500000
+          "SI": -3961500.0,
+          "BA": -2285000.0,
+          "AN": -2865500.0
         }
       },
       "observation": {
@@ -12597,9 +13558,9 @@
           "stranded_passengers": 0,
           "avg_satisfaction": 100.0,
           "airline_cash": {
-            "SI": 3000000,
-            "BA": 3000000,
-            "AN": 2500000
+            "SI": -3961500.0,
+            "BA": -2285000.0,
+            "AN": -2865500.0
           }
         },
         "action_schema": {
@@ -12628,6 +13589,7 @@
     {
       "time": 1155,
       "actions": [],
+      "agent_messages": [],
       "active_disruptions": [],
       "reward": {
         "delay_score": 0.0,
@@ -12648,9 +13610,9 @@
         "stranded_passengers": 0,
         "avg_satisfaction": 100.0,
         "airline_cash": {
-          "SI": 3000000,
-          "BA": 3000000,
-          "AN": 2500000
+          "SI": -3961500.0,
+          "BA": -2285000.0,
+          "AN": -2865500.0
         }
       },
       "observation": {
@@ -12783,9 +13745,9 @@
           "stranded_passengers": 0,
           "avg_satisfaction": 100.0,
           "airline_cash": {
-            "SI": 3000000,
-            "BA": 3000000,
-            "AN": 2500000
+            "SI": -3961500.0,
+            "BA": -2285000.0,
+            "AN": -2865500.0
           }
         },
         "action_schema": {
@@ -12814,6 +13776,7 @@
     {
       "time": 1170,
       "actions": [],
+      "agent_messages": [],
       "active_disruptions": [],
       "reward": {
         "delay_score": 12.0,
@@ -12834,9 +13797,9 @@
         "stranded_passengers": 0,
         "avg_satisfaction": 100.0,
         "airline_cash": {
-          "SI": 3000000,
-          "BA": 3000000,
-          "AN": 2500000
+          "SI": -3961500.0,
+          "BA": -2285000.0,
+          "AN": -2865500.0
         }
       },
       "observation": {
@@ -12969,9 +13932,9 @@
           "stranded_passengers": 0,
           "avg_satisfaction": 100.0,
           "airline_cash": {
-            "SI": 3000000,
-            "BA": 3000000,
-            "AN": 2500000
+            "SI": -3961500.0,
+            "BA": -2285000.0,
+            "AN": -2865500.0
           }
         },
         "action_schema": {
@@ -13000,6 +13963,7 @@
     {
       "time": 1185,
       "actions": [],
+      "agent_messages": [],
       "active_disruptions": [],
       "reward": {
         "delay_score": 0.0,
@@ -13020,9 +13984,9 @@
         "stranded_passengers": 0,
         "avg_satisfaction": 100.0,
         "airline_cash": {
-          "SI": 3000000,
-          "BA": 3000000,
-          "AN": 2500000
+          "SI": -3961500.0,
+          "BA": -2285000.0,
+          "AN": -2865500.0
         }
       },
       "observation": {
@@ -13155,9 +14119,9 @@
           "stranded_passengers": 0,
           "avg_satisfaction": 100.0,
           "airline_cash": {
-            "SI": 3000000,
-            "BA": 3000000,
-            "AN": 2500000
+            "SI": -3961500.0,
+            "BA": -2285000.0,
+            "AN": -2865500.0
           }
         },
         "action_schema": {
@@ -13186,6 +14150,7 @@
     {
       "time": 1200,
       "actions": [],
+      "agent_messages": [],
       "active_disruptions": [],
       "reward": {
         "delay_score": 47.2,
@@ -13206,9 +14171,9 @@
         "stranded_passengers": 0,
         "avg_satisfaction": 100.0,
         "airline_cash": {
-          "SI": 3000000,
-          "BA": 3000000,
-          "AN": 2500000
+          "SI": -3961500.0,
+          "BA": -2285000.0,
+          "AN": -2865500.0
         }
       },
       "observation": {
@@ -13341,9 +14306,9 @@
           "stranded_passengers": 0,
           "avg_satisfaction": 100.0,
           "airline_cash": {
-            "SI": 3000000,
-            "BA": 3000000,
-            "AN": 2500000
+            "SI": -3961500.0,
+            "BA": -2285000.0,
+            "AN": -2865500.0
           }
         },
         "action_schema": {
@@ -13372,6 +14337,7 @@
     {
       "time": 1215,
       "actions": [],
+      "agent_messages": [],
       "active_disruptions": [],
       "reward": {
         "delay_score": 23.8,
@@ -13392,9 +14358,9 @@
         "stranded_passengers": 0,
         "avg_satisfaction": 100.0,
         "airline_cash": {
-          "SI": 3000000,
-          "BA": 3000000,
-          "AN": 2500000
+          "SI": -3961500.0,
+          "BA": -2285000.0,
+          "AN": -2865500.0
         }
       },
       "observation": {
@@ -13527,9 +14493,9 @@
           "stranded_passengers": 0,
           "avg_satisfaction": 100.0,
           "airline_cash": {
-            "SI": 3000000,
-            "BA": 3000000,
-            "AN": 2500000
+            "SI": -3961500.0,
+            "BA": -2285000.0,
+            "AN": -2865500.0
           }
         },
         "action_schema": {
@@ -13558,15 +14524,16 @@
     {
       "time": 1230,
       "actions": [],
+      "agent_messages": [],
       "active_disruptions": [],
       "reward": {
         "delay_score": 11.65,
         "safety_score": 50.0,
         "passenger_score": 57.9,
-        "money_score": 42.5,
+        "money_score": -45.56,
         "fairness_score": 0.0,
         "action_validity_score": 0.0,
-        "total": 162.05
+        "total": 73.99
       },
       "metrics": {
         "flights_total": 96,
@@ -13578,9 +14545,9 @@
         "stranded_passengers": 0,
         "avg_satisfaction": 100.0,
         "airline_cash": {
-          "SI": 3000000,
-          "BA": 3000000,
-          "AN": 2500000
+          "SI": -3961500.0,
+          "BA": -2285000.0,
+          "AN": -2865500.0
         }
       },
       "observation": {
@@ -13713,9 +14680,9 @@
           "stranded_passengers": 0,
           "avg_satisfaction": 100.0,
           "airline_cash": {
-            "SI": 3000000,
-            "BA": 3000000,
-            "AN": 2500000
+            "SI": -3961500.0,
+            "BA": -2285000.0,
+            "AN": -2865500.0
           }
         },
         "action_schema": {

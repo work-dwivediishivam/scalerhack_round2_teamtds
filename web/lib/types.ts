@@ -52,6 +52,7 @@ export type Metrics = {
 export type Frame = {
   time: number;
   actions: Array<Record<string, string | number>>;
+  agent_messages: Array<{ from: string; to: string; type: string; message: string }>;
   active_disruptions: Array<{ disruption_id: string; kind: string; target: string; message: string }>;
   reward: Reward;
   metrics: Metrics;
@@ -69,6 +70,13 @@ export type Trace = {
   stage: number;
   seed: number;
   summary: Metrics;
+  total_reward: number;
   frames: Frame[];
 };
 
+export type TraceManifestRow = Metrics & {
+  trace: string;
+  policy: string;
+  stage: number;
+  total_reward: number;
+};

@@ -3,6 +3,7 @@ from __future__ import annotations
 import random
 from typing import Any, Dict, List, Protocol
 
+from runway_zero.qlearning import TrainedRLPolicy
 from runway_zero.simulator import RunwayZeroEnv
 
 
@@ -129,6 +130,7 @@ POLICIES = {
     "random": RandomPolicy,
     "fifo": FifoPolicy,
     "recovery_heuristic": RecoveryPolicy,
+    "trained_rl": TrainedRLPolicy,
 }
 
 
@@ -148,4 +150,3 @@ def rollout(policy: Policy, stage: int, seed: int) -> Dict[str, Any]:
         "metrics": metrics,
         "history": env.history,
     }
-

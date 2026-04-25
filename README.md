@@ -124,14 +124,15 @@ Notebook path:
 - `notebooks/00_environment_smoke_test.ipynb`
 - `notebooks/01_baseline_heuristics.ipynb`
 - `notebooks/02_stage1_grpo_operations.ipynb`
+- `scripts/train_rl_controller.py`
 
 The GRPO notebook is a minimal Hugging Face TRL scaffold. It serializes Runway
 Zero observations into prompts, parses model JSON actions, executes those actions
 in the environment, and uses the returned environment reward as the training
 signal.
 
-Full LLM RL fine-tuning should be run during the hackathon compute window. The
-environment, rewards, baselines, and replay system are runnable locally now.
+The local RL controller trains saved policies for all three stages now. Full LLM
+RL fine-tuning should be run during the hackathon compute window.
 
 ## Docs
 

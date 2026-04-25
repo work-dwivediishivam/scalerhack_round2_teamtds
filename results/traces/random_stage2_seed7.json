@@ -1,24 +1,24 @@
 {
   "title": "Runway Zero Demo Replay",
-  "policy": "fifo",
+  "policy": "random",
   "stage": 2,
   "seed": 7,
   "summary": {
     "flights_total": 96,
-    "flights_arrived": 96,
-    "flights_cancelled": 0,
-    "flights_active": 0,
-    "total_dep_delay": 15,
-    "total_arr_delay": 780,
-    "stranded_passengers": 0,
-    "avg_satisfaction": 100.0,
+    "flights_arrived": 67,
+    "flights_cancelled": 28,
+    "flights_active": 1,
+    "total_dep_delay": 915,
+    "total_arr_delay": 1430,
+    "stranded_passengers": 3431,
+    "avg_satisfaction": 78.96,
     "airline_cash": {
       "SI": -3961500.0,
       "BA": -2285000.0,
       "AN": -2865500.0
     }
   },
-  "total_reward": 3525.21,
+  "total_reward": -7143.605,
   "frames": [
     {
       "time": 375,
@@ -44,9 +44,9 @@
         "stranded_passengers": 0,
         "avg_satisfaction": 100.0,
         "airline_cash": {
-          "SI": -3961500.0,
-          "BA": -2285000.0,
-          "AN": -2865500.0
+          "SI": 228000.0,
+          "BA": 168500.0,
+          "AN": 2500000
         }
       },
       "observation": {
@@ -179,9 +179,9 @@
           "stranded_passengers": 0,
           "avg_satisfaction": 100.0,
           "airline_cash": {
-            "SI": -3961500.0,
-            "BA": -2285000.0,
-            "AN": -2865500.0
+            "SI": 228000.0,
+            "BA": 168500.0,
+            "AN": 2500000
           }
         },
         "action_schema": {
@@ -231,9 +231,9 @@
         "stranded_passengers": 0,
         "avg_satisfaction": 100.0,
         "airline_cash": {
-          "SI": -3961500.0,
-          "BA": -2285000.0,
-          "AN": -2865500.0
+          "SI": 228000.0,
+          "BA": 168500.0,
+          "AN": 2500000
         }
       },
       "observation": {
@@ -409,9 +409,9 @@
           "stranded_passengers": 0,
           "avg_satisfaction": 100.0,
           "airline_cash": {
-            "SI": -3961500.0,
-            "BA": -2285000.0,
-            "AN": -2865500.0
+            "SI": 228000.0,
+            "BA": 168500.0,
+            "AN": 2500000
           }
         },
         "action_schema": {
@@ -441,12 +441,14 @@
       "time": 405,
       "actions": [
         {
-          "action": "depart",
-          "flight_id": "AN114"
+          "action": "cancel",
+          "flight_id": "AN114",
+          "reason": "random baseline cancellation"
         },
         {
-          "action": "depart",
-          "flight_id": "SI160"
+          "action": "cancel",
+          "flight_id": "SI160",
+          "reason": "random baseline cancellation"
         },
         {
           "action": "depart",
@@ -457,14 +459,14 @@
         {
           "from": "AeroNova",
           "to": "Tower Central",
-          "type": "depart",
-          "message": "Cleared AN114 from BLR to DEL."
+          "type": "cancel",
+          "message": "Cancel AN114; compensation and stranded passenger penalties will apply."
         },
         {
           "from": "SkyIndus",
           "to": "Tower Central",
-          "type": "depart",
-          "message": "Cleared SI160 from CCU to DEL."
+          "type": "cancel",
+          "message": "Cancel SI160; compensation and stranded passenger penalties will apply."
         },
         {
           "from": "Bharat Air",
@@ -475,27 +477,27 @@
       ],
       "active_disruptions": [],
       "reward": {
-        "delay_score": 45.0,
+        "delay_score": -45.0,
         "safety_score": 0.0,
-        "passenger_score": 0.0,
-        "money_score": 0.0,
+        "passenger_score": -234.9,
+        "money_score": -91.35,
         "fairness_score": 0.0,
-        "action_validity_score": 6.0,
-        "total": 51.0
+        "action_validity_score": 2.0,
+        "total": -369.25
       },
       "metrics": {
         "flights_total": 96,
         "flights_arrived": 0,
-        "flights_cancelled": 0,
-        "flights_active": 96,
+        "flights_cancelled": 2,
+        "flights_active": 94,
         "total_dep_delay": 0,
         "total_arr_delay": 0,
-        "stranded_passengers": 0,
-        "avg_satisfaction": 100.0,
+        "stranded_passengers": 261,
+        "avg_satisfaction": 98.5,
         "airline_cash": {
-          "SI": -3961500.0,
-          "BA": -2285000.0,
-          "AN": -2865500.0
+          "SI": -202500.0,
+          "BA": 168500.0,
+          "AN": 2017000.0
         }
       },
       "observation": {
@@ -748,16 +750,16 @@
         "network_summary": {
           "flights_total": 96,
           "flights_arrived": 0,
-          "flights_cancelled": 0,
-          "flights_active": 96,
+          "flights_cancelled": 2,
+          "flights_active": 94,
           "total_dep_delay": 0,
           "total_arr_delay": 0,
-          "stranded_passengers": 0,
-          "avg_satisfaction": 100.0,
+          "stranded_passengers": 261,
+          "avg_satisfaction": 98.5,
           "airline_cash": {
-            "SI": -3961500.0,
-            "BA": -2285000.0,
-            "AN": -2865500.0
+            "SI": -202500.0,
+            "BA": 168500.0,
+            "AN": 2017000.0
           }
         },
         "action_schema": {
@@ -791,12 +793,16 @@
           "flight_id": "SI115"
         },
         {
-          "action": "depart",
-          "flight_id": "AN120"
+          "action": "hold",
+          "flight_id": "AN120",
+          "minutes": 45,
+          "reason": "random baseline hold"
         },
         {
-          "action": "depart",
-          "flight_id": "SI124"
+          "action": "hold",
+          "flight_id": "SI124",
+          "minutes": 30,
+          "reason": "random baseline hold"
         },
         {
           "action": "depart",
@@ -805,18 +811,6 @@
         {
           "action": "depart",
           "flight_id": "AN138"
-        },
-        {
-          "action": "depart",
-          "flight_id": "BA152"
-        },
-        {
-          "action": "depart",
-          "flight_id": "BA164"
-        },
-        {
-          "action": "depart",
-          "flight_id": "AN177"
         }
       ],
       "agent_messages": [
@@ -829,14 +823,14 @@
         {
           "from": "AeroNova",
           "to": "Tower Central",
-          "type": "depart",
-          "message": "Cleared AN120 from BOM to AMD."
+          "type": "hold",
+          "message": "Holding AN120 for 45 minutes: random baseline hold."
         },
         {
           "from": "SkyIndus",
           "to": "Tower Central",
-          "type": "depart",
-          "message": "Cleared SI124 from DEL to BOM."
+          "type": "hold",
+          "message": "Holding SI124 for 30 minutes: random baseline hold."
         },
         {
           "from": "Bharat Air",
@@ -849,49 +843,31 @@
           "to": "Tower Central",
           "type": "depart",
           "message": "Cleared AN138 from AMD to BOM."
-        },
-        {
-          "from": "Bharat Air",
-          "to": "Tower Central",
-          "type": "depart",
-          "message": "Cleared BA152 from HYD to BLR."
-        },
-        {
-          "from": "Bharat Air",
-          "to": "Tower Central",
-          "type": "depart",
-          "message": "Cleared BA164 from HYD to BLR."
-        },
-        {
-          "from": "AeroNova",
-          "to": "Tower Central",
-          "type": "depart",
-          "message": "Cleared AN177 from MAA to DEL."
         }
       ],
       "active_disruptions": [],
       "reward": {
-        "delay_score": 120.0,
+        "delay_score": 18.519999999999996,
         "safety_score": 0.0,
         "passenger_score": 0.0,
         "money_score": 0.0,
         "fairness_score": 0.0,
-        "action_validity_score": 16.0,
-        "total": 136.0
+        "action_validity_score": 6.4,
+        "total": 24.919999999999995
       },
       "metrics": {
         "flights_total": 96,
         "flights_arrived": 0,
-        "flights_cancelled": 0,
-        "flights_active": 96,
-        "total_dep_delay": 15,
+        "flights_cancelled": 2,
+        "flights_active": 94,
+        "total_dep_delay": 90,
         "total_arr_delay": 0,
-        "stranded_passengers": 0,
-        "avg_satisfaction": 100.0,
+        "stranded_passengers": 261,
+        "avg_satisfaction": 98.5,
         "airline_cash": {
-          "SI": -3961500.0,
-          "BA": -2285000.0,
-          "AN": -2865500.0
+          "SI": -202500.0,
+          "BA": 168500.0,
+          "AN": 2017000.0
         }
       },
       "observation": {
@@ -1029,6 +1005,48 @@
             "weather_delay": 0
           },
           {
+            "flight_id": "BA152",
+            "airline": "BA",
+            "origin": "HYD",
+            "destination": "BLR",
+            "scheduled_dep": 405,
+            "scheduled_arr": 480,
+            "delay_minutes": 15,
+            "passengers": 128,
+            "priority": "normal",
+            "aircraft_ready": true,
+            "crew_ready": true,
+            "weather_delay": 0
+          },
+          {
+            "flight_id": "BA164",
+            "airline": "BA",
+            "origin": "HYD",
+            "destination": "BLR",
+            "scheduled_dep": 405,
+            "scheduled_arr": 480,
+            "delay_minutes": 15,
+            "passengers": 71,
+            "priority": "normal",
+            "aircraft_ready": true,
+            "crew_ready": true,
+            "weather_delay": 0
+          },
+          {
+            "flight_id": "AN177",
+            "airline": "AN",
+            "origin": "MAA",
+            "destination": "DEL",
+            "scheduled_dep": 405,
+            "scheduled_arr": 575,
+            "delay_minutes": 15,
+            "passengers": 150,
+            "priority": "normal",
+            "aircraft_ready": true,
+            "crew_ready": true,
+            "weather_delay": 0
+          },
+          {
             "flight_id": "BA182",
             "airline": "BA",
             "origin": "DEL",
@@ -1046,16 +1064,16 @@
         "network_summary": {
           "flights_total": 96,
           "flights_arrived": 0,
-          "flights_cancelled": 0,
-          "flights_active": 96,
-          "total_dep_delay": 15,
+          "flights_cancelled": 2,
+          "flights_active": 94,
+          "total_dep_delay": 90,
           "total_arr_delay": 0,
-          "stranded_passengers": 0,
-          "avg_satisfaction": 100.0,
+          "stranded_passengers": 261,
+          "avg_satisfaction": 98.5,
           "airline_cash": {
-            "SI": -3961500.0,
-            "BA": -2285000.0,
-            "AN": -2865500.0
+            "SI": -202500.0,
+            "BA": 168500.0,
+            "AN": 2017000.0
           }
         },
         "action_schema": {
@@ -1086,11 +1104,28 @@
       "actions": [
         {
           "action": "depart",
-          "flight_id": "BA182"
+          "flight_id": "BA161"
+        },
+        {
+          "action": "hold",
+          "flight_id": "BA152",
+          "minutes": 30,
+          "reason": "random baseline hold"
+        },
+        {
+          "action": "hold",
+          "flight_id": "BA164",
+          "minutes": 45,
+          "reason": "random baseline hold"
+        },
+        {
+          "action": "cancel",
+          "flight_id": "AN177",
+          "reason": "random baseline cancellation"
         },
         {
           "action": "depart",
-          "flight_id": "BA161"
+          "flight_id": "BA182"
         }
       ],
       "agent_messages": [
@@ -1098,38 +1133,56 @@
           "from": "Bharat Air",
           "to": "Tower Central",
           "type": "depart",
-          "message": "Cleared BA182 from DEL to BLR."
+          "message": "Cleared BA161 from BOM to BLR."
+        },
+        {
+          "from": "Bharat Air",
+          "to": "Tower Central",
+          "type": "hold",
+          "message": "Holding BA152 for 30 minutes: random baseline hold."
+        },
+        {
+          "from": "Bharat Air",
+          "to": "Tower Central",
+          "type": "hold",
+          "message": "Holding BA164 for 45 minutes: random baseline hold."
+        },
+        {
+          "from": "AeroNova",
+          "to": "Tower Central",
+          "type": "cancel",
+          "message": "Cancel AN177; compensation and stranded passenger penalties will apply."
         },
         {
           "from": "Bharat Air",
           "to": "Tower Central",
           "type": "depart",
-          "message": "Cleared BA161 from BOM to BLR."
+          "message": "Cleared BA182 from DEL to BLR."
         }
       ],
       "active_disruptions": [],
       "reward": {
-        "delay_score": 29.25,
+        "delay_score": -21.31,
         "safety_score": 0.0,
-        "passenger_score": -4.53,
-        "money_score": -36.0,
+        "passenger_score": -141.8,
+        "money_score": -93.3,
         "fairness_score": 0.0,
-        "action_validity_score": 4.0,
-        "total": -7.280000000000001
+        "action_validity_score": 4.4,
+        "total": -252.01000000000002
       },
       "metrics": {
         "flights_total": 96,
         "flights_arrived": 0,
-        "flights_cancelled": 0,
-        "flights_active": 96,
-        "total_dep_delay": 15,
+        "flights_cancelled": 3,
+        "flights_active": 93,
+        "total_dep_delay": 135,
         "total_arr_delay": 0,
-        "stranded_passengers": 0,
-        "avg_satisfaction": 100.0,
+        "stranded_passengers": 411,
+        "avg_satisfaction": 97.72,
         "airline_cash": {
-          "SI": -3961500.0,
-          "BA": -2285000.0,
-          "AN": -2865500.0
+          "SI": -202500.0,
+          "BA": 168500.0,
+          "AN": 1492000.0
         }
       },
       "observation": {
@@ -1279,21 +1332,35 @@
             "aircraft_ready": true,
             "crew_ready": true,
             "weather_delay": 0
+          },
+          {
+            "flight_id": "SI124",
+            "airline": "SI",
+            "origin": "DEL",
+            "destination": "BOM",
+            "scheduled_dep": 405,
+            "scheduled_arr": 535,
+            "delay_minutes": 30,
+            "passengers": 103,
+            "priority": "normal",
+            "aircraft_ready": true,
+            "crew_ready": true,
+            "weather_delay": 0
           }
         ],
         "network_summary": {
           "flights_total": 96,
           "flights_arrived": 0,
-          "flights_cancelled": 0,
-          "flights_active": 96,
-          "total_dep_delay": 15,
+          "flights_cancelled": 3,
+          "flights_active": 93,
+          "total_dep_delay": 135,
           "total_arr_delay": 0,
-          "stranded_passengers": 0,
-          "avg_satisfaction": 100.0,
+          "stranded_passengers": 411,
+          "avg_satisfaction": 97.72,
           "airline_cash": {
-            "SI": -3961500.0,
-            "BA": -2285000.0,
-            "AN": -2865500.0
+            "SI": -202500.0,
+            "BA": 168500.0,
+            "AN": 1492000.0
           }
         },
         "action_schema": {
@@ -1327,8 +1394,13 @@
           "flight_id": "BA140"
         },
         {
+          "action": "cancel",
+          "flight_id": "AN162",
+          "reason": "random baseline cancellation"
+        },
+        {
           "action": "depart",
-          "flight_id": "AN162"
+          "flight_id": "SI124"
         }
       ],
       "agent_messages": [
@@ -1341,33 +1413,39 @@
         {
           "from": "AeroNova",
           "to": "Tower Central",
+          "type": "cancel",
+          "message": "Cancel AN162; compensation and stranded passenger penalties will apply."
+        },
+        {
+          "from": "SkyIndus",
+          "to": "Tower Central",
           "type": "depart",
-          "message": "Cleared AN162 from BOM to HYD."
+          "message": "Cleared SI124 from DEL to BOM."
         }
       ],
       "active_disruptions": [],
       "reward": {
-        "delay_score": 30.0,
+        "delay_score": -4.199999999999999,
         "safety_score": 0.0,
-        "passenger_score": 0.0,
-        "money_score": 0.0,
+        "passenger_score": -106.035,
+        "money_score": -113.75,
         "fairness_score": 0.0,
         "action_validity_score": 4.0,
-        "total": 34.0
+        "total": -219.985
       },
       "metrics": {
         "flights_total": 96,
         "flights_arrived": 0,
-        "flights_cancelled": 0,
-        "flights_active": 96,
-        "total_dep_delay": 15,
+        "flights_cancelled": 4,
+        "flights_active": 92,
+        "total_dep_delay": 180,
         "total_arr_delay": 0,
-        "stranded_passengers": 0,
-        "avg_satisfaction": 100.0,
+        "stranded_passengers": 520,
+        "avg_satisfaction": 96.95,
         "airline_cash": {
-          "SI": -3961500.0,
-          "BA": -2285000.0,
-          "AN": -2865500.0
+          "SI": -202500.0,
+          "BA": 168500.0,
+          "AN": 1110500.0
         }
       },
       "observation": {
@@ -1545,21 +1623,49 @@
             "aircraft_ready": true,
             "crew_ready": true,
             "weather_delay": 0
+          },
+          {
+            "flight_id": "AN120",
+            "airline": "AN",
+            "origin": "BOM",
+            "destination": "AMD",
+            "scheduled_dep": 405,
+            "scheduled_arr": 480,
+            "delay_minutes": 45,
+            "passengers": 152,
+            "priority": "normal",
+            "aircraft_ready": true,
+            "crew_ready": true,
+            "weather_delay": 0
+          },
+          {
+            "flight_id": "BA152",
+            "airline": "BA",
+            "origin": "HYD",
+            "destination": "BLR",
+            "scheduled_dep": 405,
+            "scheduled_arr": 480,
+            "delay_minutes": 45,
+            "passengers": 128,
+            "priority": "normal",
+            "aircraft_ready": true,
+            "crew_ready": true,
+            "weather_delay": 0
           }
         ],
         "network_summary": {
           "flights_total": 96,
           "flights_arrived": 0,
-          "flights_cancelled": 0,
-          "flights_active": 96,
-          "total_dep_delay": 15,
+          "flights_cancelled": 4,
+          "flights_active": 92,
+          "total_dep_delay": 180,
           "total_arr_delay": 0,
-          "stranded_passengers": 0,
-          "avg_satisfaction": 100.0,
+          "stranded_passengers": 520,
+          "avg_satisfaction": 96.95,
           "airline_cash": {
-            "SI": -3961500.0,
-            "BA": -2285000.0,
-            "AN": -2865500.0
+            "SI": -202500.0,
+            "BA": 168500.0,
+            "AN": 1110500.0
           }
         },
         "action_schema": {
@@ -1589,34 +1695,42 @@
       "time": 465,
       "actions": [
         {
-          "action": "depart",
-          "flight_id": "AN147"
+          "action": "cancel",
+          "flight_id": "AN147",
+          "reason": "random baseline cancellation"
         },
         {
-          "action": "depart",
-          "flight_id": "BA158"
+          "action": "cancel",
+          "flight_id": "BA158",
+          "reason": "random baseline cancellation"
         },
         {
           "action": "depart",
           "flight_id": "BA185"
         },
         {
-          "action": "depart",
-          "flight_id": "AN186"
+          "action": "cancel",
+          "flight_id": "AN186",
+          "reason": "random baseline cancellation"
+        },
+        {
+          "action": "cancel",
+          "flight_id": "AN120",
+          "reason": "random baseline cancellation"
         }
       ],
       "agent_messages": [
         {
           "from": "AeroNova",
           "to": "Tower Central",
-          "type": "depart",
-          "message": "Cleared AN147 from BLR to HYD."
+          "type": "cancel",
+          "message": "Cancel AN147; compensation and stranded passenger penalties will apply."
         },
         {
           "from": "Bharat Air",
           "to": "Tower Central",
-          "type": "depart",
-          "message": "Cleared BA158 from DEL to MAA."
+          "type": "cancel",
+          "message": "Cancel BA158; compensation and stranded passenger penalties will apply."
         },
         {
           "from": "Bharat Air",
@@ -1627,33 +1741,39 @@
         {
           "from": "AeroNova",
           "to": "Tower Central",
-          "type": "depart",
-          "message": "Cleared AN186 from AMD to BOM."
+          "type": "cancel",
+          "message": "Cancel AN186; compensation and stranded passenger penalties will apply."
+        },
+        {
+          "from": "AeroNova",
+          "to": "Tower Central",
+          "type": "cancel",
+          "message": "Cancel AN120; compensation and stranded passenger penalties will apply."
         }
       ],
       "active_disruptions": [],
       "reward": {
-        "delay_score": 60.0,
+        "delay_score": -107.7,
         "safety_score": 0.0,
-        "passenger_score": 0.0,
-        "money_score": 0.0,
+        "passenger_score": -502.295,
+        "money_score": -197.35,
         "fairness_score": 0.0,
-        "action_validity_score": 8.0,
-        "total": 68.0
+        "action_validity_score": 2.0,
+        "total": -805.345
       },
       "metrics": {
         "flights_total": 96,
         "flights_arrived": 0,
-        "flights_cancelled": 0,
-        "flights_active": 96,
-        "total_dep_delay": 15,
+        "flights_cancelled": 8,
+        "flights_active": 88,
+        "total_dep_delay": 165,
         "total_arr_delay": 0,
-        "stranded_passengers": 0,
-        "avg_satisfaction": 100.0,
+        "stranded_passengers": 1077,
+        "avg_satisfaction": 93.94,
         "airline_cash": {
-          "SI": -3961500.0,
-          "BA": -2285000.0,
-          "AN": -2865500.0
+          "SI": -202500.0,
+          "BA": -360000.0,
+          "AN": -310500.0
         }
       },
       "observation": {
@@ -1845,21 +1965,49 @@
             "aircraft_ready": true,
             "crew_ready": true,
             "weather_delay": 0
+          },
+          {
+            "flight_id": "BA152",
+            "airline": "BA",
+            "origin": "HYD",
+            "destination": "BLR",
+            "scheduled_dep": 405,
+            "scheduled_arr": 480,
+            "delay_minutes": 60,
+            "passengers": 128,
+            "priority": "normal",
+            "aircraft_ready": true,
+            "crew_ready": true,
+            "weather_delay": 0
+          },
+          {
+            "flight_id": "BA164",
+            "airline": "BA",
+            "origin": "HYD",
+            "destination": "BLR",
+            "scheduled_dep": 405,
+            "scheduled_arr": 480,
+            "delay_minutes": 60,
+            "passengers": 71,
+            "priority": "normal",
+            "aircraft_ready": true,
+            "crew_ready": true,
+            "weather_delay": 0
           }
         ],
         "network_summary": {
           "flights_total": 96,
           "flights_arrived": 0,
-          "flights_cancelled": 0,
-          "flights_active": 96,
-          "total_dep_delay": 15,
+          "flights_cancelled": 8,
+          "flights_active": 88,
+          "total_dep_delay": 165,
           "total_arr_delay": 0,
-          "stranded_passengers": 0,
-          "avg_satisfaction": 100.0,
+          "stranded_passengers": 1077,
+          "avg_satisfaction": 93.94,
           "airline_cash": {
-            "SI": -3961500.0,
-            "BA": -2285000.0,
-            "AN": -2865500.0
+            "SI": -202500.0,
+            "BA": -360000.0,
+            "AN": -310500.0
           }
         },
         "action_schema": {
@@ -1893,8 +2041,9 @@
           "flight_id": "AN105"
         },
         {
-          "action": "depart",
-          "flight_id": "BA128"
+          "action": "cancel",
+          "flight_id": "BA128",
+          "reason": "random baseline cancellation"
         },
         {
           "action": "depart",
@@ -1919,8 +2068,8 @@
         {
           "from": "Bharat Air",
           "to": "Tower Central",
-          "type": "depart",
-          "message": "Cleared BA128 from MAA to BLR."
+          "type": "cancel",
+          "message": "Cancel BA128; compensation and stranded passenger penalties will apply."
         },
         {
           "from": "SkyIndus",
@@ -1943,27 +2092,27 @@
       ],
       "active_disruptions": [],
       "reward": {
-        "delay_score": 75.0,
+        "delay_score": 26.4,
         "safety_score": 0.0,
-        "passenger_score": 0.0,
-        "money_score": 0.0,
+        "passenger_score": -108.09500000000001,
+        "money_score": -44.05,
         "fairness_score": 0.0,
-        "action_validity_score": 10.0,
-        "total": 85.0
+        "action_validity_score": 8.0,
+        "total": -117.74500000000002
       },
       "metrics": {
         "flights_total": 96,
         "flights_arrived": 0,
-        "flights_cancelled": 0,
-        "flights_active": 96,
-        "total_dep_delay": 15,
+        "flights_cancelled": 9,
+        "flights_active": 87,
+        "total_dep_delay": 195,
         "total_arr_delay": 0,
-        "stranded_passengers": 0,
-        "avg_satisfaction": 100.0,
+        "stranded_passengers": 1196,
+        "avg_satisfaction": 93.17,
         "airline_cash": {
-          "SI": -3961500.0,
-          "BA": -2285000.0,
-          "AN": -2865500.0
+          "SI": -202500.0,
+          "BA": -776500.0,
+          "AN": -310500.0
         }
       },
       "observation": {
@@ -2127,21 +2276,49 @@
             "aircraft_ready": true,
             "crew_ready": true,
             "weather_delay": 0
+          },
+          {
+            "flight_id": "BA152",
+            "airline": "BA",
+            "origin": "HYD",
+            "destination": "BLR",
+            "scheduled_dep": 405,
+            "scheduled_arr": 480,
+            "delay_minutes": 75,
+            "passengers": 128,
+            "priority": "normal",
+            "aircraft_ready": true,
+            "crew_ready": true,
+            "weather_delay": 0
+          },
+          {
+            "flight_id": "BA164",
+            "airline": "BA",
+            "origin": "HYD",
+            "destination": "BLR",
+            "scheduled_dep": 405,
+            "scheduled_arr": 480,
+            "delay_minutes": 75,
+            "passengers": 71,
+            "priority": "normal",
+            "aircraft_ready": true,
+            "crew_ready": true,
+            "weather_delay": 0
           }
         ],
         "network_summary": {
           "flights_total": 96,
           "flights_arrived": 0,
-          "flights_cancelled": 0,
-          "flights_active": 96,
-          "total_dep_delay": 15,
+          "flights_cancelled": 9,
+          "flights_active": 87,
+          "total_dep_delay": 195,
           "total_arr_delay": 0,
-          "stranded_passengers": 0,
-          "avg_satisfaction": 100.0,
+          "stranded_passengers": 1196,
+          "avg_satisfaction": 93.17,
           "airline_cash": {
-            "SI": -3961500.0,
-            "BA": -2285000.0,
-            "AN": -2865500.0
+            "SI": -202500.0,
+            "BA": -776500.0,
+            "AN": -310500.0
           }
         },
         "action_schema": {
@@ -2181,6 +2358,14 @@
         {
           "action": "depart",
           "flight_id": "SI142"
+        },
+        {
+          "action": "depart",
+          "flight_id": "BA152"
+        },
+        {
+          "action": "depart",
+          "flight_id": "BA164"
         }
       ],
       "agent_messages": [
@@ -2207,6 +2392,18 @@
           "to": "Tower Central",
           "type": "depart",
           "message": "Cleared SI142 from BOM to DEL."
+        },
+        {
+          "from": "Bharat Air",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared BA152 from HYD to BLR."
+        },
+        {
+          "from": "Bharat Air",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared BA164 from HYD to BLR."
         }
       ],
       "active_disruptions": [
@@ -2223,27 +2420,27 @@
         }
       ],
       "reward": {
-        "delay_score": 104.6,
+        "delay_score": 91.1,
         "safety_score": 0.0,
-        "passenger_score": 39.8,
-        "money_score": 0.0,
+        "passenger_score": -14.05,
+        "money_score": -360.0,
         "fairness_score": 0.0,
-        "action_validity_score": 7.0,
-        "total": 151.39999999999998
+        "action_validity_score": 11.0,
+        "total": -271.95
       },
       "metrics": {
         "flights_total": 96,
-        "flights_arrived": 5,
-        "flights_cancelled": 0,
-        "flights_active": 91,
-        "total_dep_delay": 15,
+        "flights_arrived": 2,
+        "flights_cancelled": 9,
+        "flights_active": 85,
+        "total_dep_delay": 195,
         "total_arr_delay": 10,
-        "stranded_passengers": 0,
-        "avg_satisfaction": 100.0,
+        "stranded_passengers": 1196,
+        "avg_satisfaction": 93.17,
         "airline_cash": {
-          "SI": -3961500.0,
-          "BA": -2285000.0,
-          "AN": -2865500.0
+          "SI": -202500.0,
+          "BA": -776500.0,
+          "AN": -310500.0
         }
       },
       "observation": {
@@ -2395,17 +2592,17 @@
         ],
         "network_summary": {
           "flights_total": 96,
-          "flights_arrived": 5,
-          "flights_cancelled": 0,
-          "flights_active": 91,
-          "total_dep_delay": 15,
+          "flights_arrived": 2,
+          "flights_cancelled": 9,
+          "flights_active": 85,
+          "total_dep_delay": 195,
           "total_arr_delay": 10,
-          "stranded_passengers": 0,
-          "avg_satisfaction": 100.0,
+          "stranded_passengers": 1196,
+          "avg_satisfaction": 93.17,
           "airline_cash": {
-            "SI": -3961500.0,
-            "BA": -2285000.0,
-            "AN": -2865500.0
+            "SI": -202500.0,
+            "BA": -776500.0,
+            "AN": -310500.0
           }
         },
         "action_schema": {
@@ -2435,8 +2632,10 @@
       "time": 510,
       "actions": [
         {
-          "action": "depart",
-          "flight_id": "SI154"
+          "action": "hold",
+          "flight_id": "SI154",
+          "minutes": 30,
+          "reason": "random baseline hold"
         }
       ],
       "agent_messages": [
@@ -2449,8 +2648,8 @@
         {
           "from": "SkyIndus",
           "to": "Tower Central",
-          "type": "depart",
-          "message": "Cleared SI154 from DEL to BLR."
+          "type": "hold",
+          "message": "Holding SI154 for 30 minutes: random baseline hold."
         }
       ],
       "active_disruptions": [
@@ -2467,27 +2666,27 @@
         }
       ],
       "reward": {
-        "delay_score": 27.0,
+        "delay_score": 5.6,
         "safety_score": 0.0,
         "passenger_score": 8.0,
         "money_score": 0.0,
         "fairness_score": 0.0,
-        "action_validity_score": 2.0,
-        "total": 37.0
+        "action_validity_score": 0.2,
+        "total": 13.799999999999999
       },
       "metrics": {
         "flights_total": 96,
-        "flights_arrived": 6,
-        "flights_cancelled": 0,
-        "flights_active": 90,
-        "total_dep_delay": 15,
+        "flights_arrived": 3,
+        "flights_cancelled": 9,
+        "flights_active": 84,
+        "total_dep_delay": 210,
         "total_arr_delay": 10,
-        "stranded_passengers": 0,
-        "avg_satisfaction": 100.0,
+        "stranded_passengers": 1196,
+        "avg_satisfaction": 93.17,
         "airline_cash": {
-          "SI": -3961500.0,
-          "BA": -2285000.0,
-          "AN": -2865500.0
+          "SI": -202500.0,
+          "BA": -776500.0,
+          "AN": -310500.0
         }
       },
       "observation": {
@@ -2667,17 +2866,17 @@
         ],
         "network_summary": {
           "flights_total": 96,
-          "flights_arrived": 6,
-          "flights_cancelled": 0,
-          "flights_active": 90,
-          "total_dep_delay": 15,
+          "flights_arrived": 3,
+          "flights_cancelled": 9,
+          "flights_active": 84,
+          "total_dep_delay": 210,
           "total_arr_delay": 10,
-          "stranded_passengers": 0,
-          "avg_satisfaction": 100.0,
+          "stranded_passengers": 1196,
+          "avg_satisfaction": 93.17,
           "airline_cash": {
-            "SI": -3961500.0,
-            "BA": -2285000.0,
-            "AN": -2865500.0
+            "SI": -202500.0,
+            "BA": -776500.0,
+            "AN": -310500.0
           }
         },
         "action_schema": {
@@ -2707,16 +2906,19 @@
       "time": 525,
       "actions": [
         {
-          "action": "depart",
-          "flight_id": "SI133"
+          "action": "hold",
+          "flight_id": "SI133",
+          "minutes": 45,
+          "reason": "random baseline hold"
         },
         {
           "action": "depart",
           "flight_id": "SI136"
         },
         {
-          "action": "depart",
-          "flight_id": "SI169"
+          "action": "cancel",
+          "flight_id": "SI169",
+          "reason": "random baseline cancellation"
         }
       ],
       "agent_messages": [
@@ -2729,8 +2931,8 @@
         {
           "from": "SkyIndus",
           "to": "Tower Central",
-          "type": "depart",
-          "message": "Cleared SI133 from BOM to AMD."
+          "type": "hold",
+          "message": "Holding SI133 for 45 minutes: random baseline hold."
         },
         {
           "from": "SkyIndus",
@@ -2741,8 +2943,8 @@
         {
           "from": "SkyIndus",
           "to": "Tower Central",
-          "type": "depart",
-          "message": "Cleared SI169 from BOM to DEL."
+          "type": "cancel",
+          "message": "Cancel SI169; compensation and stranded passenger penalties will apply."
         }
       ],
       "active_disruptions": [
@@ -2759,27 +2961,27 @@
         }
       ],
       "reward": {
-        "delay_score": 69.0,
+        "delay_score": -9.809999999999999,
         "safety_score": 0.0,
-        "passenger_score": 16.0,
-        "money_score": 0.0,
+        "passenger_score": -119.4,
+        "money_score": -53.7,
         "fairness_score": 0.0,
-        "action_validity_score": 6.0,
-        "total": 91.0
+        "action_validity_score": 2.2,
+        "total": -180.71000000000004
       },
       "metrics": {
         "flights_total": 96,
-        "flights_arrived": 8,
-        "flights_cancelled": 0,
-        "flights_active": 88,
-        "total_dep_delay": 15,
+        "flights_arrived": 5,
+        "flights_cancelled": 10,
+        "flights_active": 81,
+        "total_dep_delay": 240,
         "total_arr_delay": 10,
-        "stranded_passengers": 0,
-        "avg_satisfaction": 100.0,
+        "stranded_passengers": 1346,
+        "avg_satisfaction": 92.41,
         "airline_cash": {
-          "SI": -3961500.0,
-          "BA": -2285000.0,
-          "AN": -2865500.0
+          "SI": -727500.0,
+          "BA": -776500.0,
+          "AN": -310500.0
         }
       },
       "observation": {
@@ -2927,21 +3129,35 @@
             "aircraft_ready": true,
             "crew_ready": true,
             "weather_delay": 0
+          },
+          {
+            "flight_id": "SI154",
+            "airline": "SI",
+            "origin": "DEL",
+            "destination": "BLR",
+            "scheduled_dep": 495,
+            "scheduled_arr": 655,
+            "delay_minutes": 30,
+            "passengers": 80,
+            "priority": "normal",
+            "aircraft_ready": true,
+            "crew_ready": true,
+            "weather_delay": 30
           }
         ],
         "network_summary": {
           "flights_total": 96,
-          "flights_arrived": 8,
-          "flights_cancelled": 0,
-          "flights_active": 88,
-          "total_dep_delay": 15,
+          "flights_arrived": 5,
+          "flights_cancelled": 10,
+          "flights_active": 81,
+          "total_dep_delay": 240,
           "total_arr_delay": 10,
-          "stranded_passengers": 0,
-          "avg_satisfaction": 100.0,
+          "stranded_passengers": 1346,
+          "avg_satisfaction": 92.41,
           "airline_cash": {
-            "SI": -3961500.0,
-            "BA": -2285000.0,
-            "AN": -2865500.0
+            "SI": -727500.0,
+            "BA": -776500.0,
+            "AN": -310500.0
           }
         },
         "action_schema": {
@@ -2973,6 +3189,12 @@
         {
           "action": "depart",
           "flight_id": "AN156"
+        },
+        {
+          "action": "hold",
+          "flight_id": "SI154",
+          "minutes": 30,
+          "reason": "random baseline hold"
         }
       ],
       "agent_messages": [
@@ -2987,6 +3209,12 @@
           "to": "Tower Central",
           "type": "depart",
           "message": "Cleared AN156 from MAA to DEL."
+        },
+        {
+          "from": "SkyIndus",
+          "to": "Tower Central",
+          "type": "hold",
+          "message": "Holding SI154 for 30 minutes: random baseline hold."
         }
       ],
       "active_disruptions": [
@@ -3003,27 +3231,27 @@
         }
       ],
       "reward": {
-        "delay_score": 74.6,
+        "delay_score": 19.25,
         "safety_score": 0.0,
-        "passenger_score": 39.8,
-        "money_score": 0.0,
+        "passenger_score": 6.835,
+        "money_score": -2.4,
         "fairness_score": 0.0,
-        "action_validity_score": 2.0,
-        "total": 116.39999999999999
+        "action_validity_score": 2.2,
+        "total": 25.885
       },
       "metrics": {
         "flights_total": 96,
-        "flights_arrived": 13,
-        "flights_cancelled": 0,
-        "flights_active": 83,
-        "total_dep_delay": 15,
-        "total_arr_delay": 20,
-        "stranded_passengers": 0,
-        "avg_satisfaction": 100.0,
+        "flights_arrived": 6,
+        "flights_cancelled": 10,
+        "flights_active": 80,
+        "total_dep_delay": 270,
+        "total_arr_delay": 10,
+        "stranded_passengers": 1346,
+        "avg_satisfaction": 92.4,
         "airline_cash": {
-          "SI": -3961500.0,
-          "BA": -2285000.0,
-          "AN": -2865500.0
+          "SI": -727500.0,
+          "BA": -776500.0,
+          "AN": -310500.0
         }
       },
       "observation": {
@@ -3175,17 +3403,17 @@
         ],
         "network_summary": {
           "flights_total": 96,
-          "flights_arrived": 13,
-          "flights_cancelled": 0,
-          "flights_active": 83,
-          "total_dep_delay": 15,
-          "total_arr_delay": 20,
-          "stranded_passengers": 0,
-          "avg_satisfaction": 100.0,
+          "flights_arrived": 6,
+          "flights_cancelled": 10,
+          "flights_active": 80,
+          "total_dep_delay": 270,
+          "total_arr_delay": 10,
+          "stranded_passengers": 1346,
+          "avg_satisfaction": 92.4,
           "airline_cash": {
-            "SI": -3961500.0,
-            "BA": -2285000.0,
-            "AN": -2865500.0
+            "SI": -727500.0,
+            "BA": -776500.0,
+            "AN": -310500.0
           }
         },
         "action_schema": {
@@ -3215,8 +3443,9 @@
       "time": 555,
       "actions": [
         {
-          "action": "depart",
-          "flight_id": "AN150"
+          "action": "cancel",
+          "flight_id": "AN150",
+          "reason": "random baseline cancellation"
         }
       ],
       "agent_messages": [
@@ -3229,8 +3458,8 @@
         {
           "from": "AeroNova",
           "to": "Tower Central",
-          "type": "depart",
-          "message": "Cleared AN150 from DEL to CCU."
+          "type": "cancel",
+          "message": "Cancel AN150; compensation and stranded passenger penalties will apply."
         }
       ],
       "active_disruptions": [
@@ -3247,27 +3476,27 @@
         }
       ],
       "reward": {
-        "delay_score": 50.4,
+        "delay_score": -20.25,
         "safety_score": 0.0,
-        "passenger_score": 23.7,
-        "money_score": 0.0,
+        "passenger_score": -74.165,
+        "money_score": -33.9,
         "fairness_score": 0.0,
-        "action_validity_score": 2.0,
-        "total": 76.1
+        "action_validity_score": 0.0,
+        "total": -128.315
       },
       "metrics": {
         "flights_total": 96,
-        "flights_arrived": 16,
-        "flights_cancelled": 0,
-        "flights_active": 80,
-        "total_dep_delay": 15,
-        "total_arr_delay": 35,
-        "stranded_passengers": 0,
-        "avg_satisfaction": 100.0,
+        "flights_arrived": 7,
+        "flights_cancelled": 11,
+        "flights_active": 78,
+        "total_dep_delay": 300,
+        "total_arr_delay": 10,
+        "stranded_passengers": 1436,
+        "avg_satisfaction": 91.63,
         "airline_cash": {
-          "SI": -3961500.0,
-          "BA": -2285000.0,
-          "AN": -2865500.0
+          "SI": -727500.0,
+          "BA": -776500.0,
+          "AN": -625500.0
         }
       },
       "observation": {
@@ -3443,21 +3672,49 @@
             "aircraft_ready": true,
             "crew_ready": true,
             "weather_delay": 0
+          },
+          {
+            "flight_id": "SI133",
+            "airline": "SI",
+            "origin": "BOM",
+            "destination": "AMD",
+            "scheduled_dep": 510,
+            "scheduled_arr": 585,
+            "delay_minutes": 45,
+            "passengers": 153,
+            "priority": "normal",
+            "aircraft_ready": true,
+            "crew_ready": true,
+            "weather_delay": 0
+          },
+          {
+            "flight_id": "SI154",
+            "airline": "SI",
+            "origin": "DEL",
+            "destination": "BLR",
+            "scheduled_dep": 495,
+            "scheduled_arr": 655,
+            "delay_minutes": 60,
+            "passengers": 80,
+            "priority": "normal",
+            "aircraft_ready": true,
+            "crew_ready": true,
+            "weather_delay": 30
           }
         ],
         "network_summary": {
           "flights_total": 96,
-          "flights_arrived": 16,
-          "flights_cancelled": 0,
-          "flights_active": 80,
-          "total_dep_delay": 15,
-          "total_arr_delay": 35,
-          "stranded_passengers": 0,
-          "avg_satisfaction": 100.0,
+          "flights_arrived": 7,
+          "flights_cancelled": 11,
+          "flights_active": 78,
+          "total_dep_delay": 300,
+          "total_arr_delay": 10,
+          "stranded_passengers": 1436,
+          "avg_satisfaction": 91.63,
           "airline_cash": {
-            "SI": -3961500.0,
-            "BA": -2285000.0,
-            "AN": -2865500.0
+            "SI": -727500.0,
+            "BA": -776500.0,
+            "AN": -625500.0
           }
         },
         "action_schema": {
@@ -3487,16 +3744,29 @@
       "time": 570,
       "actions": [
         {
-          "action": "depart",
-          "flight_id": "SI139"
+          "action": "cancel",
+          "flight_id": "SI139",
+          "reason": "random baseline cancellation"
         },
         {
           "action": "depart",
           "flight_id": "BA155"
         },
         {
+          "action": "hold",
+          "flight_id": "SI172",
+          "minutes": 45,
+          "reason": "random baseline hold"
+        },
+        {
+          "action": "hold",
+          "flight_id": "SI133",
+          "minutes": 45,
+          "reason": "random baseline hold"
+        },
+        {
           "action": "depart",
-          "flight_id": "SI172"
+          "flight_id": "SI154"
         }
       ],
       "agent_messages": [
@@ -3515,8 +3785,8 @@
         {
           "from": "SkyIndus",
           "to": "Tower Central",
-          "type": "depart",
-          "message": "Cleared SI139 from BOM to BLR."
+          "type": "cancel",
+          "message": "Cancel SI139; compensation and stranded passenger penalties will apply."
         },
         {
           "from": "Bharat Air",
@@ -3527,8 +3797,20 @@
         {
           "from": "SkyIndus",
           "to": "Tower Central",
+          "type": "hold",
+          "message": "Holding SI172 for 45 minutes: random baseline hold."
+        },
+        {
+          "from": "SkyIndus",
+          "to": "Tower Central",
+          "type": "hold",
+          "message": "Holding SI133 for 45 minutes: random baseline hold."
+        },
+        {
+          "from": "SkyIndus",
+          "to": "Tower Central",
           "type": "depart",
-          "message": "Cleared SI172 from CCU to DEL."
+          "message": "Cleared SI154 from DEL to BLR."
         }
       ],
       "active_disruptions": [
@@ -3556,27 +3838,27 @@
         }
       ],
       "reward": {
-        "delay_score": 68.6,
+        "delay_score": -8.15,
         "safety_score": 0.0,
-        "passenger_score": 15.8,
-        "money_score": 0.0,
+        "passenger_score": -123.56499999999998,
+        "money_score": -197.35,
         "fairness_score": 0.0,
-        "action_validity_score": 7.0,
-        "total": 91.39999999999999
+        "action_validity_score": 5.4,
+        "total": -323.66499999999996
       },
       "metrics": {
         "flights_total": 96,
-        "flights_arrived": 18,
-        "flights_cancelled": 0,
-        "flights_active": 78,
-        "total_dep_delay": 15,
-        "total_arr_delay": 45,
-        "stranded_passengers": 0,
-        "avg_satisfaction": 100.0,
+        "flights_arrived": 10,
+        "flights_cancelled": 12,
+        "flights_active": 74,
+        "total_dep_delay": 330,
+        "total_arr_delay": 165,
+        "stranded_passengers": 1585,
+        "avg_satisfaction": 90.87,
         "airline_cash": {
-          "SI": -3961500.0,
-          "BA": -2285000.0,
-          "AN": -2865500.0
+          "SI": -1249000.0,
+          "BA": -776500.0,
+          "AN": -625500.0
         }
       },
       "observation": {
@@ -3724,17 +4006,17 @@
         "pending_decisions": [],
         "network_summary": {
           "flights_total": 96,
-          "flights_arrived": 18,
-          "flights_cancelled": 0,
-          "flights_active": 78,
-          "total_dep_delay": 15,
-          "total_arr_delay": 45,
-          "stranded_passengers": 0,
-          "avg_satisfaction": 100.0,
+          "flights_arrived": 10,
+          "flights_cancelled": 12,
+          "flights_active": 74,
+          "total_dep_delay": 330,
+          "total_arr_delay": 165,
+          "stranded_passengers": 1585,
+          "avg_satisfaction": 90.87,
           "airline_cash": {
-            "SI": -3961500.0,
-            "BA": -2285000.0,
-            "AN": -2865500.0
+            "SI": -1249000.0,
+            "BA": -776500.0,
+            "AN": -625500.0
           }
         },
         "action_schema": {
@@ -3802,27 +4084,27 @@
         }
       ],
       "reward": {
-        "delay_score": 0.0,
+        "delay_score": 8.35,
         "safety_score": 0.0,
-        "passenger_score": 0.0,
-        "money_score": 0.0,
+        "passenger_score": 5.9,
+        "money_score": -2.4,
         "fairness_score": 0.0,
         "action_validity_score": 0.0,
-        "total": 0.0
+        "total": 11.85
       },
       "metrics": {
         "flights_total": 96,
-        "flights_arrived": 18,
-        "flights_cancelled": 0,
-        "flights_active": 78,
-        "total_dep_delay": 15,
-        "total_arr_delay": 45,
-        "stranded_passengers": 0,
-        "avg_satisfaction": 100.0,
+        "flights_arrived": 11,
+        "flights_cancelled": 12,
+        "flights_active": 73,
+        "total_dep_delay": 360,
+        "total_arr_delay": 200,
+        "stranded_passengers": 1585,
+        "avg_satisfaction": 90.86,
         "airline_cash": {
-          "SI": -3961500.0,
-          "BA": -2285000.0,
-          "AN": -2865500.0
+          "SI": -1249000.0,
+          "BA": -776500.0,
+          "AN": -625500.0
         }
       },
       "observation": {
@@ -3970,17 +4252,17 @@
         "pending_decisions": [],
         "network_summary": {
           "flights_total": 96,
-          "flights_arrived": 18,
-          "flights_cancelled": 0,
-          "flights_active": 78,
-          "total_dep_delay": 15,
-          "total_arr_delay": 45,
-          "stranded_passengers": 0,
-          "avg_satisfaction": 100.0,
+          "flights_arrived": 11,
+          "flights_cancelled": 12,
+          "flights_active": 73,
+          "total_dep_delay": 360,
+          "total_arr_delay": 200,
+          "stranded_passengers": 1585,
+          "avg_satisfaction": 90.86,
           "airline_cash": {
-            "SI": -3961500.0,
-            "BA": -2285000.0,
-            "AN": -2865500.0
+            "SI": -1249000.0,
+            "BA": -776500.0,
+            "AN": -625500.0
           }
         },
         "action_schema": {
@@ -4048,27 +4330,27 @@
         }
       ],
       "reward": {
-        "delay_score": 46.8,
+        "delay_score": 20.05,
         "safety_score": 0.0,
-        "passenger_score": 31.4,
-        "money_score": 0.0,
+        "passenger_score": 14.2,
+        "money_score": -2.4,
         "fairness_score": 0.0,
         "action_validity_score": 0.0,
-        "total": 78.19999999999999
+        "total": 31.85
       },
       "metrics": {
         "flights_total": 96,
-        "flights_arrived": 22,
-        "flights_cancelled": 0,
-        "flights_active": 74,
-        "total_dep_delay": 15,
-        "total_arr_delay": 75,
-        "stranded_passengers": 0,
-        "avg_satisfaction": 100.0,
+        "flights_arrived": 13,
+        "flights_cancelled": 12,
+        "flights_active": 71,
+        "total_dep_delay": 390,
+        "total_arr_delay": 220,
+        "stranded_passengers": 1585,
+        "avg_satisfaction": 90.85,
         "airline_cash": {
-          "SI": -3961500.0,
-          "BA": -2285000.0,
-          "AN": -2865500.0
+          "SI": -1249000.0,
+          "BA": -776500.0,
+          "AN": -625500.0
         }
       },
       "observation": {
@@ -4241,21 +4523,49 @@
             "aircraft_ready": true,
             "crew_ready": true,
             "weather_delay": 0
+          },
+          {
+            "flight_id": "SI172",
+            "airline": "SI",
+            "origin": "CCU",
+            "destination": "DEL",
+            "scheduled_dep": 555,
+            "scheduled_arr": 695,
+            "delay_minutes": 45,
+            "passengers": 127,
+            "priority": "normal",
+            "aircraft_ready": true,
+            "crew_ready": true,
+            "weather_delay": 0
+          },
+          {
+            "flight_id": "SI133",
+            "airline": "SI",
+            "origin": "BOM",
+            "destination": "AMD",
+            "scheduled_dep": 510,
+            "scheduled_arr": 585,
+            "delay_minutes": 90,
+            "passengers": 153,
+            "priority": "normal",
+            "aircraft_ready": true,
+            "crew_ready": true,
+            "weather_delay": 0
           }
         ],
         "network_summary": {
           "flights_total": 96,
-          "flights_arrived": 22,
-          "flights_cancelled": 0,
-          "flights_active": 74,
-          "total_dep_delay": 15,
-          "total_arr_delay": 75,
-          "stranded_passengers": 0,
-          "avg_satisfaction": 100.0,
+          "flights_arrived": 13,
+          "flights_cancelled": 12,
+          "flights_active": 71,
+          "total_dep_delay": 390,
+          "total_arr_delay": 220,
+          "stranded_passengers": 1585,
+          "avg_satisfaction": 90.85,
           "airline_cash": {
-            "SI": -3961500.0,
-            "BA": -2285000.0,
-            "AN": -2865500.0
+            "SI": -1249000.0,
+            "BA": -776500.0,
+            "AN": -625500.0
           }
         },
         "action_schema": {
@@ -4289,8 +4599,19 @@
           "flight_id": "AN123"
         },
         {
+          "action": "cancel",
+          "flight_id": "AN126",
+          "reason": "random baseline cancellation"
+        },
+        {
           "action": "depart",
-          "flight_id": "AN126"
+          "flight_id": "SI172"
+        },
+        {
+          "action": "hold",
+          "flight_id": "SI133",
+          "minutes": 30,
+          "reason": "random baseline hold"
         }
       ],
       "agent_messages": [
@@ -4309,8 +4630,20 @@
         {
           "from": "AeroNova",
           "to": "Tower Central",
+          "type": "cancel",
+          "message": "Cancel AN126; compensation and stranded passenger penalties will apply."
+        },
+        {
+          "from": "SkyIndus",
+          "to": "Tower Central",
           "type": "depart",
-          "message": "Cleared AN126 from BLR to DEL."
+          "message": "Cleared SI172 from CCU to DEL."
+        },
+        {
+          "from": "SkyIndus",
+          "to": "Tower Central",
+          "type": "hold",
+          "message": "Holding SI133 for 30 minutes: random baseline hold."
         }
       ],
       "active_disruptions": [
@@ -4327,27 +4660,27 @@
         }
       ],
       "reward": {
-        "delay_score": 53.4,
+        "delay_score": 6.209999999999999,
         "safety_score": 0.0,
-        "passenger_score": 15.7,
-        "money_score": 0.0,
+        "passenger_score": -98.195,
+        "money_score": -148.75,
         "fairness_score": 0.0,
-        "action_validity_score": 4.0,
-        "total": 73.1
+        "action_validity_score": 4.2,
+        "total": -236.53500000000003
       },
       "metrics": {
         "flights_total": 96,
-        "flights_arrived": 24,
-        "flights_cancelled": 0,
-        "flights_active": 72,
-        "total_dep_delay": 15,
-        "total_arr_delay": 90,
-        "stranded_passengers": 0,
-        "avg_satisfaction": 100.0,
+        "flights_arrived": 15,
+        "flights_cancelled": 13,
+        "flights_active": 68,
+        "total_dep_delay": 405,
+        "total_arr_delay": 235,
+        "stranded_passengers": 1698,
+        "avg_satisfaction": 90.09,
         "airline_cash": {
-          "SI": -3961500.0,
-          "BA": -2285000.0,
-          "AN": -2865500.0
+          "SI": -1249000.0,
+          "BA": -776500.0,
+          "AN": -1021000.0
         }
       },
       "observation": {
@@ -4484,17 +4817,17 @@
         "pending_decisions": [],
         "network_summary": {
           "flights_total": 96,
-          "flights_arrived": 24,
-          "flights_cancelled": 0,
-          "flights_active": 72,
-          "total_dep_delay": 15,
-          "total_arr_delay": 90,
-          "stranded_passengers": 0,
-          "avg_satisfaction": 100.0,
+          "flights_arrived": 15,
+          "flights_cancelled": 13,
+          "flights_active": 68,
+          "total_dep_delay": 405,
+          "total_arr_delay": 235,
+          "stranded_passengers": 1698,
+          "avg_satisfaction": 90.09,
           "airline_cash": {
-            "SI": -3961500.0,
-            "BA": -2285000.0,
-            "AN": -2865500.0
+            "SI": -1249000.0,
+            "BA": -776500.0,
+            "AN": -1021000.0
           }
         },
         "action_schema": {
@@ -4562,27 +4895,27 @@
         }
       ],
       "reward": {
-        "delay_score": 11.6,
+        "delay_score": 8.45,
         "safety_score": 0.0,
-        "passenger_score": 7.8,
-        "money_score": 0.0,
+        "passenger_score": 7.035,
+        "money_score": -1.2,
         "fairness_score": 0.0,
         "action_validity_score": 1.0,
-        "total": 20.4
+        "total": 15.285
       },
       "metrics": {
         "flights_total": 96,
-        "flights_arrived": 25,
-        "flights_cancelled": 0,
-        "flights_active": 71,
-        "total_dep_delay": 15,
-        "total_arr_delay": 100,
-        "stranded_passengers": 0,
-        "avg_satisfaction": 100.0,
+        "flights_arrived": 16,
+        "flights_cancelled": 13,
+        "flights_active": 67,
+        "total_dep_delay": 420,
+        "total_arr_delay": 245,
+        "stranded_passengers": 1698,
+        "avg_satisfaction": 90.08,
         "airline_cash": {
-          "SI": -3961500.0,
-          "BA": -2285000.0,
-          "AN": -2865500.0
+          "SI": -1249000.0,
+          "BA": -776500.0,
+          "AN": -1021000.0
         }
       },
       "observation": {
@@ -4769,21 +5102,35 @@
             "aircraft_ready": true,
             "crew_ready": true,
             "weather_delay": 0
+          },
+          {
+            "flight_id": "SI133",
+            "airline": "SI",
+            "origin": "BOM",
+            "destination": "AMD",
+            "scheduled_dep": 510,
+            "scheduled_arr": 585,
+            "delay_minutes": 120,
+            "passengers": 153,
+            "priority": "normal",
+            "aircraft_ready": true,
+            "crew_ready": true,
+            "weather_delay": 0
           }
         ],
         "network_summary": {
           "flights_total": 96,
-          "flights_arrived": 25,
-          "flights_cancelled": 0,
-          "flights_active": 71,
-          "total_dep_delay": 15,
-          "total_arr_delay": 100,
-          "stranded_passengers": 0,
-          "avg_satisfaction": 100.0,
+          "flights_arrived": 16,
+          "flights_cancelled": 13,
+          "flights_active": 67,
+          "total_dep_delay": 420,
+          "total_arr_delay": 245,
+          "stranded_passengers": 1698,
+          "avg_satisfaction": 90.08,
           "airline_cash": {
-            "SI": -3961500.0,
-            "BA": -2285000.0,
-            "AN": -2865500.0
+            "SI": -1249000.0,
+            "BA": -776500.0,
+            "AN": -1021000.0
           }
         },
         "action_schema": {
@@ -4813,16 +5160,25 @@
       "time": 645,
       "actions": [
         {
-          "action": "depart",
-          "flight_id": "BA116"
+          "action": "hold",
+          "flight_id": "BA116",
+          "minutes": 30,
+          "reason": "random baseline hold"
         },
         {
-          "action": "depart",
-          "flight_id": "BA149"
+          "action": "cancel",
+          "flight_id": "BA149",
+          "reason": "random baseline cancellation"
         },
         {
           "action": "depart",
           "flight_id": "SI187"
+        },
+        {
+          "action": "hold",
+          "flight_id": "SI133",
+          "minutes": 45,
+          "reason": "random baseline hold"
         }
       ],
       "agent_messages": [
@@ -4841,20 +5197,26 @@
         {
           "from": "Bharat Air",
           "to": "Tower Central",
-          "type": "depart",
-          "message": "Cleared BA116 from MAA to BLR."
+          "type": "hold",
+          "message": "Holding BA116 for 30 minutes: random baseline hold."
         },
         {
           "from": "Bharat Air",
           "to": "Tower Central",
-          "type": "depart",
-          "message": "Cleared BA149 from BOM to BLR."
+          "type": "cancel",
+          "message": "Cancel BA149; compensation and stranded passenger penalties will apply."
         },
         {
           "from": "SkyIndus",
           "to": "Tower Central",
           "type": "depart",
           "message": "Cleared SI187 from DEL to BLR."
+        },
+        {
+          "from": "SkyIndus",
+          "to": "Tower Central",
+          "type": "hold",
+          "message": "Holding SI133 for 45 minutes: random baseline hold."
         }
       ],
       "active_disruptions": [
@@ -4882,27 +5244,27 @@
         }
       ],
       "reward": {
-        "delay_score": 56.6,
+        "delay_score": -46.24,
         "safety_score": 0.0,
-        "passenger_score": 7.8,
-        "money_score": 0.0,
+        "passenger_score": -88.965,
+        "money_score": -35.5,
         "fairness_score": 0.0,
-        "action_validity_score": 6.0,
-        "total": 70.4
+        "action_validity_score": 2.4000000000000004,
+        "total": -168.305
       },
       "metrics": {
         "flights_total": 96,
-        "flights_arrived": 26,
-        "flights_cancelled": 0,
-        "flights_active": 70,
-        "total_dep_delay": 15,
-        "total_arr_delay": 110,
-        "stranded_passengers": 0,
-        "avg_satisfaction": 100.0,
+        "flights_arrived": 16,
+        "flights_cancelled": 14,
+        "flights_active": 66,
+        "total_dep_delay": 450,
+        "total_arr_delay": 245,
+        "stranded_passengers": 1796,
+        "avg_satisfaction": 89.32,
         "airline_cash": {
-          "SI": -3961500.0,
-          "BA": -2285000.0,
-          "AN": -2865500.0
+          "SI": -1249000.0,
+          "BA": -1119500.0,
+          "AN": -1021000.0
         }
       },
       "observation": {
@@ -5065,17 +5427,17 @@
         ],
         "network_summary": {
           "flights_total": 96,
-          "flights_arrived": 26,
-          "flights_cancelled": 0,
-          "flights_active": 70,
-          "total_dep_delay": 15,
-          "total_arr_delay": 110,
-          "stranded_passengers": 0,
-          "avg_satisfaction": 100.0,
+          "flights_arrived": 16,
+          "flights_cancelled": 14,
+          "flights_active": 66,
+          "total_dep_delay": 450,
+          "total_arr_delay": 245,
+          "stranded_passengers": 1796,
+          "avg_satisfaction": 89.32,
           "airline_cash": {
-            "SI": -3961500.0,
-            "BA": -2285000.0,
-            "AN": -2865500.0
+            "SI": -1249000.0,
+            "BA": -1119500.0,
+            "AN": -1021000.0
           }
         },
         "action_schema": {
@@ -5105,8 +5467,10 @@
       "time": 660,
       "actions": [
         {
-          "action": "depart",
-          "flight_id": "SI175"
+          "action": "hold",
+          "flight_id": "SI175",
+          "minutes": 30,
+          "reason": "random baseline hold"
         }
       ],
       "agent_messages": [
@@ -5119,8 +5483,8 @@
         {
           "from": "SkyIndus",
           "to": "Tower Central",
-          "type": "depart",
-          "message": "Cleared SI175 from DEL to CCU."
+          "type": "hold",
+          "message": "Holding SI175 for 30 minutes: random baseline hold."
         }
       ],
       "active_disruptions": [
@@ -5137,27 +5501,27 @@
         }
       ],
       "reward": {
-        "delay_score": 25.6,
+        "delay_score": -1.5000000000000009,
         "safety_score": 0.0,
-        "passenger_score": 7.3,
-        "money_score": 0.0,
+        "passenger_score": 2.755,
+        "money_score": -2.4,
         "fairness_score": 0.0,
-        "action_validity_score": 2.0,
-        "total": 34.9
+        "action_validity_score": 0.2,
+        "total": -0.945000000000001
       },
       "metrics": {
         "flights_total": 96,
-        "flights_arrived": 27,
-        "flights_cancelled": 0,
-        "flights_active": 69,
-        "total_dep_delay": 15,
-        "total_arr_delay": 145,
-        "stranded_passengers": 0,
-        "avg_satisfaction": 100.0,
+        "flights_arrived": 17,
+        "flights_cancelled": 14,
+        "flights_active": 65,
+        "total_dep_delay": 495,
+        "total_arr_delay": 280,
+        "stranded_passengers": 1812,
+        "avg_satisfaction": 89.31,
         "airline_cash": {
-          "SI": -3961500.0,
-          "BA": -2285000.0,
-          "AN": -2865500.0
+          "SI": -1249000.0,
+          "BA": -1119500.0,
+          "AN": -1021000.0
         }
       },
       "observation": {
@@ -5361,21 +5725,35 @@
             "aircraft_ready": true,
             "crew_ready": true,
             "weather_delay": 0
+          },
+          {
+            "flight_id": "BA116",
+            "airline": "BA",
+            "origin": "MAA",
+            "destination": "BLR",
+            "scheduled_dep": 630,
+            "scheduled_arr": 685,
+            "delay_minutes": 30,
+            "passengers": 116,
+            "priority": "normal",
+            "aircraft_ready": true,
+            "crew_ready": true,
+            "weather_delay": 0
           }
         ],
         "network_summary": {
           "flights_total": 96,
-          "flights_arrived": 27,
-          "flights_cancelled": 0,
-          "flights_active": 69,
-          "total_dep_delay": 15,
-          "total_arr_delay": 145,
-          "stranded_passengers": 0,
-          "avg_satisfaction": 100.0,
+          "flights_arrived": 17,
+          "flights_cancelled": 14,
+          "flights_active": 65,
+          "total_dep_delay": 495,
+          "total_arr_delay": 280,
+          "stranded_passengers": 1812,
+          "avg_satisfaction": 89.31,
           "airline_cash": {
-            "SI": -3961500.0,
-            "BA": -2285000.0,
-            "AN": -2865500.0
+            "SI": -1249000.0,
+            "BA": -1119500.0,
+            "AN": -1021000.0
           }
         },
         "action_schema": {
@@ -5405,20 +5783,27 @@
       "time": 675,
       "actions": [
         {
-          "action": "depart",
-          "flight_id": "AN102"
+          "action": "hold",
+          "flight_id": "AN102",
+          "minutes": 30,
+          "reason": "random baseline hold"
         },
         {
-          "action": "depart",
-          "flight_id": "BA104"
+          "action": "hold",
+          "flight_id": "BA104",
+          "minutes": 15,
+          "reason": "random baseline hold"
         },
         {
-          "action": "depart",
-          "flight_id": "SI109"
+          "action": "cancel",
+          "flight_id": "SI109",
+          "reason": "random baseline cancellation"
         },
         {
-          "action": "depart",
-          "flight_id": "SI163"
+          "action": "hold",
+          "flight_id": "SI163",
+          "minutes": 30,
+          "reason": "random baseline hold"
         },
         {
           "action": "depart",
@@ -5435,26 +5820,26 @@
         {
           "from": "AeroNova",
           "to": "Tower Central",
-          "type": "depart",
-          "message": "Cleared AN102 from CCU to DEL."
+          "type": "hold",
+          "message": "Holding AN102 for 30 minutes: random baseline hold."
         },
         {
           "from": "Bharat Air",
           "to": "Tower Central",
-          "type": "depart",
-          "message": "Cleared BA104 from DEL to HYD."
+          "type": "hold",
+          "message": "Holding BA104 for 15 minutes: random baseline hold."
         },
         {
           "from": "SkyIndus",
           "to": "Tower Central",
-          "type": "depart",
-          "message": "Cleared SI109 from BOM to HYD."
+          "type": "cancel",
+          "message": "Cancel SI109; compensation and stranded passenger penalties will apply."
         },
         {
           "from": "SkyIndus",
           "to": "Tower Central",
-          "type": "depart",
-          "message": "Cleared SI163 from DEL to HYD."
+          "type": "hold",
+          "message": "Holding SI163 for 30 minutes: random baseline hold."
         },
         {
           "from": "SkyIndus",
@@ -5477,27 +5862,27 @@
         }
       ],
       "reward": {
-        "delay_score": 97.4,
+        "delay_score": -39.370000000000005,
         "safety_score": 0.0,
-        "passenger_score": 15.2,
-        "money_score": 0.0,
+        "passenger_score": -108.52,
+        "money_score": -46.65,
         "fairness_score": 0.0,
-        "action_validity_score": 10.0,
-        "total": 122.60000000000001
+        "action_validity_score": 2.6,
+        "total": -191.94
       },
       "metrics": {
         "flights_total": 96,
-        "flights_arrived": 29,
-        "flights_cancelled": 0,
-        "flights_active": 67,
-        "total_dep_delay": 15,
-        "total_arr_delay": 185,
-        "stranded_passengers": 0,
-        "avg_satisfaction": 100.0,
+        "flights_arrived": 18,
+        "flights_cancelled": 15,
+        "flights_active": 63,
+        "total_dep_delay": 585,
+        "total_arr_delay": 320,
+        "stranded_passengers": 1935,
+        "avg_satisfaction": 88.53,
         "airline_cash": {
-          "SI": -3961500.0,
-          "BA": -2285000.0,
-          "AN": -2865500.0
+          "SI": -1679500.0,
+          "BA": -1119500.0,
+          "AN": -1021000.0
         }
       },
       "observation": {
@@ -5659,21 +6044,77 @@
             "aircraft_ready": true,
             "crew_ready": true,
             "weather_delay": 0
+          },
+          {
+            "flight_id": "BA104",
+            "airline": "BA",
+            "origin": "DEL",
+            "destination": "HYD",
+            "scheduled_dep": 660,
+            "scheduled_arr": 795,
+            "delay_minutes": 15,
+            "passengers": 101,
+            "priority": "normal",
+            "aircraft_ready": true,
+            "crew_ready": true,
+            "weather_delay": 0
+          },
+          {
+            "flight_id": "SI175",
+            "airline": "SI",
+            "origin": "DEL",
+            "destination": "CCU",
+            "scheduled_dep": 645,
+            "scheduled_arr": 785,
+            "delay_minutes": 30,
+            "passengers": 95,
+            "priority": "normal",
+            "aircraft_ready": true,
+            "crew_ready": true,
+            "weather_delay": 0
+          },
+          {
+            "flight_id": "BA116",
+            "airline": "BA",
+            "origin": "MAA",
+            "destination": "BLR",
+            "scheduled_dep": 630,
+            "scheduled_arr": 685,
+            "delay_minutes": 45,
+            "passengers": 116,
+            "priority": "normal",
+            "aircraft_ready": true,
+            "crew_ready": true,
+            "weather_delay": 0
+          },
+          {
+            "flight_id": "SI133",
+            "airline": "SI",
+            "origin": "BOM",
+            "destination": "AMD",
+            "scheduled_dep": 510,
+            "scheduled_arr": 585,
+            "delay_minutes": 165,
+            "passengers": 153,
+            "priority": "normal",
+            "aircraft_ready": true,
+            "crew_ready": true,
+            "weather_delay": 0
           }
         ],
         "network_summary": {
           "flights_total": 96,
-          "flights_arrived": 29,
-          "flights_cancelled": 0,
-          "flights_active": 67,
-          "total_dep_delay": 15,
-          "total_arr_delay": 185,
-          "stranded_passengers": 0,
-          "avg_satisfaction": 100.0,
+          "flights_arrived": 18,
+          "flights_cancelled": 15,
+          "flights_active": 63,
+          "total_dep_delay": 585,
+          "total_arr_delay": 320,
+          "stranded_passengers": 1935,
+          "avg_satisfaction": 88.53,
           "airline_cash": {
-            "SI": -3961500.0,
-            "BA": -2285000.0,
-            "AN": -2865500.0
+            "SI": -1679500.0,
+            "BA": -1119500.0,
+            "AN": -1021000.0
           }
         },
         "action_schema": {
@@ -5703,12 +6144,31 @@
       "time": 690,
       "actions": [
         {
-          "action": "depart",
-          "flight_id": "SI148"
+          "action": "cancel",
+          "flight_id": "SI148",
+          "reason": "random baseline cancellation"
+        },
+        {
+          "action": "hold",
+          "flight_id": "BA194",
+          "minutes": 45,
+          "reason": "random baseline hold"
+        },
+        {
+          "action": "hold",
+          "flight_id": "BA104",
+          "minutes": 45,
+          "reason": "random baseline hold"
+        },
+        {
+          "action": "hold",
+          "flight_id": "SI175",
+          "minutes": 45,
+          "reason": "random baseline hold"
         },
         {
           "action": "depart",
-          "flight_id": "BA194"
+          "flight_id": "BA116"
         }
       ],
       "agent_messages": [
@@ -5721,14 +6181,32 @@
         {
           "from": "SkyIndus",
           "to": "Tower Central",
-          "type": "depart",
-          "message": "Cleared SI148 from BLR to MAA."
+          "type": "cancel",
+          "message": "Cancel SI148; compensation and stranded passenger penalties will apply."
+        },
+        {
+          "from": "Bharat Air",
+          "to": "Tower Central",
+          "type": "hold",
+          "message": "Holding BA194 for 45 minutes: random baseline hold."
+        },
+        {
+          "from": "Bharat Air",
+          "to": "Tower Central",
+          "type": "hold",
+          "message": "Holding BA104 for 45 minutes: random baseline hold."
+        },
+        {
+          "from": "SkyIndus",
+          "to": "Tower Central",
+          "type": "hold",
+          "message": "Holding SI175 for 45 minutes: random baseline hold."
         },
         {
           "from": "Bharat Air",
           "to": "Tower Central",
           "type": "depart",
-          "message": "Cleared BA194 from DEL to HYD."
+          "message": "Cleared BA116 from MAA to BLR."
         }
       ],
       "active_disruptions": [
@@ -5745,27 +6223,27 @@
         }
       ],
       "reward": {
-        "delay_score": 40.6,
+        "delay_score": -56.61000000000001,
         "safety_score": 0.0,
-        "passenger_score": 7.3,
-        "money_score": 0.0,
+        "passenger_score": -153.74,
+        "money_score": -167.2,
         "fairness_score": 0.0,
-        "action_validity_score": 4.0,
-        "total": 51.9
+        "action_validity_score": 2.6,
+        "total": -374.95
       },
       "metrics": {
         "flights_total": 96,
-        "flights_arrived": 30,
-        "flights_cancelled": 0,
-        "flights_active": 66,
-        "total_dep_delay": 15,
-        "total_arr_delay": 220,
-        "stranded_passengers": 0,
-        "avg_satisfaction": 100.0,
+        "flights_arrived": 18,
+        "flights_cancelled": 16,
+        "flights_active": 62,
+        "total_dep_delay": 675,
+        "total_arr_delay": 320,
+        "stranded_passengers": 2087,
+        "avg_satisfaction": 87.74,
         "airline_cash": {
-          "SI": -3961500.0,
-          "BA": -2285000.0,
-          "AN": -2865500.0
+          "SI": -2211500.0,
+          "BA": -1119500.0,
+          "AN": -1021000.0
         }
       },
       "observation": {
@@ -5899,20 +6377,63 @@
             "resolved": false
           }
         ],
-        "pending_decisions": [],
+        "pending_decisions": [
+          {
+            "flight_id": "AN102",
+            "airline": "AN",
+            "origin": "CCU",
+            "destination": "DEL",
+            "scheduled_dep": 660,
+            "scheduled_arr": 800,
+            "delay_minutes": 30,
+            "passengers": 155,
+            "priority": "normal",
+            "aircraft_ready": true,
+            "crew_ready": true,
+            "weather_delay": 0
+          },
+          {
+            "flight_id": "SI163",
+            "airline": "SI",
+            "origin": "DEL",
+            "destination": "HYD",
+            "scheduled_dep": 660,
+            "scheduled_arr": 795,
+            "delay_minutes": 30,
+            "passengers": 156,
+            "priority": "normal",
+            "aircraft_ready": true,
+            "crew_ready": true,
+            "weather_delay": 0
+          },
+          {
+            "flight_id": "SI133",
+            "airline": "SI",
+            "origin": "BOM",
+            "destination": "AMD",
+            "scheduled_dep": 510,
+            "scheduled_arr": 585,
+            "delay_minutes": 180,
+            "passengers": 153,
+            "priority": "normal",
+            "aircraft_ready": true,
+            "crew_ready": true,
+            "weather_delay": 0
+          }
+        ],
         "network_summary": {
           "flights_total": 96,
-          "flights_arrived": 30,
-          "flights_cancelled": 0,
-          "flights_active": 66,
-          "total_dep_delay": 15,
-          "total_arr_delay": 220,
-          "stranded_passengers": 0,
-          "avg_satisfaction": 100.0,
+          "flights_arrived": 18,
+          "flights_cancelled": 16,
+          "flights_active": 62,
+          "total_dep_delay": 675,
+          "total_arr_delay": 320,
+          "stranded_passengers": 2087,
+          "avg_satisfaction": 87.74,
           "airline_cash": {
-            "SI": -3961500.0,
-            "BA": -2285000.0,
-            "AN": -2865500.0
+            "SI": -2211500.0,
+            "BA": -1119500.0,
+            "AN": -1021000.0
           }
         },
         "action_schema": {
@@ -5940,7 +6461,23 @@
     },
     {
       "time": 705,
-      "actions": [],
+      "actions": [
+        {
+          "action": "hold",
+          "flight_id": "AN102",
+          "minutes": 30,
+          "reason": "random baseline hold"
+        },
+        {
+          "action": "depart",
+          "flight_id": "SI163"
+        },
+        {
+          "action": "cancel",
+          "flight_id": "SI133",
+          "reason": "random baseline cancellation"
+        }
+      ],
       "agent_messages": [
         {
           "from": "Tower Central",
@@ -5953,6 +6490,24 @@
           "to": "Network Ops",
           "type": "alert",
           "message": "Gate Block active at BLR: Bengaluru gate bridge failure blocks one gate."
+        },
+        {
+          "from": "AeroNova",
+          "to": "Tower Central",
+          "type": "hold",
+          "message": "Holding AN102 for 30 minutes: random baseline hold."
+        },
+        {
+          "from": "SkyIndus",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared SI163 from DEL to HYD."
+        },
+        {
+          "from": "SkyIndus",
+          "to": "Tower Central",
+          "type": "cancel",
+          "message": "Cancel SI133; compensation and stranded passenger penalties will apply."
         }
       ],
       "active_disruptions": [
@@ -5980,27 +6535,27 @@
         }
       ],
       "reward": {
-        "delay_score": 22.4,
+        "delay_score": -32.5,
         "safety_score": 0.0,
-        "passenger_score": 15.2,
-        "money_score": 0.0,
+        "passenger_score": -149.175,
+        "money_score": -130.35,
         "fairness_score": 0.0,
-        "action_validity_score": 1.0,
-        "total": 38.599999999999994
+        "action_validity_score": 3.2,
+        "total": -308.825
       },
       "metrics": {
         "flights_total": 96,
-        "flights_arrived": 32,
-        "flights_cancelled": 0,
-        "flights_active": 64,
-        "total_dep_delay": 15,
-        "total_arr_delay": 260,
-        "stranded_passengers": 0,
-        "avg_satisfaction": 100.0,
+        "flights_arrived": 18,
+        "flights_cancelled": 17,
+        "flights_active": 61,
+        "total_dep_delay": 555,
+        "total_arr_delay": 320,
+        "stranded_passengers": 2224,
+        "avg_satisfaction": 86.96,
         "airline_cash": {
-          "SI": -3961500.0,
-          "BA": -2285000.0,
-          "AN": -2865500.0
+          "SI": -2747000.0,
+          "BA": -1119500.0,
+          "AN": -1021000.0
         }
       },
       "observation": {
@@ -6177,17 +6732,17 @@
         ],
         "network_summary": {
           "flights_total": 96,
-          "flights_arrived": 32,
-          "flights_cancelled": 0,
-          "flights_active": 64,
-          "total_dep_delay": 15,
-          "total_arr_delay": 260,
-          "stranded_passengers": 0,
-          "avg_satisfaction": 100.0,
+          "flights_arrived": 18,
+          "flights_cancelled": 17,
+          "flights_active": 61,
+          "total_dep_delay": 555,
+          "total_arr_delay": 320,
+          "stranded_passengers": 2224,
+          "avg_satisfaction": 86.96,
           "airline_cash": {
-            "SI": -3961500.0,
-            "BA": -2285000.0,
-            "AN": -2865500.0
+            "SI": -2747000.0,
+            "BA": -1119500.0,
+            "AN": -1021000.0
           }
         },
         "action_schema": {
@@ -6217,12 +6772,16 @@
       "time": 720,
       "actions": [
         {
-          "action": "depart",
-          "flight_id": "SI151"
+          "action": "hold",
+          "flight_id": "SI151",
+          "minutes": 15,
+          "reason": "random baseline hold"
         },
         {
-          "action": "depart",
-          "flight_id": "BA173"
+          "action": "hold",
+          "flight_id": "BA173",
+          "minutes": 30,
+          "reason": "random baseline hold"
         }
       ],
       "agent_messages": [
@@ -6241,14 +6800,14 @@
         {
           "from": "SkyIndus",
           "to": "Tower Central",
-          "type": "depart",
-          "message": "Cleared SI151 from MAA to DEL."
+          "type": "hold",
+          "message": "Holding SI151 for 15 minutes: random baseline hold."
         },
         {
           "from": "Bharat Air",
           "to": "Tower Central",
-          "type": "depart",
-          "message": "Cleared BA173 from HYD to BLR."
+          "type": "hold",
+          "message": "Holding BA173 for 30 minutes: random baseline hold."
         }
       ],
       "active_disruptions": [
@@ -6276,27 +6835,27 @@
         }
       ],
       "reward": {
-        "delay_score": 30.0,
+        "delay_score": -18.08,
         "safety_score": 0.0,
-        "passenger_score": 0.0,
-        "money_score": 0.0,
+        "passenger_score": -2.1149999999999998,
+        "money_score": -4.8,
         "fairness_score": 0.0,
-        "action_validity_score": 4.0,
-        "total": 34.0
+        "action_validity_score": 0.4,
+        "total": -24.595
       },
       "metrics": {
         "flights_total": 96,
-        "flights_arrived": 32,
-        "flights_cancelled": 0,
-        "flights_active": 64,
-        "total_dep_delay": 15,
-        "total_arr_delay": 260,
-        "stranded_passengers": 0,
-        "avg_satisfaction": 100.0,
+        "flights_arrived": 18,
+        "flights_cancelled": 17,
+        "flights_active": 61,
+        "total_dep_delay": 645,
+        "total_arr_delay": 320,
+        "stranded_passengers": 2224,
+        "avg_satisfaction": 86.92,
         "airline_cash": {
-          "SI": -3961500.0,
-          "BA": -2285000.0,
-          "AN": -2865500.0
+          "SI": -2747000.0,
+          "BA": -1119500.0,
+          "AN": -1021000.0
         }
       },
       "observation": {
@@ -6469,21 +7028,91 @@
             "aircraft_ready": true,
             "crew_ready": true,
             "weather_delay": 0
+          },
+          {
+            "flight_id": "SI151",
+            "airline": "SI",
+            "origin": "MAA",
+            "destination": "DEL",
+            "scheduled_dep": 705,
+            "scheduled_arr": 875,
+            "delay_minutes": 15,
+            "passengers": 115,
+            "priority": "normal",
+            "aircraft_ready": true,
+            "crew_ready": true,
+            "weather_delay": 0
+          },
+          {
+            "flight_id": "BA194",
+            "airline": "BA",
+            "origin": "DEL",
+            "destination": "HYD",
+            "scheduled_dep": 675,
+            "scheduled_arr": 810,
+            "delay_minutes": 45,
+            "passengers": 72,
+            "priority": "normal",
+            "aircraft_ready": true,
+            "crew_ready": true,
+            "weather_delay": 0
+          },
+          {
+            "flight_id": "AN102",
+            "airline": "AN",
+            "origin": "CCU",
+            "destination": "DEL",
+            "scheduled_dep": 660,
+            "scheduled_arr": 800,
+            "delay_minutes": 60,
+            "passengers": 155,
+            "priority": "normal",
+            "aircraft_ready": true,
+            "crew_ready": true,
+            "weather_delay": 0
+          },
+          {
+            "flight_id": "BA104",
+            "airline": "BA",
+            "origin": "DEL",
+            "destination": "HYD",
+            "scheduled_dep": 660,
+            "scheduled_arr": 795,
+            "delay_minutes": 60,
+            "passengers": 101,
+            "priority": "normal",
+            "aircraft_ready": true,
+            "crew_ready": true,
+            "weather_delay": 0
+          },
+          {
+            "flight_id": "SI175",
+            "airline": "SI",
+            "origin": "DEL",
+            "destination": "CCU",
+            "scheduled_dep": 645,
+            "scheduled_arr": 785,
+            "delay_minutes": 75,
+            "passengers": 95,
+            "priority": "normal",
+            "aircraft_ready": true,
+            "crew_ready": true,
+            "weather_delay": 0
           }
         ],
         "network_summary": {
           "flights_total": 96,
-          "flights_arrived": 32,
-          "flights_cancelled": 0,
-          "flights_active": 64,
-          "total_dep_delay": 15,
-          "total_arr_delay": 260,
-          "stranded_passengers": 0,
-          "avg_satisfaction": 100.0,
+          "flights_arrived": 18,
+          "flights_cancelled": 17,
+          "flights_active": 61,
+          "total_dep_delay": 645,
+          "total_arr_delay": 320,
+          "stranded_passengers": 2224,
+          "avg_satisfaction": 86.92,
           "airline_cash": {
-            "SI": -3961500.0,
-            "BA": -2285000.0,
-            "AN": -2865500.0
+            "SI": -2747000.0,
+            "BA": -1119500.0,
+            "AN": -1021000.0
           }
         },
         "action_schema": {
@@ -6513,12 +7142,29 @@
       "time": 735,
       "actions": [
         {
-          "action": "depart",
-          "flight_id": "SI103"
+          "action": "hold",
+          "flight_id": "SI103",
+          "minutes": 15,
+          "reason": "random baseline hold"
+        },
+        {
+          "action": "cancel",
+          "flight_id": "AN174",
+          "reason": "random baseline cancellation"
         },
         {
           "action": "depart",
-          "flight_id": "AN174"
+          "flight_id": "SI151"
+        },
+        {
+          "action": "hold",
+          "flight_id": "BA194",
+          "minutes": 15,
+          "reason": "random baseline hold"
+        },
+        {
+          "action": "depart",
+          "flight_id": "AN102"
         }
       ],
       "agent_messages": [
@@ -6537,14 +7183,32 @@
         {
           "from": "SkyIndus",
           "to": "Tower Central",
+          "type": "hold",
+          "message": "Holding SI103 for 15 minutes: random baseline hold."
+        },
+        {
+          "from": "AeroNova",
+          "to": "Tower Central",
+          "type": "cancel",
+          "message": "Cancel AN174; compensation and stranded passenger penalties will apply."
+        },
+        {
+          "from": "SkyIndus",
+          "to": "Tower Central",
           "type": "depart",
-          "message": "Cleared SI103 from CCU to DEL."
+          "message": "Cleared SI151 from MAA to DEL."
+        },
+        {
+          "from": "Bharat Air",
+          "to": "Tower Central",
+          "type": "hold",
+          "message": "Holding BA194 for 15 minutes: random baseline hold."
         },
         {
           "from": "AeroNova",
           "to": "Tower Central",
           "type": "depart",
-          "message": "Cleared AN174 from DEL to HYD."
+          "message": "Cleared AN102 from CCU to DEL."
         }
       ],
       "active_disruptions": [
@@ -6572,27 +7236,27 @@
         }
       ],
       "reward": {
-        "delay_score": 61.4,
+        "delay_score": 5.160000000000002,
         "safety_score": 0.0,
-        "passenger_score": 21.7,
-        "money_score": 0.0,
+        "passenger_score": -110.195,
+        "money_score": -224.0,
         "fairness_score": 0.0,
-        "action_validity_score": 4.0,
-        "total": 87.1
+        "action_validity_score": 4.4,
+        "total": -324.635
       },
       "metrics": {
         "flights_total": 96,
-        "flights_arrived": 35,
-        "flights_cancelled": 0,
-        "flights_active": 61,
-        "total_dep_delay": 15,
-        "total_arr_delay": 375,
-        "stranded_passengers": 0,
-        "avg_satisfaction": 100.0,
+        "flights_arrived": 20,
+        "flights_cancelled": 18,
+        "flights_active": 58,
+        "total_dep_delay": 720,
+        "total_arr_delay": 395,
+        "stranded_passengers": 2336,
+        "avg_satisfaction": 86.14,
         "airline_cash": {
-          "SI": -3961500.0,
-          "BA": -2285000.0,
-          "AN": -2865500.0
+          "SI": -2747000.0,
+          "BA": -1119500.0,
+          "AN": -1413000.0
         }
       },
       "observation": {
@@ -6737,20 +7401,91 @@
             "resolved": false
           }
         ],
-        "pending_decisions": [],
+        "pending_decisions": [
+          {
+            "flight_id": "SI103",
+            "airline": "SI",
+            "origin": "CCU",
+            "destination": "DEL",
+            "scheduled_dep": 720,
+            "scheduled_arr": 860,
+            "delay_minutes": 15,
+            "passengers": 84,
+            "priority": "normal",
+            "aircraft_ready": true,
+            "crew_ready": true,
+            "weather_delay": 0
+          },
+          {
+            "flight_id": "BA173",
+            "airline": "BA",
+            "origin": "HYD",
+            "destination": "BLR",
+            "scheduled_dep": 705,
+            "scheduled_arr": 780,
+            "delay_minutes": 30,
+            "passengers": 101,
+            "priority": "normal",
+            "aircraft_ready": true,
+            "crew_ready": true,
+            "weather_delay": 0
+          },
+          {
+            "flight_id": "BA194",
+            "airline": "BA",
+            "origin": "DEL",
+            "destination": "HYD",
+            "scheduled_dep": 675,
+            "scheduled_arr": 810,
+            "delay_minutes": 60,
+            "passengers": 72,
+            "priority": "normal",
+            "aircraft_ready": true,
+            "crew_ready": true,
+            "weather_delay": 0
+          },
+          {
+            "flight_id": "BA104",
+            "airline": "BA",
+            "origin": "DEL",
+            "destination": "HYD",
+            "scheduled_dep": 660,
+            "scheduled_arr": 795,
+            "delay_minutes": 75,
+            "passengers": 101,
+            "priority": "normal",
+            "aircraft_ready": true,
+            "crew_ready": true,
+            "weather_delay": 0
+          },
+          {
+            "flight_id": "SI175",
+            "airline": "SI",
+            "origin": "DEL",
+            "destination": "CCU",
+            "scheduled_dep": 645,
+            "scheduled_arr": 785,
+            "delay_minutes": 90,
+            "passengers": 95,
+            "priority": "normal",
+            "aircraft_ready": true,
+            "crew_ready": true,
+            "weather_delay": 0
+          }
+        ],
         "network_summary": {
           "flights_total": 96,
-          "flights_arrived": 35,
-          "flights_cancelled": 0,
-          "flights_active": 61,
-          "total_dep_delay": 15,
-          "total_arr_delay": 375,
-          "stranded_passengers": 0,
-          "avg_satisfaction": 100.0,
+          "flights_arrived": 20,
+          "flights_cancelled": 18,
+          "flights_active": 58,
+          "total_dep_delay": 720,
+          "total_arr_delay": 395,
+          "stranded_passengers": 2336,
+          "avg_satisfaction": 86.14,
           "airline_cash": {
-            "SI": -3961500.0,
-            "BA": -2285000.0,
-            "AN": -2865500.0
+            "SI": -2747000.0,
+            "BA": -1119500.0,
+            "AN": -1413000.0
           }
         },
         "action_schema": {
@@ -6778,7 +7513,30 @@
     },
     {
       "time": 750,
-      "actions": [],
+      "actions": [
+        {
+          "action": "depart",
+          "flight_id": "SI103"
+        },
+        {
+          "action": "cancel",
+          "flight_id": "BA173",
+          "reason": "random baseline cancellation"
+        },
+        {
+          "action": "depart",
+          "flight_id": "BA194"
+        },
+        {
+          "action": "depart",
+          "flight_id": "BA104"
+        },
+        {
+          "action": "cancel",
+          "flight_id": "SI175",
+          "reason": "random baseline cancellation"
+        }
+      ],
       "agent_messages": [
         {
           "from": "Tower Central",
@@ -6791,6 +7549,36 @@
           "to": "Network Ops",
           "type": "alert",
           "message": "Crew Timeout active at BA-C01: Bharat Air crew reaches duty risk."
+        },
+        {
+          "from": "SkyIndus",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared SI103 from CCU to DEL."
+        },
+        {
+          "from": "Bharat Air",
+          "to": "Tower Central",
+          "type": "cancel",
+          "message": "Cancel BA173; compensation and stranded passenger penalties will apply."
+        },
+        {
+          "from": "Bharat Air",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared BA194 from DEL to HYD."
+        },
+        {
+          "from": "Bharat Air",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared BA104 from DEL to HYD."
+        },
+        {
+          "from": "SkyIndus",
+          "to": "Tower Central",
+          "type": "cancel",
+          "message": "Cancel SI175; compensation and stranded passenger penalties will apply."
         }
       ],
       "active_disruptions": [
@@ -6818,27 +7606,27 @@
         }
       ],
       "reward": {
-        "delay_score": 56.599999999999994,
+        "delay_score": 9.899999999999999,
         "safety_score": 0.0,
-        "passenger_score": 38.3,
-        "money_score": 0.0,
+        "passenger_score": -180.51000000000002,
+        "money_score": -428.6,
         "fairness_score": 0.0,
-        "action_validity_score": 1.0,
-        "total": 95.89999999999999
+        "action_validity_score": 7.0,
+        "total": -592.21
       },
       "metrics": {
         "flights_total": 96,
-        "flights_arrived": 40,
-        "flights_cancelled": 0,
-        "flights_active": 56,
-        "total_dep_delay": 15,
-        "total_arr_delay": 460,
-        "stranded_passengers": 0,
-        "avg_satisfaction": 100.0,
+        "flights_arrived": 23,
+        "flights_cancelled": 20,
+        "flights_active": 53,
+        "total_dep_delay": 600,
+        "total_arr_delay": 485,
+        "stranded_passengers": 2532,
+        "avg_satisfaction": 84.89,
         "airline_cash": {
-          "SI": -3961500.0,
-          "BA": -2285000.0,
-          "AN": -2865500.0
+          "SI": -3079500.0,
+          "BA": -1473000.0,
+          "AN": -1413000.0
         }
       },
       "observation": {
@@ -7043,17 +7831,17 @@
         ],
         "network_summary": {
           "flights_total": 96,
-          "flights_arrived": 40,
-          "flights_cancelled": 0,
-          "flights_active": 56,
-          "total_dep_delay": 15,
-          "total_arr_delay": 460,
-          "stranded_passengers": 0,
-          "avg_satisfaction": 100.0,
+          "flights_arrived": 23,
+          "flights_cancelled": 20,
+          "flights_active": 53,
+          "total_dep_delay": 600,
+          "total_arr_delay": 485,
+          "stranded_passengers": 2532,
+          "avg_satisfaction": 84.89,
           "airline_cash": {
-            "SI": -3961500.0,
-            "BA": -2285000.0,
-            "AN": -2865500.0
+            "SI": -3079500.0,
+            "BA": -1473000.0,
+            "AN": -1413000.0
           }
         },
         "action_schema": {
@@ -7091,8 +7879,9 @@
           "flight_id": "AN153"
         },
         {
-          "action": "depart",
-          "flight_id": "AN183"
+          "action": "cancel",
+          "flight_id": "AN183",
+          "reason": "random baseline cancellation"
         },
         {
           "action": "depart",
@@ -7127,8 +7916,8 @@
         {
           "from": "AeroNova",
           "to": "Tower Central",
-          "type": "depart",
-          "message": "Cleared AN183 from BLR to DEL."
+          "type": "cancel",
+          "message": "Cancel AN183; compensation and stranded passenger penalties will apply."
         },
         {
           "from": "Bharat Air",
@@ -7162,27 +7951,27 @@
         }
       ],
       "reward": {
-        "delay_score": 71.8,
+        "delay_score": 33.0,
         "safety_score": 0.0,
-        "passenger_score": 7.9,
-        "money_score": 0.0,
+        "passenger_score": -55.400000000000006,
+        "money_score": -26.6,
         "fairness_score": 0.0,
-        "action_validity_score": 8.0,
-        "total": 87.7
+        "action_validity_score": 6.0,
+        "total": -43.00000000000001
       },
       "metrics": {
         "flights_total": 96,
-        "flights_arrived": 41,
-        "flights_cancelled": 0,
-        "flights_active": 55,
-        "total_dep_delay": 15,
-        "total_arr_delay": 465,
-        "stranded_passengers": 0,
-        "avg_satisfaction": 100.0,
+        "flights_arrived": 25,
+        "flights_cancelled": 21,
+        "flights_active": 50,
+        "total_dep_delay": 600,
+        "total_arr_delay": 635,
+        "stranded_passengers": 2608,
+        "avg_satisfaction": 84.39,
         "airline_cash": {
-          "SI": -3961500.0,
-          "BA": -2285000.0,
-          "AN": -2865500.0
+          "SI": -3079500.0,
+          "BA": -1473000.0,
+          "AN": -1679000.0
         }
       },
       "observation": {
@@ -7345,17 +8134,17 @@
         ],
         "network_summary": {
           "flights_total": 96,
-          "flights_arrived": 41,
-          "flights_cancelled": 0,
-          "flights_active": 55,
-          "total_dep_delay": 15,
-          "total_arr_delay": 465,
-          "stranded_passengers": 0,
-          "avg_satisfaction": 100.0,
+          "flights_arrived": 25,
+          "flights_cancelled": 21,
+          "flights_active": 50,
+          "total_dep_delay": 600,
+          "total_arr_delay": 635,
+          "stranded_passengers": 2608,
+          "avg_satisfaction": 84.39,
           "airline_cash": {
-            "SI": -3961500.0,
-            "BA": -2285000.0,
-            "AN": -2865500.0
+            "SI": -3079500.0,
+            "BA": -1473000.0,
+            "AN": -1679000.0
           }
         },
         "action_schema": {
@@ -7385,8 +8174,10 @@
       "time": 780,
       "actions": [
         {
-          "action": "depart",
-          "flight_id": "SI130"
+          "action": "hold",
+          "flight_id": "SI130",
+          "minutes": 15,
+          "reason": "random baseline hold"
         }
       ],
       "agent_messages": [
@@ -7399,8 +8190,8 @@
         {
           "from": "SkyIndus",
           "to": "Tower Central",
-          "type": "depart",
-          "message": "Cleared SI130 from CCU to DEL."
+          "type": "hold",
+          "message": "Holding SI130 for 15 minutes: random baseline hold."
         }
       ],
       "active_disruptions": [
@@ -7417,27 +8208,27 @@
         }
       ],
       "reward": {
-        "delay_score": 26.8,
+        "delay_score": -6.48,
         "safety_score": 0.0,
-        "passenger_score": 7.9,
+        "passenger_score": 0.0,
         "money_score": 0.0,
         "fairness_score": 0.0,
-        "action_validity_score": 2.0,
-        "total": 36.7
+        "action_validity_score": 0.2,
+        "total": -6.28
       },
       "metrics": {
         "flights_total": 96,
-        "flights_arrived": 42,
-        "flights_cancelled": 0,
-        "flights_active": 54,
-        "total_dep_delay": 15,
-        "total_arr_delay": 470,
-        "stranded_passengers": 0,
-        "avg_satisfaction": 100.0,
+        "flights_arrived": 25,
+        "flights_cancelled": 21,
+        "flights_active": 50,
+        "total_dep_delay": 615,
+        "total_arr_delay": 635,
+        "stranded_passengers": 2608,
+        "avg_satisfaction": 84.39,
         "airline_cash": {
-          "SI": -3961500.0,
-          "BA": -2285000.0,
-          "AN": -2865500.0
+          "SI": -3079500.0,
+          "BA": -1473000.0,
+          "AN": -1679000.0
         }
       },
       "observation": {
@@ -7571,20 +8362,35 @@
             "resolved": false
           }
         ],
-        "pending_decisions": [],
+        "pending_decisions": [
+          {
+            "flight_id": "SI130",
+            "airline": "SI",
+            "origin": "CCU",
+            "destination": "DEL",
+            "scheduled_dep": 765,
+            "scheduled_arr": 905,
+            "delay_minutes": 15,
+            "passengers": 162,
+            "priority": "normal",
+            "aircraft_ready": true,
+            "crew_ready": true,
+            "weather_delay": 0
+          }
+        ],
         "network_summary": {
           "flights_total": 96,
-          "flights_arrived": 42,
-          "flights_cancelled": 0,
-          "flights_active": 54,
-          "total_dep_delay": 15,
-          "total_arr_delay": 470,
-          "stranded_passengers": 0,
-          "avg_satisfaction": 100.0,
+          "flights_arrived": 25,
+          "flights_cancelled": 21,
+          "flights_active": 50,
+          "total_dep_delay": 615,
+          "total_arr_delay": 635,
+          "stranded_passengers": 2608,
+          "avg_satisfaction": 84.39,
           "airline_cash": {
-            "SI": -3961500.0,
-            "BA": -2285000.0,
-            "AN": -2865500.0
+            "SI": -3079500.0,
+            "BA": -1473000.0,
+            "AN": -1679000.0
           }
         },
         "action_schema": {
@@ -7612,7 +8418,12 @@
     },
     {
       "time": 795,
-      "actions": [],
+      "actions": [
+        {
+          "action": "depart",
+          "flight_id": "SI130"
+        }
+      ],
       "agent_messages": [
         {
           "from": "Tower Central",
@@ -7625,6 +8436,12 @@
           "to": "Network Ops",
           "type": "alert",
           "message": "Emergency active at HYD: Medical emergency arrival requires priority."
+        },
+        {
+          "from": "SkyIndus",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared SI130 from CCU to DEL."
         }
       ],
       "active_disruptions": [
@@ -7652,27 +8469,27 @@
         }
       ],
       "reward": {
-        "delay_score": 23.6,
+        "delay_score": 25.85,
         "safety_score": 0.0,
-        "passenger_score": 15.8,
-        "money_score": 0.0,
+        "passenger_score": 2.9399999999999995,
+        "money_score": -36.0,
         "fairness_score": 0.0,
-        "action_validity_score": 1.0,
-        "total": 40.400000000000006
+        "action_validity_score": 3.0,
+        "total": -4.210000000000001
       },
       "metrics": {
         "flights_total": 96,
-        "flights_arrived": 44,
-        "flights_cancelled": 0,
-        "flights_active": 52,
-        "total_dep_delay": 15,
-        "total_arr_delay": 480,
-        "stranded_passengers": 0,
-        "avg_satisfaction": 100.0,
+        "flights_arrived": 26,
+        "flights_cancelled": 21,
+        "flights_active": 49,
+        "total_dep_delay": 615,
+        "total_arr_delay": 645,
+        "stranded_passengers": 2608,
+        "avg_satisfaction": 84.39,
         "airline_cash": {
-          "SI": -3961500.0,
-          "BA": -2285000.0,
-          "AN": -2865500.0
+          "SI": -3079500.0,
+          "BA": -1473000.0,
+          "AN": -1679000.0
         }
       },
       "observation": {
@@ -7877,17 +8694,17 @@
         ],
         "network_summary": {
           "flights_total": 96,
-          "flights_arrived": 44,
-          "flights_cancelled": 0,
-          "flights_active": 52,
-          "total_dep_delay": 15,
-          "total_arr_delay": 480,
-          "stranded_passengers": 0,
-          "avg_satisfaction": 100.0,
+          "flights_arrived": 26,
+          "flights_cancelled": 21,
+          "flights_active": 49,
+          "total_dep_delay": 615,
+          "total_arr_delay": 645,
+          "stranded_passengers": 2608,
+          "avg_satisfaction": 84.39,
           "airline_cash": {
-            "SI": -3961500.0,
-            "BA": -2285000.0,
-            "AN": -2865500.0
+            "SI": -3079500.0,
+            "BA": -1473000.0,
+            "AN": -1679000.0
           }
         },
         "action_schema": {
@@ -7996,27 +8813,27 @@
         }
       ],
       "reward": {
-        "delay_score": 107.4,
+        "delay_score": 71.8,
         "safety_score": 0.0,
-        "passenger_score": 31.7,
+        "passenger_score": 7.9,
         "money_score": 0.0,
         "fairness_score": 0.0,
         "action_validity_score": 8.0,
-        "total": 147.1
+        "total": 87.7
       },
       "metrics": {
         "flights_total": 96,
-        "flights_arrived": 48,
-        "flights_cancelled": 0,
+        "flights_arrived": 27,
+        "flights_cancelled": 21,
         "flights_active": 48,
-        "total_dep_delay": 15,
-        "total_arr_delay": 495,
-        "stranded_passengers": 0,
-        "avg_satisfaction": 100.0,
+        "total_dep_delay": 615,
+        "total_arr_delay": 650,
+        "stranded_passengers": 2608,
+        "avg_satisfaction": 84.39,
         "airline_cash": {
-          "SI": -3961500.0,
-          "BA": -2285000.0,
-          "AN": -2865500.0
+          "SI": -3079500.0,
+          "BA": -1473000.0,
+          "AN": -1679000.0
         }
       },
       "observation": {
@@ -8221,17 +9038,17 @@
         ],
         "network_summary": {
           "flights_total": 96,
-          "flights_arrived": 48,
-          "flights_cancelled": 0,
+          "flights_arrived": 27,
+          "flights_cancelled": 21,
           "flights_active": 48,
-          "total_dep_delay": 15,
-          "total_arr_delay": 495,
-          "stranded_passengers": 0,
-          "avg_satisfaction": 100.0,
+          "total_dep_delay": 615,
+          "total_arr_delay": 650,
+          "stranded_passengers": 2608,
+          "avg_satisfaction": 84.39,
           "airline_cash": {
-            "SI": -3961500.0,
-            "BA": -2285000.0,
-            "AN": -2865500.0
+            "SI": -3079500.0,
+            "BA": -1473000.0,
+            "AN": -1679000.0
           }
         },
         "action_schema": {
@@ -8269,8 +9086,9 @@
           "flight_id": "BA125"
         },
         {
-          "action": "depart",
-          "flight_id": "BA143"
+          "action": "cancel",
+          "flight_id": "BA143",
+          "reason": "random baseline cancellation"
         },
         {
           "action": "depart",
@@ -8305,8 +9123,8 @@
         {
           "from": "Bharat Air",
           "to": "Tower Central",
-          "type": "depart",
-          "message": "Cleared BA143 from DEL to BLR."
+          "type": "cancel",
+          "message": "Cancel BA143; compensation and stranded passenger penalties will apply."
         },
         {
           "from": "Bharat Air",
@@ -8340,27 +9158,27 @@
         }
       ],
       "reward": {
-        "delay_score": 95.4,
+        "delay_score": 26.8,
         "safety_score": 0.0,
-        "passenger_score": 23.700000000000003,
-        "money_score": 0.0,
+        "passenger_score": -112.7,
+        "money_score": -46.9,
         "fairness_score": 0.0,
-        "action_validity_score": 8.0,
-        "total": 127.10000000000001
+        "action_validity_score": 6.0,
+        "total": -126.80000000000001
       },
       "metrics": {
         "flights_total": 96,
-        "flights_arrived": 51,
-        "flights_cancelled": 0,
-        "flights_active": 45,
-        "total_dep_delay": 15,
-        "total_arr_delay": 510,
-        "stranded_passengers": 0,
-        "avg_satisfaction": 100.0,
+        "flights_arrived": 28,
+        "flights_cancelled": 22,
+        "flights_active": 46,
+        "total_dep_delay": 615,
+        "total_arr_delay": 655,
+        "stranded_passengers": 2742,
+        "avg_satisfaction": 83.64,
         "airline_cash": {
-          "SI": -3961500.0,
-          "BA": -2285000.0,
-          "AN": -2865500.0
+          "SI": -3079500.0,
+          "BA": -1942000.0,
+          "AN": -1679000.0
         }
       },
       "observation": {
@@ -8523,17 +9341,17 @@
         ],
         "network_summary": {
           "flights_total": 96,
-          "flights_arrived": 51,
-          "flights_cancelled": 0,
-          "flights_active": 45,
-          "total_dep_delay": 15,
-          "total_arr_delay": 510,
-          "stranded_passengers": 0,
-          "avg_satisfaction": 100.0,
+          "flights_arrived": 28,
+          "flights_cancelled": 22,
+          "flights_active": 46,
+          "total_dep_delay": 615,
+          "total_arr_delay": 655,
+          "stranded_passengers": 2742,
+          "avg_satisfaction": 83.64,
           "airline_cash": {
-            "SI": -3961500.0,
-            "BA": -2285000.0,
-            "AN": -2865500.0
+            "SI": -3079500.0,
+            "BA": -1942000.0,
+            "AN": -1679000.0
           }
         },
         "action_schema": {
@@ -8595,27 +9413,27 @@
         }
       ],
       "reward": {
-        "delay_score": 15.0,
+        "delay_score": 25.8,
         "safety_score": 0.0,
-        "passenger_score": 0.0,
+        "passenger_score": 7.4,
         "money_score": 0.0,
         "fairness_score": 0.0,
         "action_validity_score": 2.0,
-        "total": 17.0
+        "total": 35.2
       },
       "metrics": {
         "flights_total": 96,
-        "flights_arrived": 51,
-        "flights_cancelled": 0,
+        "flights_arrived": 29,
+        "flights_cancelled": 22,
         "flights_active": 45,
-        "total_dep_delay": 15,
-        "total_arr_delay": 510,
-        "stranded_passengers": 0,
-        "avg_satisfaction": 100.0,
+        "total_dep_delay": 615,
+        "total_arr_delay": 685,
+        "stranded_passengers": 2742,
+        "avg_satisfaction": 83.64,
         "airline_cash": {
-          "SI": -3961500.0,
-          "BA": -2285000.0,
-          "AN": -2865500.0
+          "SI": -3079500.0,
+          "BA": -1942000.0,
+          "AN": -1679000.0
         }
       },
       "observation": {
@@ -8767,17 +9585,17 @@
         ],
         "network_summary": {
           "flights_total": 96,
-          "flights_arrived": 51,
-          "flights_cancelled": 0,
+          "flights_arrived": 29,
+          "flights_cancelled": 22,
           "flights_active": 45,
-          "total_dep_delay": 15,
-          "total_arr_delay": 510,
-          "stranded_passengers": 0,
-          "avg_satisfaction": 100.0,
+          "total_dep_delay": 615,
+          "total_arr_delay": 685,
+          "stranded_passengers": 2742,
+          "avg_satisfaction": 83.64,
           "airline_cash": {
-            "SI": -3961500.0,
-            "BA": -2285000.0,
-            "AN": -2865500.0
+            "SI": -3079500.0,
+            "BA": -1942000.0,
+            "AN": -1679000.0
           }
         },
         "action_schema": {
@@ -8807,8 +9625,9 @@
       "time": 855,
       "actions": [
         {
-          "action": "depart",
-          "flight_id": "SI112"
+          "action": "cancel",
+          "flight_id": "SI112",
+          "reason": "random baseline cancellation"
         }
       ],
       "agent_messages": [
@@ -8827,8 +9646,8 @@
         {
           "from": "SkyIndus",
           "to": "Tower Central",
-          "type": "depart",
-          "message": "Cleared SI112 from BLR to DEL."
+          "type": "cancel",
+          "message": "Cancel SI112; compensation and stranded passenger penalties will apply."
         }
       ],
       "active_disruptions": [
@@ -8856,27 +9675,27 @@
         }
       ],
       "reward": {
-        "delay_score": 15.0,
+        "delay_score": -30.0,
         "safety_score": 0.0,
-        "passenger_score": 0.0,
-        "money_score": 0.0,
+        "passenger_score": -69.3,
+        "money_score": -26.95,
         "fairness_score": 0.0,
-        "action_validity_score": 3.0,
-        "total": 18.0
+        "action_validity_score": 1.0,
+        "total": -125.25
       },
       "metrics": {
         "flights_total": 96,
-        "flights_arrived": 51,
-        "flights_cancelled": 0,
-        "flights_active": 45,
-        "total_dep_delay": 15,
-        "total_arr_delay": 510,
-        "stranded_passengers": 0,
-        "avg_satisfaction": 100.0,
+        "flights_arrived": 29,
+        "flights_cancelled": 23,
+        "flights_active": 44,
+        "total_dep_delay": 615,
+        "total_arr_delay": 685,
+        "stranded_passengers": 2819,
+        "avg_satisfaction": 82.89,
         "airline_cash": {
-          "SI": -3961500.0,
-          "BA": -2285000.0,
-          "AN": -2865500.0
+          "SI": -3349000.0,
+          "BA": -1942000.0,
+          "AN": -1679000.0
         }
       },
       "observation": {
@@ -9053,17 +9872,17 @@
         ],
         "network_summary": {
           "flights_total": 96,
-          "flights_arrived": 51,
-          "flights_cancelled": 0,
-          "flights_active": 45,
-          "total_dep_delay": 15,
-          "total_arr_delay": 510,
-          "stranded_passengers": 0,
-          "avg_satisfaction": 100.0,
+          "flights_arrived": 29,
+          "flights_cancelled": 23,
+          "flights_active": 44,
+          "total_dep_delay": 615,
+          "total_arr_delay": 685,
+          "stranded_passengers": 2819,
+          "avg_satisfaction": 82.89,
           "airline_cash": {
-            "SI": -3961500.0,
-            "BA": -2285000.0,
-            "AN": -2865500.0
+            "SI": -3349000.0,
+            "BA": -1942000.0,
+            "AN": -1679000.0
           }
         },
         "action_schema": {
@@ -9093,12 +9912,16 @@
       "time": 870,
       "actions": [
         {
-          "action": "depart",
-          "flight_id": "AN117"
+          "action": "hold",
+          "flight_id": "AN117",
+          "minutes": 45,
+          "reason": "random baseline hold"
         },
         {
-          "action": "depart",
-          "flight_id": "BA179"
+          "action": "hold",
+          "flight_id": "BA179",
+          "minutes": 30,
+          "reason": "random baseline hold"
         }
       ],
       "agent_messages": [
@@ -9117,14 +9940,14 @@
         {
           "from": "AeroNova",
           "to": "Tower Central",
-          "type": "depart",
-          "message": "Cleared AN117 from BLR to DEL."
+          "type": "hold",
+          "message": "Holding AN117 for 45 minutes: random baseline hold."
         },
         {
           "from": "Bharat Air",
           "to": "Tower Central",
-          "type": "depart",
-          "message": "Cleared BA179 from BLR to HYD."
+          "type": "hold",
+          "message": "Holding BA179 for 30 minutes: random baseline hold."
         }
       ],
       "active_disruptions": [
@@ -9152,27 +9975,27 @@
         }
       ],
       "reward": {
-        "delay_score": 42.0,
+        "delay_score": -27.64,
         "safety_score": 0.0,
-        "passenger_score": 8.0,
+        "passenger_score": 0.0,
         "money_score": 0.0,
         "fairness_score": 0.0,
-        "action_validity_score": 4.0,
-        "total": 54.0
+        "action_validity_score": 0.4,
+        "total": -27.240000000000002
       },
       "metrics": {
         "flights_total": 96,
-        "flights_arrived": 52,
-        "flights_cancelled": 0,
+        "flights_arrived": 29,
+        "flights_cancelled": 23,
         "flights_active": 44,
-        "total_dep_delay": 15,
-        "total_arr_delay": 510,
-        "stranded_passengers": 0,
-        "avg_satisfaction": 100.0,
+        "total_dep_delay": 645,
+        "total_arr_delay": 685,
+        "stranded_passengers": 2819,
+        "avg_satisfaction": 82.89,
         "airline_cash": {
-          "SI": -3961500.0,
-          "BA": -2285000.0,
-          "AN": -2865500.0
+          "SI": -3349000.0,
+          "BA": -1942000.0,
+          "AN": -1679000.0
         }
       },
       "observation": {
@@ -9405,17 +10228,17 @@
         ],
         "network_summary": {
           "flights_total": 96,
-          "flights_arrived": 52,
-          "flights_cancelled": 0,
+          "flights_arrived": 29,
+          "flights_cancelled": 23,
           "flights_active": 44,
-          "total_dep_delay": 15,
-          "total_arr_delay": 510,
-          "stranded_passengers": 0,
-          "avg_satisfaction": 100.0,
+          "total_dep_delay": 645,
+          "total_arr_delay": 685,
+          "stranded_passengers": 2819,
+          "avg_satisfaction": 82.89,
           "airline_cash": {
-            "SI": -3961500.0,
-            "BA": -2285000.0,
-            "AN": -2865500.0
+            "SI": -3349000.0,
+            "BA": -1942000.0,
+            "AN": -1679000.0
           }
         },
         "action_schema": {
@@ -9445,8 +10268,10 @@
       "time": 885,
       "actions": [
         {
-          "action": "depart",
-          "flight_id": "BA122"
+          "action": "hold",
+          "flight_id": "BA122",
+          "minutes": 15,
+          "reason": "random baseline hold"
         },
         {
           "action": "depart",
@@ -9461,12 +10286,10 @@
           "flight_id": "BA167"
         },
         {
-          "action": "depart",
-          "flight_id": "SI181"
-        },
-        {
-          "action": "depart",
-          "flight_id": "AN195"
+          "action": "hold",
+          "flight_id": "SI181",
+          "minutes": 45,
+          "reason": "random baseline hold"
         }
       ],
       "agent_messages": [
@@ -9485,8 +10308,8 @@
         {
           "from": "Bharat Air",
           "to": "Tower Central",
-          "type": "depart",
-          "message": "Cleared BA122 from BOM to AMD."
+          "type": "hold",
+          "message": "Holding BA122 for 15 minutes: random baseline hold."
         },
         {
           "from": "AeroNova",
@@ -9509,14 +10332,8 @@
         {
           "from": "SkyIndus",
           "to": "Tower Central",
-          "type": "depart",
-          "message": "Cleared SI181 from AMD to BOM."
-        },
-        {
-          "from": "AeroNova",
-          "to": "Tower Central",
-          "type": "depart",
-          "message": "Cleared AN195 from DEL to BLR."
+          "type": "hold",
+          "message": "Holding SI181 for 45 minutes: random baseline hold."
         }
       ],
       "active_disruptions": [
@@ -9544,27 +10361,27 @@
         }
       ],
       "reward": {
-        "delay_score": 101.6,
+        "delay_score": 46.98,
         "safety_score": 0.0,
-        "passenger_score": 7.8,
-        "money_score": 0.0,
+        "passenger_score": 18.5,
+        "money_score": -2.4,
         "fairness_score": 0.0,
-        "action_validity_score": 12.0,
-        "total": 121.39999999999999
+        "action_validity_score": 6.4,
+        "total": 69.47999999999999
       },
       "metrics": {
         "flights_total": 96,
-        "flights_arrived": 53,
-        "flights_cancelled": 0,
-        "flights_active": 43,
-        "total_dep_delay": 15,
-        "total_arr_delay": 520,
-        "stranded_passengers": 0,
-        "avg_satisfaction": 100.0,
+        "flights_arrived": 32,
+        "flights_cancelled": 23,
+        "flights_active": 41,
+        "total_dep_delay": 720,
+        "total_arr_delay": 890,
+        "stranded_passengers": 2819,
+        "avg_satisfaction": 82.88,
         "airline_cash": {
-          "SI": -3961500.0,
-          "BA": -2285000.0,
-          "AN": -2865500.0
+          "SI": -3349000.0,
+          "BA": -1942000.0,
+          "AN": -1679000.0
         }
       },
       "observation": {
@@ -9765,21 +10582,63 @@
             "aircraft_ready": true,
             "crew_ready": true,
             "weather_delay": 0
+          },
+          {
+            "flight_id": "BA122",
+            "airline": "BA",
+            "origin": "BOM",
+            "destination": "AMD",
+            "scheduled_dep": 870,
+            "scheduled_arr": 945,
+            "delay_minutes": 15,
+            "passengers": 98,
+            "priority": "normal",
+            "aircraft_ready": true,
+            "crew_ready": true,
+            "weather_delay": 0
+          },
+          {
+            "flight_id": "AN195",
+            "airline": "AN",
+            "origin": "DEL",
+            "destination": "BLR",
+            "scheduled_dep": 870,
+            "scheduled_arr": 1030,
+            "delay_minutes": 15,
+            "passengers": 119,
+            "priority": "normal",
+            "aircraft_ready": true,
+            "crew_ready": true,
+            "weather_delay": 0
+          },
+          {
+            "flight_id": "BA179",
+            "airline": "BA",
+            "origin": "BLR",
+            "destination": "HYD",
+            "scheduled_dep": 855,
+            "scheduled_arr": 930,
+            "delay_minutes": 30,
+            "passengers": 149,
+            "priority": "normal",
+            "aircraft_ready": true,
+            "crew_ready": true,
+            "weather_delay": 0
           }
         ],
         "network_summary": {
           "flights_total": 96,
-          "flights_arrived": 53,
-          "flights_cancelled": 0,
-          "flights_active": 43,
-          "total_dep_delay": 15,
-          "total_arr_delay": 520,
-          "stranded_passengers": 0,
-          "avg_satisfaction": 100.0,
+          "flights_arrived": 32,
+          "flights_cancelled": 23,
+          "flights_active": 41,
+          "total_dep_delay": 720,
+          "total_arr_delay": 890,
+          "stranded_passengers": 2819,
+          "avg_satisfaction": 82.88,
           "airline_cash": {
-            "SI": -3961500.0,
-            "BA": -2285000.0,
-            "AN": -2865500.0
+            "SI": -3349000.0,
+            "BA": -1942000.0,
+            "AN": -1679000.0
           }
         },
         "action_schema": {
@@ -9809,8 +10668,10 @@
       "time": 900,
       "actions": [
         {
-          "action": "depart",
-          "flight_id": "BA119"
+          "action": "hold",
+          "flight_id": "BA119",
+          "minutes": 30,
+          "reason": "random baseline hold"
         },
         {
           "action": "depart",
@@ -9823,6 +10684,12 @@
         {
           "action": "depart",
           "flight_id": "SI178"
+        },
+        {
+          "action": "hold",
+          "flight_id": "BA122",
+          "minutes": 45,
+          "reason": "random baseline hold"
         }
       ],
       "agent_messages": [
@@ -9841,8 +10708,8 @@
         {
           "from": "Bharat Air",
           "to": "Tower Central",
-          "type": "depart",
-          "message": "Cleared BA119 from BLR to BOM."
+          "type": "hold",
+          "message": "Holding BA119 for 30 minutes: random baseline hold."
         },
         {
           "from": "SkyIndus",
@@ -9861,6 +10728,12 @@
           "to": "Tower Central",
           "type": "depart",
           "message": "Cleared SI178 from COK to BLR."
+        },
+        {
+          "from": "Bharat Air",
+          "to": "Tower Central",
+          "type": "hold",
+          "message": "Holding BA122 for 45 minutes: random baseline hold."
         }
       ],
       "active_disruptions": [
@@ -9888,27 +10761,27 @@
         }
       ],
       "reward": {
-        "delay_score": 107.2,
+        "delay_score": 65.72999999999999,
         "safety_score": 0.0,
-        "passenger_score": 31.6,
-        "money_score": 0.0,
+        "passenger_score": 27.94,
+        "money_score": -6.0,
         "fairness_score": 0.0,
-        "action_validity_score": 8.0,
-        "total": 146.8
+        "action_validity_score": 6.4,
+        "total": 94.07
       },
       "metrics": {
         "flights_total": 96,
-        "flights_arrived": 57,
-        "flights_cancelled": 0,
-        "flights_active": 39,
-        "total_dep_delay": 15,
-        "total_arr_delay": 540,
-        "stranded_passengers": 0,
-        "avg_satisfaction": 100.0,
+        "flights_arrived": 36,
+        "flights_cancelled": 23,
+        "flights_active": 37,
+        "total_dep_delay": 810,
+        "total_arr_delay": 925,
+        "stranded_passengers": 2819,
+        "avg_satisfaction": 82.84,
         "airline_cash": {
-          "SI": -3961500.0,
-          "BA": -2285000.0,
-          "AN": -2865500.0
+          "SI": -3349000.0,
+          "BA": -1942000.0,
+          "AN": -1679000.0
         }
       },
       "observation": {
@@ -10067,21 +10940,63 @@
             "aircraft_ready": true,
             "crew_ready": true,
             "weather_delay": 30
+          },
+          {
+            "flight_id": "AN195",
+            "airline": "AN",
+            "origin": "DEL",
+            "destination": "BLR",
+            "scheduled_dep": 870,
+            "scheduled_arr": 1030,
+            "delay_minutes": 30,
+            "passengers": 119,
+            "priority": "normal",
+            "aircraft_ready": true,
+            "crew_ready": true,
+            "weather_delay": 0
+          },
+          {
+            "flight_id": "AN117",
+            "airline": "AN",
+            "origin": "BLR",
+            "destination": "DEL",
+            "scheduled_dep": 855,
+            "scheduled_arr": 1015,
+            "delay_minutes": 45,
+            "passengers": 131,
+            "priority": "normal",
+            "aircraft_ready": true,
+            "crew_ready": true,
+            "weather_delay": 0
+          },
+          {
+            "flight_id": "BA179",
+            "airline": "BA",
+            "origin": "BLR",
+            "destination": "HYD",
+            "scheduled_dep": 855,
+            "scheduled_arr": 930,
+            "delay_minutes": 45,
+            "passengers": 149,
+            "priority": "normal",
+            "aircraft_ready": true,
+            "crew_ready": true,
+            "weather_delay": 0
           }
         ],
         "network_summary": {
           "flights_total": 96,
-          "flights_arrived": 57,
-          "flights_cancelled": 0,
-          "flights_active": 39,
-          "total_dep_delay": 15,
-          "total_arr_delay": 540,
-          "stranded_passengers": 0,
-          "avg_satisfaction": 100.0,
+          "flights_arrived": 36,
+          "flights_cancelled": 23,
+          "flights_active": 37,
+          "total_dep_delay": 810,
+          "total_arr_delay": 925,
+          "stranded_passengers": 2819,
+          "avg_satisfaction": 82.84,
           "airline_cash": {
-            "SI": -3961500.0,
-            "BA": -2285000.0,
-            "AN": -2865500.0
+            "SI": -3349000.0,
+            "BA": -1942000.0,
+            "AN": -1679000.0
           }
         },
         "action_schema": {
@@ -10113,6 +11028,20 @@
         {
           "action": "depart",
           "flight_id": "SI184"
+        },
+        {
+          "action": "depart",
+          "flight_id": "AN195"
+        },
+        {
+          "action": "depart",
+          "flight_id": "AN117"
+        },
+        {
+          "action": "hold",
+          "flight_id": "BA179",
+          "minutes": 15,
+          "reason": "random baseline hold"
         }
       ],
       "agent_messages": [
@@ -10133,6 +11062,24 @@
           "to": "Tower Central",
           "type": "depart",
           "message": "Cleared SI184 from MAA to BLR."
+        },
+        {
+          "from": "AeroNova",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared AN195 from DEL to BLR."
+        },
+        {
+          "from": "AeroNova",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared AN117 from BLR to DEL."
+        },
+        {
+          "from": "Bharat Air",
+          "to": "Tower Central",
+          "type": "hold",
+          "message": "Holding BA179 for 15 minutes: random baseline hold."
         }
       ],
       "active_disruptions": [
@@ -10160,27 +11107,27 @@
         }
       ],
       "reward": {
-        "delay_score": 74.2,
+        "delay_score": 101.89000000000001,
         "safety_score": 0.0,
-        "passenger_score": 39.6,
-        "money_score": 0.0,
+        "passenger_score": 25.374999999999993,
+        "money_score": -184.8,
         "fairness_score": 0.0,
-        "action_validity_score": 2.0,
-        "total": 115.80000000000001
+        "action_validity_score": 6.2,
+        "total": -51.334999999999994
       },
       "metrics": {
         "flights_total": 96,
-        "flights_arrived": 62,
-        "flights_cancelled": 0,
-        "flights_active": 34,
-        "total_dep_delay": 15,
-        "total_arr_delay": 560,
-        "stranded_passengers": 0,
-        "avg_satisfaction": 100.0,
+        "flights_arrived": 42,
+        "flights_cancelled": 23,
+        "flights_active": 31,
+        "total_dep_delay": 870,
+        "total_arr_delay": 970,
+        "stranded_passengers": 2819,
+        "avg_satisfaction": 82.8,
         "airline_cash": {
-          "SI": -3961500.0,
-          "BA": -2285000.0,
-          "AN": -2865500.0
+          "SI": -3349000.0,
+          "BA": -1942000.0,
+          "AN": -1679000.0
         }
       },
       "observation": {
@@ -10339,21 +11286,63 @@
             "aircraft_ready": true,
             "crew_ready": true,
             "weather_delay": 0
+          },
+          {
+            "flight_id": "BA119",
+            "airline": "BA",
+            "origin": "BLR",
+            "destination": "BOM",
+            "scheduled_dep": 885,
+            "scheduled_arr": 990,
+            "delay_minutes": 30,
+            "passengers": 137,
+            "priority": "normal",
+            "aircraft_ready": true,
+            "crew_ready": true,
+            "weather_delay": 0
+          },
+          {
+            "flight_id": "SI181",
+            "airline": "SI",
+            "origin": "AMD",
+            "destination": "BOM",
+            "scheduled_dep": 870,
+            "scheduled_arr": 945,
+            "delay_minutes": 45,
+            "passengers": 175,
+            "priority": "normal",
+            "aircraft_ready": true,
+            "crew_ready": true,
+            "weather_delay": 0
+          },
+          {
+            "flight_id": "BA179",
+            "airline": "BA",
+            "origin": "BLR",
+            "destination": "HYD",
+            "scheduled_dep": 855,
+            "scheduled_arr": 930,
+            "delay_minutes": 60,
+            "passengers": 149,
+            "priority": "normal",
+            "aircraft_ready": true,
+            "crew_ready": true,
+            "weather_delay": 0
           }
         ],
         "network_summary": {
           "flights_total": 96,
-          "flights_arrived": 62,
-          "flights_cancelled": 0,
-          "flights_active": 34,
-          "total_dep_delay": 15,
-          "total_arr_delay": 560,
-          "stranded_passengers": 0,
-          "avg_satisfaction": 100.0,
+          "flights_arrived": 42,
+          "flights_cancelled": 23,
+          "flights_active": 31,
+          "total_dep_delay": 870,
+          "total_arr_delay": 970,
+          "stranded_passengers": 2819,
+          "avg_satisfaction": 82.8,
           "airline_cash": {
-            "SI": -3961500.0,
-            "BA": -2285000.0,
-            "AN": -2865500.0
+            "SI": -3349000.0,
+            "BA": -1942000.0,
+            "AN": -1679000.0
           }
         },
         "action_schema": {
@@ -10385,6 +11374,22 @@
         {
           "action": "depart",
           "flight_id": "AN165"
+        },
+        {
+          "action": "depart",
+          "flight_id": "BA119"
+        },
+        {
+          "action": "hold",
+          "flight_id": "SI181",
+          "minutes": 30,
+          "reason": "random baseline hold"
+        },
+        {
+          "action": "hold",
+          "flight_id": "BA179",
+          "minutes": 15,
+          "reason": "random baseline hold"
         }
       ],
       "agent_messages": [
@@ -10399,6 +11404,24 @@
           "to": "Tower Central",
           "type": "depart",
           "message": "Cleared AN165 from AMD to BOM."
+        },
+        {
+          "from": "Bharat Air",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared BA119 from BLR to BOM."
+        },
+        {
+          "from": "SkyIndus",
+          "to": "Tower Central",
+          "type": "hold",
+          "message": "Holding SI181 for 30 minutes: random baseline hold."
+        },
+        {
+          "from": "Bharat Air",
+          "to": "Tower Central",
+          "type": "hold",
+          "message": "Holding BA179 for 15 minutes: random baseline hold."
         }
       ],
       "active_disruptions": [
@@ -10415,27 +11438,27 @@
         }
       ],
       "reward": {
-        "delay_score": 38.4,
+        "delay_score": 4.04,
         "safety_score": 0.0,
-        "passenger_score": 15.7,
-        "money_score": 0.0,
+        "passenger_score": -10.33,
+        "money_score": -75.6,
         "fairness_score": 0.0,
-        "action_validity_score": 2.0,
-        "total": 56.099999999999994
+        "action_validity_score": 4.4,
+        "total": -77.49
       },
       "metrics": {
         "flights_total": 96,
-        "flights_arrived": 64,
-        "flights_cancelled": 0,
-        "flights_active": 32,
-        "total_dep_delay": 15,
-        "total_arr_delay": 575,
-        "stranded_passengers": 0,
-        "avg_satisfaction": 100.0,
+        "flights_arrived": 42,
+        "flights_cancelled": 23,
+        "flights_active": 31,
+        "total_dep_delay": 915,
+        "total_arr_delay": 970,
+        "stranded_passengers": 2819,
+        "avg_satisfaction": 82.78,
         "airline_cash": {
-          "SI": -3961500.0,
-          "BA": -2285000.0,
-          "AN": -2865500.0
+          "SI": -3349000.0,
+          "BA": -1942000.0,
+          "AN": -1679000.0
         }
       },
       "observation": {
@@ -10583,21 +11606,49 @@
             "aircraft_ready": true,
             "crew_ready": true,
             "weather_delay": 0
+          },
+          {
+            "flight_id": "BA122",
+            "airline": "BA",
+            "origin": "BOM",
+            "destination": "AMD",
+            "scheduled_dep": 870,
+            "scheduled_arr": 945,
+            "delay_minutes": 60,
+            "passengers": 98,
+            "priority": "normal",
+            "aircraft_ready": true,
+            "crew_ready": true,
+            "weather_delay": 0
+          },
+          {
+            "flight_id": "BA179",
+            "airline": "BA",
+            "origin": "BLR",
+            "destination": "HYD",
+            "scheduled_dep": 855,
+            "scheduled_arr": 930,
+            "delay_minutes": 75,
+            "passengers": 149,
+            "priority": "normal",
+            "aircraft_ready": true,
+            "crew_ready": true,
+            "weather_delay": 0
           }
         ],
         "network_summary": {
           "flights_total": 96,
-          "flights_arrived": 64,
-          "flights_cancelled": 0,
-          "flights_active": 32,
-          "total_dep_delay": 15,
-          "total_arr_delay": 575,
-          "stranded_passengers": 0,
-          "avg_satisfaction": 100.0,
+          "flights_arrived": 42,
+          "flights_cancelled": 23,
+          "flights_active": 31,
+          "total_dep_delay": 915,
+          "total_arr_delay": 970,
+          "stranded_passengers": 2819,
+          "avg_satisfaction": 82.78,
           "airline_cash": {
-            "SI": -3961500.0,
-            "BA": -2285000.0,
-            "AN": -2865500.0
+            "SI": -3349000.0,
+            "BA": -1942000.0,
+            "AN": -1679000.0
           }
         },
         "action_schema": {
@@ -10629,6 +11680,15 @@
         {
           "action": "depart",
           "flight_id": "BA110"
+        },
+        {
+          "action": "cancel",
+          "flight_id": "BA122",
+          "reason": "random baseline cancellation"
+        },
+        {
+          "action": "depart",
+          "flight_id": "BA179"
         }
       ],
       "agent_messages": [
@@ -10637,31 +11697,43 @@
           "to": "Tower Central",
           "type": "depart",
           "message": "Cleared BA110 from BLR to COK."
+        },
+        {
+          "from": "Bharat Air",
+          "to": "Tower Central",
+          "type": "cancel",
+          "message": "Cancel BA122; compensation and stranded passenger penalties will apply."
+        },
+        {
+          "from": "Bharat Air",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared BA179 from BLR to HYD."
         }
       ],
       "active_disruptions": [],
       "reward": {
-        "delay_score": 27.0,
+        "delay_score": 5.45,
         "safety_score": 0.0,
-        "passenger_score": 8.0,
-        "money_score": 0.0,
+        "passenger_score": -103.92500000000001,
+        "money_score": -215.5,
         "fairness_score": 0.0,
-        "action_validity_score": 2.0,
-        "total": 37.0
+        "action_validity_score": 4.0,
+        "total": -309.975
       },
       "metrics": {
         "flights_total": 96,
-        "flights_arrived": 65,
-        "flights_cancelled": 0,
-        "flights_active": 31,
-        "total_dep_delay": 15,
-        "total_arr_delay": 575,
-        "stranded_passengers": 0,
-        "avg_satisfaction": 100.0,
+        "flights_arrived": 43,
+        "flights_cancelled": 24,
+        "flights_active": 29,
+        "total_dep_delay": 870,
+        "total_arr_delay": 995,
+        "stranded_passengers": 2917,
+        "avg_satisfaction": 82.02,
         "airline_cash": {
-          "SI": -3961500.0,
+          "SI": -3349000.0,
           "BA": -2285000.0,
-          "AN": -2865500.0
+          "AN": -1679000.0
         }
       },
       "observation": {
@@ -10783,20 +11855,35 @@
           }
         ],
         "active_disruptions": [],
-        "pending_decisions": [],
+        "pending_decisions": [
+          {
+            "flight_id": "SI181",
+            "airline": "SI",
+            "origin": "AMD",
+            "destination": "BOM",
+            "scheduled_dep": 870,
+            "scheduled_arr": 945,
+            "delay_minutes": 75,
+            "passengers": 175,
+            "priority": "normal",
+            "aircraft_ready": true,
+            "crew_ready": true,
+            "weather_delay": 0
+          }
+        ],
         "network_summary": {
           "flights_total": 96,
-          "flights_arrived": 65,
-          "flights_cancelled": 0,
-          "flights_active": 31,
-          "total_dep_delay": 15,
-          "total_arr_delay": 575,
-          "stranded_passengers": 0,
-          "avg_satisfaction": 100.0,
+          "flights_arrived": 43,
+          "flights_cancelled": 24,
+          "flights_active": 29,
+          "total_dep_delay": 870,
+          "total_arr_delay": 995,
+          "stranded_passengers": 2917,
+          "avg_satisfaction": 82.02,
           "airline_cash": {
-            "SI": -3961500.0,
+            "SI": -3349000.0,
             "BA": -2285000.0,
-            "AN": -2865500.0
+            "AN": -1679000.0
           }
         },
         "action_schema": {
@@ -10824,31 +11911,45 @@
     },
     {
       "time": 960,
-      "actions": [],
-      "agent_messages": [],
+      "actions": [
+        {
+          "action": "hold",
+          "flight_id": "SI181",
+          "minutes": 30,
+          "reason": "random baseline hold"
+        }
+      ],
+      "agent_messages": [
+        {
+          "from": "SkyIndus",
+          "to": "Tower Central",
+          "type": "hold",
+          "message": "Holding SI181 for 30 minutes: random baseline hold."
+        }
+      ],
       "active_disruptions": [],
       "reward": {
-        "delay_score": 48.0,
+        "delay_score": 7.75,
         "safety_score": 0.0,
-        "passenger_score": 32.0,
-        "money_score": 0.0,
+        "passenger_score": 15.125,
+        "money_score": -1.2,
         "fairness_score": 0.0,
-        "action_validity_score": 0.0,
-        "total": 80.0
+        "action_validity_score": 0.2,
+        "total": 21.875
       },
       "metrics": {
         "flights_total": 96,
-        "flights_arrived": 69,
-        "flights_cancelled": 0,
+        "flights_arrived": 45,
+        "flights_cancelled": 24,
         "flights_active": 27,
-        "total_dep_delay": 15,
-        "total_arr_delay": 575,
-        "stranded_passengers": 0,
-        "avg_satisfaction": 100.0,
+        "total_dep_delay": 885,
+        "total_arr_delay": 995,
+        "stranded_passengers": 2917,
+        "avg_satisfaction": 82.01,
         "airline_cash": {
-          "SI": -3961500.0,
+          "SI": -3349000.0,
           "BA": -2285000.0,
-          "AN": -2865500.0
+          "AN": -1679000.0
         }
       },
       "observation": {
@@ -10988,17 +12089,17 @@
         ],
         "network_summary": {
           "flights_total": 96,
-          "flights_arrived": 69,
-          "flights_cancelled": 0,
+          "flights_arrived": 45,
+          "flights_cancelled": 24,
           "flights_active": 27,
-          "total_dep_delay": 15,
-          "total_arr_delay": 575,
-          "stranded_passengers": 0,
-          "avg_satisfaction": 100.0,
+          "total_dep_delay": 885,
+          "total_arr_delay": 995,
+          "stranded_passengers": 2917,
+          "avg_satisfaction": 82.01,
           "airline_cash": {
-            "SI": -3961500.0,
+            "SI": -3349000.0,
             "BA": -2285000.0,
-            "AN": -2865500.0
+            "AN": -1679000.0
           }
         },
         "action_schema": {
@@ -11042,27 +12143,27 @@
       ],
       "active_disruptions": [],
       "reward": {
-        "delay_score": 50.0,
+        "delay_score": 47.3,
         "safety_score": 0.0,
-        "passenger_score": 23.5,
-        "money_score": 0.0,
+        "passenger_score": 22.625,
+        "money_score": -1.2,
         "fairness_score": 0.0,
         "action_validity_score": 2.0,
-        "total": 75.5
+        "total": 70.725
       },
       "metrics": {
         "flights_total": 96,
-        "flights_arrived": 72,
-        "flights_cancelled": 0,
+        "flights_arrived": 48,
+        "flights_cancelled": 24,
         "flights_active": 24,
-        "total_dep_delay": 15,
-        "total_arr_delay": 600,
-        "stranded_passengers": 0,
-        "avg_satisfaction": 100.0,
+        "total_dep_delay": 900,
+        "total_arr_delay": 1020,
+        "stranded_passengers": 2917,
+        "avg_satisfaction": 82.0,
         "airline_cash": {
-          "SI": -3961500.0,
+          "SI": -3349000.0,
           "BA": -2285000.0,
-          "AN": -2865500.0
+          "AN": -1679000.0
         }
       },
       "observation": {
@@ -11198,21 +12299,35 @@
             "aircraft_ready": true,
             "crew_ready": true,
             "weather_delay": 0
+          },
+          {
+            "flight_id": "SI181",
+            "airline": "SI",
+            "origin": "AMD",
+            "destination": "BOM",
+            "scheduled_dep": 870,
+            "scheduled_arr": 945,
+            "delay_minutes": 105,
+            "passengers": 175,
+            "priority": "normal",
+            "aircraft_ready": true,
+            "crew_ready": true,
+            "weather_delay": 0
           }
         ],
         "network_summary": {
           "flights_total": 96,
-          "flights_arrived": 72,
-          "flights_cancelled": 0,
+          "flights_arrived": 48,
+          "flights_cancelled": 24,
           "flights_active": 24,
-          "total_dep_delay": 15,
-          "total_arr_delay": 600,
-          "stranded_passengers": 0,
-          "avg_satisfaction": 100.0,
+          "total_dep_delay": 900,
+          "total_arr_delay": 1020,
+          "stranded_passengers": 2917,
+          "avg_satisfaction": 82.0,
           "airline_cash": {
-            "SI": -3961500.0,
+            "SI": -3349000.0,
             "BA": -2285000.0,
-            "AN": -2865500.0
+            "AN": -1679000.0
           }
         },
         "action_schema": {
@@ -11244,6 +12359,11 @@
         {
           "action": "depart",
           "flight_id": "SI127"
+        },
+        {
+          "action": "cancel",
+          "flight_id": "SI181",
+          "reason": "random baseline cancellation"
         }
       ],
       "agent_messages": [
@@ -11252,31 +12372,37 @@
           "to": "Tower Central",
           "type": "depart",
           "message": "Cleared SI127 from BLR to COK."
+        },
+        {
+          "from": "SkyIndus",
+          "to": "Tower Central",
+          "type": "cancel",
+          "message": "Cancel SI181; compensation and stranded passenger penalties will apply."
         }
       ],
       "active_disruptions": [],
       "reward": {
-        "delay_score": 38.6,
+        "delay_score": -3.1999999999999993,
         "safety_score": 0.0,
-        "passenger_score": 15.8,
-        "money_score": 0.0,
+        "passenger_score": -149.6,
+        "money_score": -61.25,
         "fairness_score": 0.0,
         "action_validity_score": 2.0,
-        "total": 56.400000000000006
+        "total": -212.04999999999998
       },
       "metrics": {
         "flights_total": 96,
-        "flights_arrived": 74,
-        "flights_cancelled": 0,
+        "flights_arrived": 49,
+        "flights_cancelled": 25,
         "flights_active": 22,
-        "total_dep_delay": 15,
-        "total_arr_delay": 610,
-        "stranded_passengers": 0,
-        "avg_satisfaction": 100.0,
+        "total_dep_delay": 795,
+        "total_arr_delay": 1025,
+        "stranded_passengers": 3092,
+        "avg_satisfaction": 81.25,
         "airline_cash": {
           "SI": -3961500.0,
           "BA": -2285000.0,
-          "AN": -2865500.0
+          "AN": -1679000.0
         }
       },
       "observation": {
@@ -11401,17 +12527,17 @@
         "pending_decisions": [],
         "network_summary": {
           "flights_total": 96,
-          "flights_arrived": 74,
-          "flights_cancelled": 0,
+          "flights_arrived": 49,
+          "flights_cancelled": 25,
           "flights_active": 22,
-          "total_dep_delay": 15,
-          "total_arr_delay": 610,
-          "stranded_passengers": 0,
-          "avg_satisfaction": 100.0,
+          "total_dep_delay": 795,
+          "total_arr_delay": 1025,
+          "stranded_passengers": 3092,
+          "avg_satisfaction": 81.25,
           "airline_cash": {
             "SI": -3961500.0,
             "BA": -2285000.0,
-            "AN": -2865500.0
+            "AN": -1679000.0
           }
         },
         "action_schema": {
@@ -11443,27 +12569,27 @@
       "agent_messages": [],
       "active_disruptions": [],
       "reward": {
-        "delay_score": 34.6,
+        "delay_score": 22.6,
         "safety_score": 0.0,
-        "passenger_score": 23.3,
+        "passenger_score": 15.3,
         "money_score": 0.0,
         "fairness_score": 0.0,
         "action_validity_score": 0.0,
-        "total": 57.900000000000006
+        "total": 37.900000000000006
       },
       "metrics": {
         "flights_total": 96,
-        "flights_arrived": 77,
-        "flights_cancelled": 0,
-        "flights_active": 19,
-        "total_dep_delay": 15,
-        "total_arr_delay": 645,
-        "stranded_passengers": 0,
-        "avg_satisfaction": 100.0,
+        "flights_arrived": 51,
+        "flights_cancelled": 25,
+        "flights_active": 20,
+        "total_dep_delay": 795,
+        "total_arr_delay": 1060,
+        "stranded_passengers": 3092,
+        "avg_satisfaction": 81.25,
         "airline_cash": {
           "SI": -3961500.0,
           "BA": -2285000.0,
-          "AN": -2865500.0
+          "AN": -1679000.0
         }
       },
       "observation": {
@@ -11617,17 +12743,17 @@
         ],
         "network_summary": {
           "flights_total": 96,
-          "flights_arrived": 77,
-          "flights_cancelled": 0,
-          "flights_active": 19,
-          "total_dep_delay": 15,
-          "total_arr_delay": 645,
-          "stranded_passengers": 0,
-          "avg_satisfaction": 100.0,
+          "flights_arrived": 51,
+          "flights_cancelled": 25,
+          "flights_active": 20,
+          "total_dep_delay": 795,
+          "total_arr_delay": 1060,
+          "stranded_passengers": 3092,
+          "avg_satisfaction": 81.25,
           "airline_cash": {
             "SI": -3961500.0,
             "BA": -2285000.0,
-            "AN": -2865500.0
+            "AN": -1679000.0
           }
         },
         "action_schema": {
@@ -11681,27 +12807,27 @@
       ],
       "active_disruptions": [],
       "reward": {
-        "delay_score": 53.4,
+        "delay_score": 50.6,
         "safety_score": 0.0,
-        "passenger_score": 15.7,
+        "passenger_score": 14.3,
         "money_score": 0.0,
         "fairness_score": 0.0,
         "action_validity_score": 4.0,
-        "total": 73.1
+        "total": 68.9
       },
       "metrics": {
         "flights_total": 96,
-        "flights_arrived": 79,
-        "flights_cancelled": 0,
-        "flights_active": 17,
-        "total_dep_delay": 15,
-        "total_arr_delay": 660,
-        "stranded_passengers": 0,
-        "avg_satisfaction": 100.0,
+        "flights_arrived": 53,
+        "flights_cancelled": 25,
+        "flights_active": 18,
+        "total_dep_delay": 795,
+        "total_arr_delay": 1145,
+        "stranded_passengers": 3092,
+        "avg_satisfaction": 81.25,
         "airline_cash": {
           "SI": -3961500.0,
           "BA": -2285000.0,
-          "AN": -2865500.0
+          "AN": -1679000.0
         }
       },
       "observation": {
@@ -11869,17 +12995,17 @@
         ],
         "network_summary": {
           "flights_total": 96,
-          "flights_arrived": 79,
-          "flights_cancelled": 0,
-          "flights_active": 17,
-          "total_dep_delay": 15,
-          "total_arr_delay": 660,
-          "stranded_passengers": 0,
-          "avg_satisfaction": 100.0,
+          "flights_arrived": 53,
+          "flights_cancelled": 25,
+          "flights_active": 18,
+          "total_dep_delay": 795,
+          "total_arr_delay": 1145,
+          "stranded_passengers": 3092,
+          "avg_satisfaction": 81.25,
           "airline_cash": {
             "SI": -3961500.0,
             "BA": -2285000.0,
-            "AN": -2865500.0
+            "AN": -1679000.0
           }
         },
         "action_schema": {
@@ -11909,61 +13035,66 @@
       "time": 1035,
       "actions": [
         {
-          "action": "depart",
-          "flight_id": "AN108"
+          "action": "cancel",
+          "flight_id": "AN108",
+          "reason": "random baseline cancellation"
         },
         {
-          "action": "depart",
-          "flight_id": "SI166"
+          "action": "hold",
+          "flight_id": "SI166",
+          "minutes": 45,
+          "reason": "random baseline hold"
         },
         {
-          "action": "depart",
-          "flight_id": "AN171"
+          "action": "hold",
+          "flight_id": "AN171",
+          "minutes": 15,
+          "reason": "random baseline hold"
         }
       ],
       "agent_messages": [
         {
           "from": "AeroNova",
           "to": "Tower Central",
-          "type": "depart",
-          "message": "Cleared AN108 from HYD to DEL."
+          "type": "cancel",
+          "message": "Cancel AN108; compensation and stranded passenger penalties will apply."
         },
         {
           "from": "SkyIndus",
           "to": "Tower Central",
-          "type": "depart",
-          "message": "Cleared SI166 from BLR to DEL."
+          "type": "hold",
+          "message": "Holding SI166 for 45 minutes: random baseline hold."
         },
         {
           "from": "AeroNova",
           "to": "Tower Central",
-          "type": "depart",
-          "message": "Cleared AN171 from AMD to BOM."
+          "type": "hold",
+          "message": "Holding AN171 for 15 minutes: random baseline hold."
         }
       ],
       "active_disruptions": [],
       "reward": {
-        "delay_score": 68.4,
+        "delay_score": -30.120000000000005,
         "safety_score": 0.0,
-        "passenger_score": 15.7,
-        "money_score": 0.0,
+        "passenger_score": -103.6,
+        "money_score": -46.2,
         "fairness_score": 0.0,
-        "action_validity_score": 6.0,
-        "total": 90.10000000000001
+        "action_validity_score": 0.4,
+        "total": -179.52
       },
       "metrics": {
         "flights_total": 96,
-        "flights_arrived": 81,
-        "flights_cancelled": 0,
+        "flights_arrived": 55,
+        "flights_cancelled": 26,
         "flights_active": 15,
-        "total_dep_delay": 15,
-        "total_arr_delay": 675,
-        "stranded_passengers": 0,
-        "avg_satisfaction": 100.0,
+        "total_dep_delay": 825,
+        "total_arr_delay": 1185,
+        "stranded_passengers": 3224,
+        "avg_satisfaction": 80.5,
         "airline_cash": {
           "SI": -3961500.0,
           "BA": -2285000.0,
-          "AN": -2865500.0
+          "AN": -2141000.0
         }
       },
       "observation": {
@@ -12099,21 +13230,35 @@
             "aircraft_ready": true,
             "crew_ready": true,
             "weather_delay": 0
+          },
+          {
+            "flight_id": "AN171",
+            "airline": "AN",
+            "origin": "AMD",
+            "destination": "BOM",
+            "scheduled_dep": 1020,
+            "scheduled_arr": 1095,
+            "delay_minutes": 15,
+            "passengers": 101,
+            "priority": "normal",
+            "aircraft_ready": true,
+            "crew_ready": true,
+            "weather_delay": 0
           }
         ],
         "network_summary": {
           "flights_total": 96,
-          "flights_arrived": 81,
-          "flights_cancelled": 0,
+          "flights_arrived": 55,
+          "flights_cancelled": 26,
           "flights_active": 15,
-          "total_dep_delay": 15,
-          "total_arr_delay": 675,
-          "stranded_passengers": 0,
-          "avg_satisfaction": 100.0,
+          "total_dep_delay": 825,
+          "total_arr_delay": 1185,
+          "stranded_passengers": 3224,
+          "avg_satisfaction": 80.5,
           "airline_cash": {
             "SI": -3961500.0,
             "BA": -2285000.0,
-            "AN": -2865500.0
+            "AN": -2141000.0
           }
         },
         "action_schema": {
@@ -12143,41 +13288,53 @@
       "time": 1050,
       "actions": [
         {
+          "action": "hold",
+          "flight_id": "AN111",
+          "minutes": 30,
+          "reason": "random baseline hold"
+        },
+        {
           "action": "depart",
-          "flight_id": "AN111"
+          "flight_id": "AN171"
         }
       ],
       "agent_messages": [
         {
           "from": "AeroNova",
           "to": "Tower Central",
+          "type": "hold",
+          "message": "Holding AN111 for 30 minutes: random baseline hold."
+        },
+        {
+          "from": "AeroNova",
+          "to": "Tower Central",
           "type": "depart",
-          "message": "Cleared AN111 from CCU to DEL."
+          "message": "Cleared AN171 from AMD to BOM."
         }
       ],
       "active_disruptions": [],
       "reward": {
-        "delay_score": 38.4,
+        "delay_score": 15.8,
         "safety_score": 0.0,
-        "passenger_score": 15.7,
-        "money_score": 0.0,
+        "passenger_score": 3.9999999999999996,
+        "money_score": -37.2,
         "fairness_score": 0.0,
-        "action_validity_score": 2.0,
-        "total": 56.099999999999994
+        "action_validity_score": 2.2,
+        "total": -15.200000000000003
       },
       "metrics": {
         "flights_total": 96,
-        "flights_arrived": 83,
-        "flights_cancelled": 0,
-        "flights_active": 13,
-        "total_dep_delay": 15,
-        "total_arr_delay": 690,
-        "stranded_passengers": 0,
-        "avg_satisfaction": 100.0,
+        "flights_arrived": 56,
+        "flights_cancelled": 26,
+        "flights_active": 14,
+        "total_dep_delay": 855,
+        "total_arr_delay": 1195,
+        "stranded_passengers": 3224,
+        "avg_satisfaction": 80.5,
         "airline_cash": {
           "SI": -3961500.0,
           "BA": -2285000.0,
-          "AN": -2865500.0
+          "AN": -2141000.0
         }
       },
       "observation": {
@@ -12345,17 +13502,17 @@
         ],
         "network_summary": {
           "flights_total": 96,
-          "flights_arrived": 83,
-          "flights_cancelled": 0,
-          "flights_active": 13,
-          "total_dep_delay": 15,
-          "total_arr_delay": 690,
-          "stranded_passengers": 0,
-          "avg_satisfaction": 100.0,
+          "flights_arrived": 56,
+          "flights_cancelled": 26,
+          "flights_active": 14,
+          "total_dep_delay": 855,
+          "total_arr_delay": 1195,
+          "stranded_passengers": 3224,
+          "avg_satisfaction": 80.5,
           "airline_cash": {
             "SI": -3961500.0,
             "BA": -2285000.0,
-            "AN": -2865500.0
+            "AN": -2141000.0
           }
         },
         "action_schema": {
@@ -12393,8 +13550,10 @@
           "flight_id": "AN144"
         },
         {
-          "action": "depart",
-          "flight_id": "AN192"
+          "action": "hold",
+          "flight_id": "AN192",
+          "minutes": 45,
+          "reason": "random baseline hold"
         }
       ],
       "agent_messages": [
@@ -12413,33 +13572,33 @@
         {
           "from": "AeroNova",
           "to": "Tower Central",
-          "type": "depart",
-          "message": "Cleared AN192 from BLR to DEL."
+          "type": "hold",
+          "message": "Holding AN192 for 45 minutes: random baseline hold."
         }
       ],
       "active_disruptions": [],
       "reward": {
-        "delay_score": 56.6,
+        "delay_score": 24.409999999999997,
         "safety_score": 0.0,
-        "passenger_score": 7.8,
-        "money_score": 0.0,
+        "passenger_score": 6.43,
+        "money_score": -2.4,
         "fairness_score": 0.0,
-        "action_validity_score": 6.0,
-        "total": 70.4
+        "action_validity_score": 4.2,
+        "total": 32.64
       },
       "metrics": {
         "flights_total": 96,
-        "flights_arrived": 84,
-        "flights_cancelled": 0,
-        "flights_active": 12,
-        "total_dep_delay": 15,
-        "total_arr_delay": 700,
-        "stranded_passengers": 0,
-        "avg_satisfaction": 100.0,
+        "flights_arrived": 57,
+        "flights_cancelled": 26,
+        "flights_active": 13,
+        "total_dep_delay": 900,
+        "total_arr_delay": 1205,
+        "stranded_passengers": 3224,
+        "avg_satisfaction": 80.48,
         "airline_cash": {
           "SI": -3961500.0,
           "BA": -2285000.0,
-          "AN": -2865500.0
+          "AN": -2141000.0
         }
       },
       "observation": {
@@ -12589,21 +13748,49 @@
             "aircraft_ready": true,
             "crew_ready": true,
             "weather_delay": 0
+          },
+          {
+            "flight_id": "AN111",
+            "airline": "AN",
+            "origin": "CCU",
+            "destination": "DEL",
+            "scheduled_dep": 1035,
+            "scheduled_arr": 1175,
+            "delay_minutes": 30,
+            "passengers": 120,
+            "priority": "normal",
+            "aircraft_ready": true,
+            "crew_ready": true,
+            "weather_delay": 0
+          },
+          {
+            "flight_id": "SI166",
+            "airline": "SI",
+            "origin": "BLR",
+            "destination": "DEL",
+            "scheduled_dep": 1020,
+            "scheduled_arr": 1180,
+            "delay_minutes": 45,
+            "passengers": 154,
+            "priority": "normal",
+            "aircraft_ready": true,
+            "crew_ready": true,
+            "weather_delay": 0
           }
         ],
         "network_summary": {
           "flights_total": 96,
-          "flights_arrived": 84,
-          "flights_cancelled": 0,
-          "flights_active": 12,
-          "total_dep_delay": 15,
-          "total_arr_delay": 700,
-          "stranded_passengers": 0,
-          "avg_satisfaction": 100.0,
+          "flights_arrived": 57,
+          "flights_cancelled": 26,
+          "flights_active": 13,
+          "total_dep_delay": 900,
+          "total_arr_delay": 1205,
+          "stranded_passengers": 3224,
+          "avg_satisfaction": 80.48,
           "airline_cash": {
             "SI": -3961500.0,
             "BA": -2285000.0,
-            "AN": -2865500.0
+            "AN": -2141000.0
           }
         },
         "action_schema": {
@@ -12633,47 +13820,71 @@
       "time": 1080,
       "actions": [
         {
-          "action": "depart",
-          "flight_id": "AN168"
+          "action": "cancel",
+          "flight_id": "AN168",
+          "reason": "random baseline cancellation"
+        },
+        {
+          "action": "hold",
+          "flight_id": "AN180",
+          "minutes": 15,
+          "reason": "random baseline hold"
+        },
+        {
+          "action": "cancel",
+          "flight_id": "AN111",
+          "reason": "random baseline cancellation"
         },
         {
           "action": "depart",
-          "flight_id": "AN180"
+          "flight_id": "SI166"
         }
       ],
       "agent_messages": [
         {
           "from": "AeroNova",
           "to": "Tower Central",
-          "type": "depart",
-          "message": "Cleared AN168 from DEL to HYD."
+          "type": "cancel",
+          "message": "Cancel AN168; compensation and stranded passenger penalties will apply."
         },
         {
           "from": "AeroNova",
           "to": "Tower Central",
+          "type": "hold",
+          "message": "Holding AN180 for 15 minutes: random baseline hold."
+        },
+        {
+          "from": "AeroNova",
+          "to": "Tower Central",
+          "type": "cancel",
+          "message": "Cancel AN111; compensation and stranded passenger penalties will apply."
+        },
+        {
+          "from": "SkyIndus",
+          "to": "Tower Central",
           "type": "depart",
-          "message": "Cleared AN180 from BOM to DEL."
+          "message": "Cleared SI166 from BLR to DEL."
         }
       ],
       "active_disruptions": [],
       "reward": {
-        "delay_score": 41.8,
+        "delay_score": -20.26,
         "safety_score": 0.0,
-        "passenger_score": 7.9,
-        "money_score": 0.0,
+        "passenger_score": -178.62000000000003,
+        "money_score": -181.64999999999998,
         "fairness_score": 0.0,
-        "action_validity_score": 4.0,
-        "total": 53.699999999999996
+        "action_validity_score": 2.2,
+        "total": -378.33
       },
       "metrics": {
         "flights_total": 96,
-        "flights_arrived": 85,
-        "flights_cancelled": 0,
-        "flights_active": 11,
-        "total_dep_delay": 15,
-        "total_arr_delay": 705,
-        "stranded_passengers": 0,
-        "avg_satisfaction": 100.0,
+        "flights_arrived": 60,
+        "flights_cancelled": 28,
+        "flights_active": 8,
+        "total_dep_delay": 900,
+        "total_arr_delay": 1295,
+        "stranded_passengers": 3431,
+        "avg_satisfaction": 78.97,
         "airline_cash": {
           "SI": -3961500.0,
           "BA": -2285000.0,
@@ -12799,16 +14010,31 @@
           }
         ],
         "active_disruptions": [],
-        "pending_decisions": [],
+        "pending_decisions": [
+          {
+            "flight_id": "AN180",
+            "airline": "AN",
+            "origin": "BOM",
+            "destination": "DEL",
+            "scheduled_dep": 1065,
+            "scheduled_arr": 1195,
+            "delay_minutes": 15,
+            "passengers": 124,
+            "priority": "normal",
+            "aircraft_ready": true,
+            "crew_ready": true,
+            "weather_delay": 0
+          }
+        ],
         "network_summary": {
           "flights_total": 96,
-          "flights_arrived": 85,
-          "flights_cancelled": 0,
-          "flights_active": 11,
-          "total_dep_delay": 15,
-          "total_arr_delay": 705,
-          "stranded_passengers": 0,
-          "avg_satisfaction": 100.0,
+          "flights_arrived": 60,
+          "flights_cancelled": 28,
+          "flights_active": 8,
+          "total_dep_delay": 900,
+          "total_arr_delay": 1295,
+          "stranded_passengers": 3431,
+          "avg_satisfaction": 78.97,
           "airline_cash": {
             "SI": -3961500.0,
             "BA": -2285000.0,
@@ -12840,27 +14066,39 @@
     },
     {
       "time": 1095,
-      "actions": [],
-      "agent_messages": [],
+      "actions": [
+        {
+          "action": "depart",
+          "flight_id": "AN180"
+        }
+      ],
+      "agent_messages": [
+        {
+          "from": "AeroNova",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared AN180 from BOM to DEL."
+        }
+      ],
       "active_disruptions": [],
       "reward": {
-        "delay_score": 10.4,
+        "delay_score": 23.75,
         "safety_score": 0.0,
-        "passenger_score": 7.2,
-        "money_score": 0.0,
+        "passenger_score": 2.82,
+        "money_score": -37.2,
         "fairness_score": 0.0,
-        "action_validity_score": 0.0,
-        "total": 17.6
+        "action_validity_score": 2.0,
+        "total": -8.630000000000003
       },
       "metrics": {
         "flights_total": 96,
-        "flights_arrived": 86,
-        "flights_cancelled": 0,
-        "flights_active": 10,
-        "total_dep_delay": 15,
-        "total_arr_delay": 745,
-        "stranded_passengers": 0,
-        "avg_satisfaction": 100.0,
+        "flights_arrived": 61,
+        "flights_cancelled": 28,
+        "flights_active": 7,
+        "total_dep_delay": 915,
+        "total_arr_delay": 1335,
+        "stranded_passengers": 3431,
+        "avg_satisfaction": 78.96,
         "airline_cash": {
           "SI": -3961500.0,
           "BA": -2285000.0,
@@ -12986,16 +14224,31 @@
           }
         ],
         "active_disruptions": [],
-        "pending_decisions": [],
+        "pending_decisions": [
+          {
+            "flight_id": "AN192",
+            "airline": "AN",
+            "origin": "BLR",
+            "destination": "DEL",
+            "scheduled_dep": 1050,
+            "scheduled_arr": 1210,
+            "delay_minutes": 45,
+            "passengers": 132,
+            "priority": "normal",
+            "aircraft_ready": true,
+            "crew_ready": true,
+            "weather_delay": 0
+          }
+        ],
         "network_summary": {
           "flights_total": 96,
-          "flights_arrived": 86,
-          "flights_cancelled": 0,
-          "flights_active": 10,
-          "total_dep_delay": 15,
-          "total_arr_delay": 745,
-          "stranded_passengers": 0,
-          "avg_satisfaction": 100.0,
+          "flights_arrived": 61,
+          "flights_cancelled": 28,
+          "flights_active": 7,
+          "total_dep_delay": 915,
+          "total_arr_delay": 1335,
+          "stranded_passengers": 3431,
+          "avg_satisfaction": 78.96,
           "airline_cash": {
             "SI": -3961500.0,
             "BA": -2285000.0,
@@ -13027,27 +14280,39 @@
     },
     {
       "time": 1110,
-      "actions": [],
-      "agent_messages": [],
+      "actions": [
+        {
+          "action": "depart",
+          "flight_id": "AN192"
+        }
+      ],
+      "agent_messages": [
+        {
+          "from": "AeroNova",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared AN192 from BLR to DEL."
+        }
+      ],
       "active_disruptions": [],
       "reward": {
-        "delay_score": 23.8,
+        "delay_score": 24.55,
         "safety_score": 0.0,
-        "passenger_score": 15.9,
-        "money_score": 0.0,
+        "passenger_score": -3.9800000000000004,
+        "money_score": -108.0,
         "fairness_score": 0.0,
-        "action_validity_score": 0.0,
-        "total": 39.7
+        "action_validity_score": 2.0,
+        "total": -85.43
       },
       "metrics": {
         "flights_total": 96,
-        "flights_arrived": 88,
-        "flights_cancelled": 0,
-        "flights_active": 8,
-        "total_dep_delay": 15,
-        "total_arr_delay": 750,
-        "stranded_passengers": 0,
-        "avg_satisfaction": 100.0,
+        "flights_arrived": 62,
+        "flights_cancelled": 28,
+        "flights_active": 6,
+        "total_dep_delay": 915,
+        "total_arr_delay": 1340,
+        "stranded_passengers": 3431,
+        "avg_satisfaction": 78.96,
         "airline_cash": {
           "SI": -3961500.0,
           "BA": -2285000.0,
@@ -13176,13 +14441,13 @@
         "pending_decisions": [],
         "network_summary": {
           "flights_total": 96,
-          "flights_arrived": 88,
-          "flights_cancelled": 0,
-          "flights_active": 8,
-          "total_dep_delay": 15,
-          "total_arr_delay": 750,
-          "stranded_passengers": 0,
-          "avg_satisfaction": 100.0,
+          "flights_arrived": 62,
+          "flights_cancelled": 28,
+          "flights_active": 6,
+          "total_dep_delay": 915,
+          "total_arr_delay": 1340,
+          "stranded_passengers": 3431,
+          "avg_satisfaction": 78.96,
           "airline_cash": {
             "SI": -3961500.0,
             "BA": -2285000.0,
@@ -13218,23 +14483,23 @@
       "agent_messages": [],
       "active_disruptions": [],
       "reward": {
-        "delay_score": 0.0,
+        "delay_score": 11.4,
         "safety_score": 0.0,
-        "passenger_score": 0.0,
+        "passenger_score": 7.7,
         "money_score": 0.0,
         "fairness_score": 0.0,
         "action_validity_score": 0.0,
-        "total": 0.0
+        "total": 19.1
       },
       "metrics": {
         "flights_total": 96,
-        "flights_arrived": 88,
-        "flights_cancelled": 0,
-        "flights_active": 8,
-        "total_dep_delay": 15,
-        "total_arr_delay": 750,
-        "stranded_passengers": 0,
-        "avg_satisfaction": 100.0,
+        "flights_arrived": 63,
+        "flights_cancelled": 28,
+        "flights_active": 5,
+        "total_dep_delay": 915,
+        "total_arr_delay": 1355,
+        "stranded_passengers": 3431,
+        "avg_satisfaction": 78.96,
         "airline_cash": {
           "SI": -3961500.0,
           "BA": -2285000.0,
@@ -13363,13 +14628,13 @@
         "pending_decisions": [],
         "network_summary": {
           "flights_total": 96,
-          "flights_arrived": 88,
-          "flights_cancelled": 0,
-          "flights_active": 8,
-          "total_dep_delay": 15,
-          "total_arr_delay": 750,
-          "stranded_passengers": 0,
-          "avg_satisfaction": 100.0,
+          "flights_arrived": 63,
+          "flights_cancelled": 28,
+          "flights_active": 5,
+          "total_dep_delay": 915,
+          "total_arr_delay": 1355,
+          "stranded_passengers": 3431,
+          "avg_satisfaction": 78.96,
           "airline_cash": {
             "SI": -3961500.0,
             "BA": -2285000.0,
@@ -13415,13 +14680,13 @@
       },
       "metrics": {
         "flights_total": 96,
-        "flights_arrived": 88,
-        "flights_cancelled": 0,
-        "flights_active": 8,
-        "total_dep_delay": 15,
-        "total_arr_delay": 750,
-        "stranded_passengers": 0,
-        "avg_satisfaction": 100.0,
+        "flights_arrived": 63,
+        "flights_cancelled": 28,
+        "flights_active": 5,
+        "total_dep_delay": 915,
+        "total_arr_delay": 1355,
+        "stranded_passengers": 3431,
+        "avg_satisfaction": 78.96,
         "airline_cash": {
           "SI": -3961500.0,
           "BA": -2285000.0,
@@ -13550,13 +14815,13 @@
         "pending_decisions": [],
         "network_summary": {
           "flights_total": 96,
-          "flights_arrived": 88,
-          "flights_cancelled": 0,
-          "flights_active": 8,
-          "total_dep_delay": 15,
-          "total_arr_delay": 750,
-          "stranded_passengers": 0,
-          "avg_satisfaction": 100.0,
+          "flights_arrived": 63,
+          "flights_cancelled": 28,
+          "flights_active": 5,
+          "total_dep_delay": 915,
+          "total_arr_delay": 1355,
+          "stranded_passengers": 3431,
+          "avg_satisfaction": 78.96,
           "airline_cash": {
             "SI": -3961500.0,
             "BA": -2285000.0,
@@ -13602,13 +14867,13 @@
       },
       "metrics": {
         "flights_total": 96,
-        "flights_arrived": 88,
-        "flights_cancelled": 0,
-        "flights_active": 8,
-        "total_dep_delay": 15,
-        "total_arr_delay": 750,
-        "stranded_passengers": 0,
-        "avg_satisfaction": 100.0,
+        "flights_arrived": 63,
+        "flights_cancelled": 28,
+        "flights_active": 5,
+        "total_dep_delay": 915,
+        "total_arr_delay": 1355,
+        "stranded_passengers": 3431,
+        "avg_satisfaction": 78.96,
         "airline_cash": {
           "SI": -3961500.0,
           "BA": -2285000.0,
@@ -13737,13 +15002,13 @@
         "pending_decisions": [],
         "network_summary": {
           "flights_total": 96,
-          "flights_arrived": 88,
-          "flights_cancelled": 0,
-          "flights_active": 8,
-          "total_dep_delay": 15,
-          "total_arr_delay": 750,
-          "stranded_passengers": 0,
-          "avg_satisfaction": 100.0,
+          "flights_arrived": 63,
+          "flights_cancelled": 28,
+          "flights_active": 5,
+          "total_dep_delay": 915,
+          "total_arr_delay": 1355,
+          "stranded_passengers": 3431,
+          "avg_satisfaction": 78.96,
           "airline_cash": {
             "SI": -3961500.0,
             "BA": -2285000.0,
@@ -13779,23 +15044,23 @@
       "agent_messages": [],
       "active_disruptions": [],
       "reward": {
-        "delay_score": 12.0,
+        "delay_score": 0.0,
         "safety_score": 0.0,
-        "passenger_score": 8.0,
+        "passenger_score": 0.0,
         "money_score": 0.0,
         "fairness_score": 0.0,
         "action_validity_score": 0.0,
-        "total": 20.0
+        "total": 0.0
       },
       "metrics": {
         "flights_total": 96,
-        "flights_arrived": 89,
-        "flights_cancelled": 0,
-        "flights_active": 7,
-        "total_dep_delay": 15,
-        "total_arr_delay": 750,
-        "stranded_passengers": 0,
-        "avg_satisfaction": 100.0,
+        "flights_arrived": 63,
+        "flights_cancelled": 28,
+        "flights_active": 5,
+        "total_dep_delay": 915,
+        "total_arr_delay": 1355,
+        "stranded_passengers": 3431,
+        "avg_satisfaction": 78.96,
         "airline_cash": {
           "SI": -3961500.0,
           "BA": -2285000.0,
@@ -13924,13 +15189,13 @@
         "pending_decisions": [],
         "network_summary": {
           "flights_total": 96,
-          "flights_arrived": 89,
-          "flights_cancelled": 0,
-          "flights_active": 7,
-          "total_dep_delay": 15,
-          "total_arr_delay": 750,
-          "stranded_passengers": 0,
-          "avg_satisfaction": 100.0,
+          "flights_arrived": 63,
+          "flights_cancelled": 28,
+          "flights_active": 5,
+          "total_dep_delay": 915,
+          "total_arr_delay": 1355,
+          "stranded_passengers": 3431,
+          "avg_satisfaction": 78.96,
           "airline_cash": {
             "SI": -3961500.0,
             "BA": -2285000.0,
@@ -13976,13 +15241,13 @@
       },
       "metrics": {
         "flights_total": 96,
-        "flights_arrived": 89,
-        "flights_cancelled": 0,
-        "flights_active": 7,
-        "total_dep_delay": 15,
-        "total_arr_delay": 750,
-        "stranded_passengers": 0,
-        "avg_satisfaction": 100.0,
+        "flights_arrived": 63,
+        "flights_cancelled": 28,
+        "flights_active": 5,
+        "total_dep_delay": 915,
+        "total_arr_delay": 1355,
+        "stranded_passengers": 3431,
+        "avg_satisfaction": 78.96,
         "airline_cash": {
           "SI": -3961500.0,
           "BA": -2285000.0,
@@ -14111,13 +15376,13 @@
         "pending_decisions": [],
         "network_summary": {
           "flights_total": 96,
-          "flights_arrived": 89,
-          "flights_cancelled": 0,
-          "flights_active": 7,
-          "total_dep_delay": 15,
-          "total_arr_delay": 750,
-          "stranded_passengers": 0,
-          "avg_satisfaction": 100.0,
+          "flights_arrived": 63,
+          "flights_cancelled": 28,
+          "flights_active": 5,
+          "total_dep_delay": 915,
+          "total_arr_delay": 1355,
+          "stranded_passengers": 3431,
+          "avg_satisfaction": 78.96,
           "airline_cash": {
             "SI": -3961500.0,
             "BA": -2285000.0,
@@ -14153,23 +15418,23 @@
       "agent_messages": [],
       "active_disruptions": [],
       "reward": {
-        "delay_score": 47.2,
+        "delay_score": 23.8,
         "safety_score": 0.0,
-        "passenger_score": 31.6,
+        "passenger_score": 15.9,
         "money_score": 0.0,
         "fairness_score": 0.0,
         "action_validity_score": 0.0,
-        "total": 78.80000000000001
+        "total": 39.7
       },
       "metrics": {
         "flights_total": 96,
-        "flights_arrived": 93,
-        "flights_cancelled": 0,
+        "flights_arrived": 65,
+        "flights_cancelled": 28,
         "flights_active": 3,
-        "total_dep_delay": 15,
-        "total_arr_delay": 770,
-        "stranded_passengers": 0,
-        "avg_satisfaction": 100.0,
+        "total_dep_delay": 915,
+        "total_arr_delay": 1360,
+        "stranded_passengers": 3431,
+        "avg_satisfaction": 78.96,
         "airline_cash": {
           "SI": -3961500.0,
           "BA": -2285000.0,
@@ -14298,13 +15563,13 @@
         "pending_decisions": [],
         "network_summary": {
           "flights_total": 96,
-          "flights_arrived": 93,
-          "flights_cancelled": 0,
+          "flights_arrived": 65,
+          "flights_cancelled": 28,
           "flights_active": 3,
-          "total_dep_delay": 15,
-          "total_arr_delay": 770,
-          "stranded_passengers": 0,
-          "avg_satisfaction": 100.0,
+          "total_dep_delay": 915,
+          "total_arr_delay": 1360,
+          "stranded_passengers": 3431,
+          "avg_satisfaction": 78.96,
           "airline_cash": {
             "SI": -3961500.0,
             "BA": -2285000.0,
@@ -14340,23 +15605,23 @@
       "agent_messages": [],
       "active_disruptions": [],
       "reward": {
-        "delay_score": 23.8,
+        "delay_score": 0.0,
         "safety_score": 0.0,
-        "passenger_score": 15.9,
+        "passenger_score": 0.0,
         "money_score": 0.0,
         "fairness_score": 0.0,
         "action_validity_score": 0.0,
-        "total": 39.7
+        "total": 0.0
       },
       "metrics": {
         "flights_total": 96,
-        "flights_arrived": 95,
-        "flights_cancelled": 0,
-        "flights_active": 1,
-        "total_dep_delay": 15,
-        "total_arr_delay": 775,
-        "stranded_passengers": 0,
-        "avg_satisfaction": 100.0,
+        "flights_arrived": 65,
+        "flights_cancelled": 28,
+        "flights_active": 3,
+        "total_dep_delay": 915,
+        "total_arr_delay": 1360,
+        "stranded_passengers": 3431,
+        "avg_satisfaction": 78.96,
         "airline_cash": {
           "SI": -3961500.0,
           "BA": -2285000.0,
@@ -14485,13 +15750,13 @@
         "pending_decisions": [],
         "network_summary": {
           "flights_total": 96,
-          "flights_arrived": 95,
-          "flights_cancelled": 0,
-          "flights_active": 1,
-          "total_dep_delay": 15,
-          "total_arr_delay": 775,
-          "stranded_passengers": 0,
-          "avg_satisfaction": 100.0,
+          "flights_arrived": 65,
+          "flights_cancelled": 28,
+          "flights_active": 3,
+          "total_dep_delay": 915,
+          "total_arr_delay": 1360,
+          "stranded_passengers": 3431,
+          "avg_satisfaction": 78.96,
           "airline_cash": {
             "SI": -3961500.0,
             "BA": -2285000.0,
@@ -14527,23 +15792,23 @@
       "agent_messages": [],
       "active_disruptions": [],
       "reward": {
-        "delay_score": 11.65,
-        "safety_score": 50.0,
-        "passenger_score": 57.9,
-        "money_score": -45.56,
+        "delay_score": 11.2,
+        "safety_score": 0.0,
+        "passenger_score": 7.6,
+        "money_score": 0.0,
         "fairness_score": 0.0,
         "action_validity_score": 0.0,
-        "total": 73.99
+        "total": 18.799999999999997
       },
       "metrics": {
         "flights_total": 96,
-        "flights_arrived": 96,
-        "flights_cancelled": 0,
-        "flights_active": 0,
-        "total_dep_delay": 15,
-        "total_arr_delay": 780,
-        "stranded_passengers": 0,
-        "avg_satisfaction": 100.0,
+        "flights_arrived": 66,
+        "flights_cancelled": 28,
+        "flights_active": 2,
+        "total_dep_delay": 915,
+        "total_arr_delay": 1380,
+        "stranded_passengers": 3431,
+        "avg_satisfaction": 78.96,
         "airline_cash": {
           "SI": -3961500.0,
           "BA": -2285000.0,
@@ -14672,13 +15937,387 @@
         "pending_decisions": [],
         "network_summary": {
           "flights_total": 96,
-          "flights_arrived": 96,
-          "flights_cancelled": 0,
-          "flights_active": 0,
-          "total_dep_delay": 15,
-          "total_arr_delay": 780,
-          "stranded_passengers": 0,
-          "avg_satisfaction": 100.0,
+          "flights_arrived": 66,
+          "flights_cancelled": 28,
+          "flights_active": 2,
+          "total_dep_delay": 915,
+          "total_arr_delay": 1380,
+          "stranded_passengers": 3431,
+          "avg_satisfaction": 78.96,
+          "airline_cash": {
+            "SI": -3961500.0,
+            "BA": -2285000.0,
+            "AN": -2865500.0
+          }
+        },
+        "action_schema": {
+          "depart": {
+            "flight_id": "string"
+          },
+          "hold": {
+            "flight_id": "string",
+            "minutes": "int",
+            "reason": "string"
+          },
+          "cancel": {
+            "flight_id": "string",
+            "reason": "string"
+          },
+          "swap_aircraft": {
+            "flight_id": "string",
+            "aircraft_id": "string"
+          },
+          "protect_connection": {
+            "flight_id": "string"
+          }
+        }
+      }
+    },
+    {
+      "time": 1245,
+      "actions": [],
+      "agent_messages": [],
+      "active_disruptions": [],
+      "reward": {
+        "delay_score": 10.0,
+        "safety_score": 0.0,
+        "passenger_score": 7.0,
+        "money_score": 0.0,
+        "fairness_score": 0.0,
+        "action_validity_score": 0.0,
+        "total": 17.0
+      },
+      "metrics": {
+        "flights_total": 96,
+        "flights_arrived": 67,
+        "flights_cancelled": 28,
+        "flights_active": 1,
+        "total_dep_delay": 915,
+        "total_arr_delay": 1430,
+        "stranded_passengers": 3431,
+        "avg_satisfaction": 78.96,
+        "airline_cash": {
+          "SI": -3961500.0,
+          "BA": -2285000.0,
+          "AN": -2865500.0
+        }
+      },
+      "observation": {
+        "stage": 2,
+        "time": 1245,
+        "clock": "20:45",
+        "airports": [
+          {
+            "code": "DEL",
+            "name": "Indira Gandhi International",
+            "city": "Delhi",
+            "lat": 28.5562,
+            "lon": 77.1,
+            "runways": 3,
+            "gates": 14,
+            "timezone": "Asia/Kolkata",
+            "runway_closed_until": 0,
+            "gate_blocked_until": 0,
+            "weather_delay": 0,
+            "emergency_priority": false
+          },
+          {
+            "code": "BOM",
+            "name": "Chhatrapati Shivaji Maharaj",
+            "city": "Mumbai",
+            "lat": 19.0896,
+            "lon": 72.8656,
+            "runways": 2,
+            "gates": 10,
+            "timezone": "Asia/Kolkata",
+            "runway_closed_until": 645,
+            "gate_blocked_until": 0,
+            "weather_delay": 0,
+            "emergency_priority": false
+          },
+          {
+            "code": "BLR",
+            "name": "Kempegowda International",
+            "city": "Bengaluru",
+            "lat": 13.1986,
+            "lon": 77.7066,
+            "runways": 2,
+            "gates": 10,
+            "timezone": "Asia/Kolkata",
+            "runway_closed_until": 0,
+            "gate_blocked_until": 765,
+            "weather_delay": 0,
+            "emergency_priority": false
+          },
+          {
+            "code": "HYD",
+            "name": "Rajiv Gandhi International",
+            "city": "Hyderabad",
+            "lat": 17.2403,
+            "lon": 78.4294,
+            "runways": 2,
+            "gates": 8,
+            "timezone": "Asia/Kolkata",
+            "runway_closed_until": 0,
+            "gate_blocked_until": 0,
+            "weather_delay": 0,
+            "emergency_priority": false
+          },
+          {
+            "code": "MAA",
+            "name": "Chennai International",
+            "city": "Chennai",
+            "lat": 12.9941,
+            "lon": 80.1709,
+            "runways": 2,
+            "gates": 8,
+            "timezone": "Asia/Kolkata",
+            "runway_closed_until": 0,
+            "gate_blocked_until": 0,
+            "weather_delay": 0,
+            "emergency_priority": false
+          },
+          {
+            "code": "CCU",
+            "name": "Netaji Subhas Chandra Bose",
+            "city": "Kolkata",
+            "lat": 22.6547,
+            "lon": 88.4467,
+            "runways": 2,
+            "gates": 7,
+            "timezone": "Asia/Kolkata",
+            "runway_closed_until": 0,
+            "gate_blocked_until": 0,
+            "weather_delay": 0,
+            "emergency_priority": false
+          },
+          {
+            "code": "AMD",
+            "name": "Sardar Vallabhbhai Patel",
+            "city": "Ahmedabad",
+            "lat": 23.0772,
+            "lon": 72.6347,
+            "runways": 1,
+            "gates": 5,
+            "timezone": "Asia/Kolkata",
+            "runway_closed_until": 0,
+            "gate_blocked_until": 0,
+            "weather_delay": 0,
+            "emergency_priority": false
+          },
+          {
+            "code": "COK",
+            "name": "Cochin International",
+            "city": "Kochi",
+            "lat": 10.152,
+            "lon": 76.4019,
+            "runways": 1,
+            "gates": 5,
+            "timezone": "Asia/Kolkata",
+            "runway_closed_until": 0,
+            "gate_blocked_until": 0,
+            "weather_delay": 0,
+            "emergency_priority": false
+          }
+        ],
+        "active_disruptions": [],
+        "pending_decisions": [],
+        "network_summary": {
+          "flights_total": 96,
+          "flights_arrived": 67,
+          "flights_cancelled": 28,
+          "flights_active": 1,
+          "total_dep_delay": 915,
+          "total_arr_delay": 1430,
+          "stranded_passengers": 3431,
+          "avg_satisfaction": 78.96,
+          "airline_cash": {
+            "SI": -3961500.0,
+            "BA": -2285000.0,
+            "AN": -2865500.0
+          }
+        },
+        "action_schema": {
+          "depart": {
+            "flight_id": "string"
+          },
+          "hold": {
+            "flight_id": "string",
+            "minutes": "int",
+            "reason": "string"
+          },
+          "cancel": {
+            "flight_id": "string",
+            "reason": "string"
+          },
+          "swap_aircraft": {
+            "flight_id": "string",
+            "aircraft_id": "string"
+          },
+          "protect_connection": {
+            "flight_id": "string"
+          }
+        }
+      }
+    },
+    {
+      "time": 1260,
+      "actions": [],
+      "agent_messages": [],
+      "active_disruptions": [],
+      "reward": {
+        "delay_score": -9.15,
+        "safety_score": 50.0,
+        "passenger_score": -1332.92,
+        "money_score": -45.56,
+        "fairness_score": 0.0,
+        "action_validity_score": 0.0,
+        "total": -1337.63
+      },
+      "metrics": {
+        "flights_total": 96,
+        "flights_arrived": 67,
+        "flights_cancelled": 28,
+        "flights_active": 1,
+        "total_dep_delay": 915,
+        "total_arr_delay": 1430,
+        "stranded_passengers": 3431,
+        "avg_satisfaction": 78.96,
+        "airline_cash": {
+          "SI": -3961500.0,
+          "BA": -2285000.0,
+          "AN": -2865500.0
+        }
+      },
+      "observation": {
+        "stage": 2,
+        "time": 1260,
+        "clock": "21:00",
+        "airports": [
+          {
+            "code": "DEL",
+            "name": "Indira Gandhi International",
+            "city": "Delhi",
+            "lat": 28.5562,
+            "lon": 77.1,
+            "runways": 3,
+            "gates": 14,
+            "timezone": "Asia/Kolkata",
+            "runway_closed_until": 0,
+            "gate_blocked_until": 0,
+            "weather_delay": 0,
+            "emergency_priority": false
+          },
+          {
+            "code": "BOM",
+            "name": "Chhatrapati Shivaji Maharaj",
+            "city": "Mumbai",
+            "lat": 19.0896,
+            "lon": 72.8656,
+            "runways": 2,
+            "gates": 10,
+            "timezone": "Asia/Kolkata",
+            "runway_closed_until": 645,
+            "gate_blocked_until": 0,
+            "weather_delay": 0,
+            "emergency_priority": false
+          },
+          {
+            "code": "BLR",
+            "name": "Kempegowda International",
+            "city": "Bengaluru",
+            "lat": 13.1986,
+            "lon": 77.7066,
+            "runways": 2,
+            "gates": 10,
+            "timezone": "Asia/Kolkata",
+            "runway_closed_until": 0,
+            "gate_blocked_until": 765,
+            "weather_delay": 0,
+            "emergency_priority": false
+          },
+          {
+            "code": "HYD",
+            "name": "Rajiv Gandhi International",
+            "city": "Hyderabad",
+            "lat": 17.2403,
+            "lon": 78.4294,
+            "runways": 2,
+            "gates": 8,
+            "timezone": "Asia/Kolkata",
+            "runway_closed_until": 0,
+            "gate_blocked_until": 0,
+            "weather_delay": 0,
+            "emergency_priority": false
+          },
+          {
+            "code": "MAA",
+            "name": "Chennai International",
+            "city": "Chennai",
+            "lat": 12.9941,
+            "lon": 80.1709,
+            "runways": 2,
+            "gates": 8,
+            "timezone": "Asia/Kolkata",
+            "runway_closed_until": 0,
+            "gate_blocked_until": 0,
+            "weather_delay": 0,
+            "emergency_priority": false
+          },
+          {
+            "code": "CCU",
+            "name": "Netaji Subhas Chandra Bose",
+            "city": "Kolkata",
+            "lat": 22.6547,
+            "lon": 88.4467,
+            "runways": 2,
+            "gates": 7,
+            "timezone": "Asia/Kolkata",
+            "runway_closed_until": 0,
+            "gate_blocked_until": 0,
+            "weather_delay": 0,
+            "emergency_priority": false
+          },
+          {
+            "code": "AMD",
+            "name": "Sardar Vallabhbhai Patel",
+            "city": "Ahmedabad",
+            "lat": 23.0772,
+            "lon": 72.6347,
+            "runways": 1,
+            "gates": 5,
+            "timezone": "Asia/Kolkata",
+            "runway_closed_until": 0,
+            "gate_blocked_until": 0,
+            "weather_delay": 0,
+            "emergency_priority": false
+          },
+          {
+            "code": "COK",
+            "name": "Cochin International",
+            "city": "Kochi",
+            "lat": 10.152,
+            "lon": 76.4019,
+            "runways": 1,
+            "gates": 5,
+            "timezone": "Asia/Kolkata",
+            "runway_closed_until": 0,
+            "gate_blocked_until": 0,
+            "weather_delay": 0,
+            "emergency_priority": false
+          }
+        ],
+        "active_disruptions": [],
+        "pending_decisions": [],
+        "network_summary": {
+          "flights_total": 96,
+          "flights_arrived": 67,
+          "flights_cancelled": 28,
+          "flights_active": 1,
+          "total_dep_delay": 915,
+          "total_arr_delay": 1430,
+          "stranded_passengers": 3431,
+          "avg_satisfaction": 78.96,
           "airline_cash": {
             "SI": -3961500.0,
             "BA": -2285000.0,
