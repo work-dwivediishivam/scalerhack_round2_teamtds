@@ -1,4 +1,4 @@
-import { ArrowRight, Gauge, Plane, RadioTower, ShieldAlert } from "lucide-react";
+import { ArrowRight, BarChart3, Gauge, Plane, RadioTower, ShieldAlert } from "lucide-react";
 
 const levels = [
   {
@@ -93,6 +93,10 @@ export default function DifficultySelect() {
           crew clocks expire, and airlines push selfish slot requests. The trained agent must
           recover the system while every decision changes the next state.
         </p>
+        <a className="bandAction" href="/training/">
+          <BarChart3 size={18} />
+          Training results
+        </a>
       </section>
     </main>
   );

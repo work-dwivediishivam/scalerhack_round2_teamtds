@@ -1,0 +1,23 @@
+[
+  {
+    "stage": 1,
+    "episodes": 140,
+    "first_20_avg": -2308.37,
+    "last_20_avg": -3771.308,
+    "artifact": "results/trained/q_policy_stage1.json"
+  },
+  {
+    "stage": 2,
+    "episodes": 180,
+    "first_20_avg": -9891.922,
+    "last_20_avg": -11509.896,
+    "artifact": "results/trained/q_policy_stage2.json"
+  },
+  {
+    "stage": 3,
+    "episodes": 220,
+    "first_20_avg": -20204.574,
+    "last_20_avg": -35009.356,
+    "artifact": "results/trained/q_policy_stage3.json"
+  }
+]
