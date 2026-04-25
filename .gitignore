@@ -32,4 +32,5 @@ runs/
 *.ckpt
 *.pt
 *.bin
-
+*.safetensors
+results/llm_runs/*/

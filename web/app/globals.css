@@ -34,11 +34,185 @@ button {
   color: var(--muted);
 }
 
+.landing {
+  min-height: 100vh;
+  padding: 22px;
+  display: grid;
+  align-content: start;
+  gap: 18px;
+}
+
+.landingHero {
+  min-height: 48vh;
+  border: 1px solid var(--line);
+  background:
+    linear-gradient(rgba(24, 33, 31, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(24, 33, 31, 0.08) 1px, transparent 1px),
+    #eaf1ef;
+  background-size: 42px 42px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 420px;
+  gap: 20px;
+  align-items: end;
+  padding: 34px;
+  position: relative;
+  overflow: hidden;
+}
+
+.landingHero::after {
+  content: "";
+  position: absolute;
+  right: 7%;
+  top: 12%;
+  width: 34%;
+  height: 54%;
+  border: 1px solid rgba(24, 33, 31, 0.18);
+  background:
+    radial-gradient(circle at 40% 34%, rgba(31, 111, 184, 0.28) 0 2px, transparent 3px),
+    radial-gradient(circle at 58% 56%, rgba(186, 59, 70, 0.28) 0 2px, transparent 3px),
+    radial-gradient(circle at 48% 72%, rgba(47, 140, 103, 0.3) 0 2px, transparent 3px),
+    rgba(255, 255, 255, 0.42);
+  clip-path: polygon(43% 0%, 63% 13%, 72% 31%, 83% 43%, 76% 57%, 65% 62%, 67% 78%, 53% 100%, 43% 82%, 34% 66%, 22% 57%, 28% 42%, 19% 29%, 31% 18%);
+}
+
+.landingHero h1 {
+  max-width: 900px;
+  font-size: clamp(42px, 7vw, 92px);
+  letter-spacing: 0;
+}
+
+.landingHero p {
+  max-width: 760px;
+  color: var(--muted);
+  font-size: 18px;
+  line-height: 1.45;
+}
+
+.heroStats {
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.heroStats div {
+  min-height: 118px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.86);
+  padding: 14px;
+  display: grid;
+  align-content: space-between;
+}
+
+.heroStats strong {
+  display: block;
+  font-size: 34px;
+}
+
+.heroStats span {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.levelGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.levelCard {
+  min-height: 340px;
+  border: 1px solid var(--line);
+  background: var(--panel);
+  color: var(--ink);
+  text-decoration: none;
+  padding: 18px;
+  display: grid;
+  align-content: space-between;
+  transition: transform 160ms ease, border-color 160ms ease;
+}
+
+.levelCard:hover {
+  transform: translateY(-3px);
+  border-color: var(--ink);
+}
+
+.levelCard span {
+  color: var(--teal);
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.levelCard h2 {
+  margin-top: 8px;
+  font-size: 28px;
+}
+
+.levelCard p {
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+.levelCard ul {
+  display: grid;
+  gap: 7px;
+  padding: 0;
+  margin: 18px 0;
+  list-style: none;
+}
+
+.levelCard li {
+  border-top: 1px solid var(--line);
+  padding-top: 7px;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 750;
+}
+
+.levelCard strong {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.landingBand {
+  border: 1px solid var(--line);
+  background: var(--ink);
+  color: white;
+  padding: 22px;
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  gap: 18px;
+  align-items: center;
+}
+
+.landingBand p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.78);
+  line-height: 1.55;
+}
+
 .shell {
   min-height: 100vh;
   display: grid;
   gap: 16px;
   padding: 18px;
+}
+
+.simShell {
+  background:
+    linear-gradient(rgba(24, 33, 31, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(24, 33, 31, 0.03) 1px, transparent 1px),
+    var(--bg);
+  background-size: 32px 32px;
+}
+
+.backLink {
+  color: inherit;
+  text-decoration: none;
 }
 
 .topbar {
@@ -484,7 +658,13 @@ h2 span {
 @media (max-width: 1120px) {
   .heroGrid,
   .opsGrid,
-  .comparison {
+  .comparison,
+  .landingHero,
+  .landingBand {
+    grid-template-columns: 1fr;
+  }
+
+  .levelGrid {
     grid-template-columns: 1fr;
   }
 

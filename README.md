@@ -69,6 +69,15 @@ python scripts/evaluate_baselines.py
 python scripts/export_demo_trace.py
 ```
 
+Train the local all-stage RL controller:
+
+```bash
+python scripts/train_rl_controller.py
+python scripts/evaluate_baselines.py
+python scripts/export_demo_trace.py
+python scripts/make_plots.py
+```
+
 The generated plots and traces are committed under `results/` so judges can
 inspect the evidence without rerunning everything.
 
@@ -124,15 +133,37 @@ Notebook path:
 - `notebooks/00_environment_smoke_test.ipynb`
 - `notebooks/01_baseline_heuristics.ipynb`
 - `notebooks/02_stage1_grpo_operations.ipynb`
+- `notebooks/03_all_stage_rl_controller.ipynb`
 - `scripts/train_rl_controller.py`
+- `scripts/train_llm_grpo_all_stages.py`
+- `scripts/run_hf_model_rollouts.py`
 
 The GRPO notebook is a minimal Hugging Face TRL scaffold. It serializes Runway
 Zero observations into prompts, parses model JSON actions, executes those actions
 in the environment, and uses the returned environment reward as the training
 signal.
 
-The local RL controller trains saved policies for all three stages now. Full LLM
-RL fine-tuning should be run during the hackathon compute window.
+The local RL controller trains saved policies for all three stages now. The
+LLM GRPO entrypoint is environment-driven and ready for GPU runtimes:
+
+```bash
+pip install -r requirements-training.txt
+python scripts/train_llm_grpo_all_stages.py \
+  --model Qwen/Qwen2.5-Coder-7B-Instruct \
+  --stages 1 2 3 \
+  --max-steps 60 \
+  --output-dir results/llm_runs/qwen25_runway_zero
+```
+
+Hosted model rollout comparison:
+
+```bash
+python scripts/run_hf_model_rollouts.py --model qwen-coder --stage 1 --max-steps 8
+```
+
+This repo also includes a completed local TRL/GRPO smoke run summary:
+`results/llm_runs/tiny_grpo_smoke_summary.json`. The full adapter files are
+intentionally ignored because they are generated binary artifacts.
 
 ## Docs
 

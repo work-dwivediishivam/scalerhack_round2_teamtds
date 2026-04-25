@@ -81,6 +81,45 @@ Recommended model progression:
 | High-quality demo judge/planner | `google/gemma-4-31B-it` |
 | Ambitious final comparison | `openai/gpt-oss-120b` |
 
+Complete all-stage GRPO entrypoint:
+
+```bash
+pip install -r requirements-training.txt
+python scripts/train_llm_grpo_all_stages.py \
+  --model Qwen/Qwen2.5-Coder-7B-Instruct \
+  --stages 1 2 3 \
+  --max-steps 60 \
+  --output-dir results/llm_runs/qwen25_runway_zero
+```
+
+With Unsloth on a compatible GPU runtime:
+
+```bash
+python scripts/train_llm_grpo_all_stages.py \
+  --model Qwen/Qwen2.5-Coder-7B-Instruct \
+  --stages 1 2 3 \
+  --max-steps 60 \
+  --use-unsloth \
+  --output-dir results/llm_runs/qwen25_unsloth_runway_zero
+```
+
+Hosted model rollout comparison:
+
+```bash
+python scripts/run_hf_model_rollouts.py --model qwen-coder --stage 1 --max-steps 8
+python scripts/run_hf_model_rollouts.py --model qwen3 --stage 2 --max-steps 8
+```
+
+Local verification already completed:
+
+- installed `datasets`, `transformers`, `trl`, `accelerate`, `peft`, and `torch`
+- ran `scripts/train_llm_grpo_all_stages.py` with `hf-internal-testing/tiny-random-GPT2`
+- executed a real 1-step GRPO update against the Runway Zero reward function
+- saved summary evidence to `results/llm_runs/tiny_grpo_smoke_summary.json`
+
+The full Qwen/Gemma/GPT-OSS runs require GPU/hosted compute, but use the same
+entrypoint and reward function.
+
 ## Why The Current Repo Includes Heuristic Recovery
 
 Full LLM RL fine-tuning requires GPU credits and model access. The simulator,

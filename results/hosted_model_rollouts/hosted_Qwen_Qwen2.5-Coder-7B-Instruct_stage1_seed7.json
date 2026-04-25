@@ -1,0 +1,1255 @@
+{
+  "policy": "hosted_Qwen_Qwen2.5-Coder-7B-Instruct",
+  "model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+  "stage": 1,
+  "seed": 7,
+  "total_reward": 102.0,
+  "metrics": {
+    "flights_total": 36,
+    "flights_arrived": 0,
+    "flights_cancelled": 0,
+    "flights_active": 36,
+    "total_dep_delay": 0,
+    "total_arr_delay": 0,
+    "stranded_passengers": 0,
+    "avg_satisfaction": 100.0,
+    "airline_cash": {
+      "SI": 3000000,
+      "BA": 3000000
+    }
+  },
+  "history": [
+    {
+      "time": 375,
+      "actions": [],
+      "agent_messages": [],
+      "active_disruptions": [],
+      "reward": {
+        "delay_score": 0.0,
+        "safety_score": 0.0,
+        "passenger_score": 0.0,
+        "money_score": 0.0,
+        "fairness_score": 0.0,
+        "action_validity_score": 0.0,
+        "total": 0.0
+      },
+      "metrics": {
+        "flights_total": 36,
+        "flights_arrived": 0,
+        "flights_cancelled": 0,
+        "flights_active": 36,
+        "total_dep_delay": 0,
+        "total_arr_delay": 0,
+        "stranded_passengers": 0,
+        "avg_satisfaction": 100.0,
+        "airline_cash": {
+          "SI": 3000000,
+          "BA": 3000000
+        }
+      },
+      "observation": {
+        "stage": 1,
+        "time": 375,
+        "clock": "06:15",
+        "airports": [
+          {
+            "code": "DEL",
+            "name": "Indira Gandhi International",
+            "city": "Delhi",
+            "lat": 28.5562,
+            "lon": 77.1,
+            "runways": 3,
+            "gates": 14,
+            "timezone": "Asia/Kolkata",
+            "runway_closed_until": 0,
+            "gate_blocked_until": 0,
+            "weather_delay": 0,
+            "emergency_priority": false
+          },
+          {
+            "code": "BOM",
+            "name": "Chhatrapati Shivaji Maharaj",
+            "city": "Mumbai",
+            "lat": 19.0896,
+            "lon": 72.8656,
+            "runways": 2,
+            "gates": 10,
+            "timezone": "Asia/Kolkata",
+            "runway_closed_until": 0,
+            "gate_blocked_until": 0,
+            "weather_delay": 0,
+            "emergency_priority": false
+          },
+          {
+            "code": "BLR",
+            "name": "Kempegowda International",
+            "city": "Bengaluru",
+            "lat": 13.1986,
+            "lon": 77.7066,
+            "runways": 2,
+            "gates": 10,
+            "timezone": "Asia/Kolkata",
+            "runway_closed_until": 0,
+            "gate_blocked_until": 0,
+            "weather_delay": 0,
+            "emergency_priority": false
+          },
+          {
+            "code": "HYD",
+            "name": "Rajiv Gandhi International",
+            "city": "Hyderabad",
+            "lat": 17.2403,
+            "lon": 78.4294,
+            "runways": 2,
+            "gates": 8,
+            "timezone": "Asia/Kolkata",
+            "runway_closed_until": 0,
+            "gate_blocked_until": 0,
+            "weather_delay": 0,
+            "emergency_priority": false
+          }
+        ],
+        "active_disruptions": [],
+        "pending_decisions": [],
+        "network_summary": {
+          "flights_total": 36,
+          "flights_arrived": 0,
+          "flights_cancelled": 0,
+          "flights_active": 36,
+          "total_dep_delay": 0,
+          "total_arr_delay": 0,
+          "stranded_passengers": 0,
+          "avg_satisfaction": 100.0,
+          "airline_cash": {
+            "SI": 3000000,
+            "BA": 3000000
+          }
+        },
+        "action_schema": {
+          "depart": {
+            "flight_id": "string"
+          },
+          "hold": {
+            "flight_id": "string",
+            "minutes": "int",
+            "reason": "string"
+          },
+          "cancel": {
+            "flight_id": "string",
+            "reason": "string"
+          },
+          "swap_aircraft": {
+            "flight_id": "string",
+            "aircraft_id": "string"
+          },
+          "protect_connection": {
+            "flight_id": "string"
+          }
+        }
+      }
+    },
+    {
+      "time": 390,
+      "actions": [],
+      "agent_messages": [],
+      "active_disruptions": [],
+      "reward": {
+        "delay_score": 0.0,
+        "safety_score": 0.0,
+        "passenger_score": 0.0,
+        "money_score": 0.0,
+        "fairness_score": 0.0,
+        "action_validity_score": 0.0,
+        "total": 0.0
+      },
+      "metrics": {
+        "flights_total": 36,
+        "flights_arrived": 0,
+        "flights_cancelled": 0,
+        "flights_active": 36,
+        "total_dep_delay": 0,
+        "total_arr_delay": 0,
+        "stranded_passengers": 0,
+        "avg_satisfaction": 100.0,
+        "airline_cash": {
+          "SI": 3000000,
+          "BA": 3000000
+        }
+      },
+      "observation": {
+        "stage": 1,
+        "time": 390,
+        "clock": "06:30",
+        "airports": [
+          {
+            "code": "DEL",
+            "name": "Indira Gandhi International",
+            "city": "Delhi",
+            "lat": 28.5562,
+            "lon": 77.1,
+            "runways": 3,
+            "gates": 14,
+            "timezone": "Asia/Kolkata",
+            "runway_closed_until": 0,
+            "gate_blocked_until": 0,
+            "weather_delay": 0,
+            "emergency_priority": false
+          },
+          {
+            "code": "BOM",
+            "name": "Chhatrapati Shivaji Maharaj",
+            "city": "Mumbai",
+            "lat": 19.0896,
+            "lon": 72.8656,
+            "runways": 2,
+            "gates": 10,
+            "timezone": "Asia/Kolkata",
+            "runway_closed_until": 0,
+            "gate_blocked_until": 0,
+            "weather_delay": 0,
+            "emergency_priority": false
+          },
+          {
+            "code": "BLR",
+            "name": "Kempegowda International",
+            "city": "Bengaluru",
+            "lat": 13.1986,
+            "lon": 77.7066,
+            "runways": 2,
+            "gates": 10,
+            "timezone": "Asia/Kolkata",
+            "runway_closed_until": 0,
+            "gate_blocked_until": 0,
+            "weather_delay": 0,
+            "emergency_priority": false
+          },
+          {
+            "code": "HYD",
+            "name": "Rajiv Gandhi International",
+            "city": "Hyderabad",
+            "lat": 17.2403,
+            "lon": 78.4294,
+            "runways": 2,
+            "gates": 8,
+            "timezone": "Asia/Kolkata",
+            "runway_closed_until": 0,
+            "gate_blocked_until": 0,
+            "weather_delay": 0,
+            "emergency_priority": false
+          }
+        ],
+        "active_disruptions": [],
+        "pending_decisions": [],
+        "network_summary": {
+          "flights_total": 36,
+          "flights_arrived": 0,
+          "flights_cancelled": 0,
+          "flights_active": 36,
+          "total_dep_delay": 0,
+          "total_arr_delay": 0,
+          "stranded_passengers": 0,
+          "avg_satisfaction": 100.0,
+          "airline_cash": {
+            "SI": 3000000,
+            "BA": 3000000
+          }
+        },
+        "action_schema": {
+          "depart": {
+            "flight_id": "string"
+          },
+          "hold": {
+            "flight_id": "string",
+            "minutes": "int",
+            "reason": "string"
+          },
+          "cancel": {
+            "flight_id": "string",
+            "reason": "string"
+          },
+          "swap_aircraft": {
+            "flight_id": "string",
+            "aircraft_id": "string"
+          },
+          "protect_connection": {
+            "flight_id": "string"
+          }
+        }
+      }
+    },
+    {
+      "time": 405,
+      "actions": [],
+      "agent_messages": [],
+      "active_disruptions": [],
+      "reward": {
+        "delay_score": 0.0,
+        "safety_score": 0.0,
+        "passenger_score": 0.0,
+        "money_score": 0.0,
+        "fairness_score": 0.0,
+        "action_validity_score": 0.0,
+        "total": 0.0
+      },
+      "metrics": {
+        "flights_total": 36,
+        "flights_arrived": 0,
+        "flights_cancelled": 0,
+        "flights_active": 36,
+        "total_dep_delay": 0,
+        "total_arr_delay": 0,
+        "stranded_passengers": 0,
+        "avg_satisfaction": 100.0,
+        "airline_cash": {
+          "SI": 3000000,
+          "BA": 3000000
+        }
+      },
+      "observation": {
+        "stage": 1,
+        "time": 405,
+        "clock": "06:45",
+        "airports": [
+          {
+            "code": "DEL",
+            "name": "Indira Gandhi International",
+            "city": "Delhi",
+            "lat": 28.5562,
+            "lon": 77.1,
+            "runways": 3,
+            "gates": 14,
+            "timezone": "Asia/Kolkata",
+            "runway_closed_until": 0,
+            "gate_blocked_until": 0,
+            "weather_delay": 0,
+            "emergency_priority": false
+          },
+          {
+            "code": "BOM",
+            "name": "Chhatrapati Shivaji Maharaj",
+            "city": "Mumbai",
+            "lat": 19.0896,
+            "lon": 72.8656,
+            "runways": 2,
+            "gates": 10,
+            "timezone": "Asia/Kolkata",
+            "runway_closed_until": 0,
+            "gate_blocked_until": 0,
+            "weather_delay": 0,
+            "emergency_priority": false
+          },
+          {
+            "code": "BLR",
+            "name": "Kempegowda International",
+            "city": "Bengaluru",
+            "lat": 13.1986,
+            "lon": 77.7066,
+            "runways": 2,
+            "gates": 10,
+            "timezone": "Asia/Kolkata",
+            "runway_closed_until": 0,
+            "gate_blocked_until": 0,
+            "weather_delay": 0,
+            "emergency_priority": false
+          },
+          {
+            "code": "HYD",
+            "name": "Rajiv Gandhi International",
+            "city": "Hyderabad",
+            "lat": 17.2403,
+            "lon": 78.4294,
+            "runways": 2,
+            "gates": 8,
+            "timezone": "Asia/Kolkata",
+            "runway_closed_until": 0,
+            "gate_blocked_until": 0,
+            "weather_delay": 0,
+            "emergency_priority": false
+          }
+        ],
+        "active_disruptions": [],
+        "pending_decisions": [
+          {
+            "flight_id": "BA133",
+            "airline": "BA",
+            "origin": "HYD",
+            "destination": "BOM",
+            "scheduled_dep": 405,
+            "scheduled_arr": 490,
+            "delay_minutes": 0,
+            "passengers": 148,
+            "priority": "normal",
+            "aircraft_ready": true,
+            "crew_ready": true,
+            "weather_delay": 0
+          }
+        ],
+        "network_summary": {
+          "flights_total": 36,
+          "flights_arrived": 0,
+          "flights_cancelled": 0,
+          "flights_active": 36,
+          "total_dep_delay": 0,
+          "total_arr_delay": 0,
+          "stranded_passengers": 0,
+          "avg_satisfaction": 100.0,
+          "airline_cash": {
+            "SI": 3000000,
+            "BA": 3000000
+          }
+        },
+        "action_schema": {
+          "depart": {
+            "flight_id": "string"
+          },
+          "hold": {
+            "flight_id": "string",
+            "minutes": "int",
+            "reason": "string"
+          },
+          "cancel": {
+            "flight_id": "string",
+            "reason": "string"
+          },
+          "swap_aircraft": {
+            "flight_id": "string",
+            "aircraft_id": "string"
+          },
+          "protect_connection": {
+            "flight_id": "string"
+          }
+        }
+      }
+    },
+    {
+      "time": 420,
+      "actions": [
+        {
+          "action": "depart",
+          "flight_id": "BA133"
+        }
+      ],
+      "agent_messages": [
+        {
+          "from": "Bharat Air",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared BA133 from HYD to BOM."
+        }
+      ],
+      "active_disruptions": [],
+      "reward": {
+        "delay_score": 15.0,
+        "safety_score": 0.0,
+        "passenger_score": 0.0,
+        "money_score": 0.0,
+        "fairness_score": 0.0,
+        "action_validity_score": 2.0,
+        "total": 17.0
+      },
+      "metrics": {
+        "flights_total": 36,
+        "flights_arrived": 0,
+        "flights_cancelled": 0,
+        "flights_active": 36,
+        "total_dep_delay": 0,
+        "total_arr_delay": 0,
+        "stranded_passengers": 0,
+        "avg_satisfaction": 100.0,
+        "airline_cash": {
+          "SI": 3000000,
+          "BA": 3000000
+        }
+      },
+      "observation": {
+        "stage": 1,
+        "time": 420,
+        "clock": "07:00",
+        "airports": [
+          {
+            "code": "DEL",
+            "name": "Indira Gandhi International",
+            "city": "Delhi",
+            "lat": 28.5562,
+            "lon": 77.1,
+            "runways": 3,
+            "gates": 14,
+            "timezone": "Asia/Kolkata",
+            "runway_closed_until": 0,
+            "gate_blocked_until": 0,
+            "weather_delay": 0,
+            "emergency_priority": false
+          },
+          {
+            "code": "BOM",
+            "name": "Chhatrapati Shivaji Maharaj",
+            "city": "Mumbai",
+            "lat": 19.0896,
+            "lon": 72.8656,
+            "runways": 2,
+            "gates": 10,
+            "timezone": "Asia/Kolkata",
+            "runway_closed_until": 0,
+            "gate_blocked_until": 0,
+            "weather_delay": 0,
+            "emergency_priority": false
+          },
+          {
+            "code": "BLR",
+            "name": "Kempegowda International",
+            "city": "Bengaluru",
+            "lat": 13.1986,
+            "lon": 77.7066,
+            "runways": 2,
+            "gates": 10,
+            "timezone": "Asia/Kolkata",
+            "runway_closed_until": 0,
+            "gate_blocked_until": 0,
+            "weather_delay": 0,
+            "emergency_priority": false
+          },
+          {
+            "code": "HYD",
+            "name": "Rajiv Gandhi International",
+            "city": "Hyderabad",
+            "lat": 17.2403,
+            "lon": 78.4294,
+            "runways": 2,
+            "gates": 8,
+            "timezone": "Asia/Kolkata",
+            "runway_closed_until": 0,
+            "gate_blocked_until": 0,
+            "weather_delay": 0,
+            "emergency_priority": false
+          }
+        ],
+        "active_disruptions": [],
+        "pending_decisions": [],
+        "network_summary": {
+          "flights_total": 36,
+          "flights_arrived": 0,
+          "flights_cancelled": 0,
+          "flights_active": 36,
+          "total_dep_delay": 0,
+          "total_arr_delay": 0,
+          "stranded_passengers": 0,
+          "avg_satisfaction": 100.0,
+          "airline_cash": {
+            "SI": 3000000,
+            "BA": 3000000
+          }
+        },
+        "action_schema": {
+          "depart": {
+            "flight_id": "string"
+          },
+          "hold": {
+            "flight_id": "string",
+            "minutes": "int",
+            "reason": "string"
+          },
+          "cancel": {
+            "flight_id": "string",
+            "reason": "string"
+          },
+          "swap_aircraft": {
+            "flight_id": "string",
+            "aircraft_id": "string"
+          },
+          "protect_connection": {
+            "flight_id": "string"
+          }
+        }
+      }
+    },
+    {
+      "time": 435,
+      "actions": [],
+      "agent_messages": [],
+      "active_disruptions": [],
+      "reward": {
+        "delay_score": 0.0,
+        "safety_score": 0.0,
+        "passenger_score": 0.0,
+        "money_score": 0.0,
+        "fairness_score": 0.0,
+        "action_validity_score": 0.0,
+        "total": 0.0
+      },
+      "metrics": {
+        "flights_total": 36,
+        "flights_arrived": 0,
+        "flights_cancelled": 0,
+        "flights_active": 36,
+        "total_dep_delay": 0,
+        "total_arr_delay": 0,
+        "stranded_passengers": 0,
+        "avg_satisfaction": 100.0,
+        "airline_cash": {
+          "SI": 3000000,
+          "BA": 3000000
+        }
+      },
+      "observation": {
+        "stage": 1,
+        "time": 435,
+        "clock": "07:15",
+        "airports": [
+          {
+            "code": "DEL",
+            "name": "Indira Gandhi International",
+            "city": "Delhi",
+            "lat": 28.5562,
+            "lon": 77.1,
+            "runways": 3,
+            "gates": 14,
+            "timezone": "Asia/Kolkata",
+            "runway_closed_until": 0,
+            "gate_blocked_until": 0,
+            "weather_delay": 0,
+            "emergency_priority": false
+          },
+          {
+            "code": "BOM",
+            "name": "Chhatrapati Shivaji Maharaj",
+            "city": "Mumbai",
+            "lat": 19.0896,
+            "lon": 72.8656,
+            "runways": 2,
+            "gates": 10,
+            "timezone": "Asia/Kolkata",
+            "runway_closed_until": 0,
+            "gate_blocked_until": 0,
+            "weather_delay": 0,
+            "emergency_priority": false
+          },
+          {
+            "code": "BLR",
+            "name": "Kempegowda International",
+            "city": "Bengaluru",
+            "lat": 13.1986,
+            "lon": 77.7066,
+            "runways": 2,
+            "gates": 10,
+            "timezone": "Asia/Kolkata",
+            "runway_closed_until": 0,
+            "gate_blocked_until": 0,
+            "weather_delay": 0,
+            "emergency_priority": false
+          },
+          {
+            "code": "HYD",
+            "name": "Rajiv Gandhi International",
+            "city": "Hyderabad",
+            "lat": 17.2403,
+            "lon": 78.4294,
+            "runways": 2,
+            "gates": 8,
+            "timezone": "Asia/Kolkata",
+            "runway_closed_until": 0,
+            "gate_blocked_until": 0,
+            "weather_delay": 0,
+            "emergency_priority": false
+          }
+        ],
+        "active_disruptions": [],
+        "pending_decisions": [
+          {
+            "flight_id": "BA127",
+            "airline": "BA",
+            "origin": "HYD",
+            "destination": "BLR",
+            "scheduled_dep": 435,
+            "scheduled_arr": 510,
+            "delay_minutes": 0,
+            "passengers": 172,
+            "priority": "normal",
+            "aircraft_ready": true,
+            "crew_ready": true,
+            "weather_delay": 0
+          }
+        ],
+        "network_summary": {
+          "flights_total": 36,
+          "flights_arrived": 0,
+          "flights_cancelled": 0,
+          "flights_active": 36,
+          "total_dep_delay": 0,
+          "total_arr_delay": 0,
+          "stranded_passengers": 0,
+          "avg_satisfaction": 100.0,
+          "airline_cash": {
+            "SI": 3000000,
+            "BA": 3000000
+          }
+        },
+        "action_schema": {
+          "depart": {
+            "flight_id": "string"
+          },
+          "hold": {
+            "flight_id": "string",
+            "minutes": "int",
+            "reason": "string"
+          },
+          "cancel": {
+            "flight_id": "string",
+            "reason": "string"
+          },
+          "swap_aircraft": {
+            "flight_id": "string",
+            "aircraft_id": "string"
+          },
+          "protect_connection": {
+            "flight_id": "string"
+          }
+        }
+      }
+    },
+    {
+      "time": 450,
+      "actions": [
+        {
+          "action": "depart",
+          "flight_id": "BA127"
+        }
+      ],
+      "agent_messages": [
+        {
+          "from": "Bharat Air",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared BA127 from HYD to BLR."
+        }
+      ],
+      "active_disruptions": [],
+      "reward": {
+        "delay_score": 15.0,
+        "safety_score": 0.0,
+        "passenger_score": 0.0,
+        "money_score": 0.0,
+        "fairness_score": 0.0,
+        "action_validity_score": 2.0,
+        "total": 17.0
+      },
+      "metrics": {
+        "flights_total": 36,
+        "flights_arrived": 0,
+        "flights_cancelled": 0,
+        "flights_active": 36,
+        "total_dep_delay": 0,
+        "total_arr_delay": 0,
+        "stranded_passengers": 0,
+        "avg_satisfaction": 100.0,
+        "airline_cash": {
+          "SI": 3000000,
+          "BA": 3000000
+        }
+      },
+      "observation": {
+        "stage": 1,
+        "time": 450,
+        "clock": "07:30",
+        "airports": [
+          {
+            "code": "DEL",
+            "name": "Indira Gandhi International",
+            "city": "Delhi",
+            "lat": 28.5562,
+            "lon": 77.1,
+            "runways": 3,
+            "gates": 14,
+            "timezone": "Asia/Kolkata",
+            "runway_closed_until": 0,
+            "gate_blocked_until": 0,
+            "weather_delay": 0,
+            "emergency_priority": false
+          },
+          {
+            "code": "BOM",
+            "name": "Chhatrapati Shivaji Maharaj",
+            "city": "Mumbai",
+            "lat": 19.0896,
+            "lon": 72.8656,
+            "runways": 2,
+            "gates": 10,
+            "timezone": "Asia/Kolkata",
+            "runway_closed_until": 0,
+            "gate_blocked_until": 0,
+            "weather_delay": 0,
+            "emergency_priority": false
+          },
+          {
+            "code": "BLR",
+            "name": "Kempegowda International",
+            "city": "Bengaluru",
+            "lat": 13.1986,
+            "lon": 77.7066,
+            "runways": 2,
+            "gates": 10,
+            "timezone": "Asia/Kolkata",
+            "runway_closed_until": 0,
+            "gate_blocked_until": 0,
+            "weather_delay": 0,
+            "emergency_priority": false
+          },
+          {
+            "code": "HYD",
+            "name": "Rajiv Gandhi International",
+            "city": "Hyderabad",
+            "lat": 17.2403,
+            "lon": 78.4294,
+            "runways": 2,
+            "gates": 8,
+            "timezone": "Asia/Kolkata",
+            "runway_closed_until": 0,
+            "gate_blocked_until": 0,
+            "weather_delay": 0,
+            "emergency_priority": false
+          }
+        ],
+        "active_disruptions": [],
+        "pending_decisions": [
+          {
+            "flight_id": "BA103",
+            "airline": "BA",
+            "origin": "HYD",
+            "destination": "BLR",
+            "scheduled_dep": 450,
+            "scheduled_arr": 525,
+            "delay_minutes": 0,
+            "passengers": 149,
+            "priority": "normal",
+            "aircraft_ready": true,
+            "crew_ready": true,
+            "weather_delay": 0
+          },
+          {
+            "flight_id": "BA111",
+            "airline": "BA",
+            "origin": "BLR",
+            "destination": "HYD",
+            "scheduled_dep": 450,
+            "scheduled_arr": 525,
+            "delay_minutes": 0,
+            "passengers": 171,
+            "priority": "normal",
+            "aircraft_ready": true,
+            "crew_ready": true,
+            "weather_delay": 0
+          },
+          {
+            "flight_id": "SI114",
+            "airline": "SI",
+            "origin": "HYD",
+            "destination": "DEL",
+            "scheduled_dep": 450,
+            "scheduled_arr": 585,
+            "delay_minutes": 0,
+            "passengers": 109,
+            "priority": "normal",
+            "aircraft_ready": true,
+            "crew_ready": true,
+            "weather_delay": 0
+          },
+          {
+            "flight_id": "SI130",
+            "airline": "SI",
+            "origin": "BLR",
+            "destination": "DEL",
+            "scheduled_dep": 450,
+            "scheduled_arr": 610,
+            "delay_minutes": 0,
+            "passengers": 90,
+            "priority": "normal",
+            "aircraft_ready": true,
+            "crew_ready": true,
+            "weather_delay": 0
+          }
+        ],
+        "network_summary": {
+          "flights_total": 36,
+          "flights_arrived": 0,
+          "flights_cancelled": 0,
+          "flights_active": 36,
+          "total_dep_delay": 0,
+          "total_arr_delay": 0,
+          "stranded_passengers": 0,
+          "avg_satisfaction": 100.0,
+          "airline_cash": {
+            "SI": 3000000,
+            "BA": 3000000
+          }
+        },
+        "action_schema": {
+          "depart": {
+            "flight_id": "string"
+          },
+          "hold": {
+            "flight_id": "string",
+            "minutes": "int",
+            "reason": "string"
+          },
+          "cancel": {
+            "flight_id": "string",
+            "reason": "string"
+          },
+          "swap_aircraft": {
+            "flight_id": "string",
+            "aircraft_id": "string"
+          },
+          "protect_connection": {
+            "flight_id": "string"
+          }
+        }
+      }
+    },
+    {
+      "time": 465,
+      "actions": [
+        {
+          "action": "depart",
+          "flight_id": "BA103"
+        },
+        {
+          "action": "depart",
+          "flight_id": "BA111"
+        },
+        {
+          "action": "depart",
+          "flight_id": "SI114"
+        },
+        {
+          "action": "depart",
+          "flight_id": "SI130"
+        }
+      ],
+      "agent_messages": [
+        {
+          "from": "Bharat Air",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared BA103 from HYD to BLR."
+        },
+        {
+          "from": "Bharat Air",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared BA111 from BLR to HYD."
+        },
+        {
+          "from": "SkyIndus",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared SI114 from HYD to DEL."
+        },
+        {
+          "from": "SkyIndus",
+          "to": "Tower Central",
+          "type": "depart",
+          "message": "Cleared SI130 from BLR to DEL."
+        }
+      ],
+      "active_disruptions": [],
+      "reward": {
+        "delay_score": 60.0,
+        "safety_score": 0.0,
+        "passenger_score": 0.0,
+        "money_score": 0.0,
+        "fairness_score": 0.0,
+        "action_validity_score": 8.0,
+        "total": 68.0
+      },
+      "metrics": {
+        "flights_total": 36,
+        "flights_arrived": 0,
+        "flights_cancelled": 0,
+        "flights_active": 36,
+        "total_dep_delay": 0,
+        "total_arr_delay": 0,
+        "stranded_passengers": 0,
+        "avg_satisfaction": 100.0,
+        "airline_cash": {
+          "SI": 3000000,
+          "BA": 3000000
+        }
+      },
+      "observation": {
+        "stage": 1,
+        "time": 465,
+        "clock": "07:45",
+        "airports": [
+          {
+            "code": "DEL",
+            "name": "Indira Gandhi International",
+            "city": "Delhi",
+            "lat": 28.5562,
+            "lon": 77.1,
+            "runways": 3,
+            "gates": 14,
+            "timezone": "Asia/Kolkata",
+            "runway_closed_until": 0,
+            "gate_blocked_until": 0,
+            "weather_delay": 0,
+            "emergency_priority": false
+          },
+          {
+            "code": "BOM",
+            "name": "Chhatrapati Shivaji Maharaj",
+            "city": "Mumbai",
+            "lat": 19.0896,
+            "lon": 72.8656,
+            "runways": 2,
+            "gates": 10,
+            "timezone": "Asia/Kolkata",
+            "runway_closed_until": 0,
+            "gate_blocked_until": 0,
+            "weather_delay": 0,
+            "emergency_priority": false
+          },
+          {
+            "code": "BLR",
+            "name": "Kempegowda International",
+            "city": "Bengaluru",
+            "lat": 13.1986,
+            "lon": 77.7066,
+            "runways": 2,
+            "gates": 10,
+            "timezone": "Asia/Kolkata",
+            "runway_closed_until": 0,
+            "gate_blocked_until": 0,
+            "weather_delay": 0,
+            "emergency_priority": false
+          },
+          {
+            "code": "HYD",
+            "name": "Rajiv Gandhi International",
+            "city": "Hyderabad",
+            "lat": 17.2403,
+            "lon": 78.4294,
+            "runways": 2,
+            "gates": 8,
+            "timezone": "Asia/Kolkata",
+            "runway_closed_until": 0,
+            "gate_blocked_until": 0,
+            "weather_delay": 0,
+            "emergency_priority": false
+          }
+        ],
+        "active_disruptions": [],
+        "pending_decisions": [],
+        "network_summary": {
+          "flights_total": 36,
+          "flights_arrived": 0,
+          "flights_cancelled": 0,
+          "flights_active": 36,
+          "total_dep_delay": 0,
+          "total_arr_delay": 0,
+          "stranded_passengers": 0,
+          "avg_satisfaction": 100.0,
+          "airline_cash": {
+            "SI": 3000000,
+            "BA": 3000000
+          }
+        },
+        "action_schema": {
+          "depart": {
+            "flight_id": "string"
+          },
+          "hold": {
+            "flight_id": "string",
+            "minutes": "int",
+            "reason": "string"
+          },
+          "cancel": {
+            "flight_id": "string",
+            "reason": "string"
+          },
+          "swap_aircraft": {
+            "flight_id": "string",
+            "aircraft_id": "string"
+          },
+          "protect_connection": {
+            "flight_id": "string"
+          }
+        }
+      }
+    },
+    {
+      "time": 480,
+      "actions": [],
+      "agent_messages": [],
+      "active_disruptions": [],
+      "reward": {
+        "delay_score": 0.0,
+        "safety_score": 0.0,
+        "passenger_score": 0.0,
+        "money_score": 0.0,
+        "fairness_score": 0.0,
+        "action_validity_score": 0.0,
+        "total": 0.0
+      },
+      "metrics": {
+        "flights_total": 36,
+        "flights_arrived": 0,
+        "flights_cancelled": 0,
+        "flights_active": 36,
+        "total_dep_delay": 0,
+        "total_arr_delay": 0,
+        "stranded_passengers": 0,
+        "avg_satisfaction": 100.0,
+        "airline_cash": {
+          "SI": 3000000,
+          "BA": 3000000
+        }
+      },
+      "observation": {
+        "stage": 1,
+        "time": 480,
+        "clock": "08:00",
+        "airports": [
+          {
+            "code": "DEL",
+            "name": "Indira Gandhi International",
+            "city": "Delhi",
+            "lat": 28.5562,
+            "lon": 77.1,
+            "runways": 3,
+            "gates": 14,
+            "timezone": "Asia/Kolkata",
+            "runway_closed_until": 0,
+            "gate_blocked_until": 0,
+            "weather_delay": 0,
+            "emergency_priority": false
+          },
+          {
+            "code": "BOM",
+            "name": "Chhatrapati Shivaji Maharaj",
+            "city": "Mumbai",
+            "lat": 19.0896,
+            "lon": 72.8656,
+            "runways": 2,
+            "gates": 10,
+            "timezone": "Asia/Kolkata",
+            "runway_closed_until": 0,
+            "gate_blocked_until": 0,
+            "weather_delay": 0,
+            "emergency_priority": false
+          },
+          {
+            "code": "BLR",
+            "name": "Kempegowda International",
+            "city": "Bengaluru",
+            "lat": 13.1986,
+            "lon": 77.7066,
+            "runways": 2,
+            "gates": 10,
+            "timezone": "Asia/Kolkata",
+            "runway_closed_until": 0,
+            "gate_blocked_until": 0,
+            "weather_delay": 0,
+            "emergency_priority": false
+          },
+          {
+            "code": "HYD",
+            "name": "Rajiv Gandhi International",
+            "city": "Hyderabad",
+            "lat": 17.2403,
+            "lon": 78.4294,
+            "runways": 2,
+            "gates": 8,
+            "timezone": "Asia/Kolkata",
+            "runway_closed_until": 0,
+            "gate_blocked_until": 0,
+            "weather_delay": 0,
+            "emergency_priority": false
+          }
+        ],
+        "active_disruptions": [],
+        "pending_decisions": [],
+        "network_summary": {
+          "flights_total": 36,
+          "flights_arrived": 0,
+          "flights_cancelled": 0,
+          "flights_active": 36,
+          "total_dep_delay": 0,
+          "total_arr_delay": 0,
+          "stranded_passengers": 0,
+          "avg_satisfaction": 100.0,
+          "airline_cash": {
+            "SI": 3000000,
+            "BA": 3000000
+          }
+        },
+        "action_schema": {
+          "depart": {
+            "flight_id": "string"
+          },
+          "hold": {
+            "flight_id": "string",
+            "minutes": "int",
+            "reason": "string"
+          },
+          "cancel": {
+            "flight_id": "string",
+            "reason": "string"
+          },
+          "swap_aircraft": {
+            "flight_id": "string",
+            "aircraft_id": "string"
+          },
+          "protect_connection": {
+            "flight_id": "string"
+          }
+        }
+      }
+    }
+  ],
+  "raw_generations": [
+    {
+      "time": 420,
+      "completion": "[\n  {\n    \"action\": \"depart\",\n    \"flight_id\": \"BA133\"\n  }\n]",
+      "parsed_actions": [
+        {
+          "action": "depart",
+          "flight_id": "BA133"
+        }
+      ],
+      "reward": 17.0
+    },
+    {
+      "time": 450,
+      "completion": "[\n  {\n    \"action\": \"depart\",\n    \"flight_id\": \"BA127\"\n  }\n]",
+      "parsed_actions": [
+        {
+          "action": "depart",
+          "flight_id": "BA127"
+        }
+      ],
+      "reward": 17.0
+    },
+    {
+      "time": 465,
+      "completion": "```json\n[\n  {\n    \"action\": \"depart\",\n    \"flight_id\": \"BA103\"\n  },\n  {\n    \"action\": \"depart\",\n    \"flight_id\": \"BA111\"\n  },\n  {\n    \"action\": \"depart\",\n    \"flight_id\": \"SI114\"\n  },\n  {\n    \"action\": \"depart\",\n    \"flight_id\": \"SI130\"\n  }\n]\n```",
+      "parsed_actions": [
+        {
+          "action": "depart",
+          "flight_id": "BA103"
+        },
+        {
+          "action": "depart",
+          "flight_id": "BA111"
+        },
+        {
+          "action": "depart",
+          "flight_id": "SI114"
+        },
+        {
+          "action": "depart",
+          "flight_id": "SI130"
+        }
+      ],
+      "reward": 68.0
+    }
+  ]
+}
