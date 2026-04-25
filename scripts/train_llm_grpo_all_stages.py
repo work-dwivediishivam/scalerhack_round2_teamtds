@@ -116,6 +116,7 @@ def load_model(model_name: str, use_unsloth: bool) -> tuple[Any, Any]:
             token=os.getenv("HF_TOKEN"),
             device_map="auto",
             quantization_config=quantization_config,
+            torch_dtype=torch.float16,
         )
         model = prepare_model_for_kbit_training(model)
         model = get_peft_model(
@@ -175,6 +176,8 @@ def train(args: argparse.Namespace) -> None:
         generation_batch_size=args.num_generations * args.batch_size,
         max_prompt_length=args.max_prompt_length,
         max_completion_length=args.max_completion_length,
+        fp16=os.getenv("RUNWAY_ZERO_FP16") == "1",
+        bf16=os.getenv("RUNWAY_ZERO_BF16") == "1",
     )
     trainer = GRPOTrainer(
         model=model,
