@@ -18,7 +18,7 @@ PyTorch OpenEnv Hackathon with Scaler School of Technology.
 
 Before the real demo starts, if you are watching this with Gen Z attention span,
 there is also an RL Monopoly game running on the side. That is a separate
-OpenEnv-style project we trained for fun. The main submission is the airport
+OpenEnv project we trained for fun. The main submission is the airport
 recovery environment you are about to see.
 
 ### 0:12 - 0:28

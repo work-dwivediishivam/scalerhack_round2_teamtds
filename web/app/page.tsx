@@ -69,12 +69,12 @@ export default function LandingPage() {
       <section className="pitchHero">
         <div className="heroCopy">
           <p className="eyebrow">Runway Zero</p>
-          <h1>Train LLM agents to recover airport networks when every plan breaks.</h1>
+          <h1>RL-trained LLMs recover airport crises that rule-based systems cannot solve end to end.</h1>
           <p>
-            Airline disruption recovery still depends on expert operations-control teams and fragmented
-            tools. Runway Zero turns the unsolved end-to-end recovery loop across aircraft, crews,
-            passengers, runways, cash, and fairness into an OpenEnv environment with verifiable RL
-            rewards.
+            Airlines still depend on highly trained operations-control teams when disruption cascades
+            across aircraft, crews, passengers, runways, airline economics, and fairness. Runway Zero
+            turns that unsolved end-to-end recovery problem into an OpenEnv environment where LLM agents
+            learn from verifiable rewards.
           </p>
           <div className="heroActions">
             <a href="/sim/?stage=4">

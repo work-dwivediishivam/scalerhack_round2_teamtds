@@ -7,7 +7,7 @@ agent must operate a live Indian airport network where disruptions compound over
 time: fog slows Delhi, Mumbai loses a runway, Bengaluru gates jam, aircraft
 break, crews time out, and passenger connections become fragile.
 
-The hackathon artifact is not only a notebook. It is a full OpenEnv-style
+The hackathon artifact is not only a notebook. It is a full OpenEnv
 environment plus a replay dashboard that makes the agent's decisions and reward
 signals visible.
 

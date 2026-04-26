@@ -2,10 +2,6 @@
 
 Deadline: April 26, 2026 at 5:00 PM IST.
 
-Final submission form: https://forms.gle/CvAbm1SwrLyKZvAd9
-
-HF credits issue form: https://forms.gle/5TmQnPK9PVe4QTZx8
-
 ## Submit These Links
 
 - Hugging Face Space environment: https://huggingface.co/spaces/work-dwivediishivam/runway-zero
@@ -20,7 +16,7 @@ HF credits issue form: https://forms.gle/5TmQnPK9PVe4QTZx8
 
 ## Non-Negotiable Requirements
 
-- Latest OpenEnv-style environment with reset, step, state, and close API.
+- Latest OpenEnv environment with reset, step, state, and close API.
 - Public Hugging Face Space hosting the environment.
 - Working TRL/GRPO training script and notebook.
 - Training evidence with hosted GRPO artifacts and score/loss/reward plots.

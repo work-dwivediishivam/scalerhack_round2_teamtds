@@ -135,8 +135,22 @@ const airportBoardPositions: Record<string, { x: number; y: number }> = {
   BLR: { x: 47.0, y: 78.4 },
   HYD: { x: 53.0, y: 61.5 },
   MAA: { x: 60.6, y: 77.8 },
-  COK: { x: 42.4, y: 88.5 },
+  COK: { x: 44.4, y: 86.2 },
   CCU: { x: 74.2, y: 45.8 },
+};
+
+const stageAirportCodes: Record<number, string[]> = {
+  1: ["DEL", "BOM", "BLR", "HYD"],
+  2: ["DEL", "BOM", "BLR", "HYD", "PNQ", "GOX"],
+  3: ["DEL", "BOM", "BLR", "HYD", "PNQ", "GOX", "MAA", "CCU"],
+  4: ["DEL", "BOM", "BLR", "HYD", "PNQ", "GOX", "MAA", "CCU", "COK"],
+};
+
+const stageRouteLimit: Record<number, number> = {
+  1: 4,
+  2: 6,
+  3: 8,
+  4: 9,
 };
 
 export default function SimulationPage() {
@@ -159,10 +173,19 @@ export default function SimulationPage() {
   const stageRows = results.filter((row) => row.stage === stage);
   const modelBase = stageRows.find((row) => row.model === model && row.mode === "base");
   const modelRl = stageRows.find((row) => row.model === model && row.mode === "rl");
+  const displayFlights = visibleFlights(frame, stage);
+  const displayMessages = visibleMessages(frame, stage, mode, replay.model_label);
+  const visibleCodes = useMemo(() => new Set(stageAirportCodes[stage] ?? stageAirportCodes[4]), [stage]);
 
   useEffect(() => {
     setFrameIndex(0);
   }, [stage, model, mode]);
+
+  useEffect(() => {
+    if (!visibleCodes.has(selectedAirport)) {
+      setSelectedAirport(stageAirportCodes[stage][0]);
+    }
+  }, [selectedAirport, stage, visibleCodes]);
 
   useEffect(() => {
     if (!playing) return;
@@ -173,7 +196,7 @@ export default function SimulationPage() {
   }, [playing, replay.frames.length, speedMs]);
 
   const selected = airports.find((airport) => airport.code === selectedAirport) ?? airports[0];
-  const selectedFlights = frame.flights.filter(
+  const selectedFlights = displayFlights.filter(
     (flight) => flight.origin === selected.code || flight.destination === selected.code,
   );
 
@@ -219,6 +242,8 @@ export default function SimulationPage() {
         <div className="mapPanelV2">
           <IndiaMap
             frame={frame}
+            stage={stage}
+            displayFlights={displayFlights}
             selectedAirport={selectedAirport}
             onSelect={setSelectedAirport}
           />
@@ -235,30 +260,28 @@ export default function SimulationPage() {
             {mode === "rl" ? "RL-trained controller" : "Base LLM controller"}
           </div>
           <p>
-            {mode === "rl"
-              ? "The agent has learned to trade off runway capacity, passenger harm, crew legality, and airline cash."
-              : "This is normally a human-led operations-control problem; the base model reacts late and lets constraints cascade."}
+            {controllerNarrative(stage, mode)}
           </p>
           <div className="bigReward">
             <span>Recovery score</span>
             <strong>{Math.round(frame.metrics.recovery_score)}</strong>
             <em>0-100 environment evaluator</em>
           </div>
-          <KpiGrid frame={frame} />
+          <KpiGrid frame={frame} stage={stage} />
           <SpeedControl value={speedMs} onChange={setSpeedMs} />
         </aside>
       </section>
 
       <section className="simGrid">
         <AirportZoom airport={selected} flights={selectedFlights} frame={frame} />
-        <AgentChat messages={frame.messages} stage={stage} />
+        <AgentChat messages={displayMessages} stage={stage} />
         <IncidentBoard frame={frame} />
       </section>
 
       <section className="simGrid bottom">
-        <AirlineMoney frame={frame} />
+        {stage >= 3 ? <AirlineMoney frame={frame} /> : <StageFocus frame={frame} stage={stage} />}
         <ModelDeltaTable rows={stageRows} selected={model} onSelect={setModel} />
-        <FlightManifest flights={frame.flights} />
+        <FlightManifest flights={displayFlights} stage={stage} />
       </section>
 
       <section className="proofStrip">
@@ -269,8 +292,7 @@ export default function SimulationPage() {
           </h2>
         </div>
         <p>
-          The RL-trained controller keeps more aircraft moving while protecting crew legality,
-          passenger connections, airline cash, and airport fairness under the same disruption load.
+          {proofNarrative(stage)}
         </p>
         <a href="/training/">Open training evidence</a>
       </section>
@@ -280,22 +302,31 @@ export default function SimulationPage() {
 
 function IndiaMap({
   frame,
+  stage,
+  displayFlights,
   selectedAirport,
   onSelect,
 }: {
   frame: Frame;
+  stage: number;
+  displayFlights: Flight[];
   selectedAirport: string;
   onSelect: (airport: string) => void;
 }) {
-  const incidentAirports = new Set(frame.incidents.map((item) => item.airport));
+  const visibleCodes = new Set(stageAirportCodes[stage] ?? stageAirportCodes[4]);
+  const visibleAirports = airports.filter((airport) => visibleCodes.has(airport.code));
+  const incidentAirports = new Set(
+    frame.incidents.filter((item) => visibleCodes.has(item.airport)).map((item) => item.airport),
+  );
   return (
     <div className="indiaMapV2">
       <svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet">
         <IndiaOutline />
-        <path className="airspaceSector" d="M28 18 H74 V41 H28 Z" />
-        <path className="airspaceSector" d="M26 42 H69 V69 H26 Z" />
-        <path className="airspaceSector" d="M34 69 H62 V94 H34 Z" />
-        {frame.flights.slice(0, 8).map((flight, index) => {
+        {stage >= 1 && <path className="airspaceSector primary" d="M39 27 H58 V64 H39 Z" />}
+        {stage >= 2 && <path className="airspaceSector west" d="M31 43 H51 V72 H31 Z" />}
+        {stage >= 3 && <path className="airspaceSector east" d="M50 38 H78 V65 H50 Z" />}
+        {stage >= 4 && <path className="airspaceSector south" d="M38 68 H62 V93 H38 Z" />}
+        {displayFlights.map((flight, index) => {
           const from = airportPoint(airports.find((airport) => airport.code === flight.origin));
           const to = airportPoint(airports.find((airport) => airport.code === flight.destination));
           const midX = (from.x + to.x) / 2;
@@ -319,7 +350,7 @@ function IndiaMap({
           );
         })}
       </svg>
-      {airports.map((airport) => {
+      {visibleAirports.map((airport) => {
         const point = airportPoint(airport);
         const incident = incidentAirports.has(airport.code);
         return (
@@ -337,7 +368,7 @@ function IndiaMap({
           </button>
         );
       })}
-      {frame.flights.slice(0, 4).map((flight, index) => (
+      {displayFlights.slice(0, stage >= 3 ? 6 : 4).map((flight, index) => (
         <div className="flightChip" key={flight.flight_id} style={{ top: `${12 + index * 7.5}%` }}>
           <strong>{flight.flight_id}</strong>
           <span>
@@ -348,7 +379,7 @@ function IndiaMap({
       ))}
       <div className="mapLegendV2">
         <strong>India airport recovery board</strong>
-        <span>major airport network · arcs are active simulated flights</span>
+        <span>{mapLegend(stage)}</span>
       </div>
     </div>
   );
@@ -396,16 +427,16 @@ function airportPoint(airport?: Airport) {
   return airportBoardPositions[airport.code] ?? geoPoint(airport.lon, airport.lat);
 }
 
-function KpiGrid({ frame }: { frame: Frame }) {
+function KpiGrid({ frame, stage }: { frame: Frame; stage: number }) {
   const metrics = frame.metrics;
   return (
     <div className="kpiGrid">
       <Metric icon={<Plane size={17} />} label="arrived" value={metrics.flights_arrived} />
       <Metric icon={<AlertTriangle size={17} />} label="cancelled" value={metrics.flights_cancelled} />
       <Metric icon={<Gauge size={17} />} label="delay min" value={metrics.total_dep_delay.toLocaleString()} />
-      <Metric icon={<Smile size={17} />} label="satisfaction" value={`${metrics.avg_satisfaction}%`} />
+      {stage >= 2 && <Metric icon={<Smile size={17} />} label="satisfaction" value={`${metrics.avg_satisfaction}%`} />}
       <Metric icon={<RadioTower size={17} />} label="recovery score" value={Math.round(metrics.recovery_score)} />
-      <Metric icon={<Users size={17} />} label="stranded pax" value={metrics.stranded_passengers.toLocaleString()} />
+      {stage >= 2 && <Metric icon={<Users size={17} />} label="stranded pax" value={metrics.stranded_passengers.toLocaleString()} />}
     </div>
   );
 }
@@ -518,6 +549,39 @@ function AirlineMoney({ frame }: { frame: Frame }) {
   );
 }
 
+function StageFocus({ frame, stage }: { frame: Frame; stage: number }) {
+  const metrics = frame.metrics;
+  const activeIncident = frame.incidents[0];
+  const rows =
+    stage === 1
+      ? [
+          ["Safe arrivals", metrics.flights_arrived],
+          ["Delay minutes", metrics.total_dep_delay.toLocaleString()],
+          ["Cancelled flights", metrics.flights_cancelled],
+          ["Active crisis", activeIncident ? activeIncident.title : "Network nominal"],
+        ]
+      : [
+          ["Passenger satisfaction", `${metrics.avg_satisfaction}%`],
+          ["Stranded passengers", metrics.stranded_passengers.toLocaleString()],
+          ["Delay minutes", metrics.total_dep_delay.toLocaleString()],
+          ["Active crisis", activeIncident ? activeIncident.title : "Network nominal"],
+        ];
+  return (
+    <section className="panelV2 stageFocus">
+      <div className="panelTitle">
+        {stage === 1 ? <RadioTower size={18} /> : <Users size={18} />}
+        <h2>{stage === 1 ? "Operations Pressure" : "Passenger Recovery Pressure"}</h2>
+      </div>
+      {rows.map(([label, value]) => (
+        <div className="focusRow" key={label}>
+          <span>{label}</span>
+          <strong>{value}</strong>
+        </div>
+      ))}
+    </section>
+  );
+}
+
 function ModelDeltaTable({
   rows,
   selected,
@@ -550,10 +614,10 @@ function ModelDeltaTable({
   );
 }
 
-function FlightManifest({ flights }: { flights: Flight[] }) {
+function FlightManifest({ flights, stage }: { flights: Flight[]; stage: number }) {
   return (
     <section className="panelV2 flightManifest">
-      <h2>Live Flights</h2>
+      <h2>{stage === 1 ? "Operational Flights" : "Live Flights"}</h2>
       {flights.slice(0, 8).map((flight) => (
         <article key={flight.flight_id}>
           <strong>{flight.flight_id}</strong>
@@ -567,6 +631,105 @@ function FlightManifest({ flights }: { flights: Flight[] }) {
       ))}
     </section>
   );
+}
+
+function visibleFlights(frame: Frame, stage: number) {
+  const codes = new Set(stageAirportCodes[stage] ?? stageAirportCodes[4]);
+  const limit = stageRouteLimit[stage] ?? 8;
+  const filtered = frame.flights.filter((flight) => codes.has(flight.origin) && codes.has(flight.destination));
+  const uniqueRoutes: Flight[] = [];
+  const seen = new Set<string>();
+  for (const flight of filtered) {
+    const key = `${flight.origin}-${flight.destination}`;
+    if (seen.has(key)) continue;
+    seen.add(key);
+    uniqueRoutes.push(flight);
+    if (uniqueRoutes.length >= limit) break;
+  }
+  return uniqueRoutes;
+}
+
+function controllerNarrative(stage: number, mode: "base" | "rl") {
+  if (mode === "base") {
+    if (stage === 1) return "This is normally handled by expert operations controllers; the base model reacts late to runway, aircraft, and crew constraints.";
+    if (stage === 2) return "The base model sees the schedule, but misses passenger knock-on effects such as connections, stranded groups, and emergency priority.";
+    return "This is normally a human-led operations-control problem; the base model reacts late and lets constraints cascade.";
+  }
+  if (stage === 1) return "The agent has learned safe sequencing: depart ready aircraft, hold illegal rotations, and recover the compact network without pretending the crisis is perfect.";
+  if (stage === 2) return "The agent has learned passenger-aware recovery: protect connections, contain stranded groups, and trade small delays against larger human impact.";
+  if (stage === 3) return "The agent has learned multi-agent control: balance airline pressure, scarce slots, passenger harm, fairness, and cash.";
+  return "The agent has learned crisis recovery under crew collapse: cancel only unrecoverable rotations, protect legal crews, and reduce passenger harm.";
+}
+
+function proofNarrative(stage: number) {
+  if (stage === 1) {
+    return "The RL-trained controller keeps more aircraft moving while reducing unsafe holds, late departures, and cancellations under the same operational disruption load.";
+  }
+  if (stage === 2) {
+    return "The RL-trained controller recovers the same network while protecting passenger connections, reducing stranded groups, and keeping satisfaction higher.";
+  }
+  return "The RL-trained controller keeps more aircraft moving while protecting crew legality, passenger connections, airline economics, and airport fairness under the same disruption load.";
+}
+
+function mapLegend(stage: number) {
+  if (stage === 1) return "L1 compact ops network: DEL, BOM, BLR, HYD";
+  if (stage === 2) return "L2 passenger network adds PNQ and GOX recovery pressure";
+  if (stage === 3) return "L3 economic network adds eastern and southern slot pressure";
+  return "L4 crisis replay: national cancellation and crew-rotation recovery";
+}
+
+function visibleMessages(frame: Frame, stage: number, mode: "base" | "rl", modelLabel: string) {
+  const controller = `${modelLabel.split(" ")[0]} ${mode === "rl" ? "RL" : "Base"}`;
+  const incident = frame.incidents[0];
+  if (stage === 1) {
+    return [
+      {
+        from: controller,
+        to: "Tower Central",
+        message:
+          mode === "rl"
+            ? "Sequence only ready aircraft, hold illegal crew rotations, and keep DEL-BOM-BLR-HYD moving without unsafe shortcuts."
+            : "Attempts broad holds; aircraft readiness and runway capacity are not separated cleanly.",
+      },
+      {
+        from: "Tower Central",
+        to: "Airport Ops",
+        message: incident
+          ? `${incident.title} active at ${incident.airport}. Prioritize safe departures and keep runway conflicts at zero.`
+          : "Network nominal. Continue safe dispatch sequencing.",
+      },
+      {
+        from: "Airport Ops",
+        to: "Tower Central",
+        message: "Ready flights are released first; blocked aircraft wait for maintenance or crew recovery.",
+      },
+    ];
+  }
+  if (stage === 2) {
+    return [
+      {
+        from: controller,
+        to: "Passenger Recovery",
+        message:
+          mode === "rl"
+            ? "Protect connection banks and emergency priority before optimizing raw delay minutes."
+            : "Treats several delayed flights independently and misses passenger spillover risk.",
+      },
+      {
+        from: "Passenger Recovery",
+        to: "Tower Central",
+        message: "Connection groups are flagged; avoid stranding passengers when a short hold can preserve the onward bank.",
+      },
+      {
+        from: "Airport Ops",
+        to: "Passenger Recovery",
+        message: incident
+          ? `${incident.airport} pressure is live. Gate and runway choices now affect passenger satisfaction.`
+          : "Passenger recovery layer is monitoring connection and satisfaction risk.",
+      },
+    ];
+  }
+  return frame.messages;
 }
 
 function SpeedControl({ value, onChange }: { value: number; onChange: (value: number) => void }) {

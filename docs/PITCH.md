@@ -44,7 +44,7 @@ money, and fairness at the same time.
 
 ## What We Built
 
-Runway Zero is an OpenEnv-style airport operations environment. The agent sees a
+Runway Zero is an OpenEnv airport operations environment. The agent sees a
 structured airport state and chooses operational actions: depart, hold, cancel,
 swap aircraft, request maintenance, reroute, compensate passengers, negotiate
 slots, and protect connections. Rewards are based on delay, safety, passenger

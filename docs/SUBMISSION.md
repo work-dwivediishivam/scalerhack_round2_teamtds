@@ -17,7 +17,7 @@
 
 ## Minimum Requirements Checklist
 
-- Uses OpenEnv-style reset/step/state/close API: yes.
+- Uses OpenEnv reset/step/state/close API: yes.
 - OpenEnv manifest included: `openenv.yaml`.
 - Environment hosted on Hugging Face Space: yes.
 - Training script using TRL/GRPO: `scripts/train_llm_grpo_all_stages.py`.
@@ -26,7 +26,6 @@
 - Blog/writeup: `docs/BLOG_POST.md`, with a compact fallback at `docs/MINI_BLOG.md`.
 - README links to demo, Space, training evidence, and artifact: yes.
 - Experiment tracking: training script supports `--report-to tensorboard` by default.
-- Final submission form: https://forms.gle/CvAbm1SwrLyKZvAd9
 
 ## Main Pitch
 

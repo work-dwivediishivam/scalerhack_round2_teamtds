@@ -25,7 +25,7 @@ cascading disruptions because there is no generally deployed autonomous system
 that recovers aircraft, crew, passengers, gates, runways, airline incentives, and
 fairness end to end.
 
-## Final Submission Links
+## Live Links
 
 - Web demo: https://project-2pdc2.vercel.app/
 - Live crisis replay: https://project-2pdc2.vercel.app/sim/?stage=4
@@ -70,7 +70,9 @@ Runway Zero targets the themes most relevant to the OpenEnv Hackathon:
 
 ## Environment
 
-The environment exposes an OpenEnv-style API:
+The simulator class subclasses the OpenEnv SDK `Environment` interface when the
+latest `openenv-core` package is available, and the Space exposes the standard
+OpenEnv reset/step/state/close surface:
 
 - `reset`: start a crisis scenario.
 - `step`: execute a structured action and advance the airport network.

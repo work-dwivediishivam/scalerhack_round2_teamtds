@@ -12,7 +12,7 @@ ENV = RunwayZeroEnv(stage=1, seed=7)
 
 
 class ResetRequest(BaseModel):
-    stage: int = Field(default=1, ge=1, le=3)
+    stage: int = Field(default=1, ge=1, le=4)
     seed: int = 7
 
 
@@ -24,7 +24,7 @@ class StepRequest(BaseModel):
 def root() -> Dict[str, Any]:
     return {
         "name": "Runway Zero",
-        "description": "OpenEnv-style airport crisis recovery environment",
+        "description": "OpenEnv airport crisis recovery environment",
         "endpoints": ["/reset", "/step", "/state", "/close"],
     }
 
@@ -33,7 +33,7 @@ def root() -> Dict[str, Any]:
 def reset(request: Optional[ResetRequest] = None) -> Dict[str, Any]:
     payload = request or ResetRequest()
     observation = ENV.reset(stage=payload.stage, seed=payload.seed)
-    return {"observation": observation, "state": ENV.state()}
+    return {"observation": observation, "state": ENV.state}
 
 
 @app.post("/step")
@@ -49,10 +49,9 @@ def step(request: StepRequest) -> Dict[str, Any]:
 
 @app.get("/state")
 def state() -> Dict[str, Any]:
-    return ENV.state()
+    return ENV.state
 
 
 @app.post("/close")
 def close() -> Dict[str, str]:
     return {"status": "closed"}
-

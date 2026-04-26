@@ -124,7 +124,8 @@ satisfaction.
 
 ### Reward And Training Pipeline
 
-Runway Zero exposes an OpenEnv-style environment with `reset`, `step`, `state`,
+Runway Zero subclasses the OpenEnv SDK `Environment` interface when the latest
+`openenv-core` package is available, and exposes `reset`, `step`, `state`,
 and `close`. The training script serializes observations into prompts, parses
 LLM JSON actions, executes them in the environment, receives reward, and trains
 with TRL/GRPO.
@@ -482,7 +483,7 @@ world where the agent must act under pressure.
 
 The evidence is not just a notebook. The project includes:
 
-- an OpenEnv-compatible environment,
+- an OpenEnv environment,
 - a live Hugging Face Space,
 - TRL/GRPO training script,
 - Colab-compatible notebook,
@@ -522,7 +523,7 @@ Key files:
 
 ## Submission Checklist
 
-- OpenEnv-style environment: yes.
+- OpenEnv environment: yes.
 - Public Hugging Face Space: yes.
 - Working training script with TRL/GRPO: yes.
 - Training notebook: yes.

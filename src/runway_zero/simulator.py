@@ -4,19 +4,21 @@ from dataclasses import asdict
 from typing import Any, Dict, Iterable, List, Optional
 
 from runway_zero.models import Aircraft, Crew, Flight, RewardBreakdown, StepResult
+from runway_zero.openenv_adapter import OpenEnvEnvironment
 from runway_zero.scenarios import ROUTE_MINUTES, build_scenario
 
 
-class RunwayZeroEnv:
+class RunwayZeroEnv(OpenEnvEnvironment):
     """Deterministic airport recovery environment.
 
-    The API follows the Gym/OpenEnv mental model:
+    The API follows the OpenEnv/Gym mental model:
     - reset(stage, seed) -> observation
     - step(actions) -> observation, reward, done, info
-    - state() -> full serializable state
+    - state -> full serializable state
     """
 
     def __init__(self, stage: int = 1, seed: int = 7, step_minutes: int = 15):
+        super().__init__()
         self.stage = stage
         self.seed = seed
         self.step_minutes = step_minutes
@@ -45,6 +47,10 @@ class RunwayZeroEnv:
         if self.done:
             return StepResult(self.observation(), 0.0, True, {"message": "episode already done"})
 
+        if hasattr(actions, "actions"):
+            actions = getattr(actions, "actions")
+        if isinstance(actions, dict):
+            actions = [actions]
         actions = list(actions or [])
         reward = RewardBreakdown()
         active_disruptions = self._activate_disruptions(reward)
@@ -82,6 +88,7 @@ class RunwayZeroEnv:
             },
         )
 
+    @property
     def state(self) -> Dict[str, Any]:
         return {
             "stage": self.stage,
@@ -170,10 +177,16 @@ class RunwayZeroEnv:
             },
         ]
         for airline in self.airlines.values():
+            if self.stage == 1:
+                objective = "Keep aircraft and crew rotations legal while minimizing operational delay."
+            elif self.stage == 2:
+                objective = "Protect passenger connections, satisfaction, and emergency priority."
+            else:
+                objective = "Protect cash, reputation, slot access, and passenger satisfaction."
             items.append(
                 {
                     "name": airline.name,
-                    "objective": "Protect cash, reputation, slot access, and passenger satisfaction.",
+                    "objective": objective,
                 }
             )
         return items

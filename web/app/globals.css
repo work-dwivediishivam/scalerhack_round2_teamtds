@@ -1564,7 +1564,7 @@ h2 span {
   position: absolute;
   left: 16px;
   bottom: 16px;
-  max-width: 520px;
+  max-width: 420px;
   z-index: 5;
   border: 1px solid var(--line);
   background: rgba(255, 255, 255, 0.94);
@@ -1880,6 +1880,31 @@ h2 span {
 }
 
 .moneyRow strong {
+  text-align: right;
+}
+
+.stageFocus {
+  display: grid;
+  align-content: start;
+}
+
+.focusRow {
+  border-top: 1px solid var(--line);
+  padding: 12px 0;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+  align-items: center;
+}
+
+.focusRow span {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.focusRow strong {
   text-align: right;
 }
 
