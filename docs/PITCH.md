@@ -22,6 +22,10 @@ Crew duty limits start expiring.
 
 Passengers begin missing connections.
 
+Then the Level 4 replay turns it into an IndiGo-style cancellation crisis:
+legal crew coverage collapses across rotations, passenger queues overflow, and
+every airline tries to protect its own aircraft, slots, cash, and reputation.
+
 IndiGo, Air India, Akasa Air, and SpiceJet begin pushing for their own slots,
 cash protection, and reputation recovery while Tower Central must stay neutral.
 
@@ -51,5 +55,6 @@ capability.
 2. Trigger cascading disruptions.
 3. Replay base-model decisions.
 4. Replay RL-trained recovery decisions.
-5. Compare reward, delay, stranded passengers, and satisfaction.
-6. Show the TRL/GRPO training path.
+5. Compare all four base LLMs against their RL-trained versions.
+6. Show reward, delay, stranded passengers, satisfaction, and cash pressure.
+7. Show the TRL/GRPO training path and hosted artifact links.

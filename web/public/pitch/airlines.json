@@ -1,0 +1,22 @@
+[
+  {
+    "code": "6E",
+    "name": "IndiGo",
+    "color": "#315fd6"
+  },
+  {
+    "code": "AI",
+    "name": "Air India",
+    "color": "#c22630"
+  },
+  {
+    "code": "QP",
+    "name": "Akasa Air",
+    "color": "#6b4bd8"
+  },
+  {
+    "code": "SG",
+    "name": "SpiceJet",
+    "color": "#e28622"
+  }
+]

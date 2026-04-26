@@ -4,7 +4,7 @@
 
 - Web demo: https://project-2pdc2.vercel.app/
 - Training/results page: https://project-2pdc2.vercel.app/training/
-- Level 3 replay: https://project-2pdc2.vercel.app/sim/?stage=3
+- Level 4 crisis replay: https://project-2pdc2.vercel.app/sim/?stage=4
 - OpenEnv/HF Space API: https://work-dwivediishivam-runway-zero.hf.space/state
 - Hugging Face artifact repo: https://huggingface.co/work-dwivediishivam/runway-zero-training-artifacts
 - Hosted Qwen2.5 GRPO artifact: https://huggingface.co/work-dwivediishivam/runway-zero-training-artifacts/blob/main/qwen25_coder_7b_hf_grpo/runway_zero_qwen25_coder_7b_hf_grpo.tgz
@@ -39,9 +39,9 @@ The core line:
 ## What Judges Should Try
 
 1. Open the web demo.
-2. Choose Level 3.
-3. Toggle Base Model vs RL Trained.
-4. Watch active disruptions, airport zoom, live agent negotiation, and reward
-   bars.
-5. Open the Training page and inspect replay scorecards, curves, and the four
-   hosted GRPO artifact links.
+2. Choose Level 4: IndiGo Crisis Replay.
+3. Toggle each of the four Base LLMs against its RL-trained version.
+4. Watch active disruptions, airport zoom, live airline/tower negotiation,
+   passenger harm, airline cash pressure, and the model score delta.
+5. Open the Training page and inspect the base-vs-RL matrices, reward curves,
+   delay curves, and four hosted GRPO artifact links.

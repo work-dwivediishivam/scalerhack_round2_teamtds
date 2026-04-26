@@ -70,8 +70,8 @@ def build_scenario(stage: int = 1, seed: int = 7) -> dict:
     rng = random.Random(seed)
     airport_codes = ["DEL", "BOM", "BLR", "HYD"] if stage == 1 else list(AIRPORTS)
     airline_codes = ["6E", "AI"] if stage == 1 else (["6E", "AI", "QP"] if stage == 2 else list(AIRLINES))
-    flight_count = 44 if stage == 1 else (124 if stage == 2 else 224)
-    step_window = 780 if stage == 1 else (960 if stage == 2 else 1200)
+    flight_count = 44 if stage == 1 else (124 if stage == 2 else (224 if stage == 3 else 420))
+    step_window = 780 if stage == 1 else (960 if stage == 2 else (1200 if stage == 3 else 1440))
 
     airports = {code: _clone_airport(AIRPORTS[code]) for code in airport_codes}
     airlines = {code: AIRLINES[code] for code in airline_codes}
@@ -144,7 +144,10 @@ def _build_flights(
     routes = [route for route in ROUTE_MINUTES if route[0] in airports and route[1] in airports]
 
     for idx in range(count):
-        airline = airlines[idx % len(airlines)]
+        if stage >= 4:
+            airline = "6E" if idx % 10 < 6 else airlines[idx % len(airlines)]
+        else:
+            airline = airlines[idx % len(airlines)]
         origin, destination = rng.choice(routes)
         dep = 390 + rng.randrange(0, max(60, step_window - 220), 15)
         duration = ROUTE_MINUTES[(origin, destination)]
@@ -318,6 +321,65 @@ def _build_disruptions(stage: int) -> List[Disruption]:
                     120,
                     2,
                     "Goa coastal weather triggers diversions and blocks low-fuel aircraft from quick recovery.",
+                ),
+            ]
+        )
+    if stage >= 4:
+        base.extend(
+            [
+                Disruption(
+                    "D13",
+                    645,
+                    "crew_timeout",
+                    "6E-K012",
+                    360,
+                    5,
+                    "IndiGo-style crew legality shock: multiple rotations no longer have legal crew coverage.",
+                ),
+                Disruption(
+                    "D14",
+                    705,
+                    "crew_timeout",
+                    "6E-K024",
+                    420,
+                    5,
+                    "Reserve crew pool is exhausted after repeated duty-time breaches across metro bases.",
+                ),
+                Disruption(
+                    "D15",
+                    780,
+                    "demand_shock",
+                    "BOM",
+                    420,
+                    5,
+                    "Passenger queues swell after mass cancellations; compensation and rebooking load spikes.",
+                ),
+                Disruption(
+                    "D16",
+                    840,
+                    "slot_conflict",
+                    "DEL",
+                    360,
+                    5,
+                    "Delhi must rebuild banks while airlines fight for scarce legal-crew departure slots.",
+                ),
+                Disruption(
+                    "D17",
+                    930,
+                    "gate_block",
+                    "BLR",
+                    240,
+                    4,
+                    "Bengaluru stands overflow with aircraft waiting for replacement crews and revised rotations.",
+                ),
+                Disruption(
+                    "D18",
+                    1020,
+                    "fuel_delay",
+                    "HYD",
+                    210,
+                    4,
+                    "Hyderabad fuel and ground staff fall behind after diversion recovery pressure.",
                 ),
             ]
         )

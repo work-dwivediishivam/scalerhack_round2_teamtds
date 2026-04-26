@@ -146,6 +146,12 @@ class RunwayZeroEnv:
                 "goal": "Protect connections, emergencies, and stranded passenger groups across the national network.",
                 "win_condition": "Recover throughput without sacrificing satisfaction or emergency priority.",
             }
+        if self.stage == 4:
+            return {
+                "title": "IndiGo Crisis Replay",
+                "goal": "Recover a December 2025-style crew availability and mass-cancellation crisis across the Indian network.",
+                "win_condition": "Reduce cancellations, rebuild rotations, preserve legal crew constraints, and keep passenger harm visible.",
+            }
         return {
             "title": "Economic Multi-Agent Control",
             "goal": "Balance tower neutrality against airline agents competing for slots, cash, reputation, and passengers.",

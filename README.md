@@ -18,7 +18,7 @@ airport operations from cascading disruptions.
 
 - Web demo: https://project-2pdc2.vercel.app/
 - Training/results page: https://project-2pdc2.vercel.app/training/
-- Level 3 replay: https://project-2pdc2.vercel.app/sim/?stage=3
+- Level 4 crisis replay: https://project-2pdc2.vercel.app/sim/?stage=4
 - OpenEnv/Hugging Face Space API: https://work-dwivediishivam-runway-zero.hf.space/state
 - Hosted GPU GRPO artifacts: https://huggingface.co/work-dwivediishivam/runway-zero-training-artifacts
 - Mini-blog/writeup: [docs/MINI_BLOG.md](docs/MINI_BLOG.md)
@@ -49,13 +49,14 @@ The agent is no longer solving a schedule. It is recovering a living system.
 > Most agent benchmarks ask whether an LLM can make a plan. Runway Zero asks
 > whether it can recover after the plan breaks.
 
-## Three Difficulty Stages
+## Four Crisis Levels
 
-| Stage | Focus | Core objective |
+| Level | Focus | Core objective |
 | --- | --- | --- |
 | 1 | Operations | Minimize delays and avoid unsafe assignments |
 | 2 | Passengers | Preserve connections and customer satisfaction |
 | 3 | Economics + multi-agent | Balance efficiency, passenger impact, fairness, and airline cost |
+| 4 | IndiGo crisis replay | Recover a December 2025-style crew/cancellation crisis |
 
 ## Repository Layout
 
@@ -105,9 +106,9 @@ npm install
 npm run dev
 ```
 
-The dashboard replays real simulator traces from `web/public/traces`. It supports
-switching between base-model behavior and the environment-trained controller,
-with model comparison rows for Gemma, GPT-OSS, Qwen2.5 Coder, and Qwen3.
+The dashboard replays pitch-ready crisis traces from `web/public/pitch`. It
+supports switching between the same four base LLMs and their RL-trained versions:
+Gemma, GPT-OSS, Qwen2.5 Coder, and Qwen3.
 
 ## Scoring
 
@@ -124,27 +125,23 @@ This makes model improvement legible in the demo and in notebook plots.
 
 ## Results Snapshot
 
-The current local baseline evaluation compares `random`, `fifo`,
-`recovery_heuristic`, and `trained_rl` policies across all three stages. The
-public demo emphasizes base-model vs RL-trained replay because that is the
-cleanest judging story. Generated evidence:
+The public evaluation compares only the four base LLMs against the same four
+RL-trained LLMs. Internal simulator-debug policies are not part of the demo
+story.
+Generated pitch evidence:
 
-- [total reward](results/plots/total_reward.png)
-- [departure delay](results/plots/total_dep_delay.png)
-- [stranded passengers](results/plots/stranded_passengers.png)
-- [average satisfaction](results/plots/avg_satisfaction.png)
-
-Replay traces:
-
-- [FIFO Stage 2](results/traces/fifo_stage2_seed7.json)
-- [Recovery Stage 2](results/traces/recovery_heuristic_stage2_seed7.json)
+- `web/public/pitch/model_results.json`
+- `web/public/pitch/replays.json`
+- `web/public/pitch/plots/stage1_reward_comparison.png`
+- `web/public/pitch/plots/stage2_reward_comparison.png`
+- `web/public/pitch/plots/stage3_reward_comparison.png`
+- `web/public/pitch/plots/stage4_reward_comparison.png`
 
 ## Training
 
 Notebook path:
 
 - `notebooks/00_environment_smoke_test.ipynb`
-- `notebooks/01_baseline_heuristics.ipynb`
 - `notebooks/02_stage1_grpo_operations.ipynb`
 - `notebooks/03_all_stage_rl_controller.ipynb`
 - `notebooks/03_stage2_grpo_passenger_satisfaction.ipynb`
@@ -161,7 +158,7 @@ Zero observations into prompts, parses model JSON actions, executes those action
 in the environment, and uses the returned environment reward as the training
 signal.
 
-The local RL controller trains saved policies for all three stages now. The
+The local RL controller trains saved policies for stages 1, 2, and 3 now. The
 LLM GRPO entrypoint is environment-driven and ready for GPU runtimes:
 
 ```bash
@@ -183,7 +180,8 @@ This repo also includes a completed local TRL/GRPO smoke run summary:
 `results/llm_runs/tiny_grpo_smoke_summary.json`. The full adapter files are
 intentionally ignored because they are generated binary artifacts.
 
-Hosted GPU GRPO evidence across all three stages:
+Hosted GPU GRPO evidence across stages 1, 2, and 3, with Level 4 added as the
+real-world crisis replay layer:
 
 - `results/llm_runs/hf_qwen25_coder_7b_grpo_summary.json`
 - `results/llm_runs/hf_qwen3_14b_grpo_summary.json`

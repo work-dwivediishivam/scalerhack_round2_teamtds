@@ -1082,3 +1082,908 @@ h2 span {
     font-size: 24px;
   }
 }
+
+.landingV2,
+.simPage,
+.trainingV2 {
+  min-height: 100vh;
+  background:
+    linear-gradient(rgba(24, 33, 31, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(24, 33, 31, 0.045) 1px, transparent 1px),
+    #f5f6f3;
+  background-size: 32px 32px;
+}
+
+.landingV2 {
+  padding: 22px;
+  display: grid;
+  gap: 18px;
+}
+
+.pitchHero {
+  min-height: 68vh;
+  border: 1px solid var(--line);
+  background:
+    linear-gradient(120deg, rgba(255, 255, 255, 0.94), rgba(224, 235, 231, 0.78)),
+    #eaf1ef;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 520px;
+  gap: 22px;
+  align-items: end;
+  padding: 36px;
+  position: relative;
+  overflow: hidden;
+}
+
+.pitchHero::after {
+  content: "";
+  position: absolute;
+  right: 7%;
+  top: 9%;
+  width: 36%;
+  height: 58%;
+  background: rgba(255, 255, 255, 0.58);
+  clip-path: polygon(35% 5%, 58% 8%, 71% 18%, 75% 28%, 86% 35%, 79% 43%, 68% 46%, 70% 59%, 64% 73%, 54% 88%, 45% 96%, 36% 84%, 32% 72%, 24% 61%, 22% 49%, 18% 41%, 23% 32%, 18% 24%, 28% 19%);
+  border: 1px solid rgba(24, 33, 31, 0.12);
+}
+
+.heroCopy {
+  position: relative;
+  z-index: 1;
+}
+
+.heroCopy h1 {
+  max-width: 1060px;
+  font-size: clamp(48px, 7.8vw, 108px);
+  line-height: 0.98;
+}
+
+.heroCopy p {
+  max-width: 880px;
+  color: var(--muted);
+  font-size: 19px;
+  line-height: 1.45;
+}
+
+.heroActions,
+.runLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.heroActions a,
+.proofStrip a {
+  min-height: 46px;
+  border: 1px solid var(--ink);
+  color: var(--ink);
+  background: white;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 14px;
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.heroActions a:first-child,
+.proofStrip a {
+  background: var(--ink);
+  color: white;
+}
+
+.heroProof {
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.heroProof div,
+.levelCardV2,
+.judgeStory,
+.judgePanel,
+.panelV2,
+.airportZoomV2,
+.proofStrip,
+.matrixPanel {
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.94);
+}
+
+.heroProof div {
+  min-height: 138px;
+  padding: 14px;
+  display: grid;
+  align-content: space-between;
+}
+
+.heroProof strong {
+  font-size: 28px;
+  line-height: 1.05;
+}
+
+.heroProof span,
+.miniDelta em {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 850;
+  text-transform: uppercase;
+}
+
+.judgeStory {
+  padding: 22px;
+  display: grid;
+  grid-template-columns: 420px 1fr;
+  gap: 18px;
+  align-items: center;
+}
+
+.judgeStory h2 {
+  font-size: 30px;
+}
+
+.judgeStory p {
+  color: var(--muted);
+  line-height: 1.55;
+  margin: 0;
+}
+
+.levelGridV2 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+.levelCardV2 {
+  min-height: 350px;
+  color: var(--ink);
+  text-decoration: none;
+  padding: 18px;
+  display: grid;
+  align-content: space-between;
+}
+
+.levelCardV2 > span {
+  color: var(--teal);
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.levelCardV2 h2 {
+  font-size: 25px;
+}
+
+.levelCardV2 p {
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+.miniDelta {
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 13px 0;
+  display: grid;
+  gap: 4px;
+}
+
+.miniDelta strong {
+  font-size: 21px;
+}
+
+.levelCardV2 b {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.simPage {
+  padding: 18px;
+  display: grid;
+  gap: 16px;
+}
+
+.simTopbar {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 14px;
+  align-items: center;
+}
+
+.topbarBack {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.simTopbar h1 {
+  font-size: 28px;
+}
+
+.simControls {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.simControls select,
+.segmentedV2,
+.clockBox,
+.iconButton,
+.speedControlV2 div {
+  border: 1px solid var(--line);
+  background: white;
+}
+
+.simControls select {
+  min-height: 42px;
+  padding: 0 11px;
+  color: var(--ink);
+  font-weight: 850;
+}
+
+.segmentedV2,
+.speedControlV2 div {
+  display: flex;
+  padding: 3px;
+}
+
+.segmentedV2 button,
+.speedControlV2 button {
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  padding: 9px 11px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 900;
+  white-space: nowrap;
+}
+
+.segmentedV2 button.active,
+.speedControlV2 button.active {
+  background: var(--ink);
+  color: white;
+}
+
+.clockBox {
+  min-height: 42px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 12px;
+}
+
+.iconButton {
+  width: 42px;
+  min-height: 42px;
+  display: inline-grid;
+  place-items: center;
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.crisisHero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 360px;
+  gap: 16px;
+  min-height: 70vh;
+}
+
+.mapPanelV2 {
+  position: relative;
+  border: 1px solid var(--line);
+  background:
+    linear-gradient(rgba(24, 33, 31, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(24, 33, 31, 0.055) 1px, transparent 1px),
+    #dfe9e5;
+  background-size: 30px 30px;
+  overflow: hidden;
+}
+
+.indiaMapV2 {
+  position: absolute;
+  inset: 0;
+}
+
+.indiaMapV2 svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.indiaShapeV2 {
+  fill: rgba(255, 255, 255, 0.78);
+  stroke: rgba(24, 33, 31, 0.25);
+  stroke-width: 0.38;
+}
+
+.indiaCoastV2 {
+  fill: none;
+  stroke: rgba(24, 33, 31, 0.18);
+  stroke-width: 0.28;
+}
+
+.flightArc {
+  fill: none;
+  stroke-width: 0.45;
+  stroke-dasharray: 2 1.2;
+  opacity: 0.72;
+}
+
+.flightArc.late {
+  stroke-width: 0.7;
+}
+
+.flightArc.cancelled {
+  stroke: var(--red) !important;
+  opacity: 0.38;
+}
+
+.planeIcon {
+  fill: var(--ink);
+  stroke: white;
+  stroke-width: 0.25;
+}
+
+.airportNodeV2 {
+  position: absolute;
+  z-index: 3;
+  transform: translate(-50%, -50%);
+  min-width: 72px;
+  min-height: 45px;
+  border: 1px solid var(--ink);
+  background: white;
+  color: var(--ink);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  box-shadow: 0 10px 22px rgba(24, 33, 31, 0.16);
+}
+
+.airportNodeV2 strong {
+  font-size: 13px;
+}
+
+.airportNodeV2 em {
+  color: var(--muted);
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 800;
+}
+
+.airportNodeV2.selected {
+  background: var(--ink);
+  color: white;
+}
+
+.airportNodeV2.selected em {
+  color: rgba(255, 255, 255, 0.76);
+}
+
+.airportNodeV2.incident {
+  border-color: var(--red);
+  box-shadow: 0 0 0 5px rgba(186, 59, 70, 0.16), 0 10px 22px rgba(24, 33, 31, 0.16);
+}
+
+.incidentPulse {
+  position: absolute;
+  top: -11px;
+  right: -9px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--red);
+  color: white;
+  display: grid;
+  place-items: center;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.flightChip {
+  position: absolute;
+  right: 14px;
+  z-index: 4;
+  min-width: 210px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.94);
+  padding: 8px 10px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 8px;
+  align-items: center;
+  font-size: 12px;
+}
+
+.flightChip span,
+.flightChip em {
+  color: var(--muted);
+  font-style: normal;
+}
+
+.mapBrief {
+  position: absolute;
+  left: 16px;
+  bottom: 16px;
+  max-width: 520px;
+  z-index: 5;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.94);
+  padding: 12px;
+  display: grid;
+  gap: 4px;
+}
+
+.mapBrief span,
+.speedControlV2 span {
+  color: var(--teal);
+  font-size: 11px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.judgePanel {
+  padding: 16px;
+  display: grid;
+  gap: 14px;
+  align-content: start;
+}
+
+.judgePanel h2 {
+  font-size: 24px;
+}
+
+.judgePanel p,
+.muted {
+  color: var(--muted);
+  line-height: 1.45;
+  margin: 0;
+}
+
+.modeBadge {
+  width: fit-content;
+  padding: 8px 10px;
+  color: white;
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.modeBadge.good {
+  background: var(--green);
+}
+
+.modeBadge.bad {
+  background: var(--red);
+}
+
+.bigReward {
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 14px 0;
+}
+
+.bigReward span {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.bigReward strong {
+  display: block;
+  margin-top: 4px;
+  font-size: 44px;
+  line-height: 1;
+}
+
+.kpiGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+
+.metricV2 {
+  border: 1px solid var(--line);
+  background: #f8faf7;
+  padding: 10px;
+  display: grid;
+  gap: 8px;
+}
+
+.metricV2 strong {
+  font-size: 24px;
+}
+
+.metricV2 span {
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.speedControlV2 {
+  display: grid;
+  gap: 8px;
+}
+
+.simGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr) minmax(0, 1fr);
+  gap: 16px;
+}
+
+.simGrid.bottom {
+  grid-template-columns: 0.85fr 1.15fr 1fr;
+}
+
+.airportZoomV2 {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.9fr) minmax(260px, 1fr);
+  min-height: 300px;
+}
+
+.airportScene {
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(90deg, transparent 49%, rgba(255, 255, 255, 0.3) 50%, transparent 51%),
+    #8aa49b;
+}
+
+.terminalV2 {
+  position: absolute;
+  left: 18px;
+  top: 18px;
+  width: 126px;
+  height: 78px;
+  border: 1px solid rgba(24, 33, 31, 0.22);
+  background: white;
+  padding: 10px;
+  display: grid;
+  align-content: space-between;
+}
+
+.terminalV2 strong {
+  font-size: 28px;
+}
+
+.terminalV2 span {
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 850;
+}
+
+.runwayV2 {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 58%;
+  height: 30px;
+  background: #2e3734;
+  color: white;
+  display: flex;
+  align-items: center;
+  padding-left: 18px;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.runwayV2::after {
+  content: "";
+  position: absolute;
+  right: 24px;
+  width: 46%;
+  height: 2px;
+  background: repeating-linear-gradient(90deg, white, white 10px, transparent 10px, transparent 16px);
+}
+
+.runwayV2.broken {
+  background: repeating-linear-gradient(45deg, #7d2730, #7d2730 9px, #ba3b46 9px, #ba3b46 18px);
+}
+
+.gateRowV2 {
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  bottom: 18px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+}
+
+.gateRowV2 i {
+  height: 34px;
+  background: rgba(255, 255, 255, 0.35);
+  border: 1px solid rgba(24, 33, 31, 0.16);
+}
+
+.gateRowV2 i.blocked {
+  background: var(--amber);
+}
+
+.groundPlane {
+  position: absolute;
+  bottom: 70px;
+  width: 40px;
+  height: 26px;
+  clip-path: polygon(0 40%, 68% 40%, 68% 14%, 100% 50%, 68% 86%, 68% 60%, 0 60%);
+  background: var(--ink);
+  color: white;
+  display: grid;
+  place-items: center;
+  font-size: 10px;
+  font-weight: 900;
+}
+
+.groundPlane.cancelled {
+  background: var(--red);
+}
+
+.groundPlane.protected {
+  background: var(--green);
+}
+
+.panelBody,
+.panelV2 {
+  padding: 14px;
+}
+
+.incidentCallout {
+  margin-top: 14px;
+  border: 1px solid rgba(186, 59, 70, 0.28);
+  background: rgba(186, 59, 70, 0.07);
+  padding: 12px;
+}
+
+.incidentCallout p {
+  color: var(--muted);
+  margin: 6px 0 0;
+  line-height: 1.4;
+}
+
+.panelTitle {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.chatLine,
+.incidentLine,
+.flightManifest article,
+.moneyRow,
+.modelDelta button,
+.matrixRow {
+  border-top: 1px solid var(--line);
+}
+
+.chatLine,
+.incidentLine {
+  padding: 10px 0;
+}
+
+.chatLine span,
+.incidentLine strong {
+  color: var(--teal);
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.chatLine p,
+.incidentLine p {
+  margin: 4px 0 0;
+  color: var(--muted);
+  line-height: 1.4;
+}
+
+.incidentLine span {
+  display: block;
+  margin-top: 3px;
+  color: var(--red);
+  font-size: 12px;
+  font-weight: 850;
+}
+
+.moneyRow {
+  display: grid;
+  grid-template-columns: 110px 1fr 68px;
+  gap: 10px;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.moneyRow span {
+  font-weight: 850;
+}
+
+.moneyRow div {
+  height: 10px;
+  background: #edf0ec;
+}
+
+.moneyRow i {
+  display: block;
+  height: 100%;
+}
+
+.moneyRow strong {
+  text-align: right;
+}
+
+.modelDelta button {
+  width: 100%;
+  border-left: 0;
+  border-right: 0;
+  border-bottom: 0;
+  background: transparent;
+  color: var(--ink);
+  padding: 11px 0;
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 12px;
+  align-items: center;
+  text-align: left;
+  cursor: pointer;
+}
+
+.modelDelta button.active {
+  color: var(--green);
+}
+
+.modelDelta span,
+.matrixRow span {
+  font-weight: 900;
+}
+
+.modelDelta em,
+.matrixRow em,
+.flightManifest em {
+  color: var(--muted);
+  font-style: normal;
+  text-align: right;
+}
+
+.flightManifest article {
+  padding: 10px 0;
+  display: grid;
+  grid-template-columns: 74px 1fr auto;
+  gap: 10px;
+}
+
+.flightManifest span {
+  color: var(--muted);
+}
+
+.proofStrip {
+  padding: 18px;
+  display: grid;
+  grid-template-columns: minmax(280px, 0.9fr) minmax(0, 1fr) auto;
+  gap: 16px;
+  align-items: center;
+}
+
+.proofStrip p {
+  color: var(--muted);
+  line-height: 1.45;
+  margin: 0;
+}
+
+.trainingV2 {
+  padding: 22px;
+  display: grid;
+  gap: 16px;
+}
+
+.trainingHeroV2 {
+  min-height: 46vh;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.72);
+  padding: 28px;
+  display: grid;
+  align-content: space-between;
+}
+
+.trainingHeroV2 h1 {
+  max-width: 1160px;
+  font-size: clamp(40px, 6vw, 78px);
+}
+
+.trainingHeroV2 p {
+  max-width: 920px;
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.45;
+}
+
+.trainingV2 .trainingStats {
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.evidenceMatrix {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.matrixPanel {
+  padding: 14px;
+}
+
+.matrixPanel h2 {
+  margin-bottom: 12px;
+}
+
+.matrixRow {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 12px;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.matrixRow strong {
+  color: var(--green);
+}
+
+.plotGridV2 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+@media (max-width: 1280px) {
+  .pitchHero,
+  .crisisHero,
+  .simGrid,
+  .simGrid.bottom,
+  .proofStrip,
+  .judgeStory,
+  .evidenceMatrix,
+  .plotGridV2,
+  .trainingV2 .trainingStats {
+    grid-template-columns: 1fr;
+  }
+
+  .levelGridV2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .mapPanelV2 {
+    min-height: 68vh;
+  }
+}
+
+@media (max-width: 720px) {
+  .simTopbar,
+  .airportZoomV2,
+  .levelGridV2,
+  .heroProof,
+  .kpiGrid,
+  .matrixRow,
+  .modelDelta button,
+  .flightManifest article {
+    grid-template-columns: 1fr;
+  }
+
+  .heroCopy h1 {
+    font-size: 44px;
+  }
+
+  .pitchHero,
+  .trainingHeroV2 {
+    padding: 20px;
+  }
+
+  .flightChip {
+    display: none;
+  }
+}

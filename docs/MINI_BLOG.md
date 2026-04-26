@@ -28,7 +28,7 @@ Those actions are executed inside the simulator. The environment returns a
 decomposed reward over delay, safety, passenger satisfaction, airline money,
 fairness, and action validity.
 
-The environment has three levels:
+The environment has four public crisis levels:
 
 1. Operations Recovery: a compact four-airport network focused on safe
    departures, arrivals, aircraft readiness, and delay reduction.
@@ -37,19 +37,22 @@ The environment has three levels:
 3. Economic Multi-Agent Control: ten Indian airports where IndiGo, Air India,
    Akasa Air, and SpiceJet compete for slots while Tower Central must stay
    neutral.
+4. IndiGo Crisis Replay: a December 2025-style crew availability and
+   mass-cancellation crisis where the model must rebuild the network without
+   pretending every flight can be saved.
 
 For the demo, the website replays real simulator traces. It shows a custom
 animated India operations board, airport zoom views with runways and gates,
 active disruption context, agent negotiation messages, reward bars, speed
 controls, and base-model-vs-RL-trained comparison rows.
 
-Training evidence is included at three levels. First, deterministic baselines
-and a local all-stage RL controller generate plots and replay traces. Second, a
-local TRL/GRPO smoke run proves the LLM reward loop executes against the real
-environment. Third, hosted Hugging Face GPU jobs trained four large model
-policies with TRL GRPO across all three stages: Qwen2.5-Coder-7B-Instruct,
-Qwen3-14B, GPT-OSS-120B, and Gemma-4-31B-IT. Each run uploaded its adapter
-artifact bundle and JSON summary to the Hugging Face artifact repo.
+Training evidence is presented as base LLM versus RL-trained LLM, model by
+model. Internal simulator-debug policies are kept out of the public
+judge-facing story. Hosted Hugging Face GPU jobs trained four large model policies with TRL
+GRPO across stages 1, 2, and 3: Qwen2.5-Coder-7B-Instruct, Qwen3-14B,
+GPT-OSS-120B, and Gemma-4-31B-IT. The Level 4 replay uses the same comparison
+format to show how those learned recovery behaviors transfer to a real-world
+mass-disruption scenario.
 
 Why this matters: deployed agents will not operate in clean, single-turn
 prompt-response tasks. They will operate inside systems where resources

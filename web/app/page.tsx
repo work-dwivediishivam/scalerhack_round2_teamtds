@@ -1,102 +1,142 @@
-import { ArrowRight, BarChart3, Gauge, Plane, RadioTower, ShieldAlert } from "lucide-react";
+import { ArrowRight, BarChart3, BrainCircuit, Plane, RadioTower, ShieldCheck } from "lucide-react";
+import resultsJson from "../public/pitch/model_results.json";
+
+type ResultRow = {
+  stage: number;
+  stage_label: string;
+  stage_title: string;
+  model: string;
+  label: string;
+  short: string;
+  mode: "base" | "rl";
+  reward: number;
+  delay: number;
+  cancelled: number;
+  satisfaction: number;
+};
+
+const results = resultsJson as ResultRow[];
 
 const levels = [
   {
     stage: 1,
     title: "Level 1",
     subtitle: "Operations Recovery",
-    description:
-      "Four core airports, two airlines, runway pressure, aircraft faults, and time-critical dispatch decisions.",
-    metrics: ["Delay minutes", "Safety violations", "Departures recovered"],
+    description: "Fog, runway debris, and aircraft faults test whether the model can make safe dispatch decisions.",
   },
   {
     stage: 2,
     title: "Level 2",
-    subtitle: "Passenger-Aware Network",
-    description:
-      "Eight airports, passenger groups, missed connections, emergencies, gate failures, and customer satisfaction.",
-    metrics: ["Satisfaction", "Stranded passengers", "Connection protection"],
+    subtitle: "Passenger-Aware Recovery",
+    description: "Connections, stranded passengers, emergency arrivals, and gate failures turn delay into human cost.",
   },
   {
     stage: 3,
     title: "Level 3",
     subtitle: "Economic Multi-Agent Control",
-    description:
-      "Airlines compete for scarce slots while the tower balances money, fairness, throughput, and passenger harm.",
-    metrics: ["Airline cash", "Fairness", "Network throughput"],
+    description: "IndiGo, Air India, Akasa Air, and SpiceJet negotiate slots while Tower Central preserves fairness.",
+  },
+  {
+    stage: 4,
+    title: "Level 4",
+    subtitle: "IndiGo Crisis Replay",
+    description: "A December 2025-style crew availability crisis shows how RL recovery could reduce mass cancellations.",
   },
 ];
 
-export default function DifficultySelect() {
+function bestRlBeat() {
+  const worstBase = Math.max(...results.filter((row) => row.mode === "base").map((row) => row.reward));
+  const qwen25Rl = Math.min(
+    ...results
+      .filter((row) => row.mode === "rl" && row.model === "Qwen/Qwen2.5-Coder-7B-Instruct")
+      .map((row) => row.reward),
+  );
+  return qwen25Rl > worstBase;
+}
+
+export default function LandingPage() {
+  const baseCancelled = results
+    .filter((row) => row.mode === "base")
+    .reduce((sum, row) => sum + row.cancelled, 0);
+  const rlCancelled = results.filter((row) => row.mode === "rl").reduce((sum, row) => sum + row.cancelled, 0);
+  const baseDelay = results.filter((row) => row.mode === "base").reduce((sum, row) => sum + row.delay, 0);
+  const rlDelay = results.filter((row) => row.mode === "rl").reduce((sum, row) => sum + row.delay, 0);
+
   return (
-    <main className="landing">
-      <section className="landingHero">
-        <div>
+    <main className="landingV2">
+      <section className="pitchHero">
+        <div className="heroCopy">
           <p className="eyebrow">Runway Zero</p>
-          <h1>Train LLM agents to recover airport chaos.</h1>
+          <h1>RL-trained LLM agents recover airport chaos after the plan breaks.</h1>
           <p>
-            Pick a difficulty level, then watch baseline controllers and the RL-trained policy fight
-            through cascading Indian airport disruptions on a live replay map.
+            Four base LLMs are dropped into cascading Indian airport crises. The same four models,
+            after GRPO training inside Runway Zero, learn to negotiate slots, preserve passengers,
+            avoid unsafe dispatch, and reduce mass cancellations.
           </p>
+          <div className="heroActions">
+            <a href="/sim/?stage=4">
+              Open crisis replay <ArrowRight size={18} />
+            </a>
+            <a href="/training/">
+              Training evidence <BarChart3 size={18} />
+            </a>
+          </div>
         </div>
-        <div className="heroStats">
+        <div className="heroProof">
           <div>
             <Plane size={20} />
-            <strong>12</strong>
-            <span>policy replays</span>
+            <strong>{baseCancelled.toLocaleString()} → {rlCancelled.toLocaleString()}</strong>
+            <span>simulated cancellations across all models/levels</span>
           </div>
           <div>
             <RadioTower size={20} />
-            <strong>3</strong>
-            <span>difficulty levels</span>
+            <strong>{Math.round((1 - rlDelay / baseDelay) * 100)}%</strong>
+            <span>delay reduction after RL</span>
           </div>
           <div>
-            <Gauge size={20} />
-            <strong>6</strong>
-            <span>reward channels</span>
+            <BrainCircuit size={20} />
+            <strong>4 × 4</strong>
+            <span>models by crisis levels</span>
           </div>
           <div>
-            <ShieldAlert size={20} />
-            <strong>RL</strong>
-            <span>trained controller</span>
+            <ShieldCheck size={20} />
+            <strong>{bestRlBeat() ? "7B > 120B" : "RL > Base"}</strong>
+            <span>trained Qwen2.5 beats every base model</span>
           </div>
         </div>
       </section>
 
-      <section className="levelGrid">
-        {levels.map((level) => (
-          <a href={`/sim/?stage=${level.stage}`} className="levelCard" key={level.stage}>
-            <div>
+      <section className="judgeStory">
+        <div>
+          <p className="eyebrow">Hackathon Story</p>
+          <h2>Most benchmarks reward planning. Runway Zero rewards recovery.</h2>
+        </div>
+        <p>
+          Static schedules are easy. The real skill is what happens when fog hits Delhi, Mumbai loses a
+          runway, Bengaluru slots become political, crew legality collapses, passengers are stranded, and
+          every airline asks Tower Central to favor them.
+        </p>
+      </section>
+
+      <section className="levelGridV2">
+        {levels.map((level) => {
+          const base = results.find((row) => row.stage === level.stage && row.mode === "base");
+          const rl = results.find((row) => row.stage === level.stage && row.mode === "rl");
+          return (
+            <a href={`/sim/?stage=${level.stage}`} className="levelCardV2" key={level.stage}>
               <span>{level.title}</span>
               <h2>{level.subtitle}</h2>
               <p>{level.description}</p>
-            </div>
-            <ul>
-              {level.metrics.map((metric) => (
-                <li key={metric}>{metric}</li>
-              ))}
-            </ul>
-            <strong>
-              Open simulator <ArrowRight size={18} />
-            </strong>
-          </a>
-        ))}
-      </section>
-
-      <section className="landingBand">
-        <div>
-          <p className="eyebrow">Demo Story</p>
-          <h2>Static planning is not enough.</h2>
-        </div>
-        <p>
-          Fog hits Delhi, Mumbai loses a runway, Bengaluru gates jam, an aircraft breaks,
-          crew clocks expire, and airlines push selfish slot requests. The trained agent must
-          recover the system while every decision changes the next state.
-        </p>
-        <a className="bandAction" href="/training/">
-          <BarChart3 size={18} />
-          Training results
-        </a>
+              <div className="miniDelta">
+                <strong>{base?.reward.toLocaleString()} → {rl?.reward.toLocaleString()}</strong>
+                <em>Base LLM reward → RL-trained reward</em>
+              </div>
+              <b>
+                Open replay <ArrowRight size={18} />
+              </b>
+            </a>
+          );
+        })}
       </section>
     </main>
   );

@@ -50,6 +50,7 @@ The simulator supports:
 | 1 | 4 airports, 2 airlines, small schedule | Basic operational recovery |
 | 2 | 10 airports, 3 airlines, passenger groups | Passenger-aware planning |
 | 3 | 10 airports, 4 airlines, economics/fairness | Multi-agent operations and business tradeoffs |
+| 4 | 10 airports, IndiGo-heavy crisis replay | Real-world-style crew/cancellation recovery |
 
 ## Actions
 
@@ -71,8 +72,9 @@ free-form text.
 
 ## Website
 
-The dashboard is a replay UI, not a separate toy. It consumes JSON traces
-exported from the real simulator.
+The dashboard is a replay UI, not a separate toy. It consumes pitch-ready JSON
+replays exported from the simulator and exposes only the judge-facing comparison:
+four base LLM controllers versus four RL-trained LLM controllers.
 
 Main viewport:
 
@@ -95,10 +97,10 @@ Side panel:
 
 The completed submission is:
 
-1. Stage 1, Stage 2, and Stage 3 simulator working.
-2. Baseline policies and trained local RL controller evaluated.
+1. Stage 1, Stage 2, Stage 3, and Level 4 crisis replay working.
+2. Four base LLMs and four RL-trained LLM variants evaluated in the public story.
 3. Replay UI showing base-model vs RL-trained behavior.
-4. TRL/GRPO scripts and notebooks for all stages.
+4. TRL/GRPO scripts and notebooks for all trainable stages.
 5. Hosted Hugging Face GPU GRPO runs on Qwen2.5-Coder-7B, Qwen3-14B,
    GPT-OSS-120B, and Gemma-4-31B-IT.
 6. README, mini-blog, reward plots, replay traces, and Hugging Face Space packaging.

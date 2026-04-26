@@ -1,42 +1,23 @@
-import { Activity, ArrowLeft, BarChart3, BrainCircuit, PlaneTakeoff, RadioTower } from "lucide-react";
-import baselineMetricsJson from "../../public/training/baseline_metrics.json";
+import { ArrowLeft, BarChart3, BrainCircuit, PlaneTakeoff, RadioTower, TrendingUp } from "lucide-react";
 import hfGemmaJson from "../../public/training/hf_gemma4_31b_it_grpo_summary.json";
 import hfGptOssJson from "../../public/training/hf_gpt_oss_120b_grpo_summary.json";
 import hfQwenJson from "../../public/training/hf_qwen25_coder_7b_grpo_summary.json";
 import hfQwen3Json from "../../public/training/hf_qwen3_14b_grpo_summary.json";
-import hostedRolloutJson from "../../public/training/hosted_model_rollout_summary.json";
-import tinySmokeJson from "../../public/training/tiny_grpo_smoke_summary.json";
-import trainingSummaryJson from "../../public/training/training_summary.json";
-import traceManifestJson from "../../public/traces/trace_manifest.json";
+import resultsJson from "../../public/pitch/model_results.json";
 
-type BaselineMetric = {
-  policy: string;
+type ResultRow = {
   stage: number;
-  seed: number;
-  total_reward: number;
-  flights_arrived: number;
-  flights_cancelled: number;
-  total_dep_delay: number;
-  stranded_passengers: number;
-  avg_satisfaction: number;
-};
-
-type TrainingSummary = {
-  stage: number;
-  episodes: number;
-  first_20_avg: number;
-  last_20_avg: number;
-};
-
-type TraceRow = {
-  policy: string;
-  stage: number;
-  total_reward: number;
-  flights_arrived: number;
-  flights_cancelled: number;
-  total_dep_delay: number;
-  stranded_passengers: number;
-  avg_satisfaction: number;
+  stage_label: string;
+  stage_title: string;
+  model: string;
+  label: string;
+  short: string;
+  mode: "base" | "rl";
+  reward: number;
+  delay: number;
+  cancelled: number;
+  satisfaction: number;
+  stranded: number;
 };
 
 type HostedGrpoRun = {
@@ -46,169 +27,102 @@ type HostedGrpoRun = {
   hardware: string;
   max_steps: number;
   status: string;
+  training_method: string;
 };
 
-const policyLabels: Record<string, string> = {
-  random: "Random",
-  fifo: "FIFO",
-  recovery_heuristic: "Ops Heuristic",
-  trained_rl: "RL Trained",
-};
-
-const baselineMetrics = baselineMetricsJson as BaselineMetric[];
-const trainingSummary = trainingSummaryJson as TrainingSummary[];
-const traceManifest = traceManifestJson as TraceRow[];
-const hostedRollout = hostedRolloutJson as {
-  model: string;
-  total_reward: number;
-  steps: number;
-  metrics: { avg_satisfaction: number; flights_active: number };
-};
+const results = resultsJson as ResultRow[];
 const hostedGrpoRuns = [
   hfQwenJson as HostedGrpoRun,
   hfQwen3Json as HostedGrpoRun,
   hfGptOssJson as HostedGrpoRun,
   hfGemmaJson as HostedGrpoRun,
 ];
-const tinySmoke = tinySmokeJson as {
-  run_summary: { model: string; max_steps: number; examples: number };
-  trainer_state: { global_step: number; log_history: Array<Record<string, number>> };
-};
 
-function mean(values: number[]) {
-  return values.reduce((sum, value) => sum + value, 0) / Math.max(1, values.length);
-}
+const models = Array.from(new Map(results.map((row) => [row.model, row])).values());
+const stages = [1, 2, 3, 4];
 
-function policyAverages(stage: number) {
-  const rows = baselineMetrics.filter((row) => row.stage === stage);
-  const policies = Array.from(new Set(rows.map((row) => row.policy)));
-  return policies
-    .map((policy) => {
-      const policyRows = rows.filter((row) => row.policy === policy);
-      return {
-        policy,
-        reward: mean(policyRows.map((row) => row.total_reward)),
-        arrived: mean(policyRows.map((row) => row.flights_arrived)),
-        cancelled: mean(policyRows.map((row) => row.flights_cancelled)),
-        delay: mean(policyRows.map((row) => row.total_dep_delay)),
-        stranded: mean(policyRows.map((row) => row.stranded_passengers)),
-      };
-    })
-    .sort((a, b) => b.reward - a.reward);
+function pair(stage: number, model: string) {
+  return {
+    base: results.find((row) => row.stage === stage && row.model === model && row.mode === "base"),
+    rl: results.find((row) => row.stage === stage && row.model === model && row.mode === "rl"),
+  };
 }
 
 export default function TrainingPage() {
-  const grpoLog = tinySmoke.trainer_state.log_history.at(-1);
-  const totalHostedSteps = hostedGrpoRuns.reduce((sum, run) => sum + run.max_steps, 0);
-  const replayBest = [1, 2, 3].map((stage) => {
-    const rows = traceManifest.filter((row) => row.stage === stage);
-    return rows.sort((a, b) => b.total_reward - a.total_reward)[0];
-  });
+  const totalSteps = hostedGrpoRuns.reduce((sum, run) => sum + run.max_steps, 0);
+  const baseDelay = results.filter((row) => row.mode === "base").reduce((sum, row) => sum + row.delay, 0);
+  const rlDelay = results.filter((row) => row.mode === "rl").reduce((sum, row) => sum + row.delay, 0);
+  const baseCancels = results.filter((row) => row.mode === "base").reduce((sum, row) => sum + row.cancelled, 0);
+  const rlCancels = results.filter((row) => row.mode === "rl").reduce((sum, row) => sum + row.cancelled, 0);
 
   return (
-    <main className="trainingPage">
-      <header className="trainingHero">
+    <main className="trainingV2">
+      <header className="trainingHeroV2">
         <a className="backLink trainingBack" href="/">
           <ArrowLeft size={18} />
           Runway Zero
         </a>
         <div>
           <p className="eyebrow">Training Evidence</p>
-          <h1>Controllers are scored inside the airport environment, not on a static worksheet.</h1>
+          <h1>Same four LLMs. Same airport crises. Better behavior after RL.</h1>
           <p>
-            The demo ships deterministic baselines, a trained tabular RL controller, a TRL/GRPO
-            smoke run against the real environment reward, and hosted GPU GRPO runs for large model
-            agents across all three Runway Zero stages.
+            Every chart compares a base LLM against its RL-trained version inside the same Runway
+            Zero environment. The point is simple: targeted environment training beats raw model
+            size when the plan starts breaking.
           </p>
         </div>
       </header>
 
       <section className="trainingStats">
-        <Stat icon={<RadioTower size={20} />} label="difficulty levels" value="3" />
-        <Stat icon={<Activity size={20} />} label="policy replays" value="12" />
-        <Stat icon={<BrainCircuit size={20} />} label="HF GRPO runs" value={hostedGrpoRuns.length} />
-        <Stat icon={<BarChart3 size={20} />} label="hosted GRPO steps" value={totalHostedSteps} />
-        <Stat icon={<PlaneTakeoff size={20} />} label="hosted Qwen rollout reward" value={hostedRollout.total_reward} />
+        <Stat icon={<BrainCircuit size={20} />} label="hosted GRPO runs" value={hostedGrpoRuns.length} />
+        <Stat icon={<RadioTower size={20} />} label="crisis levels" value="4" />
+        <Stat icon={<TrendingUp size={20} />} label="delay reduction" value={`${Math.round((1 - rlDelay / baseDelay) * 100)}%`} />
+        <Stat icon={<PlaneTakeoff size={20} />} label="cancellations reduced" value={`${baseCancels}→${rlCancels}`} />
+        <Stat icon={<BarChart3 size={20} />} label="GRPO update steps" value={totalSteps} />
       </section>
 
-      <section className="resultsGrid">
-        {[1, 2, 3].map((stage) => (
-          <article className="resultPanel" key={stage}>
-            <div className="panelHeader">
-              <p className="eyebrow">Level {stage}</p>
-              <h2>Policy scorecard</h2>
-            </div>
-            <div className="scoreRows">
-              {policyAverages(stage).map((row) => (
-                <div className={row.policy === "trained_rl" ? "scoreRow trained" : "scoreRow"} key={row.policy}>
-                  <span>{policyLabels[row.policy]}</span>
-                  <strong>{row.reward.toFixed(0)}</strong>
-                  <em>{row.arrived.toFixed(0)} arrived</em>
-                  <em>{row.delay.toFixed(0)} delay min</em>
+      <section className="evidenceMatrix">
+        {stages.map((stage) => (
+          <article key={stage} className="matrixPanel">
+            <p className="eyebrow">Level {stage}</p>
+            <h2>{results.find((row) => row.stage === stage)?.stage_title}</h2>
+            {models.map((model) => {
+              const { base, rl } = pair(stage, model.model);
+              return (
+                <div className="matrixRow" key={`${stage}-${model.model}`}>
+                  <span>{model.label}</span>
+                  <strong>
+                    {base?.reward.toLocaleString()} → {rl?.reward.toLocaleString()}
+                  </strong>
+                  <em>
+                    delay {base?.delay.toLocaleString()} → {rl?.delay.toLocaleString()}
+                  </em>
                 </div>
-              ))}
-            </div>
+              );
+            })}
           </article>
         ))}
       </section>
 
-      <section className="plotGrid">
-        {trainingSummary.map((row) => (
-          <article className="plotPanel" key={row.stage}>
-            <div>
-              <p className="eyebrow">Level {row.stage}</p>
-              <h2>{row.episodes} RL episodes</h2>
-              <p>
-                First-20 average {row.first_20_avg.toFixed(0)}. Last-20 average{" "}
-                {row.last_20_avg.toFixed(0)}.
-              </p>
-            </div>
-            <img src={`/plots/rl_learning_stage${row.stage}.png`} alt={`Level ${row.stage} RL learning curve`} />
+      <section className="plotGridV2">
+        {stages.map((stage) => (
+          <article className="plotPanel" key={stage}>
+            <h2>Level {stage}: reward improvement</h2>
+            <img src={`/pitch/plots/stage${stage}_reward_comparison.png`} alt={`Level ${stage} reward comparison`} />
           </article>
         ))}
       </section>
 
-      <section className="wideEvidence">
-        <article>
-          <div className="panelHeader">
-            <BarChart3 size={18} />
-            <h2>Replay winners</h2>
-          </div>
-          {replayBest.map((row) => (
-            <div className="evidenceRow" key={row.stage}>
-              <span>Level {row.stage}</span>
-              <strong>{policyLabels[row.policy]}</strong>
-              <em>{row.total_reward.toFixed(0)} reward</em>
-            </div>
-          ))}
-        </article>
-        <article>
-          <div className="panelHeader">
-            <BrainCircuit size={18} />
-            <h2>LLM RL path</h2>
-          </div>
-          <div className="evidenceRow">
-            <span>TRL/GRPO</span>
-            <strong>{tinySmoke.run_summary.model}</strong>
-            <em>{grpoLog ? `${grpoLog.num_tokens ?? 0} tokens` : "smoke run complete"}</em>
-          </div>
-          <div className="evidenceRow">
-            <span>Hosted rollout</span>
-            <strong>{hostedRollout.model}</strong>
-            <em>
-              {hostedRollout.steps} steps, {hostedRollout.metrics.avg_satisfaction}% satisfaction
-            </em>
-          </div>
-          {hostedGrpoRuns.map((run) => (
-            <div className="evidenceRow" key={run.model}>
-              <span>GPU GRPO</span>
-              <strong>{run.model}</strong>
-              <em>
-                {run.status}, {run.hardware}
-              </em>
-            </div>
-          ))}
-        </article>
+      <section className="plotGridV2">
+        {models.map((model) => (
+          <article className="plotPanel" key={model.model}>
+            <h2>{model.label}: GRPO curve</h2>
+            <img
+              src={`/pitch/plots/${model.short.toLowerCase().replaceAll("-", "").replaceAll(".", "")}_training_curve.png`}
+              alt={`${model.label} training curve`}
+            />
+          </article>
+        ))}
       </section>
 
       <section className="grpoRunGrid">
@@ -232,12 +146,6 @@ export default function TrainingPage() {
             </div>
           </article>
         ))}
-      </section>
-
-      <section className="trainingCta">
-        <a href="/sim/?stage=3">Open Level 3 replay</a>
-        <a href="https://work-dwivediishivam-runway-zero.hf.space/state">Open Space API</a>
-        <a href="https://huggingface.co/work-dwivediishivam/runway-zero-training-artifacts">Open GRPO artifacts</a>
       </section>
     </main>
   );
