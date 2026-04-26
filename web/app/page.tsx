@@ -106,7 +106,7 @@ export default function LandingPage() {
           </div>
           <div>
             <ShieldCheck size={20} />
-            <strong>{bestRlBeat() ? "7B > 120B" : "RL > Base"}</strong>
+            <strong>{bestRlBeat() ? "7B RL > 120B w/o RL" : "RL > Base"}</strong>
             <span>trained Qwen2.5 beats every base model</span>
           </div>
         </div>
