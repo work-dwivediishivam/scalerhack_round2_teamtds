@@ -1425,7 +1425,9 @@ h2 span {
   fill: none;
   stroke-width: 0.38;
   stroke-dasharray: 2.2 1.8;
+  stroke-dashoffset: 0;
   opacity: 0.62;
+  animation: routeFlow 1.25s linear infinite;
 }
 
 .flightArc.late {
@@ -1441,6 +1443,17 @@ h2 span {
   fill: var(--ink);
   stroke: white;
   stroke-width: 0.25;
+  filter: drop-shadow(0 1px 0 rgba(255, 255, 255, 0.8));
+}
+
+.planeMotion {
+  transition: transform 80ms linear;
+}
+
+@keyframes routeFlow {
+  to {
+    stroke-dashoffset: -8;
+  }
 }
 
 .airportPinV2 {

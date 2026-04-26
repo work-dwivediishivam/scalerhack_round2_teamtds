@@ -161,6 +161,7 @@ export default function SimulationPage() {
   const [playing, setPlaying] = useState(true);
   const [speedMs, setSpeedMs] = useState(1000);
   const [selectedAirport, setSelectedAirport] = useState("DEL");
+  const [motionTick, setMotionTick] = useState(0);
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -194,6 +195,21 @@ export default function SimulationPage() {
     }, speedMs);
     return () => window.clearInterval(timer);
   }, [playing, replay.frames.length, speedMs]);
+
+  useEffect(() => {
+    if (!playing) return;
+    let animationFrame = 0;
+    let lastUpdate = 0;
+    const animate = (timestamp: number) => {
+      if (timestamp - lastUpdate > 32) {
+        setMotionTick(timestamp / 1000);
+        lastUpdate = timestamp;
+      }
+      animationFrame = window.requestAnimationFrame(animate);
+    };
+    animationFrame = window.requestAnimationFrame(animate);
+    return () => window.cancelAnimationFrame(animationFrame);
+  }, [playing]);
 
   const selected = airports.find((airport) => airport.code === selectedAirport) ?? airports[0];
   const selectedFlights = displayFlights.filter(
@@ -244,6 +260,8 @@ export default function SimulationPage() {
             frame={frame}
             stage={stage}
             displayFlights={displayFlights}
+            motionTick={motionTick}
+            speedMs={speedMs}
             selectedAirport={selectedAirport}
             onSelect={setSelectedAirport}
           />
@@ -304,12 +322,16 @@ function IndiaMap({
   frame,
   stage,
   displayFlights,
+  motionTick,
+  speedMs,
   selectedAirport,
   onSelect,
 }: {
   frame: Frame;
   stage: number;
   displayFlights: Flight[];
+  motionTick: number;
+  speedMs: number;
   selectedAirport: string;
   onSelect: (airport: string) => void;
 }) {
@@ -331,9 +353,13 @@ function IndiaMap({
           const to = airportPoint(airports.find((airport) => airport.code === flight.destination));
           const midX = (from.x + to.x) / 2;
           const midY = Math.min(from.y, to.y) - 5 - (index % 4) * 1.6;
-          const progress = ((frame.time_index * 13 + index * 11) % 100) / 100;
+          const speedScale = 1000 / speedMs;
+          const progress = ((motionTick * 22 * speedScale + frame.time_index * 4 + index * 17) % 100) / 100;
           const planeX = quadratic(from.x, midX, to.x, progress);
           const planeY = quadratic(from.y, midY, to.y, progress);
+          const tangentX = quadraticDerivative(from.x, midX, to.x, progress);
+          const tangentY = quadraticDerivative(from.y, midY, to.y, progress);
+          const angle = (Math.atan2(tangentY, tangentX) * 180) / Math.PI;
           return (
             <g key={flight.flight_id}>
               <path
@@ -341,9 +367,9 @@ function IndiaMap({
                   flight.delay > 60 ? "late" : ""
                 }`}
                 d={`M ${from.x} ${from.y} Q ${midX} ${midY} ${to.x} ${to.y}`}
-                style={{ stroke: flight.color }}
+                style={{ stroke: flight.color, animationDuration: `${Math.max(0.55, speedMs / 800)}s` }}
               />
-              <g transform={`translate(${planeX} ${planeY}) rotate(${to.x > from.x ? 8 : -8})`}>
+              <g className="planeMotion" transform={`translate(${planeX} ${planeY}) rotate(${angle}) scale(0.82)`}>
                 <path className="planeIcon" d="M0 -1.2 L4 0 L0 1.2 L0.8 0 L-3 0.9 L-2.4 0 L-3 -0.9 Z" />
               </g>
             </g>
@@ -409,6 +435,10 @@ function IndiaOutline() {
 
 function quadratic(a: number, b: number, c: number, t: number) {
   return (1 - t) * (1 - t) * a + 2 * (1 - t) * t * b + t * t * c;
+}
+
+function quadraticDerivative(a: number, b: number, c: number, t: number) {
+  return 2 * (1 - t) * (b - a) + 2 * t * (c - b);
 }
 
 function geoPoint(lon: number, lat: number) {
