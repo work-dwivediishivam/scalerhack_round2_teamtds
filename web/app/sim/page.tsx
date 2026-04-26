@@ -17,6 +17,7 @@ import {
 import { useEffect, useMemo, useState } from "react";
 import airportsJson from "../../public/pitch/airports.json";
 import airlinesJson from "../../public/pitch/airlines.json";
+import indiaGeoJson from "../../public/pitch/maps/india.json";
 import resultsJson from "../../public/pitch/model_results.json";
 import replaysJson from "../../public/pitch/replays.json";
 import stagesJson from "../../public/pitch/stages.json";
@@ -92,11 +93,27 @@ type ResultRow = {
   stranded: number;
 };
 
+type GeoJsonPolygon = {
+  type: "Polygon";
+  coordinates: number[][][];
+};
+
+type GeoJsonMultiPolygon = {
+  type: "MultiPolygon";
+  coordinates: number[][][][];
+};
+
+type IndiaGeoJson = {
+  type: "FeatureCollection";
+  features: Array<{ geometry: GeoJsonPolygon | GeoJsonMultiPolygon }>;
+};
+
 const airports = airportsJson as Airport[];
 const airlines = airlinesJson as Array<{ code: string; name: string; color: string }>;
 const results = resultsJson as ResultRow[];
 const replays = replaysJson as Record<string, Replay>;
 const stages = stagesJson as Record<string, { label: string; title: string; headline: string }>;
+const indiaMap = indiaGeoJson as IndiaGeoJson;
 
 const modelOptions = Array.from(
   new Map(results.map((row) => [row.model, { id: row.model, label: row.label, short: row.short }])).values(),
@@ -110,16 +127,16 @@ const speeds = [
 ];
 
 const airportLabelOffsets: Record<string, { x: number; y: number }> = {
-  DEL: { x: 2.8, y: -1.4 },
-  BOM: { x: -4.6, y: -1.6 },
-  PNQ: { x: 4.5, y: 1.2 },
-  BLR: { x: -2.6, y: 0.8 },
-  HYD: { x: 3.4, y: -1.2 },
-  MAA: { x: 5.2, y: 1.6 },
-  CCU: { x: 3.6, y: 0.2 },
-  AMD: { x: -3.2, y: -1.2 },
-  GOX: { x: -4.4, y: 2.4 },
-  COK: { x: -3.8, y: 3.4 },
+  DEL: { x: 2.6, y: -1.4 },
+  BOM: { x: -4.8, y: -1.7 },
+  PNQ: { x: 4.2, y: 1.2 },
+  BLR: { x: -2.3, y: 1.0 },
+  HYD: { x: 3.1, y: -1.0 },
+  MAA: { x: 4.8, y: 1.5 },
+  CCU: { x: 3.0, y: 0.1 },
+  AMD: { x: -2.8, y: -1.0 },
+  GOX: { x: -4.0, y: 2.2 },
+  COK: { x: -3.2, y: 3.1 },
 };
 
 export default function SimulationPage() {
@@ -274,15 +291,24 @@ function IndiaMap({
   return (
     <div className="indiaMapV2">
       <svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet">
-        <path
-          className="indiaShapeV2"
-          d="M41 5 L54 7 L66 10 L73 16 L77 23 L86 29 L79 35 L70 37 L72 47 L69 58 L64 70 L57 81 L49 94 L42 84 L37 75 L31 67 L27 57 L24 47 L24 36 L29 27 L24 21 L34 16 Z"
-        />
-        <path className="airspaceSector" d="M30 17 H77 V42 H30 Z" />
-        <path className="airspaceSector" d="M27 43 H70 V72 H27 Z" />
-        <path className="airspaceSector" d="M36 72 H62 V94 H36 Z" />
-        <path className="indiaCoastV2" d="M30 20 C23 33 22 47 28 61 C34 74 40 86 50 95" />
-        <path className="indiaCoastV2" d="M58 9 C63 18 69 27 82 36 C75 46 68 56 65 73" />
+        <IndiaOutline />
+        <path className="airspaceSector" d="M28 18 H74 V41 H28 Z" />
+        <path className="airspaceSector" d="M26 42 H69 V69 H26 Z" />
+        <path className="airspaceSector" d="M34 69 H62 V94 H34 Z" />
+        {airports.map((airport) => {
+          const point = airportPoint(airport);
+          const label = airportLabelPoint(airport);
+          return (
+            <line
+              key={`${airport.code}-leader`}
+              className="airportLeader"
+              x1={point.x}
+              y1={point.y}
+              x2={label.x}
+              y2={label.y}
+            />
+          );
+        })}
         {frame.flights.slice(0, 8).map((flight, index) => {
           const from = airportPoint(airports.find((airport) => airport.code === flight.origin));
           const to = airportPoint(airports.find((airport) => airport.code === flight.destination));
@@ -335,8 +361,8 @@ function IndiaMap({
           </button>
         );
       })}
-      {frame.flights.slice(0, 5).map((flight, index) => (
-        <div className="flightChip" key={flight.flight_id} style={{ top: `${10 + index * 8.5}%` }}>
+      {frame.flights.slice(0, 4).map((flight, index) => (
+        <div className="flightChip" key={flight.flight_id} style={{ top: `${12 + index * 7.5}%` }}>
           <strong>{flight.flight_id}</strong>
           <span>
             {flight.origin} → {flight.destination}
@@ -352,20 +378,46 @@ function IndiaMap({
   );
 }
 
+function IndiaOutline() {
+  const paths = indiaMap.features.flatMap((feature, featureIndex) => {
+    const geometry = feature.geometry;
+    const polygons = geometry.type === "Polygon" ? [geometry.coordinates] : geometry.coordinates;
+    return polygons.map((polygon, polygonIndex) => {
+      const path = polygon
+        .map((ring) =>
+          ring
+            .map(([lon, lat], index) => {
+              const point = geoPoint(lon, lat);
+              return `${index === 0 ? "M" : "L"} ${point.x.toFixed(2)} ${point.y.toFixed(2)}`;
+            })
+            .join(" ")
+            .concat(" Z"),
+        )
+        .join(" ");
+      return <path className="indiaShapeV2" d={path} key={`${featureIndex}-${polygonIndex}`} />;
+    });
+  });
+  return <>{paths}</>;
+}
+
 function quadratic(a: number, b: number, c: number, t: number) {
   return (1 - t) * (1 - t) * a + 2 * (1 - t) * t * b + t * t * c;
 }
 
+function geoPoint(lon: number, lat: number) {
+  const minLon = 67.2;
+  const maxLon = 91.8;
+  const minLat = 6.2;
+  const maxLat = 36.7;
+  return {
+    x: 17 + ((lon - minLon) / (maxLon - minLon)) * 66,
+    y: 4 + ((maxLat - lat) / (maxLat - minLat)) * 91,
+  };
+}
+
 function airportPoint(airport?: Airport) {
   if (!airport) return { x: 50, y: 50 };
-  const minLon = 68;
-  const maxLon = 90.5;
-  const minLat = 7.5;
-  const maxLat = 35.5;
-  return {
-    x: 18 + ((airport.lon - minLon) / (maxLon - minLon)) * 64,
-    y: 7 + ((maxLat - airport.lat) / (maxLat - minLat)) * 84,
-  };
+  return geoPoint(airport.lon, airport.lat);
 }
 
 function airportLabelPoint(airport: Airport) {
