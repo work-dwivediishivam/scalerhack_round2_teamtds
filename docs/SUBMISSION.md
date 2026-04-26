@@ -5,6 +5,7 @@
 - Web demo: https://project-2pdc2.vercel.app/
 - Training/results page: https://project-2pdc2.vercel.app/training/
 - Level 4 crisis replay: https://project-2pdc2.vercel.app/sim/?stage=4
+- Hugging Face Space repo: https://huggingface.co/spaces/work-dwivediishivam/runway-zero
 - OpenEnv/HF Space API: https://work-dwivediishivam-runway-zero.hf.space/state
 - Hugging Face artifact repo: https://huggingface.co/work-dwivediishivam/runway-zero-training-artifacts
 - Hosted Qwen2.5 GRPO artifact: https://huggingface.co/work-dwivediishivam/runway-zero-training-artifacts/blob/main/qwen25_coder_7b_hf_grpo/runway_zero_qwen25_coder_7b_hf_grpo.tgz
@@ -23,6 +24,8 @@
 - Evidence of training: `results/plots/`, `results/trained/`, and four hosted GPU GRPO artifacts.
 - Mini-blog/writeup: `docs/MINI_BLOG.md`, also uploaded as the Hugging Face artifact repo README.
 - README links to demo, Space, training evidence, and artifact: yes.
+- Experiment tracking: training script supports `--report-to tensorboard` by default.
+- Final submission form: https://forms.gle/CvAbm1SwrLyKZvAd9
 
 ## Main Pitch
 
@@ -43,5 +46,5 @@ The core line:
 3. Toggle each of the four Base LLMs against its RL-trained version.
 4. Watch active disruptions, airport zoom, live airline/tower negotiation,
    passenger harm, airline cash pressure, and the model score delta.
-5. Open the Training page and inspect the base-vs-RL matrices, reward curves,
-   delay curves, and four hosted GRPO artifact links.
+5. Open the Training page and inspect the base-vs-RL matrices, recovery-score
+   curves, delay curves, and four hosted GRPO artifact links.

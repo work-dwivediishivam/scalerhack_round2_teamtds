@@ -86,6 +86,7 @@ Main viewport:
 Side panel:
 
 - live reward delta
+- normalized 0-100 recovery score
 - reward component bars
 - operational metrics
 - agent decisions
@@ -103,4 +104,4 @@ The completed submission is:
 4. TRL/GRPO scripts and notebooks for all trainable stages.
 5. Hosted Hugging Face GPU GRPO runs on Qwen2.5-Coder-7B, Qwen3-14B,
    GPT-OSS-120B, and Gemma-4-31B-IT.
-6. README, mini-blog, reward plots, replay traces, and Hugging Face Space packaging.
+6. README, mini-blog, recovery-score plots, replay traces, and Hugging Face Space packaging.

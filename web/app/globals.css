@@ -1399,9 +1399,16 @@ h2 span {
 }
 
 .indiaShapeV2 {
-  fill: rgba(255, 255, 255, 0.78);
-  stroke: rgba(24, 33, 31, 0.25);
+  fill: rgba(255, 255, 255, 0.58);
+  stroke: rgba(24, 33, 31, 0.2);
   stroke-width: 0.38;
+}
+
+.airspaceSector {
+  fill: rgba(255, 255, 255, 0.08);
+  stroke: rgba(24, 33, 31, 0.1);
+  stroke-width: 0.18;
+  stroke-dasharray: 1.5 1.4;
 }
 
 .indiaCoastV2 {
@@ -1502,6 +1509,28 @@ h2 span {
   font-size: 12px;
 }
 
+.mapLegendV2 {
+  position: absolute;
+  left: 16px;
+  top: 16px;
+  z-index: 4;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.88);
+  padding: 10px 12px;
+  display: grid;
+  gap: 3px;
+}
+
+.mapLegendV2 strong {
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.mapLegendV2 span {
+  color: var(--muted);
+  font-size: 11px;
+}
+
 .flightChip span,
 .flightChip em {
   color: var(--muted);
@@ -1582,6 +1611,18 @@ h2 span {
   margin-top: 4px;
   font-size: 44px;
   line-height: 1;
+}
+
+.bigReward em,
+.technicalReward {
+  color: var(--muted);
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 800;
+}
+
+.technicalReward {
+  margin-top: -6px;
 }
 
 .kpiGrid {
@@ -1908,6 +1949,43 @@ h2 span {
   grid-template-columns: repeat(5, 1fr);
 }
 
+.submissionPanel {
+  border: 1px solid var(--line);
+  background: #101917;
+  color: white;
+  padding: 18px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 20px;
+  align-items: center;
+}
+
+.submissionPanel p {
+  max-width: 860px;
+  color: rgba(255, 255, 255, 0.72);
+  line-height: 1.45;
+  margin: 6px 0 0;
+}
+
+.submissionLinks {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.submissionLinks a {
+  min-height: 42px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  color: white;
+  padding: 10px 12px;
+  display: inline-flex;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
 .evidenceMatrix {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -1947,10 +2025,15 @@ h2 span {
   .simGrid.bottom,
   .proofStrip,
   .judgeStory,
+  .submissionPanel,
   .evidenceMatrix,
   .plotGridV2,
   .trainingV2 .trainingStats {
     grid-template-columns: 1fr;
+  }
+
+  .submissionLinks {
+    justify-content: flex-start;
   }
 
   .levelGridV2 {

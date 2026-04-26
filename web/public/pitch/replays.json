@@ -5,7 +5,9 @@
     "model_label": "Qwen2.5 Coder 7B",
     "mode": "base",
     "title": "Operations Recovery",
-    "reward": -2387,
+    "score": 38.0,
+    "reward": 38.0,
+    "raw_reward": -2387,
     "summary": {
       "flights_total": 44,
       "flights_arrived": 29,
@@ -13,6 +15,7 @@
       "total_dep_delay": 843,
       "stranded_passengers": 660,
       "avg_satisfaction": 80.9,
+      "recovery_score": 38.0,
       "airline_cash": {
         "6E": 2620000,
         "AI": 2302400,
@@ -35,6 +38,7 @@
           "total_dep_delay": 115,
           "stranded_passengers": 0,
           "avg_satisfaction": 98.0,
+          "recovery_score": 94.0,
           "airline_cash": {
             "6E": 3600000,
             "AI": 3400000,
@@ -156,6 +160,7 @@
           "total_dep_delay": 129,
           "stranded_passengers": 19,
           "avg_satisfaction": 97.0,
+          "recovery_score": 90.7,
           "airline_cash": {
             "6E": 3542353,
             "AI": 3335435,
@@ -277,6 +282,7 @@
           "total_dep_delay": 151,
           "stranded_passengers": 45,
           "avg_satisfaction": 96.0,
+          "recovery_score": 87.4,
           "airline_cash": {
             "6E": 3484706,
             "AI": 3270871,
@@ -398,6 +404,7 @@
           "total_dep_delay": 179,
           "stranded_passengers": 75,
           "avg_satisfaction": 95.0,
+          "recovery_score": 84.1,
           "airline_cash": {
             "6E": 3427059,
             "AI": 3206306,
@@ -519,6 +526,7 @@
           "total_dep_delay": 211,
           "stranded_passengers": 108,
           "avg_satisfaction": 94.0,
+          "recovery_score": 80.8,
           "airline_cash": {
             "6E": 3369412,
             "AI": 3141741,
@@ -640,6 +648,7 @@
           "total_dep_delay": 246,
           "stranded_passengers": 143,
           "avg_satisfaction": 93.0,
+          "recovery_score": 77.5,
           "airline_cash": {
             "6E": 3311765,
             "AI": 3077176,
@@ -767,6 +776,7 @@
           "total_dep_delay": 284,
           "stranded_passengers": 180,
           "avg_satisfaction": 92.0,
+          "recovery_score": 74.2,
           "airline_cash": {
             "6E": 3254118,
             "AI": 3012612,
@@ -894,6 +904,7 @@
           "total_dep_delay": 325,
           "stranded_passengers": 218,
           "avg_satisfaction": 91.0,
+          "recovery_score": 70.9,
           "airline_cash": {
             "6E": 3196471,
             "AI": 2948047,
@@ -1021,6 +1032,7 @@
           "total_dep_delay": 368,
           "stranded_passengers": 257,
           "avg_satisfaction": 90.0,
+          "recovery_score": 67.6,
           "airline_cash": {
             "6E": 3138824,
             "AI": 2883482,
@@ -1148,6 +1160,7 @@
           "total_dep_delay": 414,
           "stranded_passengers": 298,
           "avg_satisfaction": 88.9,
+          "recovery_score": 64.4,
           "airline_cash": {
             "6E": 3081176,
             "AI": 2818918,
@@ -1275,6 +1288,7 @@
           "total_dep_delay": 461,
           "stranded_passengers": 340,
           "avg_satisfaction": 87.9,
+          "recovery_score": 61.1,
           "airline_cash": {
             "6E": 3023529,
             "AI": 2754353,
@@ -1408,6 +1422,7 @@
           "total_dep_delay": 511,
           "stranded_passengers": 383,
           "avg_satisfaction": 86.9,
+          "recovery_score": 57.8,
           "airline_cash": {
             "6E": 2965882,
             "AI": 2689788,
@@ -1541,6 +1556,7 @@
           "total_dep_delay": 562,
           "stranded_passengers": 427,
           "avg_satisfaction": 85.9,
+          "recovery_score": 54.5,
           "airline_cash": {
             "6E": 2908235,
             "AI": 2625224,
@@ -1674,6 +1690,7 @@
           "total_dep_delay": 615,
           "stranded_passengers": 472,
           "avg_satisfaction": 84.9,
+          "recovery_score": 51.2,
           "airline_cash": {
             "6E": 2850588,
             "AI": 2560659,
@@ -1807,6 +1824,7 @@
           "total_dep_delay": 669,
           "stranded_passengers": 518,
           "avg_satisfaction": 83.9,
+          "recovery_score": 47.9,
           "airline_cash": {
             "6E": 2792941,
             "AI": 2496094,
@@ -1940,6 +1958,7 @@
           "total_dep_delay": 726,
           "stranded_passengers": 564,
           "avg_satisfaction": 82.9,
+          "recovery_score": 44.6,
           "airline_cash": {
             "6E": 2735294,
             "AI": 2431529,
@@ -2073,6 +2092,7 @@
           "total_dep_delay": 783,
           "stranded_passengers": 612,
           "avg_satisfaction": 81.9,
+          "recovery_score": 41.3,
           "airline_cash": {
             "6E": 2677647,
             "AI": 2366965,
@@ -2206,6 +2226,7 @@
           "total_dep_delay": 843,
           "stranded_passengers": 660,
           "avg_satisfaction": 80.9,
+          "recovery_score": 38.0,
           "airline_cash": {
             "6E": 2620000,
             "AI": 2302400,
@@ -2333,7 +2354,9 @@
     "model_label": "Qwen2.5 Coder 7B",
     "mode": "rl",
     "title": "Operations Recovery",
-    "reward": 2554,
+    "score": 84.0,
+    "reward": 84.0,
+    "raw_reward": 2554,
     "summary": {
       "flights_total": 44,
       "flights_arrived": 40,
@@ -2341,6 +2364,7 @@
       "total_dep_delay": 75,
       "stranded_passengers": 108,
       "avg_satisfaction": 90.3,
+      "recovery_score": 84.0,
       "airline_cash": {
         "6E": 3380000,
         "AI": 3142800,
@@ -2363,6 +2387,7 @@
           "total_dep_delay": 91,
           "stranded_passengers": 0,
           "avg_satisfaction": 86.0,
+          "recovery_score": 68.0,
           "airline_cash": {
             "6E": 3690000,
             "AI": 3490000,
@@ -2489,6 +2514,7 @@
           "total_dep_delay": 105,
           "stranded_passengers": 2,
           "avg_satisfaction": 86.7,
+          "recovery_score": 69.3,
           "airline_cash": {
             "6E": 3671765,
             "AI": 3469576,
@@ -2615,6 +2641,7 @@
           "total_dep_delay": 119,
           "stranded_passengers": 5,
           "avg_satisfaction": 87.3,
+          "recovery_score": 70.7,
           "airline_cash": {
             "6E": 3653529,
             "AI": 3449153,
@@ -2741,6 +2768,7 @@
           "total_dep_delay": 131,
           "stranded_passengers": 9,
           "avg_satisfaction": 88.0,
+          "recovery_score": 72.0,
           "airline_cash": {
             "6E": 3635294,
             "AI": 3428729,
@@ -2867,6 +2895,7 @@
           "total_dep_delay": 141,
           "stranded_passengers": 13,
           "avg_satisfaction": 88.7,
+          "recovery_score": 73.4,
           "airline_cash": {
             "6E": 3617059,
             "AI": 3408306,
@@ -2993,6 +3022,7 @@
           "total_dep_delay": 150,
           "stranded_passengers": 18,
           "avg_satisfaction": 89.3,
+          "recovery_score": 74.7,
           "airline_cash": {
             "6E": 3598824,
             "AI": 3387882,
@@ -3125,6 +3155,7 @@
           "total_dep_delay": 155,
           "stranded_passengers": 24,
           "avg_satisfaction": 90.0,
+          "recovery_score": 76.1,
           "airline_cash": {
             "6E": 3580588,
             "AI": 3367459,
@@ -3257,6 +3288,7 @@
           "total_dep_delay": 159,
           "stranded_passengers": 30,
           "avg_satisfaction": 90.7,
+          "recovery_score": 77.4,
           "airline_cash": {
             "6E": 3562353,
             "AI": 3347035,
@@ -3389,6 +3421,7 @@
           "total_dep_delay": 160,
           "stranded_passengers": 36,
           "avg_satisfaction": 91.1,
+          "recovery_score": 78.8,
           "airline_cash": {
             "6E": 3544118,
             "AI": 3326612,
@@ -3521,6 +3554,7 @@
           "total_dep_delay": 158,
           "stranded_passengers": 43,
           "avg_satisfaction": 91.1,
+          "recovery_score": 80.1,
           "airline_cash": {
             "6E": 3525882,
             "AI": 3306188,
@@ -3653,6 +3687,7 @@
           "total_dep_delay": 153,
           "stranded_passengers": 50,
           "avg_satisfaction": 91.1,
+          "recovery_score": 81.4,
           "airline_cash": {
             "6E": 3507647,
             "AI": 3285765,
@@ -3791,6 +3826,7 @@
           "total_dep_delay": 147,
           "stranded_passengers": 57,
           "avg_satisfaction": 91.1,
+          "recovery_score": 82.8,
           "airline_cash": {
             "6E": 3489412,
             "AI": 3265341,
@@ -3929,6 +3965,7 @@
           "total_dep_delay": 138,
           "stranded_passengers": 65,
           "avg_satisfaction": 91.1,
+          "recovery_score": 84.0,
           "airline_cash": {
             "6E": 3471176,
             "AI": 3244918,
@@ -4067,6 +4104,7 @@
           "total_dep_delay": 127,
           "stranded_passengers": 73,
           "avg_satisfaction": 90.9,
+          "recovery_score": 84.0,
           "airline_cash": {
             "6E": 3452941,
             "AI": 3224494,
@@ -4205,6 +4243,7 @@
           "total_dep_delay": 115,
           "stranded_passengers": 82,
           "avg_satisfaction": 90.8,
+          "recovery_score": 84.0,
           "airline_cash": {
             "6E": 3434706,
             "AI": 3204071,
@@ -4343,6 +4382,7 @@
           "total_dep_delay": 102,
           "stranded_passengers": 90,
           "avg_satisfaction": 90.6,
+          "recovery_score": 84.0,
           "airline_cash": {
             "6E": 3416471,
             "AI": 3183647,
@@ -4481,6 +4521,7 @@
           "total_dep_delay": 89,
           "stranded_passengers": 99,
           "avg_satisfaction": 90.5,
+          "recovery_score": 84.0,
           "airline_cash": {
             "6E": 3398235,
             "AI": 3163224,
@@ -4619,6 +4660,7 @@
           "total_dep_delay": 75,
           "stranded_passengers": 108,
           "avg_satisfaction": 90.3,
+          "recovery_score": 84.0,
           "airline_cash": {
             "6E": 3380000,
             "AI": 3142800,
@@ -4751,7 +4793,9 @@
     "model_label": "Qwen3 14B",
     "mode": "base",
     "title": "Operations Recovery",
-    "reward": -2375,
+    "score": 38.8,
+    "reward": 38.8,
+    "raw_reward": -2375,
     "summary": {
       "flights_total": 44,
       "flights_arrived": 29,
@@ -4759,6 +4803,7 @@
       "total_dep_delay": 835,
       "stranded_passengers": 654,
       "avg_satisfaction": 80.1,
+      "recovery_score": 38.8,
       "airline_cash": {
         "6E": 2620000,
         "AI": 2302400,
@@ -4781,6 +4826,7 @@
           "total_dep_delay": 114,
           "stranded_passengers": 0,
           "avg_satisfaction": 98.0,
+          "recovery_score": 94.0,
           "airline_cash": {
             "6E": 3600000,
             "AI": 3400000,
@@ -4902,6 +4948,7 @@
           "total_dep_delay": 128,
           "stranded_passengers": 19,
           "avg_satisfaction": 96.9,
+          "recovery_score": 90.8,
           "airline_cash": {
             "6E": 3542353,
             "AI": 3335435,
@@ -5023,6 +5070,7 @@
           "total_dep_delay": 150,
           "stranded_passengers": 45,
           "avg_satisfaction": 95.9,
+          "recovery_score": 87.5,
           "airline_cash": {
             "6E": 3484706,
             "AI": 3270871,
@@ -5144,6 +5192,7 @@
           "total_dep_delay": 177,
           "stranded_passengers": 75,
           "avg_satisfaction": 94.8,
+          "recovery_score": 84.3,
           "airline_cash": {
             "6E": 3427059,
             "AI": 3206306,
@@ -5265,6 +5314,7 @@
           "total_dep_delay": 209,
           "stranded_passengers": 107,
           "avg_satisfaction": 93.8,
+          "recovery_score": 81.0,
           "airline_cash": {
             "6E": 3369412,
             "AI": 3141741,
@@ -5386,6 +5436,7 @@
           "total_dep_delay": 244,
           "stranded_passengers": 142,
           "avg_satisfaction": 92.7,
+          "recovery_score": 77.8,
           "airline_cash": {
             "6E": 3311765,
             "AI": 3077176,
@@ -5513,6 +5564,7 @@
           "total_dep_delay": 282,
           "stranded_passengers": 178,
           "avg_satisfaction": 91.7,
+          "recovery_score": 74.5,
           "airline_cash": {
             "6E": 3254118,
             "AI": 3012612,
@@ -5640,6 +5692,7 @@
           "total_dep_delay": 322,
           "stranded_passengers": 216,
           "avg_satisfaction": 90.6,
+          "recovery_score": 71.3,
           "airline_cash": {
             "6E": 3196471,
             "AI": 2948047,
@@ -5767,6 +5820,7 @@
           "total_dep_delay": 365,
           "stranded_passengers": 255,
           "avg_satisfaction": 89.6,
+          "recovery_score": 68.0,
           "airline_cash": {
             "6E": 3138824,
             "AI": 2883482,
@@ -5894,6 +5948,7 @@
           "total_dep_delay": 410,
           "stranded_passengers": 295,
           "avg_satisfaction": 88.5,
+          "recovery_score": 64.8,
           "airline_cash": {
             "6E": 3081176,
             "AI": 2818918,
@@ -6021,6 +6076,7 @@
           "total_dep_delay": 457,
           "stranded_passengers": 337,
           "avg_satisfaction": 87.5,
+          "recovery_score": 61.5,
           "airline_cash": {
             "6E": 3023529,
             "AI": 2754353,
@@ -6154,6 +6210,7 @@
           "total_dep_delay": 506,
           "stranded_passengers": 380,
           "avg_satisfaction": 86.4,
+          "recovery_score": 58.3,
           "airline_cash": {
             "6E": 2965882,
             "AI": 2689788,
@@ -6287,6 +6344,7 @@
           "total_dep_delay": 557,
           "stranded_passengers": 423,
           "avg_satisfaction": 85.4,
+          "recovery_score": 55.0,
           "airline_cash": {
             "6E": 2908235,
             "AI": 2625224,
@@ -6420,6 +6478,7 @@
           "total_dep_delay": 609,
           "stranded_passengers": 468,
           "avg_satisfaction": 84.3,
+          "recovery_score": 51.8,
           "airline_cash": {
             "6E": 2850588,
             "AI": 2560659,
@@ -6553,6 +6612,7 @@
           "total_dep_delay": 663,
           "stranded_passengers": 513,
           "avg_satisfaction": 83.3,
+          "recovery_score": 48.5,
           "airline_cash": {
             "6E": 2792941,
             "AI": 2496094,
@@ -6686,6 +6746,7 @@
           "total_dep_delay": 719,
           "stranded_passengers": 559,
           "avg_satisfaction": 82.2,
+          "recovery_score": 45.3,
           "airline_cash": {
             "6E": 2735294,
             "AI": 2431529,
@@ -6819,6 +6880,7 @@
           "total_dep_delay": 776,
           "stranded_passengers": 606,
           "avg_satisfaction": 81.2,
+          "recovery_score": 42.0,
           "airline_cash": {
             "6E": 2677647,
             "AI": 2366965,
@@ -6952,6 +7014,7 @@
           "total_dep_delay": 835,
           "stranded_passengers": 654,
           "avg_satisfaction": 80.1,
+          "recovery_score": 38.8,
           "airline_cash": {
             "6E": 2620000,
             "AI": 2302400,
@@ -7079,7 +7142,9 @@
     "model_label": "Qwen3 14B",
     "mode": "rl",
     "title": "Operations Recovery",
-    "reward": 2580,
+    "score": 84.5,
+    "reward": 84.5,
+    "raw_reward": 2580,
     "summary": {
       "flights_total": 44,
       "flights_arrived": 40,
@@ -7087,6 +7152,7 @@
       "total_dep_delay": 74,
       "stranded_passengers": 107,
       "avg_satisfaction": 89.7,
+      "recovery_score": 84.5,
       "airline_cash": {
         "6E": 3385400,
         "AI": 3148200,
@@ -7109,6 +7175,7 @@
           "total_dep_delay": 91,
           "stranded_passengers": 0,
           "avg_satisfaction": 86.0,
+          "recovery_score": 68.0,
           "airline_cash": {
             "6E": 3695400,
             "AI": 3495400,
@@ -7235,6 +7302,7 @@
           "total_dep_delay": 105,
           "stranded_passengers": 2,
           "avg_satisfaction": 86.6,
+          "recovery_score": 69.4,
           "airline_cash": {
             "6E": 3677165,
             "AI": 3474976,
@@ -7361,6 +7429,7 @@
           "total_dep_delay": 118,
           "stranded_passengers": 5,
           "avg_satisfaction": 87.2,
+          "recovery_score": 70.8,
           "airline_cash": {
             "6E": 3658929,
             "AI": 3454553,
@@ -7487,6 +7556,7 @@
           "total_dep_delay": 130,
           "stranded_passengers": 9,
           "avg_satisfaction": 87.7,
+          "recovery_score": 72.2,
           "airline_cash": {
             "6E": 3640694,
             "AI": 3434129,
@@ -7613,6 +7683,7 @@
           "total_dep_delay": 140,
           "stranded_passengers": 13,
           "avg_satisfaction": 88.3,
+          "recovery_score": 73.5,
           "airline_cash": {
             "6E": 3622459,
             "AI": 3413706,
@@ -7739,6 +7810,7 @@
           "total_dep_delay": 149,
           "stranded_passengers": 18,
           "avg_satisfaction": 88.9,
+          "recovery_score": 74.9,
           "airline_cash": {
             "6E": 3604224,
             "AI": 3393282,
@@ -7871,6 +7943,7 @@
           "total_dep_delay": 154,
           "stranded_passengers": 24,
           "avg_satisfaction": 89.5,
+          "recovery_score": 76.3,
           "airline_cash": {
             "6E": 3585988,
             "AI": 3372859,
@@ -8003,6 +8076,7 @@
           "total_dep_delay": 158,
           "stranded_passengers": 30,
           "avg_satisfaction": 90.0,
+          "recovery_score": 77.7,
           "airline_cash": {
             "6E": 3567753,
             "AI": 3352435,
@@ -8135,6 +8209,7 @@
           "total_dep_delay": 159,
           "stranded_passengers": 36,
           "avg_satisfaction": 90.4,
+          "recovery_score": 79.1,
           "airline_cash": {
             "6E": 3549518,
             "AI": 3332012,
@@ -8267,6 +8342,7 @@
           "total_dep_delay": 157,
           "stranded_passengers": 43,
           "avg_satisfaction": 90.4,
+          "recovery_score": 80.5,
           "airline_cash": {
             "6E": 3531282,
             "AI": 3311588,
@@ -8399,6 +8475,7 @@
           "total_dep_delay": 152,
           "stranded_passengers": 50,
           "avg_satisfaction": 90.4,
+          "recovery_score": 81.9,
           "airline_cash": {
             "6E": 3513047,
             "AI": 3291165,
@@ -8537,6 +8614,7 @@
           "total_dep_delay": 146,
           "stranded_passengers": 57,
           "avg_satisfaction": 90.4,
+          "recovery_score": 83.3,
           "airline_cash": {
             "6E": 3494812,
             "AI": 3270741,
@@ -8675,6 +8753,7 @@
           "total_dep_delay": 137,
           "stranded_passengers": 65,
           "avg_satisfaction": 90.4,
+          "recovery_score": 84.5,
           "airline_cash": {
             "6E": 3476576,
             "AI": 3250318,
@@ -8813,6 +8892,7 @@
           "total_dep_delay": 126,
           "stranded_passengers": 73,
           "avg_satisfaction": 90.2,
+          "recovery_score": 84.5,
           "airline_cash": {
             "6E": 3458341,
             "AI": 3229894,
@@ -8951,6 +9031,7 @@
           "total_dep_delay": 114,
           "stranded_passengers": 81,
           "avg_satisfaction": 90.1,
+          "recovery_score": 84.5,
           "airline_cash": {
             "6E": 3440106,
             "AI": 3209471,
@@ -9089,6 +9170,7 @@
           "total_dep_delay": 101,
           "stranded_passengers": 89,
           "avg_satisfaction": 89.9,
+          "recovery_score": 84.5,
           "airline_cash": {
             "6E": 3421871,
             "AI": 3189047,
@@ -9227,6 +9309,7 @@
           "total_dep_delay": 88,
           "stranded_passengers": 98,
           "avg_satisfaction": 89.8,
+          "recovery_score": 84.5,
           "airline_cash": {
             "6E": 3403635,
             "AI": 3168624,
@@ -9365,6 +9448,7 @@
           "total_dep_delay": 74,
           "stranded_passengers": 107,
           "avg_satisfaction": 89.7,
+          "recovery_score": 84.5,
           "airline_cash": {
             "6E": 3385400,
             "AI": 3148200,
@@ -9497,7 +9581,9 @@
     "model_label": "Gemma 4 31B",
     "mode": "base",
     "title": "Operations Recovery",
-    "reward": -2368,
+    "score": 39.4,
+    "reward": 39.4,
+    "raw_reward": -2368,
     "summary": {
       "flights_total": 44,
       "flights_arrived": 29,
@@ -9505,6 +9591,7 @@
       "total_dep_delay": 829,
       "stranded_passengers": 649,
       "avg_satisfaction": 79.6,
+      "recovery_score": 39.4,
       "airline_cash": {
         "6E": 2620000,
         "AI": 2302400,
@@ -9527,6 +9614,7 @@
           "total_dep_delay": 113,
           "stranded_passengers": 0,
           "avg_satisfaction": 98.0,
+          "recovery_score": 94.0,
           "airline_cash": {
             "6E": 3600000,
             "AI": 3400000,
@@ -9648,6 +9736,7 @@
           "total_dep_delay": 127,
           "stranded_passengers": 19,
           "avg_satisfaction": 96.9,
+          "recovery_score": 90.8,
           "airline_cash": {
             "6E": 3542353,
             "AI": 3335435,
@@ -9769,6 +9858,7 @@
           "total_dep_delay": 149,
           "stranded_passengers": 45,
           "avg_satisfaction": 95.8,
+          "recovery_score": 87.6,
           "airline_cash": {
             "6E": 3484706,
             "AI": 3270871,
@@ -9890,6 +9980,7 @@
           "total_dep_delay": 176,
           "stranded_passengers": 74,
           "avg_satisfaction": 94.8,
+          "recovery_score": 84.4,
           "airline_cash": {
             "6E": 3427059,
             "AI": 3206306,
@@ -10011,6 +10102,7 @@
           "total_dep_delay": 208,
           "stranded_passengers": 106,
           "avg_satisfaction": 93.7,
+          "recovery_score": 81.2,
           "airline_cash": {
             "6E": 3369412,
             "AI": 3141741,
@@ -10132,6 +10224,7 @@
           "total_dep_delay": 242,
           "stranded_passengers": 141,
           "avg_satisfaction": 92.6,
+          "recovery_score": 77.9,
           "airline_cash": {
             "6E": 3311765,
             "AI": 3077176,
@@ -10259,6 +10352,7 @@
           "total_dep_delay": 280,
           "stranded_passengers": 177,
           "avg_satisfaction": 91.5,
+          "recovery_score": 74.7,
           "airline_cash": {
             "6E": 3254118,
             "AI": 3012612,
@@ -10386,6 +10480,7 @@
           "total_dep_delay": 320,
           "stranded_passengers": 214,
           "avg_satisfaction": 90.4,
+          "recovery_score": 71.5,
           "airline_cash": {
             "6E": 3196471,
             "AI": 2948047,
@@ -10513,6 +10608,7 @@
           "total_dep_delay": 362,
           "stranded_passengers": 253,
           "avg_satisfaction": 89.3,
+          "recovery_score": 68.3,
           "airline_cash": {
             "6E": 3138824,
             "AI": 2883482,
@@ -10640,6 +10736,7 @@
           "total_dep_delay": 407,
           "stranded_passengers": 293,
           "avg_satisfaction": 88.3,
+          "recovery_score": 65.1,
           "airline_cash": {
             "6E": 3081176,
             "AI": 2818918,
@@ -10767,6 +10864,7 @@
           "total_dep_delay": 454,
           "stranded_passengers": 334,
           "avg_satisfaction": 87.2,
+          "recovery_score": 61.9,
           "airline_cash": {
             "6E": 3023529,
             "AI": 2754353,
@@ -10900,6 +10998,7 @@
           "total_dep_delay": 503,
           "stranded_passengers": 377,
           "avg_satisfaction": 86.1,
+          "recovery_score": 58.7,
           "airline_cash": {
             "6E": 2965882,
             "AI": 2689788,
@@ -11033,6 +11132,7 @@
           "total_dep_delay": 553,
           "stranded_passengers": 420,
           "avg_satisfaction": 85.0,
+          "recovery_score": 55.5,
           "airline_cash": {
             "6E": 2908235,
             "AI": 2625224,
@@ -11166,6 +11266,7 @@
           "total_dep_delay": 605,
           "stranded_passengers": 464,
           "avg_satisfaction": 83.9,
+          "recovery_score": 52.2,
           "airline_cash": {
             "6E": 2850588,
             "AI": 2560659,
@@ -11299,6 +11400,7 @@
           "total_dep_delay": 659,
           "stranded_passengers": 509,
           "avg_satisfaction": 82.8,
+          "recovery_score": 49.0,
           "airline_cash": {
             "6E": 2792941,
             "AI": 2496094,
@@ -11432,6 +11534,7 @@
           "total_dep_delay": 714,
           "stranded_passengers": 555,
           "avg_satisfaction": 81.8,
+          "recovery_score": 45.8,
           "airline_cash": {
             "6E": 2735294,
             "AI": 2431529,
@@ -11565,6 +11668,7 @@
           "total_dep_delay": 771,
           "stranded_passengers": 602,
           "avg_satisfaction": 80.7,
+          "recovery_score": 42.6,
           "airline_cash": {
             "6E": 2677647,
             "AI": 2366965,
@@ -11698,6 +11802,7 @@
           "total_dep_delay": 829,
           "stranded_passengers": 649,
           "avg_satisfaction": 79.6,
+          "recovery_score": 39.4,
           "airline_cash": {
             "6E": 2620000,
             "AI": 2302400,
@@ -11825,7 +11930,9 @@
     "model_label": "Gemma 4 31B",
     "mode": "rl",
     "title": "Operations Recovery",
-    "reward": 2567,
+    "score": 84.3,
+    "reward": 84.3,
+    "raw_reward": 2567,
     "summary": {
       "flights_total": 44,
       "flights_arrived": 40,
@@ -11833,6 +11940,7 @@
       "total_dep_delay": 74,
       "stranded_passengers": 107,
       "avg_satisfaction": 90.0,
+      "recovery_score": 84.3,
       "airline_cash": {
         "6E": 3382700,
         "AI": 3145500,
@@ -11855,6 +11963,7 @@
           "total_dep_delay": 91,
           "stranded_passengers": 0,
           "avg_satisfaction": 86.0,
+          "recovery_score": 68.0,
           "airline_cash": {
             "6E": 3692700,
             "AI": 3492700,
@@ -11981,6 +12090,7 @@
           "total_dep_delay": 105,
           "stranded_passengers": 2,
           "avg_satisfaction": 86.6,
+          "recovery_score": 69.4,
           "airline_cash": {
             "6E": 3674465,
             "AI": 3472276,
@@ -12107,6 +12217,7 @@
           "total_dep_delay": 118,
           "stranded_passengers": 5,
           "avg_satisfaction": 87.2,
+          "recovery_score": 70.7,
           "airline_cash": {
             "6E": 3656229,
             "AI": 3451853,
@@ -12233,6 +12344,7 @@
           "total_dep_delay": 130,
           "stranded_passengers": 9,
           "avg_satisfaction": 87.8,
+          "recovery_score": 72.1,
           "airline_cash": {
             "6E": 3637994,
             "AI": 3431429,
@@ -12359,6 +12471,7 @@
           "total_dep_delay": 140,
           "stranded_passengers": 13,
           "avg_satisfaction": 88.5,
+          "recovery_score": 73.5,
           "airline_cash": {
             "6E": 3619759,
             "AI": 3411006,
@@ -12485,6 +12598,7 @@
           "total_dep_delay": 149,
           "stranded_passengers": 18,
           "avg_satisfaction": 89.1,
+          "recovery_score": 74.8,
           "airline_cash": {
             "6E": 3601524,
             "AI": 3390582,
@@ -12617,6 +12731,7 @@
           "total_dep_delay": 154,
           "stranded_passengers": 24,
           "avg_satisfaction": 89.7,
+          "recovery_score": 76.2,
           "airline_cash": {
             "6E": 3583288,
             "AI": 3370159,
@@ -12749,6 +12864,7 @@
           "total_dep_delay": 158,
           "stranded_passengers": 30,
           "avg_satisfaction": 90.3,
+          "recovery_score": 77.6,
           "airline_cash": {
             "6E": 3565053,
             "AI": 3349735,
@@ -12881,6 +12997,7 @@
           "total_dep_delay": 159,
           "stranded_passengers": 36,
           "avg_satisfaction": 90.7,
+          "recovery_score": 79.0,
           "airline_cash": {
             "6E": 3546818,
             "AI": 3329312,
@@ -13013,6 +13130,7 @@
           "total_dep_delay": 157,
           "stranded_passengers": 43,
           "avg_satisfaction": 90.7,
+          "recovery_score": 80.3,
           "airline_cash": {
             "6E": 3528582,
             "AI": 3308888,
@@ -13145,6 +13263,7 @@
           "total_dep_delay": 152,
           "stranded_passengers": 50,
           "avg_satisfaction": 90.7,
+          "recovery_score": 81.7,
           "airline_cash": {
             "6E": 3510347,
             "AI": 3288465,
@@ -13283,6 +13402,7 @@
           "total_dep_delay": 146,
           "stranded_passengers": 57,
           "avg_satisfaction": 90.7,
+          "recovery_score": 83.1,
           "airline_cash": {
             "6E": 3492112,
             "AI": 3268041,
@@ -13421,6 +13541,7 @@
           "total_dep_delay": 137,
           "stranded_passengers": 65,
           "avg_satisfaction": 90.7,
+          "recovery_score": 84.3,
           "airline_cash": {
             "6E": 3473876,
             "AI": 3247618,
@@ -13559,6 +13680,7 @@
           "total_dep_delay": 126,
           "stranded_passengers": 73,
           "avg_satisfaction": 90.5,
+          "recovery_score": 84.3,
           "airline_cash": {
             "6E": 3455641,
             "AI": 3227194,
@@ -13697,6 +13819,7 @@
           "total_dep_delay": 114,
           "stranded_passengers": 81,
           "avg_satisfaction": 90.4,
+          "recovery_score": 84.3,
           "airline_cash": {
             "6E": 3437406,
             "AI": 3206771,
@@ -13835,6 +13958,7 @@
           "total_dep_delay": 101,
           "stranded_passengers": 89,
           "avg_satisfaction": 90.2,
+          "recovery_score": 84.3,
           "airline_cash": {
             "6E": 3419171,
             "AI": 3186347,
@@ -13973,6 +14097,7 @@
           "total_dep_delay": 88,
           "stranded_passengers": 98,
           "avg_satisfaction": 90.1,
+          "recovery_score": 84.3,
           "airline_cash": {
             "6E": 3400935,
             "AI": 3165924,
@@ -14111,6 +14236,7 @@
           "total_dep_delay": 74,
           "stranded_passengers": 107,
           "avg_satisfaction": 90.0,
+          "recovery_score": 84.3,
           "airline_cash": {
             "6E": 3382700,
             "AI": 3145500,
@@ -14243,7 +14369,9 @@
     "model_label": "GPT-OSS 120B",
     "mode": "base",
     "title": "Operations Recovery",
-    "reward": -2357,
+    "score": 40.2,
+    "reward": 40.2,
+    "raw_reward": -2357,
     "summary": {
       "flights_total": 44,
       "flights_arrived": 29,
@@ -14251,6 +14379,7 @@
       "total_dep_delay": 822,
       "stranded_passengers": 643,
       "avg_satisfaction": 78.8,
+      "recovery_score": 40.2,
       "airline_cash": {
         "6E": 2620000,
         "AI": 2302400,
@@ -14273,6 +14402,7 @@
           "total_dep_delay": 112,
           "stranded_passengers": 0,
           "avg_satisfaction": 98.0,
+          "recovery_score": 94.0,
           "airline_cash": {
             "6E": 3600000,
             "AI": 3400000,
@@ -14394,6 +14524,7 @@
           "total_dep_delay": 125,
           "stranded_passengers": 19,
           "avg_satisfaction": 96.9,
+          "recovery_score": 90.8,
           "airline_cash": {
             "6E": 3542353,
             "AI": 3335435,
@@ -14515,6 +14646,7 @@
           "total_dep_delay": 148,
           "stranded_passengers": 44,
           "avg_satisfaction": 95.7,
+          "recovery_score": 87.7,
           "airline_cash": {
             "6E": 3484706,
             "AI": 3270871,
@@ -14636,6 +14768,7 @@
           "total_dep_delay": 175,
           "stranded_passengers": 74,
           "avg_satisfaction": 94.6,
+          "recovery_score": 84.5,
           "airline_cash": {
             "6E": 3427059,
             "AI": 3206306,
@@ -14757,6 +14890,7 @@
           "total_dep_delay": 206,
           "stranded_passengers": 105,
           "avg_satisfaction": 93.5,
+          "recovery_score": 81.3,
           "airline_cash": {
             "6E": 3369412,
             "AI": 3141741,
@@ -14878,6 +15012,7 @@
           "total_dep_delay": 240,
           "stranded_passengers": 139,
           "avg_satisfaction": 92.4,
+          "recovery_score": 78.2,
           "airline_cash": {
             "6E": 3311765,
             "AI": 3077176,
@@ -15005,6 +15140,7 @@
           "total_dep_delay": 277,
           "stranded_passengers": 175,
           "avg_satisfaction": 91.2,
+          "recovery_score": 75.0,
           "airline_cash": {
             "6E": 3254118,
             "AI": 3012612,
@@ -15132,6 +15268,7 @@
           "total_dep_delay": 317,
           "stranded_passengers": 212,
           "avg_satisfaction": 90.1,
+          "recovery_score": 71.8,
           "airline_cash": {
             "6E": 3196471,
             "AI": 2948047,
@@ -15259,6 +15396,7 @@
           "total_dep_delay": 359,
           "stranded_passengers": 251,
           "avg_satisfaction": 89.0,
+          "recovery_score": 68.7,
           "airline_cash": {
             "6E": 3138824,
             "AI": 2883482,
@@ -15386,6 +15524,7 @@
           "total_dep_delay": 403,
           "stranded_passengers": 290,
           "avg_satisfaction": 87.8,
+          "recovery_score": 65.5,
           "airline_cash": {
             "6E": 3081176,
             "AI": 2818918,
@@ -15513,6 +15652,7 @@
           "total_dep_delay": 450,
           "stranded_passengers": 331,
           "avg_satisfaction": 86.7,
+          "recovery_score": 62.4,
           "airline_cash": {
             "6E": 3023529,
             "AI": 2754353,
@@ -15646,6 +15786,7 @@
           "total_dep_delay": 498,
           "stranded_passengers": 373,
           "avg_satisfaction": 85.6,
+          "recovery_score": 59.2,
           "airline_cash": {
             "6E": 2965882,
             "AI": 2689788,
@@ -15779,6 +15920,7 @@
           "total_dep_delay": 548,
           "stranded_passengers": 416,
           "avg_satisfaction": 84.4,
+          "recovery_score": 56.0,
           "airline_cash": {
             "6E": 2908235,
             "AI": 2625224,
@@ -15912,6 +16054,7 @@
           "total_dep_delay": 600,
           "stranded_passengers": 460,
           "avg_satisfaction": 83.3,
+          "recovery_score": 52.9,
           "airline_cash": {
             "6E": 2850588,
             "AI": 2560659,
@@ -16045,6 +16188,7 @@
           "total_dep_delay": 653,
           "stranded_passengers": 504,
           "avg_satisfaction": 82.2,
+          "recovery_score": 49.7,
           "airline_cash": {
             "6E": 2792941,
             "AI": 2496094,
@@ -16178,6 +16322,7 @@
           "total_dep_delay": 708,
           "stranded_passengers": 550,
           "avg_satisfaction": 81.1,
+          "recovery_score": 46.5,
           "airline_cash": {
             "6E": 2735294,
             "AI": 2431529,
@@ -16311,6 +16456,7 @@
           "total_dep_delay": 764,
           "stranded_passengers": 596,
           "avg_satisfaction": 79.9,
+          "recovery_score": 43.4,
           "airline_cash": {
             "6E": 2677647,
             "AI": 2366965,
@@ -16444,6 +16590,7 @@
           "total_dep_delay": 822,
           "stranded_passengers": 643,
           "avg_satisfaction": 78.8,
+          "recovery_score": 40.2,
           "airline_cash": {
             "6E": 2620000,
             "AI": 2302400,
@@ -16571,7 +16718,9 @@
     "model_label": "GPT-OSS 120B",
     "mode": "rl",
     "title": "Operations Recovery",
-    "reward": 2559,
+    "score": 84.1,
+    "reward": 84.1,
+    "raw_reward": 2559,
     "summary": {
       "flights_total": 44,
       "flights_arrived": 40,
@@ -16579,6 +16728,7 @@
       "total_dep_delay": 75,
       "stranded_passengers": 108,
       "avg_satisfaction": 90.2,
+      "recovery_score": 84.1,
       "airline_cash": {
         "6E": 3380900,
         "AI": 3143700,
@@ -16601,6 +16751,7 @@
           "total_dep_delay": 91,
           "stranded_passengers": 0,
           "avg_satisfaction": 86.0,
+          "recovery_score": 68.0,
           "airline_cash": {
             "6E": 3690900,
             "AI": 3490900,
@@ -16727,6 +16878,7 @@
           "total_dep_delay": 105,
           "stranded_passengers": 2,
           "avg_satisfaction": 86.7,
+          "recovery_score": 69.4,
           "airline_cash": {
             "6E": 3672665,
             "AI": 3470476,
@@ -16853,6 +17005,7 @@
           "total_dep_delay": 119,
           "stranded_passengers": 5,
           "avg_satisfaction": 87.3,
+          "recovery_score": 70.7,
           "airline_cash": {
             "6E": 3654429,
             "AI": 3450053,
@@ -16979,6 +17132,7 @@
           "total_dep_delay": 131,
           "stranded_passengers": 9,
           "avg_satisfaction": 88.0,
+          "recovery_score": 72.1,
           "airline_cash": {
             "6E": 3636194,
             "AI": 3429629,
@@ -17105,6 +17259,7 @@
           "total_dep_delay": 141,
           "stranded_passengers": 13,
           "avg_satisfaction": 88.6,
+          "recovery_score": 73.4,
           "airline_cash": {
             "6E": 3617959,
             "AI": 3409206,
@@ -17231,6 +17386,7 @@
           "total_dep_delay": 150,
           "stranded_passengers": 18,
           "avg_satisfaction": 89.3,
+          "recovery_score": 74.8,
           "airline_cash": {
             "6E": 3599724,
             "AI": 3388782,
@@ -17363,6 +17519,7 @@
           "total_dep_delay": 155,
           "stranded_passengers": 24,
           "avg_satisfaction": 89.9,
+          "recovery_score": 76.1,
           "airline_cash": {
             "6E": 3581488,
             "AI": 3368359,
@@ -17495,6 +17652,7 @@
           "total_dep_delay": 159,
           "stranded_passengers": 30,
           "avg_satisfaction": 90.6,
+          "recovery_score": 77.5,
           "airline_cash": {
             "6E": 3563253,
             "AI": 3347935,
@@ -17627,6 +17785,7 @@
           "total_dep_delay": 160,
           "stranded_passengers": 36,
           "avg_satisfaction": 91.0,
+          "recovery_score": 78.8,
           "airline_cash": {
             "6E": 3545018,
             "AI": 3327512,
@@ -17759,6 +17918,7 @@
           "total_dep_delay": 158,
           "stranded_passengers": 43,
           "avg_satisfaction": 91.0,
+          "recovery_score": 80.2,
           "airline_cash": {
             "6E": 3526782,
             "AI": 3307088,
@@ -17891,6 +18051,7 @@
           "total_dep_delay": 153,
           "stranded_passengers": 50,
           "avg_satisfaction": 91.0,
+          "recovery_score": 81.5,
           "airline_cash": {
             "6E": 3508547,
             "AI": 3286665,
@@ -18029,6 +18190,7 @@
           "total_dep_delay": 147,
           "stranded_passengers": 57,
           "avg_satisfaction": 91.0,
+          "recovery_score": 82.9,
           "airline_cash": {
             "6E": 3490312,
             "AI": 3266241,
@@ -18167,6 +18329,7 @@
           "total_dep_delay": 138,
           "stranded_passengers": 65,
           "avg_satisfaction": 91.0,
+          "recovery_score": 84.1,
           "airline_cash": {
             "6E": 3472076,
             "AI": 3245818,
@@ -18305,6 +18468,7 @@
           "total_dep_delay": 127,
           "stranded_passengers": 73,
           "avg_satisfaction": 90.8,
+          "recovery_score": 84.1,
           "airline_cash": {
             "6E": 3453841,
             "AI": 3225394,
@@ -18443,6 +18607,7 @@
           "total_dep_delay": 115,
           "stranded_passengers": 82,
           "avg_satisfaction": 90.7,
+          "recovery_score": 84.1,
           "airline_cash": {
             "6E": 3435606,
             "AI": 3204971,
@@ -18581,6 +18746,7 @@
           "total_dep_delay": 102,
           "stranded_passengers": 90,
           "avg_satisfaction": 90.5,
+          "recovery_score": 84.1,
           "airline_cash": {
             "6E": 3417371,
             "AI": 3184547,
@@ -18719,6 +18885,7 @@
           "total_dep_delay": 89,
           "stranded_passengers": 99,
           "avg_satisfaction": 90.4,
+          "recovery_score": 84.1,
           "airline_cash": {
             "6E": 3399135,
             "AI": 3164124,
@@ -18857,6 +19024,7 @@
           "total_dep_delay": 75,
           "stranded_passengers": 108,
           "avg_satisfaction": 90.2,
+          "recovery_score": 84.1,
           "airline_cash": {
             "6E": 3380900,
             "AI": 3143700,
@@ -18989,7 +19157,9 @@
     "model_label": "Qwen2.5 Coder 7B",
     "mode": "base",
     "title": "Passenger-Aware Network",
-    "reward": -8531,
+    "score": 29.0,
+    "reward": 29.0,
+    "raw_reward": -8531,
     "summary": {
       "flights_total": 126,
       "flights_arrived": 83,
@@ -18997,6 +19167,7 @@
       "total_dep_delay": 3021,
       "stranded_passengers": 3832,
       "avg_satisfaction": 60.7,
+      "recovery_score": 29.0,
       "airline_cash": {
         "6E": 2620000,
         "AI": 2302400,
@@ -19019,6 +19190,7 @@
           "total_dep_delay": 412,
           "stranded_passengers": 0,
           "avg_satisfaction": 98.0,
+          "recovery_score": 94.0,
           "airline_cash": {
             "6E": 3600000,
             "AI": 3400000,
@@ -19152,6 +19324,7 @@
           "total_dep_delay": 461,
           "stranded_passengers": 111,
           "avg_satisfaction": 95.8,
+          "recovery_score": 90.2,
           "airline_cash": {
             "6E": 3542353,
             "AI": 3335435,
@@ -19285,6 +19458,7 @@
           "total_dep_delay": 542,
           "stranded_passengers": 264,
           "avg_satisfaction": 93.6,
+          "recovery_score": 86.4,
           "airline_cash": {
             "6E": 3484706,
             "AI": 3270871,
@@ -19418,6 +19592,7 @@
           "total_dep_delay": 642,
           "stranded_passengers": 438,
           "avg_satisfaction": 91.4,
+          "recovery_score": 82.5,
           "airline_cash": {
             "6E": 3427059,
             "AI": 3206306,
@@ -19551,6 +19726,7 @@
           "total_dep_delay": 756,
           "stranded_passengers": 628,
           "avg_satisfaction": 89.2,
+          "recovery_score": 78.7,
           "airline_cash": {
             "6E": 3369412,
             "AI": 3141741,
@@ -19684,6 +19860,7 @@
           "total_dep_delay": 882,
           "stranded_passengers": 830,
           "avg_satisfaction": 87.0,
+          "recovery_score": 74.9,
           "airline_cash": {
             "6E": 3311765,
             "AI": 3077176,
@@ -19823,6 +20000,7 @@
           "total_dep_delay": 1019,
           "stranded_passengers": 1042,
           "avg_satisfaction": 84.8,
+          "recovery_score": 71.1,
           "airline_cash": {
             "6E": 3254118,
             "AI": 3012612,
@@ -19962,6 +20140,7 @@
           "total_dep_delay": 1165,
           "stranded_passengers": 1264,
           "avg_satisfaction": 82.6,
+          "recovery_score": 67.2,
           "airline_cash": {
             "6E": 3196471,
             "AI": 2948047,
@@ -20101,6 +20280,7 @@
           "total_dep_delay": 1320,
           "stranded_passengers": 1494,
           "avg_satisfaction": 80.4,
+          "recovery_score": 63.4,
           "airline_cash": {
             "6E": 3138824,
             "AI": 2883482,
@@ -20240,6 +20420,7 @@
           "total_dep_delay": 1483,
           "stranded_passengers": 1730,
           "avg_satisfaction": 78.3,
+          "recovery_score": 59.6,
           "airline_cash": {
             "6E": 3081176,
             "AI": 2818918,
@@ -20379,6 +20560,7 @@
           "total_dep_delay": 1653,
           "stranded_passengers": 1974,
           "avg_satisfaction": 76.1,
+          "recovery_score": 55.8,
           "airline_cash": {
             "6E": 3023529,
             "AI": 2754353,
@@ -20524,6 +20706,7 @@
           "total_dep_delay": 1830,
           "stranded_passengers": 2224,
           "avg_satisfaction": 73.9,
+          "recovery_score": 51.9,
           "airline_cash": {
             "6E": 2965882,
             "AI": 2689788,
@@ -20669,6 +20852,7 @@
           "total_dep_delay": 2014,
           "stranded_passengers": 2479,
           "avg_satisfaction": 71.7,
+          "recovery_score": 48.1,
           "airline_cash": {
             "6E": 2908235,
             "AI": 2625224,
@@ -20814,6 +20998,7 @@
           "total_dep_delay": 2204,
           "stranded_passengers": 2740,
           "avg_satisfaction": 69.5,
+          "recovery_score": 44.3,
           "airline_cash": {
             "6E": 2850588,
             "AI": 2560659,
@@ -20959,6 +21144,7 @@
           "total_dep_delay": 2400,
           "stranded_passengers": 3006,
           "avg_satisfaction": 67.3,
+          "recovery_score": 40.5,
           "airline_cash": {
             "6E": 2792941,
             "AI": 2496094,
@@ -21104,6 +21290,7 @@
           "total_dep_delay": 2601,
           "stranded_passengers": 3277,
           "avg_satisfaction": 65.1,
+          "recovery_score": 36.6,
           "airline_cash": {
             "6E": 2735294,
             "AI": 2431529,
@@ -21249,6 +21436,7 @@
           "total_dep_delay": 2808,
           "stranded_passengers": 3552,
           "avg_satisfaction": 62.9,
+          "recovery_score": 32.8,
           "airline_cash": {
             "6E": 2677647,
             "AI": 2366965,
@@ -21394,6 +21582,7 @@
           "total_dep_delay": 3021,
           "stranded_passengers": 3832,
           "avg_satisfaction": 60.7,
+          "recovery_score": 29.0,
           "airline_cash": {
             "6E": 2620000,
             "AI": 2302400,
@@ -21533,7 +21722,9 @@
     "model_label": "Qwen2.5 Coder 7B",
     "mode": "rl",
     "title": "Passenger-Aware Network",
-    "reward": 5614,
+    "score": 88.0,
+    "reward": 88.0,
+    "raw_reward": 5614,
     "summary": {
       "flights_total": 126,
       "flights_arrived": 116,
@@ -21541,6 +21732,7 @@
       "total_dep_delay": 251,
       "stranded_passengers": 510,
       "avg_satisfaction": 86.5,
+      "recovery_score": 88.0,
       "airline_cash": {
         "6E": 3380000,
         "AI": 3142800,
@@ -21563,6 +21755,7 @@
           "total_dep_delay": 306,
           "stranded_passengers": 0,
           "avg_satisfaction": 86.0,
+          "recovery_score": 68.0,
           "airline_cash": {
             "6E": 3690000,
             "AI": 3490000,
@@ -21701,6 +21894,7 @@
           "total_dep_delay": 354,
           "stranded_passengers": 8,
           "avg_satisfaction": 86.2,
+          "recovery_score": 69.7,
           "airline_cash": {
             "6E": 3671765,
             "AI": 3469576,
@@ -21839,6 +22033,7 @@
           "total_dep_delay": 399,
           "stranded_passengers": 23,
           "avg_satisfaction": 86.3,
+          "recovery_score": 71.4,
           "airline_cash": {
             "6E": 3653529,
             "AI": 3449153,
@@ -21977,6 +22172,7 @@
           "total_dep_delay": 439,
           "stranded_passengers": 41,
           "avg_satisfaction": 86.5,
+          "recovery_score": 73.0,
           "airline_cash": {
             "6E": 3635294,
             "AI": 3428729,
@@ -22115,6 +22311,7 @@
           "total_dep_delay": 474,
           "stranded_passengers": 63,
           "avg_satisfaction": 86.6,
+          "recovery_score": 74.7,
           "airline_cash": {
             "6E": 3617059,
             "AI": 3408306,
@@ -22253,6 +22450,7 @@
           "total_dep_delay": 502,
           "stranded_passengers": 86,
           "avg_satisfaction": 86.8,
+          "recovery_score": 76.4,
           "airline_cash": {
             "6E": 3598824,
             "AI": 3387882,
@@ -22397,6 +22595,7 @@
           "total_dep_delay": 522,
           "stranded_passengers": 113,
           "avg_satisfaction": 86.9,
+          "recovery_score": 78.1,
           "airline_cash": {
             "6E": 3580588,
             "AI": 3367459,
@@ -22541,6 +22740,7 @@
           "total_dep_delay": 533,
           "stranded_passengers": 141,
           "avg_satisfaction": 87.1,
+          "recovery_score": 79.8,
           "airline_cash": {
             "6E": 3562353,
             "AI": 3347035,
@@ -22685,6 +22885,7 @@
           "total_dep_delay": 536,
           "stranded_passengers": 171,
           "avg_satisfaction": 87.2,
+          "recovery_score": 81.4,
           "airline_cash": {
             "6E": 3544118,
             "AI": 3326612,
@@ -22829,6 +23030,7 @@
           "total_dep_delay": 530,
           "stranded_passengers": 203,
           "avg_satisfaction": 87.2,
+          "recovery_score": 83.1,
           "airline_cash": {
             "6E": 3525882,
             "AI": 3306188,
@@ -22973,6 +23175,7 @@
           "total_dep_delay": 515,
           "stranded_passengers": 236,
           "avg_satisfaction": 87.2,
+          "recovery_score": 84.8,
           "airline_cash": {
             "6E": 3507647,
             "AI": 3285765,
@@ -23123,6 +23326,7 @@
           "total_dep_delay": 492,
           "stranded_passengers": 271,
           "avg_satisfaction": 87.2,
+          "recovery_score": 86.5,
           "airline_cash": {
             "6E": 3489412,
             "AI": 3265341,
@@ -23273,6 +23477,7 @@
           "total_dep_delay": 463,
           "stranded_passengers": 308,
           "avg_satisfaction": 87.2,
+          "recovery_score": 88.0,
           "airline_cash": {
             "6E": 3471176,
             "AI": 3244918,
@@ -23423,6 +23628,7 @@
           "total_dep_delay": 427,
           "stranded_passengers": 346,
           "avg_satisfaction": 87.0,
+          "recovery_score": 88.0,
           "airline_cash": {
             "6E": 3452941,
             "AI": 3224494,
@@ -23573,6 +23779,7 @@
           "total_dep_delay": 386,
           "stranded_passengers": 385,
           "avg_satisfaction": 86.9,
+          "recovery_score": 88.0,
           "airline_cash": {
             "6E": 3434706,
             "AI": 3204071,
@@ -23723,6 +23930,7 @@
           "total_dep_delay": 343,
           "stranded_passengers": 425,
           "avg_satisfaction": 86.7,
+          "recovery_score": 88.0,
           "airline_cash": {
             "6E": 3416471,
             "AI": 3183647,
@@ -23873,6 +24081,7 @@
           "total_dep_delay": 297,
           "stranded_passengers": 467,
           "avg_satisfaction": 86.6,
+          "recovery_score": 88.0,
           "airline_cash": {
             "6E": 3398235,
             "AI": 3163224,
@@ -24023,6 +24232,7 @@
           "total_dep_delay": 251,
           "stranded_passengers": 510,
           "avg_satisfaction": 86.5,
+          "recovery_score": 88.0,
           "airline_cash": {
             "6E": 3380000,
             "AI": 3142800,
@@ -24167,7 +24377,9 @@
     "model_label": "Qwen3 14B",
     "mode": "base",
     "title": "Passenger-Aware Network",
-    "reward": -8491,
+    "score": 29.8,
+    "reward": 29.8,
+    "raw_reward": -8491,
     "summary": {
       "flights_total": 126,
       "flights_arrived": 83,
@@ -24175,6 +24387,7 @@
       "total_dep_delay": 2992,
       "stranded_passengers": 3795,
       "avg_satisfaction": 60.1,
+      "recovery_score": 29.8,
       "airline_cash": {
         "6E": 2620000,
         "AI": 2302400,
@@ -24197,6 +24410,7 @@
           "total_dep_delay": 408,
           "stranded_passengers": 0,
           "avg_satisfaction": 98.0,
+          "recovery_score": 94.0,
           "airline_cash": {
             "6E": 3600000,
             "AI": 3400000,
@@ -24330,6 +24544,7 @@
           "total_dep_delay": 457,
           "stranded_passengers": 110,
           "avg_satisfaction": 95.8,
+          "recovery_score": 90.2,
           "airline_cash": {
             "6E": 3542353,
             "AI": 3335435,
@@ -24463,6 +24678,7 @@
           "total_dep_delay": 537,
           "stranded_passengers": 261,
           "avg_satisfaction": 93.5,
+          "recovery_score": 86.4,
           "airline_cash": {
             "6E": 3484706,
             "AI": 3270871,
@@ -24596,6 +24812,7 @@
           "total_dep_delay": 636,
           "stranded_passengers": 434,
           "avg_satisfaction": 91.3,
+          "recovery_score": 82.7,
           "airline_cash": {
             "6E": 3427059,
             "AI": 3206306,
@@ -24729,6 +24946,7 @@
           "total_dep_delay": 749,
           "stranded_passengers": 622,
           "avg_satisfaction": 89.1,
+          "recovery_score": 78.9,
           "airline_cash": {
             "6E": 3369412,
             "AI": 3141741,
@@ -24862,6 +25080,7 @@
           "total_dep_delay": 874,
           "stranded_passengers": 822,
           "avg_satisfaction": 86.9,
+          "recovery_score": 75.1,
           "airline_cash": {
             "6E": 3311765,
             "AI": 3077176,
@@ -25001,6 +25220,7 @@
           "total_dep_delay": 1009,
           "stranded_passengers": 1032,
           "avg_satisfaction": 84.6,
+          "recovery_score": 71.3,
           "airline_cash": {
             "6E": 3254118,
             "AI": 3012612,
@@ -25140,6 +25360,7 @@
           "total_dep_delay": 1154,
           "stranded_passengers": 1252,
           "avg_satisfaction": 82.4,
+          "recovery_score": 67.6,
           "airline_cash": {
             "6E": 3196471,
             "AI": 2948047,
@@ -25279,6 +25500,7 @@
           "total_dep_delay": 1307,
           "stranded_passengers": 1479,
           "avg_satisfaction": 80.2,
+          "recovery_score": 63.8,
           "airline_cash": {
             "6E": 3138824,
             "AI": 2883482,
@@ -25418,6 +25640,7 @@
           "total_dep_delay": 1469,
           "stranded_passengers": 1714,
           "avg_satisfaction": 77.9,
+          "recovery_score": 60.0,
           "airline_cash": {
             "6E": 3081176,
             "AI": 2818918,
@@ -25557,6 +25780,7 @@
           "total_dep_delay": 1637,
           "stranded_passengers": 1955,
           "avg_satisfaction": 75.7,
+          "recovery_score": 56.2,
           "airline_cash": {
             "6E": 3023529,
             "AI": 2754353,
@@ -25702,6 +25926,7 @@
           "total_dep_delay": 1813,
           "stranded_passengers": 2202,
           "avg_satisfaction": 73.5,
+          "recovery_score": 52.5,
           "airline_cash": {
             "6E": 2965882,
             "AI": 2689788,
@@ -25847,6 +26072,7 @@
           "total_dep_delay": 1995,
           "stranded_passengers": 2455,
           "avg_satisfaction": 71.2,
+          "recovery_score": 48.7,
           "airline_cash": {
             "6E": 2908235,
             "AI": 2625224,
@@ -25992,6 +26218,7 @@
           "total_dep_delay": 2183,
           "stranded_passengers": 2714,
           "avg_satisfaction": 69.0,
+          "recovery_score": 44.9,
           "airline_cash": {
             "6E": 2850588,
             "AI": 2560659,
@@ -26137,6 +26364,7 @@
           "total_dep_delay": 2377,
           "stranded_passengers": 2977,
           "avg_satisfaction": 66.8,
+          "recovery_score": 41.1,
           "airline_cash": {
             "6E": 2792941,
             "AI": 2496094,
@@ -26282,6 +26510,7 @@
           "total_dep_delay": 2577,
           "stranded_passengers": 3245,
           "avg_satisfaction": 64.6,
+          "recovery_score": 37.4,
           "airline_cash": {
             "6E": 2735294,
             "AI": 2431529,
@@ -26427,6 +26656,7 @@
           "total_dep_delay": 2782,
           "stranded_passengers": 3518,
           "avg_satisfaction": 62.3,
+          "recovery_score": 33.6,
           "airline_cash": {
             "6E": 2677647,
             "AI": 2366965,
@@ -26572,6 +26802,7 @@
           "total_dep_delay": 2992,
           "stranded_passengers": 3795,
           "avg_satisfaction": 60.1,
+          "recovery_score": 29.8,
           "airline_cash": {
             "6E": 2620000,
             "AI": 2302400,
@@ -26711,7 +26942,9 @@
     "model_label": "Qwen3 14B",
     "mode": "rl",
     "title": "Passenger-Aware Network",
-    "reward": 5669,
+    "score": 88.5,
+    "reward": 88.5,
+    "raw_reward": 5669,
     "summary": {
       "flights_total": 126,
       "flights_arrived": 116,
@@ -26719,6 +26952,7 @@
       "total_dep_delay": 248,
       "stranded_passengers": 505,
       "avg_satisfaction": 85.8,
+      "recovery_score": 88.5,
       "airline_cash": {
         "6E": 3385400,
         "AI": 3148200,
@@ -26741,6 +26975,7 @@
           "total_dep_delay": 303,
           "stranded_passengers": 0,
           "avg_satisfaction": 86.0,
+          "recovery_score": 68.0,
           "airline_cash": {
             "6E": 3695400,
             "AI": 3495400,
@@ -26879,6 +27114,7 @@
           "total_dep_delay": 350,
           "stranded_passengers": 8,
           "avg_satisfaction": 86.1,
+          "recovery_score": 69.7,
           "airline_cash": {
             "6E": 3677165,
             "AI": 3474976,
@@ -27017,6 +27253,7 @@
           "total_dep_delay": 395,
           "stranded_passengers": 23,
           "avg_satisfaction": 86.1,
+          "recovery_score": 71.4,
           "airline_cash": {
             "6E": 3658929,
             "AI": 3454553,
@@ -27155,6 +27392,7 @@
           "total_dep_delay": 435,
           "stranded_passengers": 41,
           "avg_satisfaction": 86.2,
+          "recovery_score": 73.2,
           "airline_cash": {
             "6E": 3640694,
             "AI": 3434129,
@@ -27293,6 +27531,7 @@
           "total_dep_delay": 469,
           "stranded_passengers": 62,
           "avg_satisfaction": 86.3,
+          "recovery_score": 74.9,
           "airline_cash": {
             "6E": 3622459,
             "AI": 3413706,
@@ -27431,6 +27670,7 @@
           "total_dep_delay": 497,
           "stranded_passengers": 86,
           "avg_satisfaction": 86.3,
+          "recovery_score": 76.6,
           "airline_cash": {
             "6E": 3604224,
             "AI": 3393282,
@@ -27575,6 +27815,7 @@
           "total_dep_delay": 517,
           "stranded_passengers": 112,
           "avg_satisfaction": 86.4,
+          "recovery_score": 78.3,
           "airline_cash": {
             "6E": 3585988,
             "AI": 3372859,
@@ -27719,6 +27960,7 @@
           "total_dep_delay": 528,
           "stranded_passengers": 139,
           "avg_satisfaction": 86.5,
+          "recovery_score": 80.1,
           "airline_cash": {
             "6E": 3567753,
             "AI": 3352435,
@@ -27863,6 +28105,7 @@
           "total_dep_delay": 530,
           "stranded_passengers": 169,
           "avg_satisfaction": 86.5,
+          "recovery_score": 81.8,
           "airline_cash": {
             "6E": 3549518,
             "AI": 3332012,
@@ -28007,6 +28250,7 @@
           "total_dep_delay": 524,
           "stranded_passengers": 201,
           "avg_satisfaction": 86.5,
+          "recovery_score": 83.5,
           "airline_cash": {
             "6E": 3531282,
             "AI": 3311588,
@@ -28151,6 +28395,7 @@
           "total_dep_delay": 510,
           "stranded_passengers": 234,
           "avg_satisfaction": 86.5,
+          "recovery_score": 85.2,
           "airline_cash": {
             "6E": 3513047,
             "AI": 3291165,
@@ -28301,6 +28546,7 @@
           "total_dep_delay": 487,
           "stranded_passengers": 269,
           "avg_satisfaction": 86.5,
+          "recovery_score": 86.9,
           "airline_cash": {
             "6E": 3494812,
             "AI": 3270741,
@@ -28451,6 +28697,7 @@
           "total_dep_delay": 458,
           "stranded_passengers": 305,
           "avg_satisfaction": 86.5,
+          "recovery_score": 88.5,
           "airline_cash": {
             "6E": 3476576,
             "AI": 3250318,
@@ -28601,6 +28848,7 @@
           "total_dep_delay": 423,
           "stranded_passengers": 342,
           "avg_satisfaction": 86.3,
+          "recovery_score": 88.5,
           "airline_cash": {
             "6E": 3458341,
             "AI": 3229894,
@@ -28751,6 +28999,7 @@
           "total_dep_delay": 383,
           "stranded_passengers": 381,
           "avg_satisfaction": 86.2,
+          "recovery_score": 88.5,
           "airline_cash": {
             "6E": 3440106,
             "AI": 3209471,
@@ -28901,6 +29150,7 @@
           "total_dep_delay": 339,
           "stranded_passengers": 421,
           "avg_satisfaction": 86.0,
+          "recovery_score": 88.5,
           "airline_cash": {
             "6E": 3421871,
             "AI": 3189047,
@@ -29051,6 +29301,7 @@
           "total_dep_delay": 294,
           "stranded_passengers": 463,
           "avg_satisfaction": 85.9,
+          "recovery_score": 88.5,
           "airline_cash": {
             "6E": 3403635,
             "AI": 3168624,
@@ -29201,6 +29452,7 @@
           "total_dep_delay": 248,
           "stranded_passengers": 505,
           "avg_satisfaction": 85.8,
+          "recovery_score": 88.5,
           "airline_cash": {
             "6E": 3385400,
             "AI": 3148200,
@@ -29345,7 +29597,9 @@
     "model_label": "Gemma 4 31B",
     "mode": "base",
     "title": "Passenger-Aware Network",
-    "reward": -8464,
+    "score": 30.4,
+    "reward": 30.4,
+    "raw_reward": -8464,
     "summary": {
       "flights_total": 126,
       "flights_arrived": 83,
@@ -29353,6 +29607,7 @@
       "total_dep_delay": 2972,
       "stranded_passengers": 3771,
       "avg_satisfaction": 59.7,
+      "recovery_score": 30.4,
       "airline_cash": {
         "6E": 2620000,
         "AI": 2302400,
@@ -29375,6 +29630,7 @@
           "total_dep_delay": 405,
           "stranded_passengers": 0,
           "avg_satisfaction": 98.0,
+          "recovery_score": 94.0,
           "airline_cash": {
             "6E": 3600000,
             "AI": 3400000,
@@ -29508,6 +29764,7 @@
           "total_dep_delay": 454,
           "stranded_passengers": 109,
           "avg_satisfaction": 95.7,
+          "recovery_score": 90.3,
           "airline_cash": {
             "6E": 3542353,
             "AI": 3335435,
@@ -29641,6 +29898,7 @@
           "total_dep_delay": 534,
           "stranded_passengers": 260,
           "avg_satisfaction": 93.5,
+          "recovery_score": 86.5,
           "airline_cash": {
             "6E": 3484706,
             "AI": 3270871,
@@ -29774,6 +30032,7 @@
           "total_dep_delay": 632,
           "stranded_passengers": 431,
           "avg_satisfaction": 91.2,
+          "recovery_score": 82.8,
           "airline_cash": {
             "6E": 3427059,
             "AI": 3206306,
@@ -29907,6 +30166,7 @@
           "total_dep_delay": 744,
           "stranded_passengers": 618,
           "avg_satisfaction": 89.0,
+          "recovery_score": 79.0,
           "airline_cash": {
             "6E": 3369412,
             "AI": 3141741,
@@ -30040,6 +30300,7 @@
           "total_dep_delay": 868,
           "stranded_passengers": 817,
           "avg_satisfaction": 86.7,
+          "recovery_score": 75.3,
           "airline_cash": {
             "6E": 3311765,
             "AI": 3077176,
@@ -30179,6 +30440,7 @@
           "total_dep_delay": 1003,
           "stranded_passengers": 1026,
           "avg_satisfaction": 84.5,
+          "recovery_score": 71.6,
           "airline_cash": {
             "6E": 3254118,
             "AI": 3012612,
@@ -30318,6 +30580,7 @@
           "total_dep_delay": 1146,
           "stranded_passengers": 1244,
           "avg_satisfaction": 82.2,
+          "recovery_score": 67.8,
           "airline_cash": {
             "6E": 3196471,
             "AI": 2948047,
@@ -30457,6 +30720,7 @@
           "total_dep_delay": 1299,
           "stranded_passengers": 1470,
           "avg_satisfaction": 80.0,
+          "recovery_score": 64.1,
           "airline_cash": {
             "6E": 3138824,
             "AI": 2883482,
@@ -30596,6 +30860,7 @@
           "total_dep_delay": 1459,
           "stranded_passengers": 1703,
           "avg_satisfaction": 77.7,
+          "recovery_score": 60.3,
           "airline_cash": {
             "6E": 3081176,
             "AI": 2818918,
@@ -30735,6 +31000,7 @@
           "total_dep_delay": 1626,
           "stranded_passengers": 1943,
           "avg_satisfaction": 75.5,
+          "recovery_score": 56.6,
           "airline_cash": {
             "6E": 3023529,
             "AI": 2754353,
@@ -30880,6 +31146,7 @@
           "total_dep_delay": 1801,
           "stranded_passengers": 2188,
           "avg_satisfaction": 73.2,
+          "recovery_score": 52.8,
           "airline_cash": {
             "6E": 2965882,
             "AI": 2689788,
@@ -31025,6 +31292,7 @@
           "total_dep_delay": 1982,
           "stranded_passengers": 2440,
           "avg_satisfaction": 71.0,
+          "recovery_score": 49.1,
           "airline_cash": {
             "6E": 2908235,
             "AI": 2625224,
@@ -31170,6 +31438,7 @@
           "total_dep_delay": 2168,
           "stranded_passengers": 2697,
           "avg_satisfaction": 68.7,
+          "recovery_score": 45.4,
           "airline_cash": {
             "6E": 2850588,
             "AI": 2560659,
@@ -31315,6 +31584,7 @@
           "total_dep_delay": 2361,
           "stranded_passengers": 2958,
           "avg_satisfaction": 66.5,
+          "recovery_score": 41.6,
           "airline_cash": {
             "6E": 2792941,
             "AI": 2496094,
@@ -31460,6 +31730,7 @@
           "total_dep_delay": 2560,
           "stranded_passengers": 3225,
           "avg_satisfaction": 64.2,
+          "recovery_score": 37.9,
           "airline_cash": {
             "6E": 2735294,
             "AI": 2431529,
@@ -31605,6 +31876,7 @@
           "total_dep_delay": 2763,
           "stranded_passengers": 3496,
           "avg_satisfaction": 62.0,
+          "recovery_score": 34.1,
           "airline_cash": {
             "6E": 2677647,
             "AI": 2366965,
@@ -31750,6 +32022,7 @@
           "total_dep_delay": 2972,
           "stranded_passengers": 3771,
           "avg_satisfaction": 59.7,
+          "recovery_score": 30.4,
           "airline_cash": {
             "6E": 2620000,
             "AI": 2302400,
@@ -31889,7 +32162,9 @@
     "model_label": "Gemma 4 31B",
     "mode": "rl",
     "title": "Passenger-Aware Network",
-    "reward": 5641,
+    "score": 88.3,
+    "reward": 88.3,
+    "raw_reward": 5641,
     "summary": {
       "flights_total": 126,
       "flights_arrived": 116,
@@ -31897,6 +32172,7 @@
       "total_dep_delay": 249,
       "stranded_passengers": 507,
       "avg_satisfaction": 86.0,
+      "recovery_score": 88.3,
       "airline_cash": {
         "6E": 3382700,
         "AI": 3145500,
@@ -31919,6 +32195,7 @@
           "total_dep_delay": 304,
           "stranded_passengers": 0,
           "avg_satisfaction": 86.0,
+          "recovery_score": 68.0,
           "airline_cash": {
             "6E": 3692700,
             "AI": 3492700,
@@ -32057,6 +32334,7 @@
           "total_dep_delay": 352,
           "stranded_passengers": 8,
           "avg_satisfaction": 86.1,
+          "recovery_score": 69.7,
           "airline_cash": {
             "6E": 3674465,
             "AI": 3472276,
@@ -32195,6 +32473,7 @@
           "total_dep_delay": 396,
           "stranded_passengers": 23,
           "avg_satisfaction": 86.2,
+          "recovery_score": 71.4,
           "airline_cash": {
             "6E": 3656229,
             "AI": 3451853,
@@ -32333,6 +32612,7 @@
           "total_dep_delay": 437,
           "stranded_passengers": 41,
           "avg_satisfaction": 86.3,
+          "recovery_score": 73.1,
           "airline_cash": {
             "6E": 3637994,
             "AI": 3431429,
@@ -32471,6 +32751,7 @@
           "total_dep_delay": 471,
           "stranded_passengers": 62,
           "avg_satisfaction": 86.4,
+          "recovery_score": 74.8,
           "airline_cash": {
             "6E": 3619759,
             "AI": 3411006,
@@ -32609,6 +32890,7 @@
           "total_dep_delay": 499,
           "stranded_passengers": 86,
           "avg_satisfaction": 86.5,
+          "recovery_score": 76.5,
           "airline_cash": {
             "6E": 3601524,
             "AI": 3390582,
@@ -32753,6 +33035,7 @@
           "total_dep_delay": 519,
           "stranded_passengers": 112,
           "avg_satisfaction": 86.6,
+          "recovery_score": 78.2,
           "airline_cash": {
             "6E": 3583288,
             "AI": 3370159,
@@ -32897,6 +33180,7 @@
           "total_dep_delay": 530,
           "stranded_passengers": 140,
           "avg_satisfaction": 86.7,
+          "recovery_score": 79.9,
           "airline_cash": {
             "6E": 3565053,
             "AI": 3349735,
@@ -33041,6 +33325,7 @@
           "total_dep_delay": 533,
           "stranded_passengers": 170,
           "avg_satisfaction": 86.8,
+          "recovery_score": 81.6,
           "airline_cash": {
             "6E": 3546818,
             "AI": 3329312,
@@ -33185,6 +33470,7 @@
           "total_dep_delay": 526,
           "stranded_passengers": 202,
           "avg_satisfaction": 86.8,
+          "recovery_score": 83.4,
           "airline_cash": {
             "6E": 3528582,
             "AI": 3308888,
@@ -33329,6 +33615,7 @@
           "total_dep_delay": 512,
           "stranded_passengers": 235,
           "avg_satisfaction": 86.8,
+          "recovery_score": 85.1,
           "airline_cash": {
             "6E": 3510347,
             "AI": 3288465,
@@ -33479,6 +33766,7 @@
           "total_dep_delay": 489,
           "stranded_passengers": 270,
           "avg_satisfaction": 86.8,
+          "recovery_score": 86.8,
           "airline_cash": {
             "6E": 3492112,
             "AI": 3268041,
@@ -33629,6 +33917,7 @@
           "total_dep_delay": 460,
           "stranded_passengers": 306,
           "avg_satisfaction": 86.8,
+          "recovery_score": 88.3,
           "airline_cash": {
             "6E": 3473876,
             "AI": 3247618,
@@ -33779,6 +34068,7 @@
           "total_dep_delay": 424,
           "stranded_passengers": 344,
           "avg_satisfaction": 86.6,
+          "recovery_score": 88.3,
           "airline_cash": {
             "6E": 3455641,
             "AI": 3227194,
@@ -33929,6 +34219,7 @@
           "total_dep_delay": 384,
           "stranded_passengers": 383,
           "avg_satisfaction": 86.5,
+          "recovery_score": 88.3,
           "airline_cash": {
             "6E": 3437406,
             "AI": 3206771,
@@ -34079,6 +34370,7 @@
           "total_dep_delay": 341,
           "stranded_passengers": 423,
           "avg_satisfaction": 86.3,
+          "recovery_score": 88.3,
           "airline_cash": {
             "6E": 3419171,
             "AI": 3186347,
@@ -34229,6 +34521,7 @@
           "total_dep_delay": 295,
           "stranded_passengers": 464,
           "avg_satisfaction": 86.2,
+          "recovery_score": 88.3,
           "airline_cash": {
             "6E": 3400935,
             "AI": 3165924,
@@ -34379,6 +34672,7 @@
           "total_dep_delay": 249,
           "stranded_passengers": 507,
           "avg_satisfaction": 86.0,
+          "recovery_score": 88.3,
           "airline_cash": {
             "6E": 3382700,
             "AI": 3145500,
@@ -34523,7 +34817,9 @@
     "model_label": "GPT-OSS 120B",
     "mode": "base",
     "title": "Passenger-Aware Network",
-    "reward": -8424,
+    "score": 31.2,
+    "reward": 31.2,
+    "raw_reward": -8424,
     "summary": {
       "flights_total": 126,
       "flights_arrived": 83,
@@ -34531,6 +34827,7 @@
       "total_dep_delay": 2944,
       "stranded_passengers": 3734,
       "avg_satisfaction": 59.1,
+      "recovery_score": 31.2,
       "airline_cash": {
         "6E": 2620000,
         "AI": 2302400,
@@ -34553,6 +34850,7 @@
           "total_dep_delay": 401,
           "stranded_passengers": 0,
           "avg_satisfaction": 98.0,
+          "recovery_score": 94.0,
           "airline_cash": {
             "6E": 3600000,
             "AI": 3400000,
@@ -34686,6 +34984,7 @@
           "total_dep_delay": 450,
           "stranded_passengers": 108,
           "avg_satisfaction": 95.7,
+          "recovery_score": 90.3,
           "airline_cash": {
             "6E": 3542353,
             "AI": 3335435,
@@ -34819,6 +35118,7 @@
           "total_dep_delay": 528,
           "stranded_passengers": 257,
           "avg_satisfaction": 93.4,
+          "recovery_score": 86.6,
           "airline_cash": {
             "6E": 3484706,
             "AI": 3270871,
@@ -34952,6 +35252,7 @@
           "total_dep_delay": 626,
           "stranded_passengers": 427,
           "avg_satisfaction": 91.1,
+          "recovery_score": 82.9,
           "airline_cash": {
             "6E": 3427059,
             "AI": 3206306,
@@ -35085,6 +35386,7 @@
           "total_dep_delay": 737,
           "stranded_passengers": 612,
           "avg_satisfaction": 88.8,
+          "recovery_score": 79.2,
           "airline_cash": {
             "6E": 3369412,
             "AI": 3141741,
@@ -35218,6 +35520,7 @@
           "total_dep_delay": 860,
           "stranded_passengers": 809,
           "avg_satisfaction": 86.6,
+          "recovery_score": 75.5,
           "airline_cash": {
             "6E": 3311765,
             "AI": 3077176,
@@ -35357,6 +35660,7 @@
           "total_dep_delay": 993,
           "stranded_passengers": 1016,
           "avg_satisfaction": 84.3,
+          "recovery_score": 71.8,
           "airline_cash": {
             "6E": 3254118,
             "AI": 3012612,
@@ -35496,6 +35800,7 @@
           "total_dep_delay": 1135,
           "stranded_passengers": 1232,
           "avg_satisfaction": 82.0,
+          "recovery_score": 68.1,
           "airline_cash": {
             "6E": 3196471,
             "AI": 2948047,
@@ -35635,6 +35940,7 @@
           "total_dep_delay": 1286,
           "stranded_passengers": 1455,
           "avg_satisfaction": 79.7,
+          "recovery_score": 64.4,
           "airline_cash": {
             "6E": 3138824,
             "AI": 2883482,
@@ -35774,6 +36080,7 @@
           "total_dep_delay": 1445,
           "stranded_passengers": 1686,
           "avg_satisfaction": 77.4,
+          "recovery_score": 60.8,
           "airline_cash": {
             "6E": 3081176,
             "AI": 2818918,
@@ -35913,6 +36220,7 @@
           "total_dep_delay": 1611,
           "stranded_passengers": 1924,
           "avg_satisfaction": 75.1,
+          "recovery_score": 57.1,
           "airline_cash": {
             "6E": 3023529,
             "AI": 2754353,
@@ -36058,6 +36366,7 @@
           "total_dep_delay": 1783,
           "stranded_passengers": 2167,
           "avg_satisfaction": 72.8,
+          "recovery_score": 53.4,
           "airline_cash": {
             "6E": 2965882,
             "AI": 2689788,
@@ -36203,6 +36512,7 @@
           "total_dep_delay": 1963,
           "stranded_passengers": 2416,
           "avg_satisfaction": 70.5,
+          "recovery_score": 49.7,
           "airline_cash": {
             "6E": 2908235,
             "AI": 2625224,
@@ -36348,6 +36658,7 @@
           "total_dep_delay": 2148,
           "stranded_passengers": 2670,
           "avg_satisfaction": 68.3,
+          "recovery_score": 46.0,
           "airline_cash": {
             "6E": 2850588,
             "AI": 2560659,
@@ -36493,6 +36804,7 @@
           "total_dep_delay": 2339,
           "stranded_passengers": 2929,
           "avg_satisfaction": 66.0,
+          "recovery_score": 42.3,
           "airline_cash": {
             "6E": 2792941,
             "AI": 2496094,
@@ -36638,6 +36950,7 @@
           "total_dep_delay": 2535,
           "stranded_passengers": 3193,
           "avg_satisfaction": 63.7,
+          "recovery_score": 38.6,
           "airline_cash": {
             "6E": 2735294,
             "AI": 2431529,
@@ -36783,6 +37096,7 @@
           "total_dep_delay": 2737,
           "stranded_passengers": 3461,
           "avg_satisfaction": 61.4,
+          "recovery_score": 34.9,
           "airline_cash": {
             "6E": 2677647,
             "AI": 2366965,
@@ -36928,6 +37242,7 @@
           "total_dep_delay": 2944,
           "stranded_passengers": 3734,
           "avg_satisfaction": 59.1,
+          "recovery_score": 31.2,
           "airline_cash": {
             "6E": 2620000,
             "AI": 2302400,
@@ -37067,7 +37382,9 @@
     "model_label": "GPT-OSS 120B",
     "mode": "rl",
     "title": "Passenger-Aware Network",
-    "reward": 5623,
+    "score": 88.1,
+    "reward": 88.1,
+    "raw_reward": 5623,
     "summary": {
       "flights_total": 126,
       "flights_arrived": 116,
@@ -37075,6 +37392,7 @@
       "total_dep_delay": 250,
       "stranded_passengers": 509,
       "avg_satisfaction": 86.3,
+      "recovery_score": 88.1,
       "airline_cash": {
         "6E": 3380900,
         "AI": 3143700,
@@ -37097,6 +37415,7 @@
           "total_dep_delay": 305,
           "stranded_passengers": 0,
           "avg_satisfaction": 86.0,
+          "recovery_score": 68.0,
           "airline_cash": {
             "6E": 3690900,
             "AI": 3490900,
@@ -37235,6 +37554,7 @@
           "total_dep_delay": 353,
           "stranded_passengers": 8,
           "avg_satisfaction": 86.1,
+          "recovery_score": 69.7,
           "airline_cash": {
             "6E": 3672665,
             "AI": 3470476,
@@ -37373,6 +37693,7 @@
           "total_dep_delay": 398,
           "stranded_passengers": 23,
           "avg_satisfaction": 86.3,
+          "recovery_score": 71.4,
           "airline_cash": {
             "6E": 3654429,
             "AI": 3450053,
@@ -37511,6 +37832,7 @@
           "total_dep_delay": 438,
           "stranded_passengers": 41,
           "avg_satisfaction": 86.4,
+          "recovery_score": 73.1,
           "airline_cash": {
             "6E": 3636194,
             "AI": 3429629,
@@ -37649,6 +37971,7 @@
           "total_dep_delay": 473,
           "stranded_passengers": 62,
           "avg_satisfaction": 86.6,
+          "recovery_score": 74.8,
           "airline_cash": {
             "6E": 3617959,
             "AI": 3409206,
@@ -37787,6 +38110,7 @@
           "total_dep_delay": 501,
           "stranded_passengers": 86,
           "avg_satisfaction": 86.7,
+          "recovery_score": 76.4,
           "airline_cash": {
             "6E": 3599724,
             "AI": 3388782,
@@ -37931,6 +38255,7 @@
           "total_dep_delay": 521,
           "stranded_passengers": 112,
           "avg_satisfaction": 86.9,
+          "recovery_score": 78.1,
           "airline_cash": {
             "6E": 3581488,
             "AI": 3368359,
@@ -38075,6 +38400,7 @@
           "total_dep_delay": 532,
           "stranded_passengers": 141,
           "avg_satisfaction": 87.0,
+          "recovery_score": 79.8,
           "airline_cash": {
             "6E": 3563253,
             "AI": 3347935,
@@ -38219,6 +38545,7 @@
           "total_dep_delay": 535,
           "stranded_passengers": 171,
           "avg_satisfaction": 87.1,
+          "recovery_score": 81.5,
           "airline_cash": {
             "6E": 3545018,
             "AI": 3327512,
@@ -38363,6 +38690,7 @@
           "total_dep_delay": 528,
           "stranded_passengers": 202,
           "avg_satisfaction": 87.1,
+          "recovery_score": 83.2,
           "airline_cash": {
             "6E": 3526782,
             "AI": 3307088,
@@ -38507,6 +38835,7 @@
           "total_dep_delay": 514,
           "stranded_passengers": 236,
           "avg_satisfaction": 87.1,
+          "recovery_score": 84.9,
           "airline_cash": {
             "6E": 3508547,
             "AI": 3286665,
@@ -38657,6 +38986,7 @@
           "total_dep_delay": 491,
           "stranded_passengers": 271,
           "avg_satisfaction": 87.1,
+          "recovery_score": 86.6,
           "airline_cash": {
             "6E": 3490312,
             "AI": 3266241,
@@ -38807,6 +39137,7 @@
           "total_dep_delay": 462,
           "stranded_passengers": 307,
           "avg_satisfaction": 87.1,
+          "recovery_score": 88.1,
           "airline_cash": {
             "6E": 3472076,
             "AI": 3245818,
@@ -38957,6 +39288,7 @@
           "total_dep_delay": 426,
           "stranded_passengers": 345,
           "avg_satisfaction": 86.9,
+          "recovery_score": 88.1,
           "airline_cash": {
             "6E": 3453841,
             "AI": 3225394,
@@ -39107,6 +39439,7 @@
           "total_dep_delay": 386,
           "stranded_passengers": 384,
           "avg_satisfaction": 86.8,
+          "recovery_score": 88.1,
           "airline_cash": {
             "6E": 3435606,
             "AI": 3204971,
@@ -39257,6 +39590,7 @@
           "total_dep_delay": 342,
           "stranded_passengers": 425,
           "avg_satisfaction": 86.6,
+          "recovery_score": 88.1,
           "airline_cash": {
             "6E": 3417371,
             "AI": 3184547,
@@ -39407,6 +39741,7 @@
           "total_dep_delay": 296,
           "stranded_passengers": 466,
           "avg_satisfaction": 86.5,
+          "recovery_score": 88.1,
           "airline_cash": {
             "6E": 3399135,
             "AI": 3164124,
@@ -39557,6 +39892,7 @@
           "total_dep_delay": 250,
           "stranded_passengers": 509,
           "avg_satisfaction": 86.3,
+          "recovery_score": 88.1,
           "airline_cash": {
             "6E": 3380900,
             "AI": 3143700,
@@ -39701,7 +40037,9 @@
     "model_label": "Qwen2.5 Coder 7B",
     "mode": "base",
     "title": "Economic Multi-Agent Control",
-    "reward": -24374,
+    "score": 21.0,
+    "reward": 21.0,
+    "raw_reward": -24374,
     "summary": {
       "flights_total": 226,
       "flights_arrived": 149,
@@ -39709,6 +40047,7 @@
       "total_dep_delay": 7259,
       "stranded_passengers": 12560,
       "avg_satisfaction": 45.8,
+      "recovery_score": 21.0,
       "airline_cash": {
         "6E": 2620000,
         "AI": 2302400,
@@ -39731,6 +40070,7 @@
           "total_dep_delay": 990,
           "stranded_passengers": 0,
           "avg_satisfaction": 98.0,
+          "recovery_score": 94.0,
           "airline_cash": {
             "6E": 3600000,
             "AI": 3400000,
@@ -39876,6 +40216,7 @@
           "total_dep_delay": 1109,
           "stranded_passengers": 364,
           "avg_satisfaction": 94.9,
+          "recovery_score": 89.7,
           "airline_cash": {
             "6E": 3542353,
             "AI": 3335435,
@@ -40021,6 +40362,7 @@
           "total_dep_delay": 1303,
           "stranded_passengers": 865,
           "avg_satisfaction": 91.9,
+          "recovery_score": 85.4,
           "airline_cash": {
             "6E": 3484706,
             "AI": 3270871,
@@ -40166,6 +40508,7 @@
           "total_dep_delay": 1543,
           "stranded_passengers": 1437,
           "avg_satisfaction": 88.8,
+          "recovery_score": 81.1,
           "airline_cash": {
             "6E": 3427059,
             "AI": 3206306,
@@ -40311,6 +40654,7 @@
           "total_dep_delay": 1817,
           "stranded_passengers": 2058,
           "avg_satisfaction": 85.7,
+          "recovery_score": 76.8,
           "airline_cash": {
             "6E": 3369412,
             "AI": 3141741,
@@ -40456,6 +40800,7 @@
           "total_dep_delay": 2120,
           "stranded_passengers": 2720,
           "avg_satisfaction": 82.6,
+          "recovery_score": 72.5,
           "airline_cash": {
             "6E": 3311765,
             "AI": 3077176,
@@ -40607,6 +40952,7 @@
           "total_dep_delay": 2449,
           "stranded_passengers": 3417,
           "avg_satisfaction": 79.6,
+          "recovery_score": 68.2,
           "airline_cash": {
             "6E": 3254118,
             "AI": 3012612,
@@ -40758,6 +41104,7 @@
           "total_dep_delay": 2800,
           "stranded_passengers": 4143,
           "avg_satisfaction": 76.5,
+          "recovery_score": 63.9,
           "airline_cash": {
             "6E": 3196471,
             "AI": 2948047,
@@ -40909,6 +41256,7 @@
           "total_dep_delay": 3172,
           "stranded_passengers": 4895,
           "avg_satisfaction": 73.4,
+          "recovery_score": 59.6,
           "airline_cash": {
             "6E": 3138824,
             "AI": 2883482,
@@ -41060,6 +41408,7 @@
           "total_dep_delay": 3563,
           "stranded_passengers": 5672,
           "avg_satisfaction": 70.4,
+          "recovery_score": 55.4,
           "airline_cash": {
             "6E": 3081176,
             "AI": 2818918,
@@ -41211,6 +41560,7 @@
           "total_dep_delay": 3972,
           "stranded_passengers": 6470,
           "avg_satisfaction": 67.3,
+          "recovery_score": 51.1,
           "airline_cash": {
             "6E": 3023529,
             "AI": 2754353,
@@ -41368,6 +41718,7 @@
           "total_dep_delay": 4398,
           "stranded_passengers": 7289,
           "avg_satisfaction": 64.2,
+          "recovery_score": 46.8,
           "airline_cash": {
             "6E": 2965882,
             "AI": 2689788,
@@ -41525,6 +41876,7 @@
           "total_dep_delay": 4840,
           "stranded_passengers": 8127,
           "avg_satisfaction": 61.2,
+          "recovery_score": 42.5,
           "airline_cash": {
             "6E": 2908235,
             "AI": 2625224,
@@ -41682,6 +42034,7 @@
           "total_dep_delay": 5296,
           "stranded_passengers": 8982,
           "avg_satisfaction": 58.1,
+          "recovery_score": 38.2,
           "airline_cash": {
             "6E": 2850588,
             "AI": 2560659,
@@ -41839,6 +42192,7 @@
           "total_dep_delay": 5767,
           "stranded_passengers": 9853,
           "avg_satisfaction": 55.0,
+          "recovery_score": 33.9,
           "airline_cash": {
             "6E": 2792941,
             "AI": 2496094,
@@ -41996,6 +42350,7 @@
           "total_dep_delay": 6251,
           "stranded_passengers": 10741,
           "avg_satisfaction": 51.9,
+          "recovery_score": 29.6,
           "airline_cash": {
             "6E": 2735294,
             "AI": 2431529,
@@ -42153,6 +42508,7 @@
           "total_dep_delay": 6749,
           "stranded_passengers": 11643,
           "avg_satisfaction": 48.9,
+          "recovery_score": 25.3,
           "airline_cash": {
             "6E": 2677647,
             "AI": 2366965,
@@ -42310,6 +42666,7 @@
           "total_dep_delay": 7259,
           "stranded_passengers": 12560,
           "avg_satisfaction": 45.8,
+          "recovery_score": 21.0,
           "airline_cash": {
             "6E": 2620000,
             "AI": 2302400,
@@ -42461,7 +42818,9 @@
     "model_label": "Qwen2.5 Coder 7B",
     "mode": "rl",
     "title": "Economic Multi-Agent Control",
-    "reward": 11124,
+    "score": 90.0,
+    "reward": 90.0,
+    "raw_reward": 11124,
     "summary": {
       "flights_total": 226,
       "flights_arrived": 208,
@@ -42469,6 +42828,7 @@
       "total_dep_delay": 569,
       "stranded_passengers": 1352,
       "avg_satisfaction": 81.5,
+      "recovery_score": 90.0,
       "airline_cash": {
         "6E": 3380000,
         "AI": 3142800,
@@ -42491,6 +42851,7 @@
           "total_dep_delay": 694,
           "stranded_passengers": 0,
           "avg_satisfaction": 86.0,
+          "recovery_score": 68.0,
           "airline_cash": {
             "6E": 3690000,
             "AI": 3490000,
@@ -42641,6 +43002,7 @@
           "total_dep_delay": 802,
           "stranded_passengers": 22,
           "avg_satisfaction": 85.5,
+          "recovery_score": 69.8,
           "airline_cash": {
             "6E": 3671765,
             "AI": 3469576,
@@ -42791,6 +43153,7 @@
           "total_dep_delay": 904,
           "stranded_passengers": 61,
           "avg_satisfaction": 85.0,
+          "recovery_score": 71.7,
           "airline_cash": {
             "6E": 3653529,
             "AI": 3449153,
@@ -42941,6 +43304,7 @@
           "total_dep_delay": 996,
           "stranded_passengers": 109,
           "avg_satisfaction": 84.5,
+          "recovery_score": 73.5,
           "airline_cash": {
             "6E": 3635294,
             "AI": 3428729,
@@ -43091,6 +43455,7 @@
           "total_dep_delay": 1074,
           "stranded_passengers": 166,
           "avg_satisfaction": 84.1,
+          "recovery_score": 75.4,
           "airline_cash": {
             "6E": 3617059,
             "AI": 3408306,
@@ -43241,6 +43606,7 @@
           "total_dep_delay": 1137,
           "stranded_passengers": 229,
           "avg_satisfaction": 83.6,
+          "recovery_score": 77.2,
           "airline_cash": {
             "6E": 3598824,
             "AI": 3387882,
@@ -43397,6 +43763,7 @@
           "total_dep_delay": 1183,
           "stranded_passengers": 299,
           "avg_satisfaction": 83.1,
+          "recovery_score": 79.1,
           "airline_cash": {
             "6E": 3580588,
             "AI": 3367459,
@@ -43553,6 +43920,7 @@
           "total_dep_delay": 1208,
           "stranded_passengers": 373,
           "avg_satisfaction": 82.6,
+          "recovery_score": 80.9,
           "airline_cash": {
             "6E": 3562353,
             "AI": 3347035,
@@ -43709,6 +44077,7 @@
           "total_dep_delay": 1214,
           "stranded_passengers": 453,
           "avg_satisfaction": 82.3,
+          "recovery_score": 82.8,
           "airline_cash": {
             "6E": 3544118,
             "AI": 3326612,
@@ -43865,6 +44234,7 @@
           "total_dep_delay": 1200,
           "stranded_passengers": 538,
           "avg_satisfaction": 82.3,
+          "recovery_score": 84.6,
           "airline_cash": {
             "6E": 3525882,
             "AI": 3306188,
@@ -44021,6 +44391,7 @@
           "total_dep_delay": 1167,
           "stranded_passengers": 626,
           "avg_satisfaction": 82.3,
+          "recovery_score": 86.5,
           "airline_cash": {
             "6E": 3507647,
             "AI": 3285765,
@@ -44183,6 +44554,7 @@
           "total_dep_delay": 1116,
           "stranded_passengers": 719,
           "avg_satisfaction": 82.3,
+          "recovery_score": 88.3,
           "airline_cash": {
             "6E": 3489412,
             "AI": 3265341,
@@ -44345,6 +44717,7 @@
           "total_dep_delay": 1048,
           "stranded_passengers": 816,
           "avg_satisfaction": 82.3,
+          "recovery_score": 90.0,
           "airline_cash": {
             "6E": 3471176,
             "AI": 3244918,
@@ -44507,6 +44880,7 @@
           "total_dep_delay": 968,
           "stranded_passengers": 916,
           "avg_satisfaction": 82.1,
+          "recovery_score": 90.0,
           "airline_cash": {
             "6E": 3452941,
             "AI": 3224494,
@@ -44669,6 +45043,7 @@
           "total_dep_delay": 876,
           "stranded_passengers": 1020,
           "avg_satisfaction": 82.0,
+          "recovery_score": 90.0,
           "airline_cash": {
             "6E": 3434706,
             "AI": 3204071,
@@ -44831,6 +45206,7 @@
           "total_dep_delay": 777,
           "stranded_passengers": 1128,
           "avg_satisfaction": 81.8,
+          "recovery_score": 90.0,
           "airline_cash": {
             "6E": 3416471,
             "AI": 3183647,
@@ -44993,6 +45369,7 @@
           "total_dep_delay": 673,
           "stranded_passengers": 1238,
           "avg_satisfaction": 81.7,
+          "recovery_score": 90.0,
           "airline_cash": {
             "6E": 3398235,
             "AI": 3163224,
@@ -45155,6 +45532,7 @@
           "total_dep_delay": 569,
           "stranded_passengers": 1352,
           "avg_satisfaction": 81.5,
+          "recovery_score": 90.0,
           "airline_cash": {
             "6E": 3380000,
             "AI": 3142800,
@@ -45311,7 +45689,9 @@
     "model_label": "Qwen3 14B",
     "mode": "base",
     "title": "Economic Multi-Agent Control",
-    "reward": -24259,
+    "score": 21.8,
+    "reward": 21.8,
+    "raw_reward": -24259,
     "summary": {
       "flights_total": 226,
       "flights_arrived": 149,
@@ -45319,6 +45699,7 @@
       "total_dep_delay": 7190,
       "stranded_passengers": 12440,
       "avg_satisfaction": 45.3,
+      "recovery_score": 21.8,
       "airline_cash": {
         "6E": 2620000,
         "AI": 2302400,
@@ -45341,6 +45722,7 @@
           "total_dep_delay": 980,
           "stranded_passengers": 0,
           "avg_satisfaction": 98.0,
+          "recovery_score": 94.0,
           "airline_cash": {
             "6E": 3600000,
             "AI": 3400000,
@@ -45486,6 +45868,7 @@
           "total_dep_delay": 1098,
           "stranded_passengers": 360,
           "avg_satisfaction": 94.9,
+          "recovery_score": 89.8,
           "airline_cash": {
             "6E": 3542353,
             "AI": 3335435,
@@ -45631,6 +46014,7 @@
           "total_dep_delay": 1291,
           "stranded_passengers": 857,
           "avg_satisfaction": 91.8,
+          "recovery_score": 85.5,
           "airline_cash": {
             "6E": 3484706,
             "AI": 3270871,
@@ -45776,6 +46160,7 @@
           "total_dep_delay": 1528,
           "stranded_passengers": 1423,
           "avg_satisfaction": 88.7,
+          "recovery_score": 81.3,
           "airline_cash": {
             "6E": 3427059,
             "AI": 3206306,
@@ -45921,6 +46306,7 @@
           "total_dep_delay": 1799,
           "stranded_passengers": 2039,
           "avg_satisfaction": 85.6,
+          "recovery_score": 77.0,
           "airline_cash": {
             "6E": 3369412,
             "AI": 3141741,
@@ -46066,6 +46452,7 @@
           "total_dep_delay": 2100,
           "stranded_passengers": 2694,
           "avg_satisfaction": 82.5,
+          "recovery_score": 72.8,
           "airline_cash": {
             "6E": 3311765,
             "AI": 3077176,
@@ -46217,6 +46604,7 @@
           "total_dep_delay": 2425,
           "stranded_passengers": 3384,
           "avg_satisfaction": 79.4,
+          "recovery_score": 68.5,
           "airline_cash": {
             "6E": 3254118,
             "AI": 3012612,
@@ -46368,6 +46756,7 @@
           "total_dep_delay": 2773,
           "stranded_passengers": 4103,
           "avg_satisfaction": 76.3,
+          "recovery_score": 64.3,
           "airline_cash": {
             "6E": 3196471,
             "AI": 2948047,
@@ -46519,6 +46908,7 @@
           "total_dep_delay": 3142,
           "stranded_passengers": 4849,
           "avg_satisfaction": 73.2,
+          "recovery_score": 60.0,
           "airline_cash": {
             "6E": 3138824,
             "AI": 2883482,
@@ -46670,6 +47060,7 @@
           "total_dep_delay": 3529,
           "stranded_passengers": 5618,
           "avg_satisfaction": 70.1,
+          "recovery_score": 55.8,
           "airline_cash": {
             "6E": 3081176,
             "AI": 2818918,
@@ -46821,6 +47212,7 @@
           "total_dep_delay": 3934,
           "stranded_passengers": 6409,
           "avg_satisfaction": 67.0,
+          "recovery_score": 51.5,
           "airline_cash": {
             "6E": 3023529,
             "AI": 2754353,
@@ -46978,6 +47370,7 @@
           "total_dep_delay": 4356,
           "stranded_passengers": 7219,
           "avg_satisfaction": 63.9,
+          "recovery_score": 47.3,
           "airline_cash": {
             "6E": 2965882,
             "AI": 2689788,
@@ -47135,6 +47528,7 @@
           "total_dep_delay": 4793,
           "stranded_passengers": 8049,
           "avg_satisfaction": 60.8,
+          "recovery_score": 43.0,
           "airline_cash": {
             "6E": 2908235,
             "AI": 2625224,
@@ -47292,6 +47686,7 @@
           "total_dep_delay": 5245,
           "stranded_passengers": 8896,
           "avg_satisfaction": 57.7,
+          "recovery_score": 38.8,
           "airline_cash": {
             "6E": 2850588,
             "AI": 2560659,
@@ -47449,6 +47844,7 @@
           "total_dep_delay": 5712,
           "stranded_passengers": 9759,
           "avg_satisfaction": 54.6,
+          "recovery_score": 34.5,
           "airline_cash": {
             "6E": 2792941,
             "AI": 2496094,
@@ -47606,6 +48002,7 @@
           "total_dep_delay": 6192,
           "stranded_passengers": 10638,
           "avg_satisfaction": 51.5,
+          "recovery_score": 30.3,
           "airline_cash": {
             "6E": 2735294,
             "AI": 2431529,
@@ -47763,6 +48160,7 @@
           "total_dep_delay": 6684,
           "stranded_passengers": 11532,
           "avg_satisfaction": 48.4,
+          "recovery_score": 26.0,
           "airline_cash": {
             "6E": 2677647,
             "AI": 2366965,
@@ -47920,6 +48318,7 @@
           "total_dep_delay": 7190,
           "stranded_passengers": 12440,
           "avg_satisfaction": 45.3,
+          "recovery_score": 21.8,
           "airline_cash": {
             "6E": 2620000,
             "AI": 2302400,
@@ -48071,7 +48470,9 @@
     "model_label": "Qwen3 14B",
     "mode": "rl",
     "title": "Economic Multi-Agent Control",
-    "reward": 11234,
+    "score": 90.5,
+    "reward": 90.5,
+    "raw_reward": 11234,
     "summary": {
       "flights_total": 226,
       "flights_arrived": 208,
@@ -48079,6 +48480,7 @@
       "total_dep_delay": 564,
       "stranded_passengers": 1341,
       "avg_satisfaction": 80.8,
+      "recovery_score": 90.5,
       "airline_cash": {
         "6E": 3385400,
         "AI": 3148200,
@@ -48101,6 +48503,7 @@
           "total_dep_delay": 688,
           "stranded_passengers": 0,
           "avg_satisfaction": 86.0,
+          "recovery_score": 68.0,
           "airline_cash": {
             "6E": 3695400,
             "AI": 3495400,
@@ -48251,6 +48654,7 @@
           "total_dep_delay": 795,
           "stranded_passengers": 22,
           "avg_satisfaction": 85.4,
+          "recovery_score": 69.9,
           "airline_cash": {
             "6E": 3677165,
             "AI": 3474976,
@@ -48401,6 +48805,7 @@
           "total_dep_delay": 896,
           "stranded_passengers": 60,
           "avg_satisfaction": 84.8,
+          "recovery_score": 71.8,
           "airline_cash": {
             "6E": 3658929,
             "AI": 3454553,
@@ -48551,6 +48956,7 @@
           "total_dep_delay": 987,
           "stranded_passengers": 108,
           "avg_satisfaction": 84.3,
+          "recovery_score": 73.7,
           "airline_cash": {
             "6E": 3640694,
             "AI": 3434129,
@@ -48701,6 +49107,7 @@
           "total_dep_delay": 1065,
           "stranded_passengers": 165,
           "avg_satisfaction": 83.7,
+          "recovery_score": 75.6,
           "airline_cash": {
             "6E": 3622459,
             "AI": 3413706,
@@ -48851,6 +49258,7 @@
           "total_dep_delay": 1128,
           "stranded_passengers": 227,
           "avg_satisfaction": 83.1,
+          "recovery_score": 77.5,
           "airline_cash": {
             "6E": 3604224,
             "AI": 3393282,
@@ -49007,6 +49415,7 @@
           "total_dep_delay": 1172,
           "stranded_passengers": 296,
           "avg_satisfaction": 82.5,
+          "recovery_score": 79.3,
           "airline_cash": {
             "6E": 3585988,
             "AI": 3372859,
@@ -49163,6 +49572,7 @@
           "total_dep_delay": 1198,
           "stranded_passengers": 370,
           "avg_satisfaction": 82.0,
+          "recovery_score": 81.2,
           "airline_cash": {
             "6E": 3567753,
             "AI": 3352435,
@@ -49319,6 +49729,7 @@
           "total_dep_delay": 1204,
           "stranded_passengers": 450,
           "avg_satisfaction": 81.6,
+          "recovery_score": 83.1,
           "airline_cash": {
             "6E": 3549518,
             "AI": 3332012,
@@ -49475,6 +49886,7 @@
           "total_dep_delay": 1190,
           "stranded_passengers": 533,
           "avg_satisfaction": 81.6,
+          "recovery_score": 85.0,
           "airline_cash": {
             "6E": 3531282,
             "AI": 3311588,
@@ -49631,6 +50043,7 @@
           "total_dep_delay": 1157,
           "stranded_passengers": 621,
           "avg_satisfaction": 81.6,
+          "recovery_score": 86.9,
           "airline_cash": {
             "6E": 3513047,
             "AI": 3291165,
@@ -49793,6 +50206,7 @@
           "total_dep_delay": 1106,
           "stranded_passengers": 713,
           "avg_satisfaction": 81.6,
+          "recovery_score": 88.8,
           "airline_cash": {
             "6E": 3494812,
             "AI": 3270741,
@@ -49955,6 +50369,7 @@
           "total_dep_delay": 1039,
           "stranded_passengers": 809,
           "avg_satisfaction": 81.6,
+          "recovery_score": 90.5,
           "airline_cash": {
             "6E": 3476576,
             "AI": 3250318,
@@ -50117,6 +50532,7 @@
           "total_dep_delay": 959,
           "stranded_passengers": 909,
           "avg_satisfaction": 81.4,
+          "recovery_score": 90.5,
           "airline_cash": {
             "6E": 3458341,
             "AI": 3229894,
@@ -50279,6 +50695,7 @@
           "total_dep_delay": 868,
           "stranded_passengers": 1012,
           "avg_satisfaction": 81.3,
+          "recovery_score": 90.5,
           "airline_cash": {
             "6E": 3440106,
             "AI": 3209471,
@@ -50441,6 +50858,7 @@
           "total_dep_delay": 770,
           "stranded_passengers": 1118,
           "avg_satisfaction": 81.1,
+          "recovery_score": 90.5,
           "airline_cash": {
             "6E": 3421871,
             "AI": 3189047,
@@ -50603,6 +51021,7 @@
           "total_dep_delay": 667,
           "stranded_passengers": 1228,
           "avg_satisfaction": 81.0,
+          "recovery_score": 90.5,
           "airline_cash": {
             "6E": 3403635,
             "AI": 3168624,
@@ -50765,6 +51184,7 @@
           "total_dep_delay": 564,
           "stranded_passengers": 1341,
           "avg_satisfaction": 80.8,
+          "recovery_score": 90.5,
           "airline_cash": {
             "6E": 3385400,
             "AI": 3148200,
@@ -50921,7 +51341,9 @@
     "model_label": "Gemma 4 31B",
     "mode": "base",
     "title": "Economic Multi-Agent Control",
-    "reward": -24182,
+    "score": 22.4,
+    "reward": 22.4,
+    "raw_reward": -24182,
     "summary": {
       "flights_total": 226,
       "flights_arrived": 149,
@@ -50929,6 +51351,7 @@
       "total_dep_delay": 7143,
       "stranded_passengers": 12359,
       "avg_satisfaction": 45.0,
+      "recovery_score": 22.4,
       "airline_cash": {
         "6E": 2620000,
         "AI": 2302400,
@@ -50951,6 +51374,7 @@
           "total_dep_delay": 974,
           "stranded_passengers": 0,
           "avg_satisfaction": 98.0,
+          "recovery_score": 94.0,
           "airline_cash": {
             "6E": 3600000,
             "AI": 3400000,
@@ -51096,6 +51520,7 @@
           "total_dep_delay": 1091,
           "stranded_passengers": 358,
           "avg_satisfaction": 94.9,
+          "recovery_score": 89.8,
           "airline_cash": {
             "6E": 3542353,
             "AI": 3335435,
@@ -51241,6 +51666,7 @@
           "total_dep_delay": 1282,
           "stranded_passengers": 852,
           "avg_satisfaction": 91.8,
+          "recovery_score": 85.6,
           "airline_cash": {
             "6E": 3484706,
             "AI": 3270871,
@@ -51386,6 +51812,7 @@
           "total_dep_delay": 1518,
           "stranded_passengers": 1414,
           "avg_satisfaction": 88.6,
+          "recovery_score": 81.4,
           "airline_cash": {
             "6E": 3427059,
             "AI": 3206306,
@@ -51531,6 +51958,7 @@
           "total_dep_delay": 1788,
           "stranded_passengers": 2025,
           "avg_satisfaction": 85.5,
+          "recovery_score": 77.2,
           "airline_cash": {
             "6E": 3369412,
             "AI": 3141741,
@@ -51676,6 +52104,7 @@
           "total_dep_delay": 2086,
           "stranded_passengers": 2677,
           "avg_satisfaction": 82.4,
+          "recovery_score": 72.9,
           "airline_cash": {
             "6E": 3311765,
             "AI": 3077176,
@@ -51827,6 +52256,7 @@
           "total_dep_delay": 2410,
           "stranded_passengers": 3362,
           "avg_satisfaction": 79.3,
+          "recovery_score": 68.7,
           "airline_cash": {
             "6E": 3254118,
             "AI": 3012612,
@@ -51978,6 +52408,7 @@
           "total_dep_delay": 2755,
           "stranded_passengers": 4077,
           "avg_satisfaction": 76.2,
+          "recovery_score": 64.5,
           "airline_cash": {
             "6E": 3196471,
             "AI": 2948047,
@@ -52129,6 +52560,7 @@
           "total_dep_delay": 3122,
           "stranded_passengers": 4817,
           "avg_satisfaction": 73.1,
+          "recovery_score": 60.3,
           "airline_cash": {
             "6E": 3138824,
             "AI": 2883482,
@@ -52280,6 +52712,7 @@
           "total_dep_delay": 3507,
           "stranded_passengers": 5581,
           "avg_satisfaction": 69.9,
+          "recovery_score": 56.1,
           "airline_cash": {
             "6E": 3081176,
             "AI": 2818918,
@@ -52431,6 +52864,7 @@
           "total_dep_delay": 3909,
           "stranded_passengers": 6367,
           "avg_satisfaction": 66.8,
+          "recovery_score": 51.9,
           "airline_cash": {
             "6E": 3023529,
             "AI": 2754353,
@@ -52588,6 +53022,7 @@
           "total_dep_delay": 4328,
           "stranded_passengers": 7172,
           "avg_satisfaction": 63.7,
+          "recovery_score": 47.7,
           "airline_cash": {
             "6E": 2965882,
             "AI": 2689788,
@@ -52745,6 +53180,7 @@
           "total_dep_delay": 4763,
           "stranded_passengers": 7996,
           "avg_satisfaction": 60.6,
+          "recovery_score": 43.5,
           "airline_cash": {
             "6E": 2908235,
             "AI": 2625224,
@@ -52902,6 +53338,7 @@
           "total_dep_delay": 5212,
           "stranded_passengers": 8838,
           "avg_satisfaction": 57.5,
+          "recovery_score": 39.2,
           "airline_cash": {
             "6E": 2850588,
             "AI": 2560659,
@@ -53059,6 +53496,7 @@
           "total_dep_delay": 5675,
           "stranded_passengers": 9696,
           "avg_satisfaction": 54.4,
+          "recovery_score": 35.0,
           "airline_cash": {
             "6E": 2792941,
             "AI": 2496094,
@@ -53216,6 +53654,7 @@
           "total_dep_delay": 6152,
           "stranded_passengers": 10569,
           "avg_satisfaction": 51.2,
+          "recovery_score": 30.8,
           "airline_cash": {
             "6E": 2735294,
             "AI": 2431529,
@@ -53373,6 +53812,7 @@
           "total_dep_delay": 6641,
           "stranded_passengers": 11457,
           "avg_satisfaction": 48.1,
+          "recovery_score": 26.6,
           "airline_cash": {
             "6E": 2677647,
             "AI": 2366965,
@@ -53530,6 +53970,7 @@
           "total_dep_delay": 7143,
           "stranded_passengers": 12359,
           "avg_satisfaction": 45.0,
+          "recovery_score": 22.4,
           "airline_cash": {
             "6E": 2620000,
             "AI": 2302400,
@@ -53681,7 +54122,9 @@
     "model_label": "Gemma 4 31B",
     "mode": "rl",
     "title": "Economic Multi-Agent Control",
-    "reward": 11179,
+    "score": 90.3,
+    "reward": 90.3,
+    "raw_reward": 11179,
     "summary": {
       "flights_total": 226,
       "flights_arrived": 208,
@@ -53689,6 +54132,7 @@
       "total_dep_delay": 566,
       "stranded_passengers": 1347,
       "avg_satisfaction": 81.2,
+      "recovery_score": 90.3,
       "airline_cash": {
         "6E": 3382700,
         "AI": 3145500,
@@ -53711,6 +54155,7 @@
           "total_dep_delay": 691,
           "stranded_passengers": 0,
           "avg_satisfaction": 86.0,
+          "recovery_score": 68.0,
           "airline_cash": {
             "6E": 3692700,
             "AI": 3492700,
@@ -53861,6 +54306,7 @@
           "total_dep_delay": 798,
           "stranded_passengers": 22,
           "avg_satisfaction": 85.5,
+          "recovery_score": 69.9,
           "airline_cash": {
             "6E": 3674465,
             "AI": 3472276,
@@ -54011,6 +54457,7 @@
           "total_dep_delay": 900,
           "stranded_passengers": 60,
           "avg_satisfaction": 85.0,
+          "recovery_score": 71.7,
           "airline_cash": {
             "6E": 3656229,
             "AI": 3451853,
@@ -54161,6 +54608,7 @@
           "total_dep_delay": 991,
           "stranded_passengers": 109,
           "avg_satisfaction": 84.4,
+          "recovery_score": 73.6,
           "airline_cash": {
             "6E": 3637994,
             "AI": 3431429,
@@ -54311,6 +54759,7 @@
           "total_dep_delay": 1070,
           "stranded_passengers": 165,
           "avg_satisfaction": 83.9,
+          "recovery_score": 75.5,
           "airline_cash": {
             "6E": 3619759,
             "AI": 3411006,
@@ -54461,6 +54910,7 @@
           "total_dep_delay": 1132,
           "stranded_passengers": 228,
           "avg_satisfaction": 83.4,
+          "recovery_score": 77.4,
           "airline_cash": {
             "6E": 3601524,
             "AI": 3390582,
@@ -54617,6 +55067,7 @@
           "total_dep_delay": 1177,
           "stranded_passengers": 298,
           "avg_satisfaction": 82.9,
+          "recovery_score": 79.2,
           "airline_cash": {
             "6E": 3583288,
             "AI": 3370159,
@@ -54773,6 +55224,7 @@
           "total_dep_delay": 1203,
           "stranded_passengers": 372,
           "avg_satisfaction": 82.3,
+          "recovery_score": 81.1,
           "airline_cash": {
             "6E": 3565053,
             "AI": 3349735,
@@ -54929,6 +55381,7 @@
           "total_dep_delay": 1209,
           "stranded_passengers": 452,
           "avg_satisfaction": 82.0,
+          "recovery_score": 83.0,
           "airline_cash": {
             "6E": 3546818,
             "AI": 3329312,
@@ -55085,6 +55538,7 @@
           "total_dep_delay": 1195,
           "stranded_passengers": 536,
           "avg_satisfaction": 82.0,
+          "recovery_score": 84.9,
           "airline_cash": {
             "6E": 3528582,
             "AI": 3308888,
@@ -55241,6 +55695,7 @@
           "total_dep_delay": 1162,
           "stranded_passengers": 624,
           "avg_satisfaction": 82.0,
+          "recovery_score": 86.7,
           "airline_cash": {
             "6E": 3510347,
             "AI": 3288465,
@@ -55403,6 +55858,7 @@
           "total_dep_delay": 1111,
           "stranded_passengers": 717,
           "avg_satisfaction": 82.0,
+          "recovery_score": 88.6,
           "airline_cash": {
             "6E": 3492112,
             "AI": 3268041,
@@ -55565,6 +56021,7 @@
           "total_dep_delay": 1044,
           "stranded_passengers": 813,
           "avg_satisfaction": 82.0,
+          "recovery_score": 90.3,
           "airline_cash": {
             "6E": 3473876,
             "AI": 3247618,
@@ -55727,6 +56184,7 @@
           "total_dep_delay": 963,
           "stranded_passengers": 913,
           "avg_satisfaction": 81.8,
+          "recovery_score": 90.3,
           "airline_cash": {
             "6E": 3455641,
             "AI": 3227194,
@@ -55889,6 +56347,7 @@
           "total_dep_delay": 872,
           "stranded_passengers": 1016,
           "avg_satisfaction": 81.7,
+          "recovery_score": 90.3,
           "airline_cash": {
             "6E": 3437406,
             "AI": 3206771,
@@ -56051,6 +56510,7 @@
           "total_dep_delay": 773,
           "stranded_passengers": 1123,
           "avg_satisfaction": 81.5,
+          "recovery_score": 90.3,
           "airline_cash": {
             "6E": 3419171,
             "AI": 3186347,
@@ -56213,6 +56673,7 @@
           "total_dep_delay": 670,
           "stranded_passengers": 1234,
           "avg_satisfaction": 81.4,
+          "recovery_score": 90.3,
           "airline_cash": {
             "6E": 3400935,
             "AI": 3165924,
@@ -56375,6 +56836,7 @@
           "total_dep_delay": 566,
           "stranded_passengers": 1347,
           "avg_satisfaction": 81.2,
+          "recovery_score": 90.3,
           "airline_cash": {
             "6E": 3382700,
             "AI": 3145500,
@@ -56531,7 +56993,9 @@
     "model_label": "GPT-OSS 120B",
     "mode": "base",
     "title": "Economic Multi-Agent Control",
-    "reward": -24067,
+    "score": 23.2,
+    "reward": 23.2,
+    "raw_reward": -24067,
     "summary": {
       "flights_total": 226,
       "flights_arrived": 149,
@@ -56539,6 +57003,7 @@
       "total_dep_delay": 7074,
       "stranded_passengers": 12239,
       "avg_satisfaction": 44.6,
+      "recovery_score": 23.2,
       "airline_cash": {
         "6E": 2620000,
         "AI": 2302400,
@@ -56561,6 +57026,7 @@
           "total_dep_delay": 965,
           "stranded_passengers": 0,
           "avg_satisfaction": 98.0,
+          "recovery_score": 94.0,
           "airline_cash": {
             "6E": 3600000,
             "AI": 3400000,
@@ -56706,6 +57172,7 @@
           "total_dep_delay": 1080,
           "stranded_passengers": 355,
           "avg_satisfaction": 94.9,
+          "recovery_score": 89.8,
           "airline_cash": {
             "6E": 3542353,
             "AI": 3335435,
@@ -56851,6 +57318,7 @@
           "total_dep_delay": 1270,
           "stranded_passengers": 843,
           "avg_satisfaction": 91.7,
+          "recovery_score": 85.7,
           "airline_cash": {
             "6E": 3484706,
             "AI": 3270871,
@@ -56996,6 +57464,7 @@
           "total_dep_delay": 1503,
           "stranded_passengers": 1400,
           "avg_satisfaction": 88.6,
+          "recovery_score": 81.5,
           "airline_cash": {
             "6E": 3427059,
             "AI": 3206306,
@@ -57141,6 +57610,7 @@
           "total_dep_delay": 1771,
           "stranded_passengers": 2006,
           "avg_satisfaction": 85.4,
+          "recovery_score": 77.3,
           "airline_cash": {
             "6E": 3369412,
             "AI": 3141741,
@@ -57286,6 +57756,7 @@
           "total_dep_delay": 2066,
           "stranded_passengers": 2651,
           "avg_satisfaction": 82.3,
+          "recovery_score": 73.2,
           "airline_cash": {
             "6E": 3311765,
             "AI": 3077176,
@@ -57437,6 +57908,7 @@
           "total_dep_delay": 2386,
           "stranded_passengers": 3329,
           "avg_satisfaction": 79.2,
+          "recovery_score": 69.0,
           "airline_cash": {
             "6E": 3254118,
             "AI": 3012612,
@@ -57588,6 +58060,7 @@
           "total_dep_delay": 2729,
           "stranded_passengers": 4037,
           "avg_satisfaction": 76.0,
+          "recovery_score": 64.8,
           "airline_cash": {
             "6E": 3196471,
             "AI": 2948047,
@@ -57739,6 +58212,7 @@
           "total_dep_delay": 3091,
           "stranded_passengers": 4770,
           "avg_satisfaction": 72.9,
+          "recovery_score": 60.7,
           "airline_cash": {
             "6E": 3138824,
             "AI": 2883482,
@@ -57890,6 +58364,7 @@
           "total_dep_delay": 3473,
           "stranded_passengers": 5527,
           "avg_satisfaction": 69.7,
+          "recovery_score": 56.5,
           "airline_cash": {
             "6E": 3081176,
             "AI": 2818918,
@@ -58041,6 +58516,7 @@
           "total_dep_delay": 3871,
           "stranded_passengers": 6305,
           "avg_satisfaction": 66.6,
+          "recovery_score": 52.4,
           "airline_cash": {
             "6E": 3023529,
             "AI": 2754353,
@@ -58198,6 +58674,7 @@
           "total_dep_delay": 4286,
           "stranded_passengers": 7103,
           "avg_satisfaction": 63.4,
+          "recovery_score": 48.2,
           "airline_cash": {
             "6E": 2965882,
             "AI": 2689788,
@@ -58355,6 +58832,7 @@
           "total_dep_delay": 4716,
           "stranded_passengers": 7919,
           "avg_satisfaction": 60.3,
+          "recovery_score": 44.0,
           "airline_cash": {
             "6E": 2908235,
             "AI": 2625224,
@@ -58512,6 +58990,7 @@
           "total_dep_delay": 5161,
           "stranded_passengers": 8752,
           "avg_satisfaction": 57.2,
+          "recovery_score": 39.9,
           "airline_cash": {
             "6E": 2850588,
             "AI": 2560659,
@@ -58669,6 +59148,7 @@
           "total_dep_delay": 5620,
           "stranded_passengers": 9602,
           "avg_satisfaction": 54.0,
+          "recovery_score": 35.7,
           "airline_cash": {
             "6E": 2792941,
             "AI": 2496094,
@@ -58826,6 +59306,7 @@
           "total_dep_delay": 6092,
           "stranded_passengers": 10466,
           "avg_satisfaction": 50.9,
+          "recovery_score": 31.5,
           "airline_cash": {
             "6E": 2735294,
             "AI": 2431529,
@@ -58983,6 +59464,7 @@
           "total_dep_delay": 6577,
           "stranded_passengers": 11346,
           "avg_satisfaction": 47.7,
+          "recovery_score": 27.4,
           "airline_cash": {
             "6E": 2677647,
             "AI": 2366965,
@@ -59140,6 +59622,7 @@
           "total_dep_delay": 7074,
           "stranded_passengers": 12239,
           "avg_satisfaction": 44.6,
+          "recovery_score": 23.2,
           "airline_cash": {
             "6E": 2620000,
             "AI": 2302400,
@@ -59291,7 +59774,9 @@
     "model_label": "GPT-OSS 120B",
     "mode": "rl",
     "title": "Economic Multi-Agent Control",
-    "reward": 11142,
+    "score": 90.1,
+    "reward": 90.1,
+    "raw_reward": 11142,
     "summary": {
       "flights_total": 226,
       "flights_arrived": 208,
@@ -59299,6 +59784,7 @@
       "total_dep_delay": 568,
       "stranded_passengers": 1350,
       "avg_satisfaction": 81.5,
+      "recovery_score": 90.1,
       "airline_cash": {
         "6E": 3380900,
         "AI": 3143700,
@@ -59321,6 +59807,7 @@
           "total_dep_delay": 693,
           "stranded_passengers": 0,
           "avg_satisfaction": 86.0,
+          "recovery_score": 68.0,
           "airline_cash": {
             "6E": 3690900,
             "AI": 3490900,
@@ -59471,6 +59958,7 @@
           "total_dep_delay": 801,
           "stranded_passengers": 22,
           "avg_satisfaction": 85.5,
+          "recovery_score": 69.9,
           "airline_cash": {
             "6E": 3672665,
             "AI": 3470476,
@@ -59621,6 +60109,7 @@
           "total_dep_delay": 903,
           "stranded_passengers": 61,
           "avg_satisfaction": 85.0,
+          "recovery_score": 71.7,
           "airline_cash": {
             "6E": 3654429,
             "AI": 3450053,
@@ -59771,6 +60260,7 @@
           "total_dep_delay": 995,
           "stranded_passengers": 109,
           "avg_satisfaction": 84.5,
+          "recovery_score": 73.6,
           "airline_cash": {
             "6E": 3636194,
             "AI": 3429629,
@@ -59921,6 +60411,7 @@
           "total_dep_delay": 1073,
           "stranded_passengers": 166,
           "avg_satisfaction": 84.0,
+          "recovery_score": 75.4,
           "airline_cash": {
             "6E": 3617959,
             "AI": 3409206,
@@ -60071,6 +60562,7 @@
           "total_dep_delay": 1136,
           "stranded_passengers": 229,
           "avg_satisfaction": 83.5,
+          "recovery_score": 77.3,
           "airline_cash": {
             "6E": 3599724,
             "AI": 3388782,
@@ -60227,6 +60719,7 @@
           "total_dep_delay": 1182,
           "stranded_passengers": 298,
           "avg_satisfaction": 83.0,
+          "recovery_score": 79.1,
           "airline_cash": {
             "6E": 3581488,
             "AI": 3368359,
@@ -60383,6 +60876,7 @@
           "total_dep_delay": 1207,
           "stranded_passengers": 373,
           "avg_satisfaction": 82.5,
+          "recovery_score": 81.0,
           "airline_cash": {
             "6E": 3563253,
             "AI": 3347935,
@@ -60539,6 +61033,7 @@
           "total_dep_delay": 1213,
           "stranded_passengers": 453,
           "avg_satisfaction": 82.2,
+          "recovery_score": 82.9,
           "airline_cash": {
             "6E": 3545018,
             "AI": 3327512,
@@ -60695,6 +61190,7 @@
           "total_dep_delay": 1199,
           "stranded_passengers": 537,
           "avg_satisfaction": 82.2,
+          "recovery_score": 84.7,
           "airline_cash": {
             "6E": 3526782,
             "AI": 3307088,
@@ -60851,6 +61347,7 @@
           "total_dep_delay": 1166,
           "stranded_passengers": 625,
           "avg_satisfaction": 82.2,
+          "recovery_score": 86.6,
           "airline_cash": {
             "6E": 3508547,
             "AI": 3286665,
@@ -61013,6 +61510,7 @@
           "total_dep_delay": 1115,
           "stranded_passengers": 718,
           "avg_satisfaction": 82.2,
+          "recovery_score": 88.4,
           "airline_cash": {
             "6E": 3490312,
             "AI": 3266241,
@@ -61175,6 +61673,7 @@
           "total_dep_delay": 1047,
           "stranded_passengers": 815,
           "avg_satisfaction": 82.2,
+          "recovery_score": 90.1,
           "airline_cash": {
             "6E": 3472076,
             "AI": 3245818,
@@ -61337,6 +61836,7 @@
           "total_dep_delay": 967,
           "stranded_passengers": 915,
           "avg_satisfaction": 82.0,
+          "recovery_score": 90.1,
           "airline_cash": {
             "6E": 3453841,
             "AI": 3225394,
@@ -61499,6 +61999,7 @@
           "total_dep_delay": 875,
           "stranded_passengers": 1019,
           "avg_satisfaction": 81.9,
+          "recovery_score": 90.1,
           "airline_cash": {
             "6E": 3435606,
             "AI": 3204971,
@@ -61661,6 +62162,7 @@
           "total_dep_delay": 776,
           "stranded_passengers": 1126,
           "avg_satisfaction": 81.7,
+          "recovery_score": 90.1,
           "airline_cash": {
             "6E": 3417371,
             "AI": 3184547,
@@ -61823,6 +62325,7 @@
           "total_dep_delay": 673,
           "stranded_passengers": 1236,
           "avg_satisfaction": 81.6,
+          "recovery_score": 90.1,
           "airline_cash": {
             "6E": 3399135,
             "AI": 3164124,
@@ -61985,6 +62488,7 @@
           "total_dep_delay": 568,
           "stranded_passengers": 1350,
           "avg_satisfaction": 81.5,
+          "recovery_score": 90.1,
           "airline_cash": {
             "6E": 3380900,
             "AI": 3143700,
@@ -62141,7 +62645,9 @@
     "model_label": "Qwen2.5 Coder 7B",
     "mode": "base",
     "title": "IndiGo Crisis Replay",
-    "reward": -73123,
+    "score": 12.0,
+    "reward": 12.0,
+    "raw_reward": -73123,
     "summary": {
       "flights_total": 420,
       "flights_arrived": 277,
@@ -62149,6 +62655,7 @@
       "total_dep_delay": 33486,
       "stranded_passengers": 49175,
       "avg_satisfaction": 22.4,
+      "recovery_score": 12.0,
       "airline_cash": {
         "6E": 1100000,
         "AI": 600000,
@@ -62171,6 +62678,7 @@
           "total_dep_delay": 4566,
           "stranded_passengers": 0,
           "avg_satisfaction": 98.0,
+          "recovery_score": 94.0,
           "airline_cash": {
             "6E": 3600000,
             "AI": 3400000,
@@ -62328,6 +62836,7 @@
           "total_dep_delay": 5114,
           "stranded_passengers": 1425,
           "avg_satisfaction": 93.6,
+          "recovery_score": 89.2,
           "airline_cash": {
             "6E": 3452941,
             "AI": 3235294,
@@ -62485,6 +62994,7 @@
           "total_dep_delay": 6012,
           "stranded_passengers": 3388,
           "avg_satisfaction": 89.1,
+          "recovery_score": 84.4,
           "airline_cash": {
             "6E": 3305882,
             "AI": 3070588,
@@ -62642,6 +63152,7 @@
           "total_dep_delay": 7116,
           "stranded_passengers": 5625,
           "avg_satisfaction": 84.7,
+          "recovery_score": 79.5,
           "airline_cash": {
             "6E": 3158824,
             "AI": 2905882,
@@ -62799,6 +63310,7 @@
           "total_dep_delay": 8381,
           "stranded_passengers": 8059,
           "avg_satisfaction": 80.2,
+          "recovery_score": 74.7,
           "airline_cash": {
             "6E": 3011765,
             "AI": 2741176,
@@ -62956,6 +63468,7 @@
           "total_dep_delay": 9780,
           "stranded_passengers": 10651,
           "avg_satisfaction": 75.8,
+          "recovery_score": 69.9,
           "airline_cash": {
             "6E": 2864706,
             "AI": 2576471,
@@ -63119,6 +63632,7 @@
           "total_dep_delay": 11296,
           "stranded_passengers": 13377,
           "avg_satisfaction": 71.3,
+          "recovery_score": 65.1,
           "airline_cash": {
             "6E": 2717647,
             "AI": 2411765,
@@ -63282,6 +63796,7 @@
           "total_dep_delay": 12917,
           "stranded_passengers": 16220,
           "avg_satisfaction": 66.9,
+          "recovery_score": 60.2,
           "airline_cash": {
             "6E": 2570588,
             "AI": 2247059,
@@ -63445,6 +63960,7 @@
           "total_dep_delay": 14633,
           "stranded_passengers": 19167,
           "avg_satisfaction": 62.4,
+          "recovery_score": 55.4,
           "airline_cash": {
             "6E": 2423529,
             "AI": 2082353,
@@ -63608,6 +64124,7 @@
           "total_dep_delay": 16438,
           "stranded_passengers": 22207,
           "avg_satisfaction": 58.0,
+          "recovery_score": 50.6,
           "airline_cash": {
             "6E": 2276471,
             "AI": 1917647,
@@ -63771,6 +64288,7 @@
           "total_dep_delay": 18325,
           "stranded_passengers": 25333,
           "avg_satisfaction": 53.5,
+          "recovery_score": 45.8,
           "airline_cash": {
             "6E": 2129412,
             "AI": 1752941,
@@ -63940,6 +64458,7 @@
           "total_dep_delay": 20289,
           "stranded_passengers": 28538,
           "avg_satisfaction": 49.1,
+          "recovery_score": 40.9,
           "airline_cash": {
             "6E": 1982353,
             "AI": 1588235,
@@ -64109,6 +64628,7 @@
           "total_dep_delay": 22325,
           "stranded_passengers": 31817,
           "avg_satisfaction": 44.6,
+          "recovery_score": 36.1,
           "airline_cash": {
             "6E": 1835294,
             "AI": 1423529,
@@ -64278,6 +64798,7 @@
           "total_dep_delay": 24431,
           "stranded_passengers": 35165,
           "avg_satisfaction": 40.2,
+          "recovery_score": 31.3,
           "airline_cash": {
             "6E": 1688235,
             "AI": 1258824,
@@ -64447,6 +64968,7 @@
           "total_dep_delay": 26603,
           "stranded_passengers": 38578,
           "avg_satisfaction": 35.7,
+          "recovery_score": 26.5,
           "airline_cash": {
             "6E": 1541176,
             "AI": 1094118,
@@ -64616,6 +65138,7 @@
           "total_dep_delay": 28838,
           "stranded_passengers": 42053,
           "avg_satisfaction": 31.3,
+          "recovery_score": 21.6,
           "airline_cash": {
             "6E": 1394118,
             "AI": 929412,
@@ -64785,6 +65308,7 @@
           "total_dep_delay": 31133,
           "stranded_passengers": 45586,
           "avg_satisfaction": 26.8,
+          "recovery_score": 16.8,
           "airline_cash": {
             "6E": 1247059,
             "AI": 764706,
@@ -64954,6 +65478,7 @@
           "total_dep_delay": 33486,
           "stranded_passengers": 49175,
           "avg_satisfaction": 22.4,
+          "recovery_score": 12.0,
           "airline_cash": {
             "6E": 1100000,
             "AI": 600000,
@@ -65117,7 +65642,9 @@
     "model_label": "Qwen2.5 Coder 7B",
     "mode": "rl",
     "title": "IndiGo Crisis Replay",
-    "reward": 12978,
+    "score": 82.0,
+    "reward": 82.0,
+    "raw_reward": 12978,
     "summary": {
       "flights_total": 420,
       "flights_arrived": 386,
@@ -65125,6 +65652,7 @@
       "total_dep_delay": 3327,
       "stranded_passengers": 8036,
       "avg_satisfaction": 70.8,
+      "recovery_score": 82.0,
       "airline_cash": {
         "6E": 2930000,
         "AI": 2638800,
@@ -65147,6 +65675,7 @@
           "total_dep_delay": 4057,
           "stranded_passengers": 0,
           "avg_satisfaction": 86.0,
+          "recovery_score": 68.0,
           "airline_cash": {
             "6E": 3690000,
             "AI": 3490000,
@@ -65309,6 +65838,7 @@
           "total_dep_delay": 4690,
           "stranded_passengers": 132,
           "avg_satisfaction": 84.1,
+          "recovery_score": 69.2,
           "airline_cash": {
             "6E": 3645294,
             "AI": 3439929,
@@ -65471,6 +66001,7 @@
           "total_dep_delay": 5286,
           "stranded_passengers": 361,
           "avg_satisfaction": 82.2,
+          "recovery_score": 70.4,
           "airline_cash": {
             "6E": 3600588,
             "AI": 3389859,
@@ -65633,6 +66164,7 @@
           "total_dep_delay": 5824,
           "stranded_passengers": 650,
           "avg_satisfaction": 80.3,
+          "recovery_score": 71.5,
           "airline_cash": {
             "6E": 3555882,
             "AI": 3339788,
@@ -65795,6 +66327,7 @@
           "total_dep_delay": 6285,
           "stranded_passengers": 986,
           "avg_satisfaction": 78.4,
+          "recovery_score": 72.7,
           "airline_cash": {
             "6E": 3511176,
             "AI": 3289718,
@@ -65957,6 +66490,7 @@
           "total_dep_delay": 6653,
           "stranded_passengers": 1363,
           "avg_satisfaction": 76.5,
+          "recovery_score": 73.9,
           "airline_cash": {
             "6E": 3466471,
             "AI": 3239647,
@@ -66125,6 +66659,7 @@
           "total_dep_delay": 6917,
           "stranded_passengers": 1775,
           "avg_satisfaction": 74.6,
+          "recovery_score": 75.1,
           "airline_cash": {
             "6E": 3421765,
             "AI": 3189576,
@@ -66293,6 +66828,7 @@
           "total_dep_delay": 7068,
           "stranded_passengers": 2220,
           "avg_satisfaction": 72.7,
+          "recovery_score": 76.2,
           "airline_cash": {
             "6E": 3377059,
             "AI": 3139506,
@@ -66461,6 +66997,7 @@
           "total_dep_delay": 7103,
           "stranded_passengers": 2694,
           "avg_satisfaction": 71.5,
+          "recovery_score": 77.4,
           "airline_cash": {
             "6E": 3332353,
             "AI": 3089435,
@@ -66629,6 +67166,7 @@
           "total_dep_delay": 7021,
           "stranded_passengers": 3196,
           "avg_satisfaction": 71.5,
+          "recovery_score": 78.6,
           "airline_cash": {
             "6E": 3287647,
             "AI": 3039365,
@@ -66797,6 +67335,7 @@
           "total_dep_delay": 6826,
           "stranded_passengers": 3723,
           "avg_satisfaction": 71.5,
+          "recovery_score": 79.8,
           "airline_cash": {
             "6E": 3242941,
             "AI": 2989294,
@@ -66971,6 +67510,7 @@
           "total_dep_delay": 6526,
           "stranded_passengers": 4275,
           "avg_satisfaction": 71.5,
+          "recovery_score": 80.9,
           "airline_cash": {
             "6E": 3198235,
             "AI": 2939224,
@@ -67145,6 +67685,7 @@
           "total_dep_delay": 6133,
           "stranded_passengers": 4850,
           "avg_satisfaction": 71.5,
+          "recovery_score": 82.0,
           "airline_cash": {
             "6E": 3153529,
             "AI": 2889153,
@@ -67319,6 +67860,7 @@
           "total_dep_delay": 5659,
           "stranded_passengers": 5446,
           "avg_satisfaction": 71.3,
+          "recovery_score": 82.0,
           "airline_cash": {
             "6E": 3108824,
             "AI": 2839082,
@@ -67493,6 +68035,7 @@
           "total_dep_delay": 5123,
           "stranded_passengers": 6064,
           "avg_satisfaction": 71.2,
+          "recovery_score": 82.0,
           "airline_cash": {
             "6E": 3064118,
             "AI": 2789012,
@@ -67667,6 +68210,7 @@
           "total_dep_delay": 4543,
           "stranded_passengers": 6702,
           "avg_satisfaction": 71.0,
+          "recovery_score": 82.0,
           "airline_cash": {
             "6E": 3019412,
             "AI": 2738941,
@@ -67841,6 +68385,7 @@
           "total_dep_delay": 3937,
           "stranded_passengers": 7360,
           "avg_satisfaction": 70.9,
+          "recovery_score": 82.0,
           "airline_cash": {
             "6E": 2974706,
             "AI": 2688871,
@@ -68015,6 +68560,7 @@
           "total_dep_delay": 3327,
           "stranded_passengers": 8036,
           "avg_satisfaction": 70.8,
+          "recovery_score": 82.0,
           "airline_cash": {
             "6E": 2930000,
             "AI": 2638800,
@@ -68183,7 +68729,9 @@
     "model_label": "Qwen3 14B",
     "mode": "base",
     "title": "IndiGo Crisis Replay",
-    "reward": -72778,
+    "score": 12.8,
+    "reward": 12.8,
+    "raw_reward": -72778,
     "summary": {
       "flights_total": 420,
       "flights_arrived": 277,
@@ -68191,6 +68739,7 @@
       "total_dep_delay": 33165,
       "stranded_passengers": 48704,
       "avg_satisfaction": 22.1,
+      "recovery_score": 12.8,
       "airline_cash": {
         "6E": 1100000,
         "AI": 600000,
@@ -68213,6 +68762,7 @@
           "total_dep_delay": 4522,
           "stranded_passengers": 0,
           "avg_satisfaction": 98.0,
+          "recovery_score": 94.0,
           "airline_cash": {
             "6E": 3600000,
             "AI": 3400000,
@@ -68370,6 +68920,7 @@
           "total_dep_delay": 5065,
           "stranded_passengers": 1411,
           "avg_satisfaction": 93.5,
+          "recovery_score": 89.2,
           "airline_cash": {
             "6E": 3452941,
             "AI": 3235294,
@@ -68527,6 +69078,7 @@
           "total_dep_delay": 5954,
           "stranded_passengers": 3356,
           "avg_satisfaction": 89.1,
+          "recovery_score": 84.4,
           "airline_cash": {
             "6E": 3305882,
             "AI": 3070588,
@@ -68684,6 +69236,7 @@
           "total_dep_delay": 7048,
           "stranded_passengers": 5571,
           "avg_satisfaction": 84.6,
+          "recovery_score": 79.7,
           "airline_cash": {
             "6E": 3158824,
             "AI": 2905882,
@@ -68841,6 +69394,7 @@
           "total_dep_delay": 8301,
           "stranded_passengers": 7981,
           "avg_satisfaction": 80.1,
+          "recovery_score": 74.9,
           "airline_cash": {
             "6E": 3011765,
             "AI": 2741176,
@@ -68998,6 +69552,7 @@
           "total_dep_delay": 9686,
           "stranded_passengers": 10549,
           "avg_satisfaction": 75.7,
+          "recovery_score": 70.1,
           "airline_cash": {
             "6E": 2864706,
             "AI": 2576471,
@@ -69161,6 +69716,7 @@
           "total_dep_delay": 11187,
           "stranded_passengers": 13249,
           "avg_satisfaction": 71.2,
+          "recovery_score": 65.3,
           "airline_cash": {
             "6E": 2717647,
             "AI": 2411765,
@@ -69324,6 +69880,7 @@
           "total_dep_delay": 12793,
           "stranded_passengers": 16065,
           "avg_satisfaction": 66.7,
+          "recovery_score": 60.6,
           "airline_cash": {
             "6E": 2570588,
             "AI": 2247059,
@@ -69487,6 +70044,7 @@
           "total_dep_delay": 14493,
           "stranded_passengers": 18983,
           "avg_satisfaction": 62.3,
+          "recovery_score": 55.8,
           "airline_cash": {
             "6E": 2423529,
             "AI": 2082353,
@@ -69650,6 +70208,7 @@
           "total_dep_delay": 16280,
           "stranded_passengers": 21994,
           "avg_satisfaction": 57.8,
+          "recovery_score": 51.0,
           "airline_cash": {
             "6E": 2276471,
             "AI": 1917647,
@@ -69813,6 +70372,7 @@
           "total_dep_delay": 18149,
           "stranded_passengers": 25090,
           "avg_satisfaction": 53.4,
+          "recovery_score": 46.2,
           "airline_cash": {
             "6E": 2129412,
             "AI": 1752941,
@@ -69982,6 +70542,7 @@
           "total_dep_delay": 20094,
           "stranded_passengers": 28265,
           "avg_satisfaction": 48.9,
+          "recovery_score": 41.5,
           "airline_cash": {
             "6E": 1982353,
             "AI": 1588235,
@@ -70151,6 +70712,7 @@
           "total_dep_delay": 22111,
           "stranded_passengers": 31512,
           "avg_satisfaction": 44.4,
+          "recovery_score": 36.7,
           "airline_cash": {
             "6E": 1835294,
             "AI": 1423529,
@@ -70320,6 +70882,7 @@
           "total_dep_delay": 24197,
           "stranded_passengers": 34828,
           "avg_satisfaction": 40.0,
+          "recovery_score": 31.9,
           "airline_cash": {
             "6E": 1688235,
             "AI": 1258824,
@@ -70489,6 +71052,7 @@
           "total_dep_delay": 26348,
           "stranded_passengers": 38209,
           "avg_satisfaction": 35.5,
+          "recovery_score": 27.1,
           "airline_cash": {
             "6E": 1541176,
             "AI": 1094118,
@@ -70658,6 +71222,7 @@
           "total_dep_delay": 28561,
           "stranded_passengers": 41650,
           "avg_satisfaction": 31.0,
+          "recovery_score": 22.4,
           "airline_cash": {
             "6E": 1394118,
             "AI": 929412,
@@ -70827,6 +71392,7 @@
           "total_dep_delay": 30834,
           "stranded_passengers": 45150,
           "avg_satisfaction": 26.6,
+          "recovery_score": 17.6,
           "airline_cash": {
             "6E": 1247059,
             "AI": 764706,
@@ -70996,6 +71562,7 @@
           "total_dep_delay": 33165,
           "stranded_passengers": 48704,
           "avg_satisfaction": 22.1,
+          "recovery_score": 12.8,
           "airline_cash": {
             "6E": 1100000,
             "AI": 600000,
@@ -71159,7 +71726,9 @@
     "model_label": "Qwen3 14B",
     "mode": "rl",
     "title": "IndiGo Crisis Replay",
-    "reward": 13107,
+    "score": 82.5,
+    "reward": 82.5,
+    "raw_reward": 13107,
     "summary": {
       "flights_total": 420,
       "flights_arrived": 386,
@@ -71167,6 +71736,7 @@
       "total_dep_delay": 3298,
       "stranded_passengers": 7967,
       "avg_satisfaction": 70.2,
+      "recovery_score": 82.5,
       "airline_cash": {
         "6E": 2935400,
         "AI": 2644200,
@@ -71189,6 +71759,7 @@
           "total_dep_delay": 4022,
           "stranded_passengers": 0,
           "avg_satisfaction": 86.0,
+          "recovery_score": 68.0,
           "airline_cash": {
             "6E": 3695400,
             "AI": 3495400,
@@ -71351,6 +71922,7 @@
           "total_dep_delay": 4650,
           "stranded_passengers": 131,
           "avg_satisfaction": 84.0,
+          "recovery_score": 69.2,
           "airline_cash": {
             "6E": 3650694,
             "AI": 3445329,
@@ -71513,6 +72085,7 @@
           "total_dep_delay": 5241,
           "stranded_passengers": 358,
           "avg_satisfaction": 82.1,
+          "recovery_score": 70.4,
           "airline_cash": {
             "6E": 3605988,
             "AI": 3395259,
@@ -71675,6 +72248,7 @@
           "total_dep_delay": 5774,
           "stranded_passengers": 644,
           "avg_satisfaction": 80.1,
+          "recovery_score": 71.7,
           "airline_cash": {
             "6E": 3561282,
             "AI": 3345188,
@@ -71837,6 +72411,7 @@
           "total_dep_delay": 6231,
           "stranded_passengers": 978,
           "avg_satisfaction": 78.1,
+          "recovery_score": 72.9,
           "airline_cash": {
             "6E": 3516576,
             "AI": 3295118,
@@ -71999,6 +72574,7 @@
           "total_dep_delay": 6596,
           "stranded_passengers": 1351,
           "avg_satisfaction": 76.1,
+          "recovery_score": 74.1,
           "airline_cash": {
             "6E": 3471871,
             "AI": 3245047,
@@ -72167,6 +72743,7 @@
           "total_dep_delay": 6858,
           "stranded_passengers": 1760,
           "avg_satisfaction": 74.2,
+          "recovery_score": 75.3,
           "airline_cash": {
             "6E": 3427165,
             "AI": 3194976,
@@ -72335,6 +72912,7 @@
           "total_dep_delay": 7008,
           "stranded_passengers": 2201,
           "avg_satisfaction": 72.2,
+          "recovery_score": 76.5,
           "airline_cash": {
             "6E": 3382459,
             "AI": 3144906,
@@ -72503,6 +73081,7 @@
           "total_dep_delay": 7042,
           "stranded_passengers": 2671,
           "avg_satisfaction": 70.9,
+          "recovery_score": 77.7,
           "airline_cash": {
             "6E": 3337753,
             "AI": 3094835,
@@ -72671,6 +73250,7 @@
           "total_dep_delay": 6961,
           "stranded_passengers": 3168,
           "avg_satisfaction": 70.9,
+          "recovery_score": 79.0,
           "airline_cash": {
             "6E": 3293047,
             "AI": 3044765,
@@ -72839,6 +73419,7 @@
           "total_dep_delay": 6767,
           "stranded_passengers": 3691,
           "avg_satisfaction": 70.9,
+          "recovery_score": 80.2,
           "airline_cash": {
             "6E": 3248341,
             "AI": 2994694,
@@ -73013,6 +73594,7 @@
           "total_dep_delay": 6470,
           "stranded_passengers": 4238,
           "avg_satisfaction": 70.9,
+          "recovery_score": 81.4,
           "airline_cash": {
             "6E": 3203635,
             "AI": 2944624,
@@ -73187,6 +73769,7 @@
           "total_dep_delay": 6080,
           "stranded_passengers": 4808,
           "avg_satisfaction": 70.9,
+          "recovery_score": 82.5,
           "airline_cash": {
             "6E": 3158929,
             "AI": 2894553,
@@ -73361,6 +73944,7 @@
           "total_dep_delay": 5611,
           "stranded_passengers": 5400,
           "avg_satisfaction": 70.7,
+          "recovery_score": 82.5,
           "airline_cash": {
             "6E": 3114224,
             "AI": 2844482,
@@ -73535,6 +74119,7 @@
           "total_dep_delay": 5079,
           "stranded_passengers": 6012,
           "avg_satisfaction": 70.6,
+          "recovery_score": 82.5,
           "airline_cash": {
             "6E": 3069518,
             "AI": 2794412,
@@ -73709,6 +74294,7 @@
           "total_dep_delay": 4504,
           "stranded_passengers": 6645,
           "avg_satisfaction": 70.4,
+          "recovery_score": 82.5,
           "airline_cash": {
             "6E": 3024812,
             "AI": 2744341,
@@ -73883,6 +74469,7 @@
           "total_dep_delay": 3904,
           "stranded_passengers": 7297,
           "avg_satisfaction": 70.3,
+          "recovery_score": 82.5,
           "airline_cash": {
             "6E": 2980106,
             "AI": 2694271,
@@ -74057,6 +74644,7 @@
           "total_dep_delay": 3298,
           "stranded_passengers": 7967,
           "avg_satisfaction": 70.2,
+          "recovery_score": 82.5,
           "airline_cash": {
             "6E": 2935400,
             "AI": 2644200,
@@ -74225,7 +74813,9 @@
     "model_label": "Gemma 4 31B",
     "mode": "base",
     "title": "IndiGo Crisis Replay",
-    "reward": -72547,
+    "score": 13.4,
+    "reward": 13.4,
+    "raw_reward": -72547,
     "summary": {
       "flights_total": 420,
       "flights_arrived": 277,
@@ -74233,6 +74823,7 @@
       "total_dep_delay": 32952,
       "stranded_passengers": 48390,
       "avg_satisfaction": 22.0,
+      "recovery_score": 13.4,
       "airline_cash": {
         "6E": 1100000,
         "AI": 600000,
@@ -74255,6 +74846,7 @@
           "total_dep_delay": 4493,
           "stranded_passengers": 0,
           "avg_satisfaction": 98.0,
+          "recovery_score": 94.0,
           "airline_cash": {
             "6E": 3600000,
             "AI": 3400000,
@@ -74412,6 +75004,7 @@
           "total_dep_delay": 5032,
           "stranded_passengers": 1402,
           "avg_satisfaction": 93.5,
+          "recovery_score": 89.3,
           "airline_cash": {
             "6E": 3452941,
             "AI": 3235294,
@@ -74569,6 +75162,7 @@
           "total_dep_delay": 5916,
           "stranded_passengers": 3334,
           "avg_satisfaction": 89.1,
+          "recovery_score": 84.5,
           "airline_cash": {
             "6E": 3305882,
             "AI": 3070588,
@@ -74726,6 +75320,7 @@
           "total_dep_delay": 7003,
           "stranded_passengers": 5535,
           "avg_satisfaction": 84.6,
+          "recovery_score": 79.8,
           "airline_cash": {
             "6E": 3158824,
             "AI": 2905882,
@@ -74883,6 +75478,7 @@
           "total_dep_delay": 8247,
           "stranded_passengers": 7930,
           "avg_satisfaction": 80.1,
+          "recovery_score": 75.0,
           "airline_cash": {
             "6E": 3011765,
             "AI": 2741176,
@@ -75040,6 +75636,7 @@
           "total_dep_delay": 9624,
           "stranded_passengers": 10481,
           "avg_satisfaction": 75.6,
+          "recovery_score": 70.3,
           "airline_cash": {
             "6E": 2864706,
             "AI": 2576471,
@@ -75203,6 +75800,7 @@
           "total_dep_delay": 11115,
           "stranded_passengers": 13164,
           "avg_satisfaction": 71.2,
+          "recovery_score": 65.6,
           "airline_cash": {
             "6E": 2717647,
             "AI": 2411765,
@@ -75366,6 +75964,7 @@
           "total_dep_delay": 12710,
           "stranded_passengers": 15961,
           "avg_satisfaction": 66.7,
+          "recovery_score": 60.8,
           "airline_cash": {
             "6E": 2570588,
             "AI": 2247059,
@@ -75529,6 +76128,7 @@
           "total_dep_delay": 14400,
           "stranded_passengers": 18861,
           "avg_satisfaction": 62.2,
+          "recovery_score": 56.1,
           "airline_cash": {
             "6E": 2423529,
             "AI": 2082353,
@@ -75692,6 +76292,7 @@
           "total_dep_delay": 16175,
           "stranded_passengers": 21852,
           "avg_satisfaction": 57.8,
+          "recovery_score": 51.3,
           "airline_cash": {
             "6E": 2276471,
             "AI": 1917647,
@@ -75855,6 +76456,7 @@
           "total_dep_delay": 18032,
           "stranded_passengers": 24928,
           "avg_satisfaction": 53.3,
+          "recovery_score": 46.6,
           "airline_cash": {
             "6E": 2129412,
             "AI": 1752941,
@@ -76024,6 +76626,7 @@
           "total_dep_delay": 19965,
           "stranded_passengers": 28082,
           "avg_satisfaction": 48.8,
+          "recovery_score": 41.8,
           "airline_cash": {
             "6E": 1982353,
             "AI": 1588235,
@@ -76193,6 +76796,7 @@
           "total_dep_delay": 21969,
           "stranded_passengers": 31309,
           "avg_satisfaction": 44.4,
+          "recovery_score": 37.1,
           "airline_cash": {
             "6E": 1835294,
             "AI": 1423529,
@@ -76362,6 +76966,7 @@
           "total_dep_delay": 24041,
           "stranded_passengers": 34604,
           "avg_satisfaction": 39.9,
+          "recovery_score": 32.4,
           "airline_cash": {
             "6E": 1688235,
             "AI": 1258824,
@@ -76531,6 +77136,7 @@
           "total_dep_delay": 26178,
           "stranded_passengers": 37962,
           "avg_satisfaction": 35.4,
+          "recovery_score": 27.6,
           "airline_cash": {
             "6E": 1541176,
             "AI": 1094118,
@@ -76700,6 +77306,7 @@
           "total_dep_delay": 28377,
           "stranded_passengers": 41382,
           "avg_satisfaction": 30.9,
+          "recovery_score": 22.9,
           "airline_cash": {
             "6E": 1394118,
             "AI": 929412,
@@ -76869,6 +77476,7 @@
           "total_dep_delay": 30636,
           "stranded_passengers": 44858,
           "avg_satisfaction": 26.5,
+          "recovery_score": 18.1,
           "airline_cash": {
             "6E": 1247059,
             "AI": 764706,
@@ -77038,6 +77646,7 @@
           "total_dep_delay": 32952,
           "stranded_passengers": 48390,
           "avg_satisfaction": 22.0,
+          "recovery_score": 13.4,
           "airline_cash": {
             "6E": 1100000,
             "AI": 600000,
@@ -77201,7 +77810,9 @@
     "model_label": "Gemma 4 31B",
     "mode": "rl",
     "title": "IndiGo Crisis Replay",
-    "reward": 13042,
+    "score": 82.3,
+    "reward": 82.3,
+    "raw_reward": 13042,
     "summary": {
       "flights_total": 420,
       "flights_arrived": 386,
@@ -77209,6 +77820,7 @@
       "total_dep_delay": 3313,
       "stranded_passengers": 8002,
       "avg_satisfaction": 70.5,
+      "recovery_score": 82.3,
       "airline_cash": {
         "6E": 2932700,
         "AI": 2641500,
@@ -77231,6 +77843,7 @@
           "total_dep_delay": 4040,
           "stranded_passengers": 0,
           "avg_satisfaction": 86.0,
+          "recovery_score": 68.0,
           "airline_cash": {
             "6E": 3692700,
             "AI": 3492700,
@@ -77393,6 +78006,7 @@
           "total_dep_delay": 4670,
           "stranded_passengers": 132,
           "avg_satisfaction": 84.1,
+          "recovery_score": 69.2,
           "airline_cash": {
             "6E": 3647994,
             "AI": 3442629,
@@ -77555,6 +78169,7 @@
           "total_dep_delay": 5264,
           "stranded_passengers": 359,
           "avg_satisfaction": 82.1,
+          "recovery_score": 70.4,
           "airline_cash": {
             "6E": 3603288,
             "AI": 3392559,
@@ -77717,6 +78332,7 @@
           "total_dep_delay": 5799,
           "stranded_passengers": 647,
           "avg_satisfaction": 80.2,
+          "recovery_score": 71.6,
           "airline_cash": {
             "6E": 3558582,
             "AI": 3342488,
@@ -77879,6 +78495,7 @@
           "total_dep_delay": 6258,
           "stranded_passengers": 982,
           "avg_satisfaction": 78.3,
+          "recovery_score": 72.8,
           "airline_cash": {
             "6E": 3513876,
             "AI": 3292418,
@@ -78041,6 +78658,7 @@
           "total_dep_delay": 6625,
           "stranded_passengers": 1357,
           "avg_satisfaction": 76.3,
+          "recovery_score": 74.0,
           "airline_cash": {
             "6E": 3469171,
             "AI": 3242347,
@@ -78209,6 +78827,7 @@
           "total_dep_delay": 6887,
           "stranded_passengers": 1768,
           "avg_satisfaction": 74.4,
+          "recovery_score": 75.2,
           "airline_cash": {
             "6E": 3424465,
             "AI": 3192276,
@@ -78377,6 +78996,7 @@
           "total_dep_delay": 7038,
           "stranded_passengers": 2210,
           "avg_satisfaction": 72.5,
+          "recovery_score": 76.4,
           "airline_cash": {
             "6E": 3379759,
             "AI": 3142206,
@@ -78545,6 +79165,7 @@
           "total_dep_delay": 7073,
           "stranded_passengers": 2682,
           "avg_satisfaction": 71.2,
+          "recovery_score": 77.6,
           "airline_cash": {
             "6E": 3335053,
             "AI": 3092135,
@@ -78713,6 +79334,7 @@
           "total_dep_delay": 6991,
           "stranded_passengers": 3182,
           "avg_satisfaction": 71.2,
+          "recovery_score": 78.8,
           "airline_cash": {
             "6E": 3290347,
             "AI": 3042065,
@@ -78881,6 +79503,7 @@
           "total_dep_delay": 6797,
           "stranded_passengers": 3707,
           "avg_satisfaction": 71.2,
+          "recovery_score": 80.0,
           "airline_cash": {
             "6E": 3245641,
             "AI": 2991994,
@@ -79055,6 +79678,7 @@
           "total_dep_delay": 6498,
           "stranded_passengers": 4257,
           "avg_satisfaction": 71.2,
+          "recovery_score": 81.2,
           "airline_cash": {
             "6E": 3200935,
             "AI": 2941924,
@@ -79229,6 +79853,7 @@
           "total_dep_delay": 6106,
           "stranded_passengers": 4829,
           "avg_satisfaction": 71.2,
+          "recovery_score": 82.3,
           "airline_cash": {
             "6E": 3156229,
             "AI": 2891853,
@@ -79403,6 +80028,7 @@
           "total_dep_delay": 5635,
           "stranded_passengers": 5423,
           "avg_satisfaction": 71.0,
+          "recovery_score": 82.3,
           "airline_cash": {
             "6E": 3111524,
             "AI": 2841782,
@@ -79577,6 +80203,7 @@
           "total_dep_delay": 5101,
           "stranded_passengers": 6039,
           "avg_satisfaction": 70.9,
+          "recovery_score": 82.3,
           "airline_cash": {
             "6E": 3066818,
             "AI": 2791712,
@@ -79751,6 +80378,7 @@
           "total_dep_delay": 4523,
           "stranded_passengers": 6674,
           "avg_satisfaction": 70.7,
+          "recovery_score": 82.3,
           "airline_cash": {
             "6E": 3022112,
             "AI": 2741641,
@@ -79925,6 +80553,7 @@
           "total_dep_delay": 3921,
           "stranded_passengers": 7329,
           "avg_satisfaction": 70.6,
+          "recovery_score": 82.3,
           "airline_cash": {
             "6E": 2977406,
             "AI": 2691571,
@@ -80099,6 +80728,7 @@
           "total_dep_delay": 3313,
           "stranded_passengers": 8002,
           "avg_satisfaction": 70.5,
+          "recovery_score": 82.3,
           "airline_cash": {
             "6E": 2932700,
             "AI": 2641500,
@@ -80267,7 +80897,9 @@
     "model_label": "GPT-OSS 120B",
     "mode": "base",
     "title": "IndiGo Crisis Replay",
-    "reward": -72202,
+    "score": 14.2,
+    "reward": 14.2,
+    "raw_reward": -72202,
     "summary": {
       "flights_total": 420,
       "flights_arrived": 277,
@@ -80275,6 +80907,7 @@
       "total_dep_delay": 32630,
       "stranded_passengers": 47919,
       "avg_satisfaction": 21.8,
+      "recovery_score": 14.2,
       "airline_cash": {
         "6E": 1100000,
         "AI": 600000,
@@ -80297,6 +80930,7 @@
           "total_dep_delay": 4450,
           "stranded_passengers": 0,
           "avg_satisfaction": 98.0,
+          "recovery_score": 94.0,
           "airline_cash": {
             "6E": 3600000,
             "AI": 3400000,
@@ -80454,6 +81088,7 @@
           "total_dep_delay": 4983,
           "stranded_passengers": 1388,
           "avg_satisfaction": 93.5,
+          "recovery_score": 89.3,
           "airline_cash": {
             "6E": 3452941,
             "AI": 3235294,
@@ -80611,6 +81246,7 @@
           "total_dep_delay": 5858,
           "stranded_passengers": 3302,
           "avg_satisfaction": 89.0,
+          "recovery_score": 84.6,
           "airline_cash": {
             "6E": 3305882,
             "AI": 3070588,
@@ -80768,6 +81404,7 @@
           "total_dep_delay": 6934,
           "stranded_passengers": 5481,
           "avg_satisfaction": 84.6,
+          "recovery_score": 79.9,
           "airline_cash": {
             "6E": 3158824,
             "AI": 2905882,
@@ -80925,6 +81562,7 @@
           "total_dep_delay": 8167,
           "stranded_passengers": 7853,
           "avg_satisfaction": 80.1,
+          "recovery_score": 75.2,
           "airline_cash": {
             "6E": 3011765,
             "AI": 2741176,
@@ -81082,6 +81720,7 @@
           "total_dep_delay": 9530,
           "stranded_passengers": 10379,
           "avg_satisfaction": 75.6,
+          "recovery_score": 70.5,
           "airline_cash": {
             "6E": 2864706,
             "AI": 2576471,
@@ -81245,6 +81884,7 @@
           "total_dep_delay": 11007,
           "stranded_passengers": 13036,
           "avg_satisfaction": 71.1,
+          "recovery_score": 65.8,
           "airline_cash": {
             "6E": 2717647,
             "AI": 2411765,
@@ -81408,6 +82048,7 @@
           "total_dep_delay": 12587,
           "stranded_passengers": 15806,
           "avg_satisfaction": 66.6,
+          "recovery_score": 61.1,
           "airline_cash": {
             "6E": 2570588,
             "AI": 2247059,
@@ -81571,6 +82212,7 @@
           "total_dep_delay": 14259,
           "stranded_passengers": 18677,
           "avg_satisfaction": 62.1,
+          "recovery_score": 56.4,
           "airline_cash": {
             "6E": 2423529,
             "AI": 2082353,
@@ -81734,6 +82376,7 @@
           "total_dep_delay": 16018,
           "stranded_passengers": 21640,
           "avg_satisfaction": 57.7,
+          "recovery_score": 51.8,
           "airline_cash": {
             "6E": 2276471,
             "AI": 1917647,
@@ -81897,6 +82540,7 @@
           "total_dep_delay": 17856,
           "stranded_passengers": 24686,
           "avg_satisfaction": 53.2,
+          "recovery_score": 47.1,
           "airline_cash": {
             "6E": 2129412,
             "AI": 1752941,
@@ -82066,6 +82710,7 @@
           "total_dep_delay": 19770,
           "stranded_passengers": 27809,
           "avg_satisfaction": 48.7,
+          "recovery_score": 42.4,
           "airline_cash": {
             "6E": 1982353,
             "AI": 1588235,
@@ -82235,6 +82880,7 @@
           "total_dep_delay": 21755,
           "stranded_passengers": 31004,
           "avg_satisfaction": 44.2,
+          "recovery_score": 37.7,
           "airline_cash": {
             "6E": 1835294,
             "AI": 1423529,
@@ -82404,6 +83050,7 @@
           "total_dep_delay": 23807,
           "stranded_passengers": 34267,
           "avg_satisfaction": 39.7,
+          "recovery_score": 33.0,
           "airline_cash": {
             "6E": 1688235,
             "AI": 1258824,
@@ -82573,6 +83220,7 @@
           "total_dep_delay": 25923,
           "stranded_passengers": 37593,
           "avg_satisfaction": 35.2,
+          "recovery_score": 28.3,
           "airline_cash": {
             "6E": 1541176,
             "AI": 1094118,
@@ -82742,6 +83390,7 @@
           "total_dep_delay": 28101,
           "stranded_passengers": 40979,
           "avg_satisfaction": 30.8,
+          "recovery_score": 23.6,
           "airline_cash": {
             "6E": 1394118,
             "AI": 929412,
@@ -82911,6 +83560,7 @@
           "total_dep_delay": 30337,
           "stranded_passengers": 44422,
           "avg_satisfaction": 26.3,
+          "recovery_score": 18.9,
           "airline_cash": {
             "6E": 1247059,
             "AI": 764706,
@@ -83080,6 +83730,7 @@
           "total_dep_delay": 32630,
           "stranded_passengers": 47919,
           "avg_satisfaction": 21.8,
+          "recovery_score": 14.2,
           "airline_cash": {
             "6E": 1100000,
             "AI": 600000,
@@ -83243,7 +83894,9 @@
     "model_label": "GPT-OSS 120B",
     "mode": "rl",
     "title": "IndiGo Crisis Replay",
-    "reward": 12999,
+    "score": 82.1,
+    "reward": 82.1,
+    "raw_reward": 12999,
     "summary": {
       "flights_total": 420,
       "flights_arrived": 386,
@@ -83251,6 +83904,7 @@
       "total_dep_delay": 3322,
       "stranded_passengers": 8025,
       "avg_satisfaction": 70.7,
+      "recovery_score": 82.1,
       "airline_cash": {
         "6E": 2930900,
         "AI": 2639700,
@@ -83273,6 +83927,7 @@
           "total_dep_delay": 4051,
           "stranded_passengers": 0,
           "avg_satisfaction": 86.0,
+          "recovery_score": 68.0,
           "airline_cash": {
             "6E": 3690900,
             "AI": 3490900,
@@ -83435,6 +84090,7 @@
           "total_dep_delay": 4683,
           "stranded_passengers": 132,
           "avg_satisfaction": 84.1,
+          "recovery_score": 69.2,
           "airline_cash": {
             "6E": 3646194,
             "AI": 3440829,
@@ -83597,6 +84253,7 @@
           "total_dep_delay": 5279,
           "stranded_passengers": 360,
           "avg_satisfaction": 82.2,
+          "recovery_score": 70.4,
           "airline_cash": {
             "6E": 3601488,
             "AI": 3390759,
@@ -83759,6 +84416,7 @@
           "total_dep_delay": 5815,
           "stranded_passengers": 649,
           "avg_satisfaction": 80.3,
+          "recovery_score": 71.6,
           "airline_cash": {
             "6E": 3556782,
             "AI": 3340688,
@@ -83921,6 +84579,7 @@
           "total_dep_delay": 6275,
           "stranded_passengers": 985,
           "avg_satisfaction": 78.4,
+          "recovery_score": 72.7,
           "airline_cash": {
             "6E": 3512076,
             "AI": 3290618,
@@ -84083,6 +84742,7 @@
           "total_dep_delay": 6643,
           "stranded_passengers": 1361,
           "avg_satisfaction": 76.5,
+          "recovery_score": 73.9,
           "airline_cash": {
             "6E": 3467371,
             "AI": 3240547,
@@ -84251,6 +84911,7 @@
           "total_dep_delay": 6907,
           "stranded_passengers": 1773,
           "avg_satisfaction": 74.5,
+          "recovery_score": 75.1,
           "airline_cash": {
             "6E": 3422665,
             "AI": 3190476,
@@ -84419,6 +85080,7 @@
           "total_dep_delay": 7058,
           "stranded_passengers": 2217,
           "avg_satisfaction": 72.6,
+          "recovery_score": 76.3,
           "airline_cash": {
             "6E": 3377959,
             "AI": 3140406,
@@ -84587,6 +85249,7 @@
           "total_dep_delay": 7093,
           "stranded_passengers": 2690,
           "avg_satisfaction": 71.4,
+          "recovery_score": 77.5,
           "airline_cash": {
             "6E": 3333253,
             "AI": 3090335,
@@ -84755,6 +85418,7 @@
           "total_dep_delay": 7011,
           "stranded_passengers": 3191,
           "avg_satisfaction": 71.4,
+          "recovery_score": 78.7,
           "airline_cash": {
             "6E": 3288547,
             "AI": 3040265,
@@ -84923,6 +85587,7 @@
           "total_dep_delay": 6816,
           "stranded_passengers": 3718,
           "avg_satisfaction": 71.4,
+          "recovery_score": 79.8,
           "airline_cash": {
             "6E": 3243841,
             "AI": 2990194,
@@ -85097,6 +85762,7 @@
           "total_dep_delay": 6516,
           "stranded_passengers": 4269,
           "avg_satisfaction": 71.4,
+          "recovery_score": 81.0,
           "airline_cash": {
             "6E": 3199135,
             "AI": 2940124,
@@ -85271,6 +85937,7 @@
           "total_dep_delay": 6123,
           "stranded_passengers": 4843,
           "avg_satisfaction": 71.4,
+          "recovery_score": 82.1,
           "airline_cash": {
             "6E": 3154429,
             "AI": 2890053,
@@ -85445,6 +86112,7 @@
           "total_dep_delay": 5651,
           "stranded_passengers": 5439,
           "avg_satisfaction": 71.2,
+          "recovery_score": 82.1,
           "airline_cash": {
             "6E": 3109724,
             "AI": 2839982,
@@ -85619,6 +86287,7 @@
           "total_dep_delay": 5116,
           "stranded_passengers": 6056,
           "avg_satisfaction": 71.1,
+          "recovery_score": 82.1,
           "airline_cash": {
             "6E": 3065018,
             "AI": 2789912,
@@ -85793,6 +86462,7 @@
           "total_dep_delay": 4536,
           "stranded_passengers": 6693,
           "avg_satisfaction": 70.9,
+          "recovery_score": 82.1,
           "airline_cash": {
             "6E": 3020312,
             "AI": 2739841,
@@ -85967,6 +86637,7 @@
           "total_dep_delay": 3932,
           "stranded_passengers": 7350,
           "avg_satisfaction": 70.8,
+          "recovery_score": 82.1,
           "airline_cash": {
             "6E": 2975606,
             "AI": 2689771,
@@ -86141,6 +86812,7 @@
           "total_dep_delay": 3322,
           "stranded_passengers": 8025,
           "avg_satisfaction": 70.7,
+          "recovery_score": 82.1,
           "airline_cash": {
             "6E": 2930900,
             "AI": 2639700,

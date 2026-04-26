@@ -13,7 +13,9 @@ type ResultRow = {
   label: string;
   short: string;
   mode: "base" | "rl";
+  score: number;
   reward: number;
+  raw_reward: number;
   delay: number;
   cancelled: number;
   satisfaction: number;
@@ -81,6 +83,23 @@ export default function TrainingPage() {
         <Stat icon={<BarChart3 size={20} />} label="GRPO update steps" value={totalSteps} />
       </section>
 
+      <section className="submissionPanel">
+        <div>
+          <p className="eyebrow">Judge-Facing Evidence</p>
+          <h2>What is real, what is replayed</h2>
+          <p>
+            The Hugging Face job cards below are hosted TRL/GRPO training artifacts. The matrices and
+            maps are deterministic Runway Zero evaluator replays, exported for the pitch so judges can
+            inspect the same environment pressure visually.
+          </p>
+        </div>
+        <div className="submissionLinks">
+          <a href="https://work-dwivediishivam-runway-zero.hf.space/state">HF Space Environment</a>
+          <a href="https://huggingface.co/work-dwivediishivam/runway-zero-training-artifacts">Training Artifacts</a>
+          <a href="https://forms.gle/CvAbm1SwrLyKZvAd9">Final Submission Form</a>
+        </div>
+      </section>
+
       <section className="evidenceMatrix">
         {stages.map((stage) => (
           <article key={stage} className="matrixPanel">
@@ -92,7 +111,7 @@ export default function TrainingPage() {
                 <div className="matrixRow" key={`${stage}-${model.model}`}>
                   <span>{model.label}</span>
                   <strong>
-                    {base?.reward.toLocaleString()} → {rl?.reward.toLocaleString()}
+                    {base?.score} → {rl?.score}
                   </strong>
                   <em>
                     delay {base?.delay.toLocaleString()} → {rl?.delay.toLocaleString()}
@@ -107,7 +126,7 @@ export default function TrainingPage() {
       <section className="plotGridV2">
         {stages.map((stage) => (
           <article className="plotPanel" key={stage}>
-            <h2>Level {stage}: reward improvement</h2>
+            <h2>Level {stage}: recovery score improvement</h2>
             <img src={`/pitch/plots/stage${stage}_reward_comparison.png`} alt={`Level ${stage} reward comparison`} />
           </article>
         ))}

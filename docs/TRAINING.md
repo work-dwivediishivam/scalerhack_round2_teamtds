@@ -104,6 +104,7 @@ python scripts/train_llm_grpo_all_stages.py \
   --model Qwen/Qwen2.5-Coder-7B-Instruct \
   --stages 1 2 3 \
   --max-steps 60 \
+  --report-to tensorboard \
   --output-dir results/llm_runs/qwen25_runway_zero
 ```
 
@@ -151,3 +152,7 @@ environment reward and can be launched on GPU runtimes.
 The public pages are generated from model-named artifacts only: Qwen2.5-Coder
 7B, Qwen3 14B, Gemma 4 31B, and GPT-OSS 120B, each shown before and after
 environment training.
+
+The public dashboard uses a normalized 0-100 Recovery Score so judges do not
+have to interpret negative raw RL rewards. Raw rewards are still preserved in
+the generated JSON as `raw_reward` and in the training artifacts.

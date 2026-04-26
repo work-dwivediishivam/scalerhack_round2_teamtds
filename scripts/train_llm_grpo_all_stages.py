@@ -217,6 +217,8 @@ def train(args: argparse.Namespace) -> None:
         "max_completion_length": args.max_completion_length,
         "fp16": os.getenv("RUNWAY_ZERO_FP16") == "1",
         "bf16": os.getenv("RUNWAY_ZERO_BF16") == "1",
+        "report_to": args.report_to,
+        "run_name": args.run_name or f"runway-zero-{args.model.split('/')[-1]}",
     }
     supported_config_args = set(inspect.signature(GRPOConfig.__init__).parameters)
     filtered_config_kwargs = {
@@ -265,6 +267,8 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--num-generations", type=int, default=4)
     parser.add_argument("--max-prompt-length", type=int, default=3072)
     parser.add_argument("--max-completion-length", type=int, default=512)
+    parser.add_argument("--report-to", nargs="+", default=["tensorboard"])
+    parser.add_argument("--run-name")
     parser.add_argument("--use-unsloth", action="store_true")
     parser.add_argument("--dry-run", action="store_true")
     return parser.parse_args()

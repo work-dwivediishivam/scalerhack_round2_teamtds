@@ -9,7 +9,9 @@ type ResultRow = {
   label: string;
   short: string;
   mode: "base" | "rl";
+  score: number;
   reward: number;
+  raw_reward: number;
   delay: number;
   cancelled: number;
   satisfaction: number;
@@ -45,11 +47,11 @@ const levels = [
 ];
 
 function bestRlBeat() {
-  const worstBase = Math.max(...results.filter((row) => row.mode === "base").map((row) => row.reward));
+  const worstBase = Math.max(...results.filter((row) => row.mode === "base").map((row) => row.score));
   const qwen25Rl = Math.min(
     ...results
       .filter((row) => row.mode === "rl" && row.model === "Qwen/Qwen2.5-Coder-7B-Instruct")
-      .map((row) => row.reward),
+      .map((row) => row.score),
   );
   return qwen25Rl > worstBase;
 }
@@ -79,6 +81,9 @@ export default function LandingPage() {
             </a>
             <a href="/training/">
               Training evidence <BarChart3 size={18} />
+            </a>
+            <a href="https://huggingface.co/spaces/work-dwivediishivam/runway-zero">
+              HF Space <RadioTower size={18} />
             </a>
           </div>
         </div>
@@ -118,6 +123,17 @@ export default function LandingPage() {
         </p>
       </section>
 
+      <section className="judgeStory submissionStory">
+        <div>
+          <p className="eyebrow">Submission Ready</p>
+          <h2>OpenEnv Space, TRL training script, hosted artifacts, and blog are linked.</h2>
+        </div>
+        <p>
+          The demo uses a normalized Recovery Score for judges. Raw environment rewards and hosted
+          GRPO artifacts remain available in the technical evidence.
+        </p>
+      </section>
+
       <section className="levelGridV2">
         {levels.map((level) => {
           const base = results.find((row) => row.stage === level.stage && row.mode === "base");
@@ -128,8 +144,8 @@ export default function LandingPage() {
               <h2>{level.subtitle}</h2>
               <p>{level.description}</p>
               <div className="miniDelta">
-                <strong>{base?.reward.toLocaleString()} → {rl?.reward.toLocaleString()}</strong>
-                <em>Base LLM reward → RL-trained reward</em>
+                <strong>{base?.score} → {rl?.score}</strong>
+                <em>Base recovery score → RL-trained score</em>
               </div>
               <b>
                 Open replay <ArrowRight size={18} />

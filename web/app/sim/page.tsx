@@ -54,6 +54,7 @@ type Frame = {
     total_dep_delay: number;
     stranded_passengers: number;
     avg_satisfaction: number;
+    recovery_score: number;
     airline_cash: Record<string, number>;
   };
   incidents: Array<{ airport: string; title: string; severity: number; message: string }>;
@@ -67,7 +68,9 @@ type Replay = {
   model_label: string;
   mode: "base" | "rl";
   title: string;
+  score: number;
   reward: number;
+  raw_reward: number;
   summary: Frame["metrics"];
   frames: Frame[];
 };
@@ -80,7 +83,9 @@ type ResultRow = {
   label: string;
   short: string;
   mode: "base" | "rl";
+  score: number;
   reward: number;
+  raw_reward: number;
   delay: number;
   cancelled: number;
   satisfaction: number;
@@ -205,8 +210,12 @@ export default function SimulationPage() {
               : "The base model reacts late, over-holds flights, misses crew legality, and lets cancellations cascade."}
           </p>
           <div className="bigReward">
-            <span>Environment reward</span>
-            <strong>{replay.reward.toLocaleString()}</strong>
+            <span>Recovery score</span>
+            <strong>{Math.round(frame.metrics.recovery_score)}</strong>
+            <em>0-100 environment evaluator</em>
+          </div>
+          <div className="technicalReward">
+            raw reward: {replay.raw_reward.toLocaleString()} · shown as score for the pitch UI
           </div>
           <KpiGrid frame={frame} />
           <SpeedControl value={speedMs} onChange={setSpeedMs} />
@@ -229,7 +238,7 @@ export default function SimulationPage() {
         <div>
           <p className="eyebrow">Before vs After RL</p>
           <h2>
-            {modelBase?.label}: {modelBase?.reward.toLocaleString()} → {modelRl?.reward.toLocaleString()} reward
+            {modelBase?.label}: {modelBase?.score} → {modelRl?.score} recovery score
           </h2>
         </div>
         <p>
@@ -258,8 +267,11 @@ function IndiaMap({
       <svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet">
         <path
           className="indiaShapeV2"
-          d="M35 5 L58 8 L71 18 L75 28 L86 35 L79 43 L68 46 L70 59 L64 73 L54 88 L45 96 L36 84 L32 72 L24 61 L22 49 L18 41 L23 32 L18 24 L28 19 Z"
+          d="M37 5 L58 8 L66 14 L74 18 L78 27 L87 32 L79 39 L68 42 L70 56 L65 70 L57 81 L48 94 L39 82 L34 71 L27 61 L23 50 L22 39 L26 30 L21 23 L31 18 Z"
         />
+        <path className="airspaceSector" d="M26 16 H78 V43 H26 Z" />
+        <path className="airspaceSector" d="M22 43 H71 V72 H22 Z" />
+        <path className="airspaceSector" d="M33 72 H65 V96 H33 Z" />
         <path className="indiaCoastV2" d="M30 20 C23 33 22 47 28 61 C34 74 40 86 50 95" />
         <path className="indiaCoastV2" d="M58 9 C63 18 69 27 82 36 C75 46 68 56 65 73" />
         {frame.flights.map((flight, index) => {
@@ -313,6 +325,10 @@ function IndiaMap({
           <em>{flight.delay}m late</em>
         </div>
       ))}
+      <div className="mapLegendV2">
+        <strong>India airport recovery board</strong>
+        <span>nodes are real airport coordinates · arcs are active simulated flights</span>
+      </div>
     </div>
   );
 }
@@ -341,6 +357,8 @@ function KpiGrid({ frame }: { frame: Frame }) {
       <Metric icon={<AlertTriangle size={17} />} label="cancelled" value={metrics.flights_cancelled} />
       <Metric icon={<Gauge size={17} />} label="delay min" value={metrics.total_dep_delay.toLocaleString()} />
       <Metric icon={<Smile size={17} />} label="satisfaction" value={`${metrics.avg_satisfaction}%`} />
+      <Metric icon={<RadioTower size={17} />} label="recovery score" value={Math.round(metrics.recovery_score)} />
+      <Metric icon={<Users size={17} />} label="stranded pax" value={metrics.stranded_passengers.toLocaleString()} />
     </div>
   );
 }
@@ -474,7 +492,7 @@ function ModelDeltaTable({
         <button className={selected === model.id ? "active" : ""} key={model.id} onClick={() => onSelect(model.id)}>
           <span>{model.label}</span>
           <strong>
-            {base?.reward.toLocaleString()} → {rl?.reward.toLocaleString()}
+            {base?.score} → {rl?.score}
           </strong>
           <em>
             {base?.cancelled} → {rl?.cancelled} cancels

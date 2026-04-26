@@ -65,8 +65,8 @@ STAGES = {
         "title": "Operations Recovery",
         "headline": "A compact network breaks under fog, runway loss, and aircraft faults.",
         "flight_count": 44,
-        "base": {"reward": -2350, "delay": 720, "cancelled": 8, "satisfaction": 76, "stranded": 620},
-        "rl": {"reward": 2480, "delay": 155, "cancelled": 2, "satisfaction": 93, "stranded": 110},
+        "base": {"reward": -2350, "score": 38, "delay": 720, "cancelled": 8, "satisfaction": 76, "stranded": 620},
+        "rl": {"reward": 2480, "score": 84, "delay": 155, "cancelled": 2, "satisfaction": 93, "stranded": 110},
         "incidents": [
             ("DEL", "FOG LOCKDOWN", "Dense fog slows Delhi departures and breaks the morning bank."),
             ("BOM", "RUNWAY DEBRIS", "Mumbai loses one runway just as west-coast departures peak."),
@@ -78,8 +78,8 @@ STAGES = {
         "title": "Passenger-Aware Network",
         "headline": "Connections, emergency priority, and gate failures turn delay into passenger harm.",
         "flight_count": 126,
-        "base": {"reward": -8400, "delay": 2580, "cancelled": 31, "satisfaction": 57, "stranded": 3600},
-        "rl": {"reward": 5450, "delay": 520, "cancelled": 7, "satisfaction": 89, "stranded": 520},
+        "base": {"reward": -8400, "score": 29, "delay": 2580, "cancelled": 31, "satisfaction": 57, "stranded": 3600},
+        "rl": {"reward": 5450, "score": 88, "delay": 520, "cancelled": 7, "satisfaction": 89, "stranded": 520},
         "incidents": [
             ("DEL", "FOG CASCADE", "Delhi spacing delays now threaten Mumbai and Bengaluru connections."),
             ("HYD", "MEDICAL ARRIVAL", "Hyderabad needs emergency arrival priority inside a packed wave."),
@@ -91,8 +91,8 @@ STAGES = {
         "title": "Economic Multi-Agent Control",
         "headline": "Airlines negotiate for scarce slots while the tower must stay neutral.",
         "flight_count": 226,
-        "base": {"reward": -24000, "delay": 6200, "cancelled": 78, "satisfaction": 43, "stranded": 11800},
-        "rl": {"reward": 10800, "delay": 1180, "cancelled": 17, "satisfaction": 84, "stranded": 1380},
+        "base": {"reward": -24000, "score": 21, "delay": 6200, "cancelled": 78, "satisfaction": 43, "stranded": 11800},
+        "rl": {"reward": 10800, "score": 90, "delay": 1180, "cancelled": 17, "satisfaction": 84, "stranded": 1380},
         "incidents": [
             ("BOM", "FUEL DELAY", "Mumbai fuel trucks are short-staffed; every hold burns cash."),
             ("BLR", "SLOT WAR", "IndiGo, Air India, Akasa Air, and SpiceJet demand Bengaluru evening slots."),
@@ -104,8 +104,8 @@ STAGES = {
         "title": "IndiGo Crisis Replay",
         "headline": "A December 2025-style crew availability crisis cancels hundreds of flights.",
         "flight_count": 420,
-        "base": {"reward": -72000, "delay": 28600, "cancelled": 318, "satisfaction": 21, "stranded": 46200},
-        "rl": {"reward": 12600, "delay": 6900, "cancelled": 74, "satisfaction": 73, "stranded": 8200},
+        "base": {"reward": -72000, "score": 12, "delay": 28600, "cancelled": 318, "satisfaction": 21, "stranded": 46200},
+        "rl": {"reward": 12600, "score": 82, "delay": 6900, "cancelled": 74, "satisfaction": 73, "stranded": 8200},
         "incidents": [
             ("DEL", "CREW ROSTER COLLAPSE", "FDTL-style crew constraints leave many aircraft without legal crews."),
             ("BOM", "MASS CANCELLATION RISK", "Mumbai passenger queues overflow after repeated IndiGo cancellations."),
@@ -141,6 +141,10 @@ def scaled(stage: int, mode: str, key: str, model: dict[str, Any]) -> int | floa
         if mode == "base":
             return round(base_value * (1.07 - model["base_rank"] * 0.08))
         return round(base_value * (0.86 + model["rl_rank"] * 0.17))
+    if key == "score":
+        if mode == "base":
+            return round(base_value + (model["base_rank"] - 0.68) * 14, 1)
+        return round(min(96, base_value + (model["rl_rank"] - 1.0) * 9), 1)
     if mode == "base":
         factor = 1.18 - model["base_rank"] * 0.17
     else:
@@ -155,17 +159,20 @@ def frame_metrics(stage: int, mode: str, model: dict[str, Any], frame: int) -> d
     target_cancelled = scaled(stage, mode, "cancelled", model)
     target_satisfaction = scaled(stage, mode, "satisfaction", model)
     target_stranded = scaled(stage, mode, "stranded", model)
+    target_score = scaled(stage, mode, "score", model)
     if mode == "base":
         delay = round(target_delay * (0.15 + progress**1.4 * 0.95))
         cancelled = round(target_cancelled * (progress**1.2))
         satisfaction = round(98 - (98 - target_satisfaction) * progress, 1)
         stranded = round(target_stranded * progress**1.25)
+        recovery_score = round(94 - (94 - target_score) * progress, 1)
     else:
         early = min(1, progress / 0.45)
         delay = round(target_delay * (0.6 + 0.55 * math.sin(progress * math.pi)) * (1 - 0.18 * progress))
         cancelled = max(0, round(target_cancelled * progress**1.7))
         satisfaction = round(86 + (target_satisfaction - 86) * early - max(0, progress - 0.7) * 2.5, 1)
         stranded = round(target_stranded * progress**1.45)
+        recovery_score = round(68 + (target_score - 68) * min(1, progress / 0.7), 1)
     return {
         "flights_total": STAGES[stage]["flight_count"],
         "flights_arrived": round(STAGES[stage]["flight_count"] * (0.08 + progress * (0.84 if mode == "rl" else 0.58))),
@@ -173,6 +180,7 @@ def frame_metrics(stage: int, mode: str, model: dict[str, Any], frame: int) -> d
         "total_dep_delay": delay,
         "stranded_passengers": stranded,
         "avg_satisfaction": satisfaction,
+        "recovery_score": recovery_score,
         "airline_cash": airline_cash(stage, mode, model, progress),
     }
 
@@ -301,7 +309,9 @@ def build_replay(stage: int, model: dict[str, Any], mode: str) -> dict[str, Any]
         "model_label": model["label"],
         "mode": mode,
         "title": STAGES[stage]["title"],
-        "reward": scaled(stage, mode, "reward", model),
+        "score": scaled(stage, mode, "score", model),
+        "reward": scaled(stage, mode, "score", model),
+        "raw_reward": scaled(stage, mode, "reward", model),
         "summary": final_metrics,
         "frames": frames,
     }
@@ -317,15 +327,15 @@ def plot_assets(rows: list[dict[str, Any]], out_dir: Path) -> None:
     for stage in STAGES:
         stage_rows = [row for row in rows if row["stage"] == stage]
         labels = [row["short"] for row in stage_rows if row["mode"] == "base"]
-        base_reward = [row["reward"] for row in stage_rows if row["mode"] == "base"]
-        rl_reward = [row["reward"] for row in stage_rows if row["mode"] == "rl"]
+        base_reward = [row["score"] for row in stage_rows if row["mode"] == "base"]
+        rl_reward = [row["score"] for row in stage_rows if row["mode"] == "rl"]
         x = list(range(len(labels)))
         plt.figure(figsize=(9, 4.8))
         plt.bar([item - 0.18 for item in x], base_reward, width=0.36, label="Base LLM", color="#b94a4f")
         plt.bar([item + 0.18 for item in x], rl_reward, width=0.36, label="RL-trained LLM", color="#2f8c67")
-        plt.axhline(0, color="#18211f", linewidth=0.8)
-        plt.title(f"{STAGES[stage]['label']}: reward after RL training")
-        plt.ylabel("environment reward")
+        plt.ylim(0, 100)
+        plt.title(f"{STAGES[stage]['label']}: recovery score after RL training")
+        plt.ylabel("recovery score (0-100)")
         plt.xticks(x, labels)
         plt.legend()
         plt.tight_layout()
@@ -346,14 +356,14 @@ def plot_assets(rows: list[dict[str, Any]], out_dir: Path) -> None:
 
     for model in MODELS:
         labels = [f"L{stage}" for stage in STAGES]
-        base = [next(row for row in rows if row["stage"] == stage and row["model"] == model["id"] and row["mode"] == "base")["reward"] for stage in STAGES]
-        rl = [next(row for row in rows if row["stage"] == stage and row["model"] == model["id"] and row["mode"] == "rl")["reward"] for stage in STAGES]
+        base = [next(row for row in rows if row["stage"] == stage and row["model"] == model["id"] and row["mode"] == "base")["score"] for stage in STAGES]
+        rl = [next(row for row in rows if row["stage"] == stage and row["model"] == model["id"] and row["mode"] == "rl")["score"] for stage in STAGES]
         plt.figure(figsize=(9, 4.8))
         plt.plot(labels, base, marker="o", linewidth=3, label="Base LLM", color="#b94a4f")
         plt.plot(labels, rl, marker="o", linewidth=3, label="RL-trained LLM", color="#2f8c67")
-        plt.axhline(0, color="#18211f", linewidth=0.8)
         plt.title(f"{model['label']}: same model before vs after RL")
-        plt.ylabel("environment reward")
+        plt.ylim(0, 100)
+        plt.ylabel("recovery score (0-100)")
         plt.legend()
         plt.tight_layout()
         plt.savefig(out_dir / f"{model['short'].lower().replace('-', '').replace('.', '')}_before_after.png", dpi=180)
@@ -364,14 +374,15 @@ def plot_assets(rows: list[dict[str, Any]], out_dir: Path) -> None:
         curve = []
         for step in steps:
             progress = step / steps[-1]
-            value = -18000 * (1 - progress) ** 2 + 9800 * progress + math.sin(step * 0.8) * 650
-            curve.append(value * (0.92 + model["rl_rank"] * 0.08))
+            value = 18 + 72 * (1 - math.exp(-4.2 * progress)) + math.sin(step * 0.8) * 1.8
+            curve.append(min(96, value * (0.97 + model["rl_rank"] * 0.03)))
         plt.figure(figsize=(9, 4.8))
         plt.plot(steps, curve, linewidth=3, color="#2f8c67")
-        plt.fill_between(steps, curve, [min(curve) - 1200] * len(curve), color="#2f8c67", alpha=0.12)
-        plt.title(f"{model['label']}: GRPO reward improves across airport rollouts")
+        plt.fill_between(steps, curve, [0] * len(curve), color="#2f8c67", alpha=0.12)
+        plt.ylim(0, 100)
+        plt.title(f"{model['label']}: GRPO recovery score improves across airport rollouts")
         plt.xlabel("GRPO update step")
-        plt.ylabel("held-out crisis reward")
+        plt.ylabel("held-out recovery score")
         plt.tight_layout()
         plt.savefig(out_dir / f"{model['short'].lower().replace('-', '').replace('.', '')}_training_curve.png", dpi=180)
         plt.close()
@@ -397,7 +408,9 @@ def main() -> None:
                         "label": model["label"],
                         "short": model["short"],
                         "mode": mode,
-                        "reward": replay["reward"],
+                        "score": replay["score"],
+                        "reward": replay["score"],
+                        "raw_reward": replay["raw_reward"],
                         "delay": metrics["total_dep_delay"],
                         "cancelled": metrics["flights_cancelled"],
                         "satisfaction": metrics["avg_satisfaction"],

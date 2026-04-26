@@ -56,5 +56,5 @@ capability.
 3. Replay base-model decisions.
 4. Replay RL-trained recovery decisions.
 5. Compare all four base LLMs against their RL-trained versions.
-6. Show reward, delay, stranded passengers, satisfaction, and cash pressure.
+6. Show recovery score, delay, stranded passengers, satisfaction, and cash pressure.
 7. Show the TRL/GRPO training path and hosted artifact links.

@@ -20,8 +20,10 @@ airport operations from cascading disruptions.
 - Training/results page: https://project-2pdc2.vercel.app/training/
 - Level 4 crisis replay: https://project-2pdc2.vercel.app/sim/?stage=4
 - OpenEnv/Hugging Face Space API: https://work-dwivediishivam-runway-zero.hf.space/state
+- Hugging Face Space repository: https://huggingface.co/spaces/work-dwivediishivam/runway-zero
 - Hosted GPU GRPO artifacts: https://huggingface.co/work-dwivediishivam/runway-zero-training-artifacts
 - Mini-blog/writeup: [docs/MINI_BLOG.md](docs/MINI_BLOG.md)
+- Final submission checklist: [docs/FINAL_SUBMISSION_CHECKLIST.md](docs/FINAL_SUBMISSION_CHECKLIST.md)
 - Hugging Face mini-blog/model card: https://huggingface.co/work-dwivediishivam/runway-zero-training-artifacts/blob/main/README.md
 
 Static planning asks whether an agent can make a schedule. Runway Zero asks
@@ -121,13 +123,16 @@ The reward is decomposed into visible components:
 - fairness score
 - action validity score
 
-This makes model improvement legible in the demo and in notebook plots.
+The training reward can be negative because it is a sum of bonuses and
+penalties. The public demo therefore displays a normalized 0-100 Recovery Score
+while the raw reward remains available in technical artifacts.
 
 ## Results Snapshot
 
 The public evaluation compares only the four base LLMs against the same four
-RL-trained LLMs. Internal simulator-debug policies are not part of the demo
-story.
+RL-trained LLMs using deterministic Runway Zero evaluator replays. Hosted GRPO
+job cards and adapter artifacts are linked separately as the real training
+evidence. Internal simulator-debug policies are not part of the demo story.
 Generated pitch evidence:
 
 - `web/public/pitch/model_results.json`
@@ -167,6 +172,7 @@ python scripts/train_llm_grpo_all_stages.py \
   --model Qwen/Qwen2.5-Coder-7B-Instruct \
   --stages 1 2 3 \
   --max-steps 60 \
+  --report-to tensorboard \
   --output-dir results/llm_runs/qwen25_runway_zero
 ```
 

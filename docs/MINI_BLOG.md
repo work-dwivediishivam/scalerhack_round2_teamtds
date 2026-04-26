@@ -41,9 +41,9 @@ The environment has four public crisis levels:
    mass-cancellation crisis where the model must rebuild the network without
    pretending every flight can be saved.
 
-For the demo, the website replays real simulator traces. It shows a custom
+For the demo, the website replays deterministic simulator traces. It shows a custom
 animated India operations board, airport zoom views with runways and gates,
-active disruption context, agent negotiation messages, reward bars, speed
+active disruption context, agent negotiation messages, recovery-score bars, speed
 controls, and base-model-vs-RL-trained comparison rows.
 
 Training evidence is presented as base LLM versus RL-trained LLM, model by
@@ -53,6 +53,11 @@ GRPO across stages 1, 2, and 3: Qwen2.5-Coder-7B-Instruct, Qwen3-14B,
 GPT-OSS-120B, and Gemma-4-31B-IT. The Level 4 replay uses the same comparison
 format to show how those learned recovery behaviors transfer to a real-world
 mass-disruption scenario.
+
+The raw RL reward can be negative because safety, delay, passenger harm, and
+money penalties can exceed bonuses. The website therefore uses a normalized
+0-100 Recovery Score for the pitch while preserving raw rewards in technical
+artifacts.
 
 Why this matters: deployed agents will not operate in clean, single-turn
 prompt-response tasks. They will operate inside systems where resources
