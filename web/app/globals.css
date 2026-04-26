@@ -1379,10 +1379,11 @@ h2 span {
   position: relative;
   border: 1px solid var(--line);
   background:
-    linear-gradient(rgba(24, 33, 31, 0.055) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(24, 33, 31, 0.055) 1px, transparent 1px),
-    #dfe9e5;
-  background-size: 30px 30px;
+    radial-gradient(circle at 48% 47%, rgba(255, 255, 255, 0.42), transparent 30%),
+    linear-gradient(rgba(24, 33, 31, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(24, 33, 31, 0.045) 1px, transparent 1px),
+    #dce7e3;
+  background-size: auto, 32px 32px, 32px 32px;
   overflow: hidden;
 }
 
@@ -1399,16 +1400,16 @@ h2 span {
 }
 
 .indiaShapeV2 {
-  fill: rgba(255, 255, 255, 0.58);
-  stroke: rgba(24, 33, 31, 0.2);
-  stroke-width: 0.38;
+  fill: rgba(255, 255, 255, 0.68);
+  stroke: rgba(24, 33, 31, 0.24);
+  stroke-width: 0.44;
 }
 
 .airspaceSector {
-  fill: rgba(255, 255, 255, 0.08);
-  stroke: rgba(24, 33, 31, 0.1);
-  stroke-width: 0.18;
-  stroke-dasharray: 1.5 1.4;
+  fill: rgba(255, 255, 255, 0.05);
+  stroke: rgba(24, 33, 31, 0.085);
+  stroke-width: 0.14;
+  stroke-dasharray: 1.4 1.7;
 }
 
 .indiaCoastV2 {
@@ -1419,9 +1420,9 @@ h2 span {
 
 .flightArc {
   fill: none;
-  stroke-width: 0.45;
-  stroke-dasharray: 2 1.2;
-  opacity: 0.72;
+  stroke-width: 0.38;
+  stroke-dasharray: 2.2 1.8;
+  opacity: 0.62;
 }
 
 .flightArc.late {
@@ -1439,23 +1440,40 @@ h2 span {
   stroke-width: 0.25;
 }
 
+.airportPinV2 {
+  position: absolute;
+  z-index: 2;
+  width: 9px;
+  height: 9px;
+  border: 2px solid white;
+  border-radius: 50%;
+  background: var(--teal);
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 0 3px rgba(47, 140, 103, 0.14);
+}
+
+.airportPinV2.incident {
+  background: var(--red);
+  box-shadow: 0 0 0 5px rgba(186, 59, 70, 0.14);
+}
+
 .airportNodeV2 {
   position: absolute;
   z-index: 3;
   transform: translate(-50%, -50%);
-  min-width: 72px;
-  min-height: 45px;
-  border: 1px solid var(--ink);
-  background: white;
+  min-width: 66px;
+  min-height: 39px;
+  border: 1px solid rgba(24, 33, 31, 0.76);
+  background: rgba(255, 255, 255, 0.94);
   color: var(--ink);
   display: grid;
   place-items: center;
   cursor: pointer;
-  box-shadow: 0 10px 22px rgba(24, 33, 31, 0.16);
+  box-shadow: 0 8px 18px rgba(24, 33, 31, 0.13);
 }
 
 .airportNodeV2 strong {
-  font-size: 13px;
+  font-size: 12px;
 }
 
 .airportNodeV2 em {
@@ -1468,6 +1486,8 @@ h2 span {
 .airportNodeV2.selected {
   background: var(--ink);
   color: white;
+  min-width: 74px;
+  min-height: 45px;
 }
 
 .airportNodeV2.selected em {
@@ -1496,17 +1516,17 @@ h2 span {
 
 .flightChip {
   position: absolute;
-  right: 14px;
+  right: 16px;
   z-index: 4;
-  min-width: 210px;
+  min-width: 190px;
   border: 1px solid var(--line);
   background: rgba(255, 255, 255, 0.94);
-  padding: 8px 10px;
+  padding: 7px 9px;
   display: grid;
   grid-template-columns: auto 1fr auto;
   gap: 8px;
   align-items: center;
-  font-size: 12px;
+  font-size: 11px;
 }
 
 .mapLegendV2 {
@@ -1516,7 +1536,7 @@ h2 span {
   z-index: 4;
   border: 1px solid var(--line);
   background: rgba(255, 255, 255, 0.88);
-  padding: 10px 12px;
+  padding: 9px 11px;
   display: grid;
   gap: 3px;
 }

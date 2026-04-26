@@ -109,6 +109,19 @@ const speeds = [
   { label: "4x", ms: 260 },
 ];
 
+const airportLabelOffsets: Record<string, { x: number; y: number }> = {
+  DEL: { x: 2.8, y: -1.4 },
+  BOM: { x: -4.6, y: -1.6 },
+  PNQ: { x: 4.5, y: 1.2 },
+  BLR: { x: -2.6, y: 0.8 },
+  HYD: { x: 3.4, y: -1.2 },
+  MAA: { x: 5.2, y: 1.6 },
+  CCU: { x: 3.6, y: 0.2 },
+  AMD: { x: -3.2, y: -1.2 },
+  GOX: { x: -4.4, y: 2.4 },
+  COK: { x: -3.8, y: 3.4 },
+};
+
 export default function SimulationPage() {
   const [stage, setStage] = useState(4);
   const [model, setModel] = useState(modelOptions[0].id);
@@ -267,18 +280,18 @@ function IndiaMap({
       <svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet">
         <path
           className="indiaShapeV2"
-          d="M37 5 L58 8 L66 14 L74 18 L78 27 L87 32 L79 39 L68 42 L70 56 L65 70 L57 81 L48 94 L39 82 L34 71 L27 61 L23 50 L22 39 L26 30 L21 23 L31 18 Z"
+          d="M41 5 L54 7 L66 10 L73 16 L77 23 L86 29 L79 35 L70 37 L72 47 L69 58 L64 70 L57 81 L49 94 L42 84 L37 75 L31 67 L27 57 L24 47 L24 36 L29 27 L24 21 L34 16 Z"
         />
-        <path className="airspaceSector" d="M26 16 H78 V43 H26 Z" />
-        <path className="airspaceSector" d="M22 43 H71 V72 H22 Z" />
-        <path className="airspaceSector" d="M33 72 H65 V96 H33 Z" />
+        <path className="airspaceSector" d="M30 17 H77 V42 H30 Z" />
+        <path className="airspaceSector" d="M27 43 H70 V72 H27 Z" />
+        <path className="airspaceSector" d="M36 72 H62 V94 H36 Z" />
         <path className="indiaCoastV2" d="M30 20 C23 33 22 47 28 61 C34 74 40 86 50 95" />
         <path className="indiaCoastV2" d="M58 9 C63 18 69 27 82 36 C75 46 68 56 65 73" />
-        {frame.flights.map((flight, index) => {
+        {frame.flights.slice(0, 8).map((flight, index) => {
           const from = airportPoint(airports.find((airport) => airport.code === flight.origin));
           const to = airportPoint(airports.find((airport) => airport.code === flight.destination));
           const midX = (from.x + to.x) / 2;
-          const midY = Math.min(from.y, to.y) - 7 - (index % 3) * 2;
+          const midY = Math.min(from.y, to.y) - 5 - (index % 4) * 1.6;
           const progress = ((frame.time_index * 13 + index * 11) % 100) / 100;
           const planeX = quadratic(from.x, midX, to.x, progress);
           const planeY = quadratic(from.y, midY, to.y, progress);
@@ -300,6 +313,16 @@ function IndiaMap({
       </svg>
       {airports.map((airport) => {
         const point = airportPoint(airport);
+        return (
+          <span
+            key={`${airport.code}-pin`}
+            className={`airportPinV2 ${incidentAirports.has(airport.code) ? "incident" : ""}`}
+            style={{ left: `${point.x}%`, top: `${point.y}%` }}
+          />
+        );
+      })}
+      {airports.map((airport) => {
+        const point = airportLabelPoint(airport);
         const incident = incidentAirports.has(airport.code);
         return (
           <button
@@ -316,8 +339,8 @@ function IndiaMap({
           </button>
         );
       })}
-      {frame.flights.slice(0, 6).map((flight, index) => (
-        <div className="flightChip" key={flight.flight_id} style={{ top: `${8 + index * 8}%` }}>
+      {frame.flights.slice(0, 5).map((flight, index) => (
+        <div className="flightChip" key={flight.flight_id} style={{ top: `${10 + index * 8.5}%` }}>
           <strong>{flight.flight_id}</strong>
           <span>
             {flight.origin} → {flight.destination}
@@ -344,8 +367,17 @@ function airportPoint(airport?: Airport) {
   const minLat = 7.5;
   const maxLat = 35.5;
   return {
-    x: 14 + ((airport.lon - minLon) / (maxLon - minLon)) * 72,
-    y: 6 + ((maxLat - airport.lat) / (maxLat - minLat)) * 88,
+    x: 18 + ((airport.lon - minLon) / (maxLon - minLon)) * 64,
+    y: 7 + ((maxLat - airport.lat) / (maxLat - minLat)) * 84,
+  };
+}
+
+function airportLabelPoint(airport: Airport) {
+  const point = airportPoint(airport);
+  const offset = airportLabelOffsets[airport.code] ?? { x: 0, y: 0 };
+  return {
+    x: Math.max(8, Math.min(92, point.x + offset.x)),
+    y: Math.max(7, Math.min(93, point.y + offset.y)),
   };
 }
 
