@@ -25,7 +25,8 @@ Python simulator -> OpenEnv/FastAPI wrapper -> training/evaluation scripts
 
 ## Simulator
 
-The simulator is deterministic by `stage` and `seed`.
+The simulator is scenario-controlled by `stage` and `seed`, which keeps the
+base-versus-RL comparison fair and reproducible.
 
 - `reset(stage, seed)` creates airports, airlines, aircraft, crews, flights, and
   scheduled disruptions.
@@ -72,8 +73,8 @@ free-form text.
 
 ## Website
 
-The dashboard is a replay UI, not a separate toy. It consumes pitch-ready JSON
-replays exported from the simulator and exposes only the judge-facing comparison:
+The dashboard is a replay UI, not a separate toy. It consumes JSON replays
+exported from the simulator and exposes only the judge-facing comparison:
 four base LLM controllers versus four RL-trained LLM controllers.
 
 Main viewport:
@@ -85,7 +86,6 @@ Main viewport:
 
 Side panel:
 
-- live reward delta
 - normalized 0-100 recovery score
 - reward component bars
 - operational metrics

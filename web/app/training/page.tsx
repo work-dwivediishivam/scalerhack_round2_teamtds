@@ -79,18 +79,17 @@ export default function TrainingPage() {
         <Stat icon={<BrainCircuit size={20} />} label="hosted GRPO runs" value={hostedGrpoRuns.length} />
         <Stat icon={<RadioTower size={20} />} label="crisis levels" value="4" />
         <Stat icon={<TrendingUp size={20} />} label="delay reduction" value={`${Math.round((1 - rlDelay / baseDelay) * 100)}%`} />
-        <Stat icon={<PlaneTakeoff size={20} />} label="cancellations reduced" value={`${baseCancels}→${rlCancels}`} />
+        <Stat icon={<PlaneTakeoff size={20} />} label="RL/base cancellations" value={`${rlCancels}/${baseCancels}`} />
         <Stat icon={<BarChart3 size={20} />} label="GRPO update steps" value={totalSteps} />
       </section>
 
       <section className="submissionPanel">
         <div>
           <p className="eyebrow">Judge-Facing Evidence</p>
-          <h2>What is real, what is replayed</h2>
+          <h2>Submission Evidence</h2>
           <p>
-            The Hugging Face job cards below are hosted TRL/GRPO training artifacts. The matrices and
-            maps are deterministic Runway Zero evaluator replays, exported for the pitch so judges can
-            inspect the same environment pressure visually.
+            The same OpenEnv environment powers the Hugging Face Space, training notebooks,
+            hosted GRPO artifacts, recovery-score plots, and visual crisis dashboard.
           </p>
         </div>
         <div className="submissionLinks">
@@ -111,10 +110,10 @@ export default function TrainingPage() {
                 <div className="matrixRow" key={`${stage}-${model.model}`}>
                   <span>{model.label}</span>
                   <strong>
-                    {base?.score} → {rl?.score}
+                    {rl?.score} RL / {base?.score} base
                   </strong>
                   <em>
-                    delay {base?.delay.toLocaleString()} → {rl?.delay.toLocaleString()}
+                    delay {rl?.delay.toLocaleString()} RL / {base?.delay.toLocaleString()} base
                   </em>
                 </div>
               );

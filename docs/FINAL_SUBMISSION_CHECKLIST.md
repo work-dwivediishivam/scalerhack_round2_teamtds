@@ -11,7 +11,9 @@ HF credits issue form: https://forms.gle/5TmQnPK9PVe4QTZx8
 - Hugging Face Space environment: https://huggingface.co/spaces/work-dwivediishivam/runway-zero
 - Live Space API state endpoint: https://work-dwivediishivam-runway-zero.hf.space/state
 - Training notebook/script URL: https://huggingface.co/spaces/work-dwivediishivam/runway-zero/blob/main/notebooks/04_llm_grpo_all_stages.ipynb
-- Blog post URL: https://huggingface.co/spaces/work-dwivediishivam/runway-zero/blob/main/docs/MINI_BLOG.md
+- Blog post URL: https://huggingface.co/spaces/work-dwivediishivam/runway-zero/blob/main/docs/BLOG_POST.md
+- YouTube description draft: https://huggingface.co/spaces/work-dwivediishivam/runway-zero/blob/main/docs/YOUTUBE_DESCRIPTION.md
+- YouTube pitch script: https://huggingface.co/spaces/work-dwivediishivam/runway-zero/blob/main/docs/YOUTUBE_PITCH_SCRIPT.md
 - Web demo: https://project-2pdc2.vercel.app/
 - Training evidence dashboard: https://project-2pdc2.vercel.app/training/
 - Training artifacts: https://huggingface.co/work-dwivediishivam/runway-zero-training-artifacts

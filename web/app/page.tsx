@@ -90,7 +90,7 @@ export default function LandingPage() {
         <div className="heroProof">
           <div>
             <Plane size={20} />
-            <strong>{baseCancelled.toLocaleString()} → {rlCancelled.toLocaleString()}</strong>
+            <strong>{rlCancelled.toLocaleString()} RL / {baseCancelled.toLocaleString()} base</strong>
             <span>simulated cancellations across all models/levels</span>
           </div>
           <div>
@@ -144,8 +144,8 @@ export default function LandingPage() {
               <h2>{level.subtitle}</h2>
               <p>{level.description}</p>
               <div className="miniDelta">
-                <strong>{base?.score} → {rl?.score}</strong>
-                <em>Base recovery score → RL-trained score</em>
+                <strong>{rl?.score} RL / {base?.score} base</strong>
+                <em>Recovery score comparison</em>
               </div>
               <b>
                 Open replay <ArrowRight size={18} />

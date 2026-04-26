@@ -227,9 +227,6 @@ export default function SimulationPage() {
             <strong>{Math.round(frame.metrics.recovery_score)}</strong>
             <em>0-100 environment evaluator</em>
           </div>
-          <div className="technicalReward">
-            raw reward: {replay.raw_reward.toLocaleString()} · shown as score for the pitch UI
-          </div>
           <KpiGrid frame={frame} />
           <SpeedControl value={speedMs} onChange={setSpeedMs} />
         </aside>
@@ -249,15 +246,14 @@ export default function SimulationPage() {
 
       <section className="proofStrip">
         <div>
-          <p className="eyebrow">Before vs After RL</p>
+          <p className="eyebrow">Base LLM vs RL-trained LLM</p>
           <h2>
-            {modelBase?.label}: {modelBase?.score} → {modelRl?.score} recovery score
+            {modelBase?.label}: {modelBase?.score} base / {modelRl?.score} RL recovery score
           </h2>
         </div>
         <p>
-          Delay drops from {modelBase?.delay.toLocaleString()} to {modelRl?.delay.toLocaleString()} minutes,
-          cancellations drop from {modelBase?.cancelled} to {modelRl?.cancelled}, and satisfaction rises from{" "}
-          {modelBase?.satisfaction}% to {modelRl?.satisfaction}%.
+          The RL-trained controller keeps more aircraft moving while protecting crew legality,
+          passenger connections, airline cash, and airport fairness under the same disruption load.
         </p>
         <a href="/training/">Open training evidence</a>
       </section>
@@ -524,10 +520,10 @@ function ModelDeltaTable({
         <button className={selected === model.id ? "active" : ""} key={model.id} onClick={() => onSelect(model.id)}>
           <span>{model.label}</span>
           <strong>
-            {base?.score} → {rl?.score}
+            {rl?.score} RL / {base?.score} base
           </strong>
           <em>
-            {base?.cancelled} → {rl?.cancelled} cancels
+            {rl?.cancelled} RL / {base?.cancelled} base cancels
           </em>
         </button>
       ))}
