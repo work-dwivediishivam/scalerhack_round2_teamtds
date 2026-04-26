@@ -8,6 +8,7 @@ RunwayZeroEnv.
 from __future__ import annotations
 
 import argparse
+import inspect
 import json
 import os
 import sys
@@ -202,21 +203,29 @@ def train(args: argparse.Namespace) -> None:
 
     dataset = Dataset.from_list(examples)
     model, tokenizer = load_model(args.model, args.use_unsloth)
-    config = GRPOConfig(
-        output_dir=str(output_dir),
-        max_steps=args.max_steps,
-        per_device_train_batch_size=args.batch_size,
-        gradient_accumulation_steps=args.grad_accum,
-        learning_rate=args.learning_rate,
-        logging_steps=1,
-        save_steps=max(10, args.max_steps // 3),
-        num_generations=args.num_generations,
-        generation_batch_size=args.num_generations * args.batch_size,
-        max_prompt_length=args.max_prompt_length,
-        max_completion_length=args.max_completion_length,
-        fp16=os.getenv("RUNWAY_ZERO_FP16") == "1",
-        bf16=os.getenv("RUNWAY_ZERO_BF16") == "1",
-    )
+    config_kwargs = {
+        "output_dir": str(output_dir),
+        "max_steps": args.max_steps,
+        "per_device_train_batch_size": args.batch_size,
+        "gradient_accumulation_steps": args.grad_accum,
+        "learning_rate": args.learning_rate,
+        "logging_steps": 1,
+        "save_steps": max(10, args.max_steps // 3),
+        "num_generations": args.num_generations,
+        "generation_batch_size": args.num_generations * args.batch_size,
+        "max_prompt_length": args.max_prompt_length,
+        "max_completion_length": args.max_completion_length,
+        "fp16": os.getenv("RUNWAY_ZERO_FP16") == "1",
+        "bf16": os.getenv("RUNWAY_ZERO_BF16") == "1",
+    }
+    supported_config_args = set(inspect.signature(GRPOConfig.__init__).parameters)
+    filtered_config_kwargs = {
+        key: value for key, value in config_kwargs.items() if key in supported_config_args
+    }
+    dropped_config_args = sorted(set(config_kwargs) - set(filtered_config_kwargs))
+    if dropped_config_args:
+        print(f"Dropping unsupported GRPOConfig args: {', '.join(dropped_config_args)}")
+    config = GRPOConfig(**filtered_config_kwargs)
     trainer = GRPOTrainer(
         model=model,
         processing_class=tokenizer,
