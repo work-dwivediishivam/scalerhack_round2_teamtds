@@ -19,6 +19,13 @@ if [[ "${RUNWAY_ZERO_INSTALL_TRANSFORMERS_MAIN:-0}" == "1" ]]; then
   pip install --upgrade "transformers @ git+https://github.com/huggingface/transformers.git"
 fi
 
+if [[ "${RUNWAY_ZERO_INSTALL_RL_MAIN:-0}" == "1" ]]; then
+  pip install --upgrade \
+    "transformers @ git+https://github.com/huggingface/transformers.git" \
+    "peft @ git+https://github.com/huggingface/peft.git" \
+    "trl @ git+https://github.com/huggingface/trl.git"
+fi
+
 export TOKENIZERS_PARALLELISM=false
 
 OUT="results/llm_runs/${SLUG}_hf_grpo"
