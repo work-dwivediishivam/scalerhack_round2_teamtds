@@ -4,6 +4,8 @@ Blog post and full submission writeup: https://huggingface.co/spaces/work-dwived
 
 Runway Zero is an OpenEnv environment where LLM agents learn to recover Indian airport operations from cascading disruptions. Base LLMs can describe an airport crisis. RL-trained LLMs learn to recover it by acting inside the environment and receiving verifiable reward.
 
+Why this matters: real airline disruption recovery requires highly trained operations-control teams coordinating aircraft, crews, maintenance, passengers, runways, gates, airline economics, and fairness. Existing software helps with parts of the workflow, but there is no generally deployed autonomous system that recovers the full cascading network end to end.
+
 Live links:
 
 - Web demo: https://project-2pdc2.vercel.app/

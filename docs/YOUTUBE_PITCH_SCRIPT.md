@@ -31,6 +31,11 @@ At 8 AM the Indian airport network looks stable. Then fog hits Delhi, Mumbai
 loses runway capacity, Bengaluru gates jam, crews start timing out, passenger
 connections break, and airlines fight for scarce recovery slots.
 
+In real life, this job requires highly trained operations-control teams. They
+have software for pieces of the workflow, but there is no generally deployed
+autonomous system that recovers aircraft, crews, passengers, gates, runways,
+money, and fairness end to end.
+
 ### 0:28 - 0:48
 
 This is an OpenEnv environment. The model does not just write an explanation. It

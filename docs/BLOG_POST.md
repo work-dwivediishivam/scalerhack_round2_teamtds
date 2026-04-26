@@ -19,6 +19,13 @@ Runway Zero is an OpenEnv environment where LLM agents learn to recover Indian
 airport operations from cascading disruptions. Static planning is easy. The real
 test is whether an agent can keep the system alive after the plan breaks.
 
+The real version of this job requires highly trained operations-control teams:
+dispatchers, crew planners, maintenance coordinators, passenger recovery teams,
+airport operations, and airline network controllers. They use many specialized
+decision-support tools, but there is still no generally deployed autonomous
+computer system that solves the complete cascading recovery problem across
+aircraft, crew, passengers, gates, runways, money, and fairness end to end.
+
 ## Why This Problem Matters
 
 Most agent benchmarks ask an LLM to produce a plan, answer a question, or solve a
@@ -28,6 +35,20 @@ rotations in Hyderabad. A blocked runway at Mumbai can strand passengers in
 Bengaluru. One crew duty timeout can make the next three flights illegal. A
 decision that looks locally good can create a system-wide failure two hours
 later.
+
+This is exactly where human expertise is still the backbone of airline
+operations. During a major disruption, teams in an Operations Control Center are
+not only asking "which flight is late?" They are negotiating aircraft rotations,
+legal crew duty windows, passenger reaccommodation, maintenance constraints,
+airport slot pressure, and commercial consequences. Existing software helps with
+pieces of that puzzle, but the full recovery process is still not a solved
+autonomous planning problem.
+
+This framing matches airline operations-control research: OCCs are described as
+the structures that oversee planned flight execution and manage punctuality,
+regularity, and customer support, while disruption-management work continues to
+emphasize human decision-making, decision considerations, and decision-support
+systems rather than full autonomy.
 
 That is the capability gap Runway Zero targets:
 
@@ -53,6 +74,11 @@ grid world. It combines routing, scheduling, crew legality, aircraft
 availability, passenger harm, airline incentives, runway capacity, fairness, and
 economic pressure. It is a rich environment where every action affects future
 state.
+
+That makes it a strong OpenEnv problem. If expert humans using operational
+software can still be overwhelmed by cascading disruptions, then an LLM
+benchmark that trains agents to act, observe consequences, and improve from
+verifiable recovery rewards is meaningful.
 
 The final level is a December 2025-style IndiGo crew and cancellation crisis
 replay. The point is not to claim a perfect reconstruction of real operations.
@@ -482,6 +508,17 @@ Key files:
 - `notebooks/04_llm_grpo_all_stages.ipynb`: Colab-compatible training notebook.
 - `web/app/sim/page.tsx`: visual crisis replay.
 - `web/app/training/page.tsx`: training evidence dashboard.
+
+## References Behind The Operations-Control Motivation
+
+- Airline Disruption Management: A Naturalistic Decision-Making Perspective in
+  an Operational Control Centre:
+  https://journals.sagepub.com/doi/10.1177/15553434211061024
+- Decision-making in airline operations: the importance of identifying decision
+  considerations:
+  https://www.inderscience.com/info/inarticle.php?artid=38295
+- A New Concept for Disruption Management in Airline Operations Control:
+  https://journals.sagepub.com/doi/10.1243/09544100JAERO864
 
 ## Submission Checklist
 

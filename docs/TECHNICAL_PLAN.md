@@ -11,6 +11,11 @@ The hackathon artifact is not only a notebook. It is a full OpenEnv-style
 environment plus a replay dashboard that makes the agent's decisions and reward
 signals visible.
 
+The motivation is real operational difficulty: airline recovery is still driven
+by highly trained operations-control teams and specialized tools that solve
+parts of the workflow. Runway Zero frames the missing end-to-end autonomous
+recovery problem as a trainable environment.
+
 ## Architecture
 
 ```text

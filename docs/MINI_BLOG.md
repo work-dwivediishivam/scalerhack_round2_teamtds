@@ -10,6 +10,12 @@ controller can act under fog, runway loss, aircraft faults, crew timeouts,
 passenger connection failures, airline cash pressure, and multi-agent slot
 competition.
 
+In real airline operations, this recovery work requires highly trained
+operations-control specialists and multiple decision-support systems. Severe
+cascading disruptions still overwhelm teams because no generally deployed
+autonomous system solves aircraft, crew, passengers, gates, runways, money, and
+fairness end to end.
+
 Final links:
 
 - Web demo: https://project-2pdc2.vercel.app/

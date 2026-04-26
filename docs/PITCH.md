@@ -5,6 +5,12 @@
 Most agent benchmarks ask whether an LLM can make a plan. Runway Zero asks
 whether it can recover after the plan breaks.
 
+Airline disruption recovery still depends on highly trained operations-control
+teams coordinating dispatch, crew legality, maintenance, passenger recovery,
+airport capacity, and airline economics. They have decision-support tools, but
+there is no generally deployed autonomous system that solves the whole cascading
+recovery problem end to end.
+
 ## Story
 
 At 8:00 AM, the Indian airport network looks stable. Flights are scheduled,
@@ -31,6 +37,10 @@ cash protection, and reputation recovery while Tower Central must stay neutral.
 
 The agent is no longer solving a static schedule. It is managing a living system
 where every fix creates a new consequence.
+
+That is why the problem is hard enough for an RL environment: even expert humans
+can fail when the disruption crosses aircraft, crew, passengers, gates, runways,
+money, and fairness at the same time.
 
 ## What We Built
 

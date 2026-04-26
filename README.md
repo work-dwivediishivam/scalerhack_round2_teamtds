@@ -19,6 +19,12 @@ can an agent keep a live airport network operational when each recovery decision
 changes crew legality, passenger connections, runway capacity, airline cash, and
 future congestion?
 
+Today this work is handled by highly trained operations-control specialists
+using fragmented decision-support tools. Those teams still fail during severe
+cascading disruptions because there is no generally deployed autonomous system
+that recovers aircraft, crew, passengers, gates, runways, airline incentives, and
+fairness end to end.
+
 ## Final Submission Links
 
 - Web demo: https://project-2pdc2.vercel.app/
@@ -40,6 +46,11 @@ India, Akasa Air, and SpiceJet compete for scarce recovery slots.
 
 The controller is no longer solving a schedule. It is recovering a living
 system.
+
+In the real world, this requires experienced dispatchers, controllers, crew
+planners, maintenance coordinators, and passenger recovery teams working under
+time pressure. Runway Zero turns that human-heavy recovery problem into a
+trainable OpenEnv benchmark.
 
 > Most agent benchmarks ask whether an LLM can make a plan. Runway Zero asks
 > whether it can recover after the plan breaks.

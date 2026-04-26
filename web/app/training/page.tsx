@@ -70,7 +70,8 @@ export default function TrainingPage() {
           <p>
             Every chart compares a base LLM against its RL-trained version inside the same Runway
             Zero environment. The point is simple: targeted environment training beats raw model
-            size when the plan starts breaking.
+            size on a recovery task that still requires highly trained human operations teams in
+            the real world.
           </p>
         </div>
       </header>

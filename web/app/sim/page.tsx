@@ -220,7 +220,7 @@ export default function SimulationPage() {
           <p>
             {mode === "rl"
               ? "The agent has learned to trade off runway capacity, passenger harm, crew legality, and airline cash."
-              : "The base model reacts late, over-holds flights, misses crew legality, and lets cancellations cascade."}
+              : "This is normally a human-led operations-control problem; the base model reacts late and lets constraints cascade."}
           </p>
           <div className="bigReward">
             <span>Recovery score</span>

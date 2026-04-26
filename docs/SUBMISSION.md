@@ -35,6 +35,12 @@ whether LLM agents can keep a living airport network operational as fog, runway
 closures, aircraft faults, passenger connections, crew timeouts, emergencies,
 fuel delays, and airline slot conflicts compound over time.
 
+The real-world version of this task is handled by highly trained
+operations-control teams using fragmented decision-support tools. Severe
+disruptions still break airline networks because there is no generally deployed
+autonomous system that recovers aircraft, crews, passengers, gates, runways,
+money, and fairness end to end.
+
 The core line:
 
 > Most agent benchmarks ask whether an LLM can make a plan. Runway Zero asks

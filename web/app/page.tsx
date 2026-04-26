@@ -71,9 +71,9 @@ export default function LandingPage() {
           <p className="eyebrow">Runway Zero</p>
           <h1>RL-trained LLM agents recover airport chaos after the plan breaks.</h1>
           <p>
-            Four base LLMs are dropped into cascading Indian airport crises. The same four models,
-            after GRPO training inside Runway Zero, learn to negotiate slots, preserve passengers,
-            avoid unsafe dispatch, and reduce mass cancellations.
+            Airline disruption recovery still depends on expert operations-control teams. Runway Zero
+            tests whether LLM agents can learn the full aircraft, crew, passenger, runway, cash, and
+            fairness recovery loop from environment rewards.
           </p>
           <div className="heroActions">
             <a href="/sim/?stage=4">
@@ -119,7 +119,8 @@ export default function LandingPage() {
         <p>
           Static schedules are easy. The real skill is what happens when fog hits Delhi, Mumbai loses a
           runway, Bengaluru slots become political, crew legality collapses, passengers are stranded, and
-          every airline asks Tower Central to favor them.
+          every airline asks Tower Central to favor them. Existing tools support pieces of this work; the
+          complete end-to-end recovery problem remains human-led.
         </p>
       </section>
 
