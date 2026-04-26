@@ -1,0 +1,17 @@
+{
+  "artifact_url": "https://huggingface.co/work-dwivediishivam/runway-zero-training-artifacts/blob/main/gpt_oss_120b_hf_grpo/gpt_oss_120b_hf_grpo.tgz",
+  "artifact_repo": "work-dwivediishivam/runway-zero-training-artifacts",
+  "model": "openai/gpt-oss-120b",
+  "hardware": "Hugging Face Jobs a100x8",
+  "training_method": "TRL GRPO with LoRA",
+  "stages": [
+    1,
+    2,
+    3
+  ],
+  "max_steps": 12,
+  "num_generations": 2,
+  "status": "completed",
+  "notes": "Environment-driven Runway Zero GRPO run across all three stages. Artifact bundle contains the final adapter, trainer state, run summary, and training examples.",
+  "job_url": "https://huggingface.co/jobs/work-dwivediishivam/69ed7786d70108f37acdf540"
+}

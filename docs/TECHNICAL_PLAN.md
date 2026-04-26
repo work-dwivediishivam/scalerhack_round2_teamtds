@@ -99,5 +99,6 @@ The completed submission is:
 2. Baseline policies and trained local RL controller evaluated.
 3. Replay UI showing base-model vs RL-trained behavior.
 4. TRL/GRPO scripts and notebooks for all stages.
-5. Hosted Hugging Face GPU GRPO run on Qwen2.5-Coder-7B.
+5. Hosted Hugging Face GPU GRPO runs on Qwen2.5-Coder-7B, Qwen3-14B,
+   GPT-OSS-120B, and Gemma-4-31B-IT.
 6. README, mini-blog, reward plots, replay traces, and Hugging Face Space packaging.

@@ -1,0 +1,18 @@
+{
+  "artifact_url": "https://huggingface.co/work-dwivediishivam/runway-zero-training-artifacts/blob/main/gemma4_31b_it_hf_grpo/gemma4_31b_it_hf_grpo.tgz",
+  "artifact_repo": "work-dwivediishivam/runway-zero-training-artifacts",
+  "model": "google/gemma-4-31B-it",
+  "hardware": "Hugging Face Jobs h200",
+  "training_method": "TRL GRPO with 4-bit LoRA, source Transformers/TRL stack",
+  "stages": [
+    1,
+    2,
+    3
+  ],
+  "max_steps": 12,
+  "num_generations": 2,
+  "status": "completed",
+  "notes": "Environment-driven Runway Zero GRPO run across all three stages. Artifact bundle contains the final adapter, trainer state, run summary, and training examples.",
+  "job_id": "69ed9445d70108f37acdf83d",
+  "job_url": "https://huggingface.co/jobs/work-dwivediishivam/69ed9445d70108f37acdf83d"
+}

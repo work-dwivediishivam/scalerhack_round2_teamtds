@@ -46,9 +46,10 @@ controls, and base-model-vs-RL-trained comparison rows.
 Training evidence is included at three levels. First, deterministic baselines
 and a local all-stage RL controller generate plots and replay traces. Second, a
 local TRL/GRPO smoke run proves the LLM reward loop executes against the real
-environment. Third, a hosted Hugging Face GPU job trained
-Qwen/Qwen2.5-Coder-7B-Instruct with TRL GRPO and 4-bit LoRA across all three
-stages, then uploaded the final artifact bundle to Hugging Face.
+environment. Third, hosted Hugging Face GPU jobs trained four large model
+policies with TRL GRPO across all three stages: Qwen2.5-Coder-7B-Instruct,
+Qwen3-14B, GPT-OSS-120B, and Gemma-4-31B-IT. Each run uploaded its adapter
+artifact bundle and JSON summary to the Hugging Face artifact repo.
 
 Why this matters: deployed agents will not operate in clean, single-turn
 prompt-response tasks. They will operate inside systems where resources

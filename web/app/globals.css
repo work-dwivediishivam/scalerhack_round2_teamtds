@@ -869,6 +869,7 @@ h2 span {
 .trainingStats,
 .resultsGrid,
 .plotGrid,
+.grpoRunGrid,
 .wideEvidence {
   display: grid;
   gap: 14px;
@@ -881,6 +882,7 @@ h2 span {
 .trainingStat,
 .resultPanel,
 .plotPanel,
+.grpoRunCard,
 .wideEvidence article {
   border: 1px solid var(--line);
   background: var(--panel);
@@ -910,6 +912,7 @@ h2 span {
 
 .resultPanel,
 .plotPanel,
+.grpoRunCard,
 .wideEvidence article {
   padding: 14px;
 }
@@ -958,6 +961,10 @@ h2 span {
   text-align: right;
 }
 
+.evidenceRow.compact {
+  grid-template-columns: 0.6fr 1fr auto;
+}
+
 .plotGrid {
   grid-template-columns: repeat(3, 1fr);
 }
@@ -980,6 +987,39 @@ h2 span {
 
 .wideEvidence {
   grid-template-columns: 1fr 1fr;
+}
+
+.grpoRunGrid {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.grpoRunCard {
+  display: grid;
+  gap: 12px;
+}
+
+.grpoRunCard h2 {
+  font-size: 22px;
+  line-height: 1.1;
+  overflow-wrap: anywhere;
+}
+
+.runLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.runLinks a {
+  min-height: 36px;
+  border: 1px solid var(--line);
+  color: var(--ink);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 10px;
+  font-size: 12px;
+  font-weight: 850;
 }
 
 .trainingCta {
@@ -1009,6 +1049,7 @@ h2 span {
   .trainingStats,
   .resultsGrid,
   .plotGrid,
+  .grpoRunGrid,
   .wideEvidence {
     grid-template-columns: 1fr;
   }

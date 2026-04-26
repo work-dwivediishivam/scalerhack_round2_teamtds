@@ -1,6 +1,9 @@
 import { Activity, ArrowLeft, BarChart3, BrainCircuit, PlaneTakeoff, RadioTower } from "lucide-react";
 import baselineMetricsJson from "../../public/training/baseline_metrics.json";
+import hfGemmaJson from "../../public/training/hf_gemma4_31b_it_grpo_summary.json";
+import hfGptOssJson from "../../public/training/hf_gpt_oss_120b_grpo_summary.json";
 import hfQwenJson from "../../public/training/hf_qwen25_coder_7b_grpo_summary.json";
+import hfQwen3Json from "../../public/training/hf_qwen3_14b_grpo_summary.json";
 import hostedRolloutJson from "../../public/training/hosted_model_rollout_summary.json";
 import tinySmokeJson from "../../public/training/tiny_grpo_smoke_summary.json";
 import trainingSummaryJson from "../../public/training/training_summary.json";
@@ -36,6 +39,15 @@ type TraceRow = {
   avg_satisfaction: number;
 };
 
+type HostedGrpoRun = {
+  job_url: string;
+  artifact_url: string;
+  model: string;
+  hardware: string;
+  max_steps: number;
+  status: string;
+};
+
 const policyLabels: Record<string, string> = {
   random: "Random",
   fifo: "FIFO",
@@ -52,14 +64,12 @@ const hostedRollout = hostedRolloutJson as {
   steps: number;
   metrics: { avg_satisfaction: number; flights_active: number };
 };
-const hfQwen = hfQwenJson as {
-  job_url: string;
-  artifact_url: string;
-  model: string;
-  hardware: string;
-  max_steps: number;
-  status: string;
-};
+const hostedGrpoRuns = [
+  hfQwenJson as HostedGrpoRun,
+  hfQwen3Json as HostedGrpoRun,
+  hfGptOssJson as HostedGrpoRun,
+  hfGemmaJson as HostedGrpoRun,
+];
 const tinySmoke = tinySmokeJson as {
   run_summary: { model: string; max_steps: number; examples: number };
   trainer_state: { global_step: number; log_history: Array<Record<string, number>> };
@@ -89,6 +99,7 @@ function policyAverages(stage: number) {
 
 export default function TrainingPage() {
   const grpoLog = tinySmoke.trainer_state.log_history.at(-1);
+  const totalHostedSteps = hostedGrpoRuns.reduce((sum, run) => sum + run.max_steps, 0);
   const replayBest = [1, 2, 3].map((stage) => {
     const rows = traceManifest.filter((row) => row.stage === stage);
     return rows.sort((a, b) => b.total_reward - a.total_reward)[0];
@@ -106,8 +117,8 @@ export default function TrainingPage() {
           <h1>Controllers are scored inside the airport environment, not on a static worksheet.</h1>
           <p>
             The demo ships deterministic baselines, a trained tabular RL controller, a TRL/GRPO
-            smoke run against the real environment reward, and a hosted Qwen rollout path for large
-            model agents.
+            smoke run against the real environment reward, and hosted GPU GRPO runs for large model
+            agents across all three Runway Zero stages.
           </p>
         </div>
       </header>
@@ -115,7 +126,8 @@ export default function TrainingPage() {
       <section className="trainingStats">
         <Stat icon={<RadioTower size={20} />} label="difficulty levels" value="3" />
         <Stat icon={<Activity size={20} />} label="policy replays" value="12" />
-        <Stat icon={<BrainCircuit size={20} />} label="HF GRPO steps" value={hfQwen.max_steps} />
+        <Stat icon={<BrainCircuit size={20} />} label="HF GRPO runs" value={hostedGrpoRuns.length} />
+        <Stat icon={<BarChart3 size={20} />} label="hosted GRPO steps" value={totalHostedSteps} />
         <Stat icon={<PlaneTakeoff size={20} />} label="hosted Qwen rollout reward" value={hostedRollout.total_reward} />
       </section>
 
@@ -187,20 +199,45 @@ export default function TrainingPage() {
               {hostedRollout.steps} steps, {hostedRollout.metrics.avg_satisfaction}% satisfaction
             </em>
           </div>
-          <div className="evidenceRow">
-            <span>GPU GRPO</span>
-            <strong>{hfQwen.model}</strong>
-            <em>
-              {hfQwen.status}, {hfQwen.hardware}
-            </em>
-          </div>
+          {hostedGrpoRuns.map((run) => (
+            <div className="evidenceRow" key={run.model}>
+              <span>GPU GRPO</span>
+              <strong>{run.model}</strong>
+              <em>
+                {run.status}, {run.hardware}
+              </em>
+            </div>
+          ))}
         </article>
+      </section>
+
+      <section className="grpoRunGrid">
+        {hostedGrpoRuns.map((run) => (
+          <article className="grpoRunCard" key={run.model}>
+            <p className="eyebrow">Hosted TRL/GRPO</p>
+            <h2>{run.model}</h2>
+            <div className="evidenceRow compact">
+              <span>Status</span>
+              <strong>{run.status}</strong>
+              <em>{run.hardware}</em>
+            </div>
+            <div className="evidenceRow compact">
+              <span>Stages</span>
+              <strong>1 / 2 / 3</strong>
+              <em>{run.max_steps} update steps</em>
+            </div>
+            <div className="runLinks">
+              <a href={run.job_url}>Job log</a>
+              <a href={run.artifact_url}>Adapter artifact</a>
+            </div>
+          </article>
+        ))}
       </section>
 
       <section className="trainingCta">
         <a href="/sim/?stage=3">Open Level 3 replay</a>
         <a href="https://work-dwivediishivam-runway-zero.hf.space/state">Open Space API</a>
-        <a href={hfQwen.artifact_url}>Open GRPO artifact</a>
+        <a href="https://huggingface.co/work-dwivediishivam/runway-zero-training-artifacts">Open GRPO artifacts</a>
       </section>
     </main>
   );

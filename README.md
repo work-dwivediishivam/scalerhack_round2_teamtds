@@ -20,7 +20,7 @@ airport operations from cascading disruptions.
 - Training/results page: https://project-2pdc2.vercel.app/training/
 - Level 3 replay: https://project-2pdc2.vercel.app/sim/?stage=3
 - OpenEnv/Hugging Face Space API: https://work-dwivediishivam-runway-zero.hf.space/state
-- Hosted Qwen GRPO artifact: https://huggingface.co/work-dwivediishivam/runway-zero-training-artifacts/blob/main/qwen25_coder_7b_hf_grpo/runway_zero_qwen25_coder_7b_hf_grpo.tgz
+- Hosted GPU GRPO artifacts: https://huggingface.co/work-dwivediishivam/runway-zero-training-artifacts
 - Mini-blog/writeup: [docs/MINI_BLOG.md](docs/MINI_BLOG.md)
 - Hugging Face mini-blog/model card: https://huggingface.co/work-dwivediishivam/runway-zero-training-artifacts/blob/main/README.md
 
@@ -183,10 +183,19 @@ This repo also includes a completed local TRL/GRPO smoke run summary:
 `results/llm_runs/tiny_grpo_smoke_summary.json`. The full adapter files are
 intentionally ignored because they are generated binary artifacts.
 
-Hosted GPU GRPO evidence:
+Hosted GPU GRPO evidence across all three stages:
 
 - `results/llm_runs/hf_qwen25_coder_7b_grpo_summary.json`
-- Artifact bundle: `work-dwivediishivam/runway-zero-training-artifacts/qwen25_coder_7b_hf_grpo/runway_zero_qwen25_coder_7b_hf_grpo.tgz`
+- `results/llm_runs/hf_qwen3_14b_grpo_summary.json`
+- `results/llm_runs/hf_gpt_oss_120b_grpo_summary.json`
+- `results/llm_runs/hf_gemma4_31b_it_grpo_summary.json`
+
+Artifact bundles:
+
+- Qwen2.5 Coder 7B: `work-dwivediishivam/runway-zero-training-artifacts/qwen25_coder_7b_hf_grpo/runway_zero_qwen25_coder_7b_hf_grpo.tgz`
+- Qwen3 14B: `work-dwivediishivam/runway-zero-training-artifacts/qwen3_14b_hf_grpo/qwen3_14b_hf_grpo.tgz`
+- GPT-OSS 120B: `work-dwivediishivam/runway-zero-training-artifacts/gpt_oss_120b_hf_grpo/gpt_oss_120b_hf_grpo.tgz`
+- Gemma 4 31B IT: `work-dwivediishivam/runway-zero-training-artifacts/gemma4_31b_it_hf_grpo/gemma4_31b_it_hf_grpo.tgz`
 
 ## Docs
 
