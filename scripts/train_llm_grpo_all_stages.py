@@ -63,6 +63,43 @@ def make_reward_func() -> Any:
     return runway_reward
 
 
+def lora_target_modules() -> str | list[str]:
+    configured = os.getenv("RUNWAY_ZERO_LORA_TARGET_MODULES")
+    if configured:
+        if configured == "all-linear":
+            return configured
+        return [module.strip() for module in configured.split(",") if module.strip()]
+    return [
+        "q_proj",
+        "k_proj",
+        "v_proj",
+        "o_proj",
+        "gate_proj",
+        "up_proj",
+        "down_proj",
+    ]
+
+
+def attach_lora(model: Any, prepare_kbit: bool) -> Any:
+    from peft import LoraConfig, get_peft_model
+
+    if prepare_kbit:
+        from peft import prepare_model_for_kbit_training
+
+        model = prepare_model_for_kbit_training(model)
+    return get_peft_model(
+        model,
+        LoraConfig(
+            r=int(os.getenv("RUNWAY_ZERO_LORA_R", "16")),
+            lora_alpha=int(os.getenv("RUNWAY_ZERO_LORA_ALPHA", "32")),
+            lora_dropout=float(os.getenv("RUNWAY_ZERO_LORA_DROPOUT", "0.05")),
+            bias="none",
+            task_type="CAUSAL_LM",
+            target_modules=lora_target_modules(),
+        ),
+    )
+
+
 def load_model(model_name: str, use_unsloth: bool) -> tuple[Any, Any]:
     if use_unsloth:
         try:
@@ -97,12 +134,15 @@ def load_model(model_name: str, use_unsloth: bool) -> tuple[Any, Any]:
 
     from transformers import AutoModelForCausalLM, AutoTokenizer
 
-    tokenizer = AutoTokenizer.from_pretrained(model_name, token=os.getenv("HF_TOKEN"))
+    tokenizer = AutoTokenizer.from_pretrained(
+        model_name,
+        token=os.getenv("HF_TOKEN"),
+        trust_remote_code=True,
+    )
     if tokenizer.pad_token is None:
         tokenizer.pad_token = tokenizer.eos_token
     if os.getenv("RUNWAY_ZERO_LOAD_IN_4BIT") == "1":
         import torch
-        from peft import LoraConfig, get_peft_model, prepare_model_for_kbit_training
         from transformers import BitsAndBytesConfig
 
         quantization_config = BitsAndBytesConfig(
@@ -117,34 +157,32 @@ def load_model(model_name: str, use_unsloth: bool) -> tuple[Any, Any]:
             device_map="auto",
             quantization_config=quantization_config,
             torch_dtype=torch.float16,
+            trust_remote_code=True,
         )
-        model = prepare_model_for_kbit_training(model)
-        model = get_peft_model(
-            model,
-            LoraConfig(
-                r=16,
-                lora_alpha=32,
-                lora_dropout=0.05,
-                bias="none",
-                task_type="CAUSAL_LM",
-                target_modules=[
-                    "q_proj",
-                    "k_proj",
-                    "v_proj",
-                    "o_proj",
-                    "gate_proj",
-                    "up_proj",
-                    "down_proj",
-                ],
-            ),
-        )
+        model = attach_lora(model, prepare_kbit=True)
     else:
-        model = AutoModelForCausalLM.from_pretrained(
-            model_name,
-            token=os.getenv("HF_TOKEN"),
-            device_map="auto",
-            torch_dtype="auto",
-        )
+        try:
+            model = AutoModelForCausalLM.from_pretrained(
+                model_name,
+                token=os.getenv("HF_TOKEN"),
+                device_map="auto",
+                torch_dtype="auto",
+                trust_remote_code=True,
+            )
+        except ValueError as exc:
+            if "gemma4" not in str(exc):
+                raise
+            from transformers import AutoModelForImageTextToText
+
+            model = AutoModelForImageTextToText.from_pretrained(
+                model_name,
+                token=os.getenv("HF_TOKEN"),
+                device_map="auto",
+                torch_dtype="auto",
+                trust_remote_code=True,
+            )
+        if os.getenv("RUNWAY_ZERO_USE_LORA", "0") == "1":
+            model = attach_lora(model, prepare_kbit=False)
     return model, tokenizer
 
 
