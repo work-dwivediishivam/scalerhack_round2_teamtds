@@ -126,17 +126,17 @@ const speeds = [
   { label: "4x", ms: 260 },
 ];
 
-const airportLabelOffsets: Record<string, { x: number; y: number }> = {
-  DEL: { x: 2.6, y: -1.4 },
-  BOM: { x: -4.8, y: -1.7 },
-  PNQ: { x: 4.2, y: 1.2 },
-  BLR: { x: -2.3, y: 1.0 },
-  HYD: { x: 3.1, y: -1.0 },
-  MAA: { x: 4.8, y: 1.5 },
-  CCU: { x: 3.0, y: 0.1 },
-  AMD: { x: -2.8, y: -1.0 },
-  GOX: { x: -4.0, y: 2.2 },
-  COK: { x: -3.2, y: 3.1 },
+const airportBoardPositions: Record<string, { x: number; y: number }> = {
+  DEL: { x: 47.8, y: 30.6 },
+  AMD: { x: 35.8, y: 44.6 },
+  BOM: { x: 34.4, y: 55.7 },
+  PNQ: { x: 42.2, y: 58.7 },
+  GOX: { x: 38.2, y: 68.8 },
+  BLR: { x: 47.0, y: 78.4 },
+  HYD: { x: 53.0, y: 61.5 },
+  MAA: { x: 60.6, y: 77.8 },
+  COK: { x: 42.4, y: 88.5 },
+  CCU: { x: 74.2, y: 45.8 },
 };
 
 export default function SimulationPage() {
@@ -295,20 +295,6 @@ function IndiaMap({
         <path className="airspaceSector" d="M28 18 H74 V41 H28 Z" />
         <path className="airspaceSector" d="M26 42 H69 V69 H26 Z" />
         <path className="airspaceSector" d="M34 69 H62 V94 H34 Z" />
-        {airports.map((airport) => {
-          const point = airportPoint(airport);
-          const label = airportLabelPoint(airport);
-          return (
-            <line
-              key={`${airport.code}-leader`}
-              className="airportLeader"
-              x1={point.x}
-              y1={point.y}
-              x2={label.x}
-              y2={label.y}
-            />
-          );
-        })}
         {frame.flights.slice(0, 8).map((flight, index) => {
           const from = airportPoint(airports.find((airport) => airport.code === flight.origin));
           const to = airportPoint(airports.find((airport) => airport.code === flight.destination));
@@ -335,16 +321,6 @@ function IndiaMap({
       </svg>
       {airports.map((airport) => {
         const point = airportPoint(airport);
-        return (
-          <span
-            key={`${airport.code}-pin`}
-            className={`airportPinV2 ${incidentAirports.has(airport.code) ? "incident" : ""}`}
-            style={{ left: `${point.x}%`, top: `${point.y}%` }}
-          />
-        );
-      })}
-      {airports.map((airport) => {
-        const point = airportLabelPoint(airport);
         const incident = incidentAirports.has(airport.code);
         return (
           <button
@@ -372,7 +348,7 @@ function IndiaMap({
       ))}
       <div className="mapLegendV2">
         <strong>India airport recovery board</strong>
-        <span>nodes are real airport coordinates · arcs are active simulated flights</span>
+        <span>major airport network · arcs are active simulated flights</span>
       </div>
     </div>
   );
@@ -417,16 +393,7 @@ function geoPoint(lon: number, lat: number) {
 
 function airportPoint(airport?: Airport) {
   if (!airport) return { x: 50, y: 50 };
-  return geoPoint(airport.lon, airport.lat);
-}
-
-function airportLabelPoint(airport: Airport) {
-  const point = airportPoint(airport);
-  const offset = airportLabelOffsets[airport.code] ?? { x: 0, y: 0 };
-  return {
-    x: Math.max(8, Math.min(92, point.x + offset.x)),
-    y: Math.max(7, Math.min(93, point.y + offset.y)),
-  };
+  return airportBoardPositions[airport.code] ?? geoPoint(airport.lon, airport.lat);
 }
 
 function KpiGrid({ frame }: { frame: Frame }) {

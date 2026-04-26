@@ -96,7 +96,9 @@ export default function TrainingPage() {
         <div className="submissionLinks">
           <a href="https://work-dwivediishivam-runway-zero.hf.space/state">HF Space Environment</a>
           <a href="https://huggingface.co/work-dwivediishivam/runway-zero-training-artifacts">Training Artifacts</a>
-          <a href="https://forms.gle/CvAbm1SwrLyKZvAd9">Final Submission Form</a>
+          <a href="https://huggingface.co/spaces/work-dwivediishivam/runway-zero/blob/main/docs/BLOG_POST.md">
+            Blog Post
+          </a>
         </div>
       </section>
 

@@ -69,11 +69,12 @@ export default function LandingPage() {
       <section className="pitchHero">
         <div className="heroCopy">
           <p className="eyebrow">Runway Zero</p>
-          <h1>RL-trained LLM agents recover airport chaos after the plan breaks.</h1>
+          <h1>RL-trained LLMs recover airport crises that rule-based systems cannot solve end to end.</h1>
           <p>
-            Airline disruption recovery still depends on expert operations-control teams. Runway Zero
-            tests whether LLM agents can learn the full aircraft, crew, passenger, runway, cash, and
-            fairness recovery loop from environment rewards.
+            Airlines still depend on expert operations-control teams when disruption cascades across
+            aircraft, crews, passengers, runways, cash, and fairness. Runway Zero turns that unsolved
+            end-to-end recovery problem into an OpenEnv environment where LLM agents learn from
+            verifiable rewards.
           </p>
           <div className="heroActions">
             <a href="/sim/?stage=4">
@@ -121,17 +122,6 @@ export default function LandingPage() {
           runway, Bengaluru slots become political, crew legality collapses, passengers are stranded, and
           every airline asks Tower Central to favor them. Existing tools support pieces of this work; the
           complete end-to-end recovery problem remains human-led.
-        </p>
-      </section>
-
-      <section className="judgeStory submissionStory">
-        <div>
-          <p className="eyebrow">Submission Ready</p>
-          <h2>OpenEnv Space, TRL training script, hosted artifacts, and blog are linked.</h2>
-        </div>
-        <p>
-          The demo uses a normalized Recovery Score for judges. Raw environment rewards and hosted
-          GRPO artifacts remain available in the technical evidence.
         </p>
       </section>
 
