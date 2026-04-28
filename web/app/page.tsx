@@ -92,7 +92,11 @@ export default function LandingPage() {
             <a href="/training/">
               Training evidence <BarChart3 size={18} />
             </a>
-            <a href="https://huggingface.co/spaces/work-dwivediishivam/runway-zero">
+            <a
+              href="https://huggingface.co/spaces/work-dwivediishivam/runway-zero"
+              target="_blank"
+              rel="noreferrer"
+            >
               HF Space <RadioTower size={18} />
             </a>
           </div>
@@ -137,10 +141,18 @@ export default function LandingPage() {
           <a href="/api">OpenEnv API metadata</a>
           <a href="/state">Live environment state</a>
           <a href="/training/">Training evidence GUI</a>
-          <a href="https://huggingface.co/spaces/work-dwivediishivam/runway-zero/tree/main/notebooks">
+          <a
+            href="https://huggingface.co/spaces/work-dwivediishivam/runway-zero/tree/main/notebooks"
+            target="_blank"
+            rel="noreferrer"
+          >
             GRPO notebook
           </a>
-          <a href="https://huggingface.co/work-dwivediishivam/runway-zero-training-artifacts">
+          <a
+            href="https://huggingface.co/work-dwivediishivam/runway-zero-training-artifacts"
+            target="_blank"
+            rel="noreferrer"
+          >
             Hosted training artifacts
           </a>
         </div>
