@@ -1,0 +1,158 @@
+{
+  "1": {
+    "label": "Level 1",
+    "title": "Operations Recovery",
+    "headline": "A compact network breaks under fog, runway loss, and aircraft faults.",
+    "flight_count": 44,
+    "base": {
+      "reward": -2350,
+      "score": 38,
+      "delay": 720,
+      "cancelled": 8,
+      "satisfaction": 76,
+      "stranded": 620
+    },
+    "rl": {
+      "reward": 2480,
+      "score": 84,
+      "delay": 155,
+      "cancelled": 2,
+      "satisfaction": 93,
+      "stranded": 110
+    },
+    "incidents": [
+      [
+        "DEL",
+        "FOG LOCKDOWN",
+        "Dense fog slows Delhi departures and breaks the morning bank."
+      ],
+      [
+        "BOM",
+        "RUNWAY DEBRIS",
+        "Mumbai loses one runway just as west-coast departures peak."
+      ],
+      [
+        "BLR",
+        "AIRCRAFT FAULT",
+        "An IndiGo aircraft reports hydraulics and blocks a ready crew."
+      ]
+    ]
+  },
+  "2": {
+    "label": "Level 2",
+    "title": "Passenger-Aware Network",
+    "headline": "Connections, emergency priority, and gate failures turn delay into passenger harm.",
+    "flight_count": 126,
+    "base": {
+      "reward": -8400,
+      "score": 29,
+      "delay": 2580,
+      "cancelled": 31,
+      "satisfaction": 57,
+      "stranded": 3600
+    },
+    "rl": {
+      "reward": 5450,
+      "score": 88,
+      "delay": 520,
+      "cancelled": 7,
+      "satisfaction": 89,
+      "stranded": 520
+    },
+    "incidents": [
+      [
+        "DEL",
+        "FOG CASCADE",
+        "Delhi spacing delays now threaten Mumbai and Bengaluru connections."
+      ],
+      [
+        "HYD",
+        "MEDICAL ARRIVAL",
+        "Hyderabad needs emergency arrival priority inside a packed wave."
+      ],
+      [
+        "CCU",
+        "MISSED CONNECTIONS",
+        "Kolkata passengers are close to overnight stranding."
+      ]
+    ]
+  },
+  "3": {
+    "label": "Level 3",
+    "title": "Economic Multi-Agent Control",
+    "headline": "Airlines negotiate for scarce slots while the tower must stay neutral.",
+    "flight_count": 226,
+    "base": {
+      "reward": -24000,
+      "score": 21,
+      "delay": 6200,
+      "cancelled": 78,
+      "satisfaction": 43,
+      "stranded": 11800
+    },
+    "rl": {
+      "reward": 10800,
+      "score": 90,
+      "delay": 1180,
+      "cancelled": 17,
+      "satisfaction": 84,
+      "stranded": 1380
+    },
+    "incidents": [
+      [
+        "BOM",
+        "FUEL DELAY",
+        "Mumbai fuel trucks are short-staffed; every hold burns cash."
+      ],
+      [
+        "BLR",
+        "SLOT WAR",
+        "IndiGo, Air India, Akasa Air, and SpiceJet demand Bengaluru evening slots."
+      ],
+      [
+        "GOX",
+        "DIVERSION RISK",
+        "Goa weather pushes low-fuel aircraft toward alternate airports."
+      ]
+    ]
+  },
+  "4": {
+    "label": "Level 4",
+    "title": "IndiGo Crisis Replay",
+    "headline": "A December 2025-style crew availability crisis cancels hundreds of flights.",
+    "flight_count": 420,
+    "base": {
+      "reward": -72000,
+      "score": 12,
+      "delay": 28600,
+      "cancelled": 318,
+      "satisfaction": 21,
+      "stranded": 46200
+    },
+    "rl": {
+      "reward": 12600,
+      "score": 82,
+      "delay": 6900,
+      "cancelled": 74,
+      "satisfaction": 73,
+      "stranded": 8200
+    },
+    "incidents": [
+      [
+        "DEL",
+        "CREW ROSTER COLLAPSE",
+        "FDTL-style crew constraints leave many aircraft without legal crews."
+      ],
+      [
+        "BOM",
+        "MASS CANCELLATION RISK",
+        "Mumbai passenger queues overflow after repeated IndiGo cancellations."
+      ],
+      [
+        "BLR",
+        "NETWORK REBUILD",
+        "Bengaluru must rebuild rotations without breaking next-day operations."
+      ]
+    ]
+  }
+}

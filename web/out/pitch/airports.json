@@ -1,0 +1,82 @@
+[
+  {
+    "code": "DEL",
+    "city": "Delhi",
+    "lat": 28.5562,
+    "lon": 77.1,
+    "runways": 4,
+    "gates": 14
+  },
+  {
+    "code": "BOM",
+    "city": "Mumbai",
+    "lat": 19.0896,
+    "lon": 72.8656,
+    "runways": 2,
+    "gates": 10
+  },
+  {
+    "code": "BLR",
+    "city": "Bengaluru",
+    "lat": 13.1986,
+    "lon": 77.7066,
+    "runways": 2,
+    "gates": 10
+  },
+  {
+    "code": "HYD",
+    "city": "Hyderabad",
+    "lat": 17.2403,
+    "lon": 78.4294,
+    "runways": 2,
+    "gates": 8
+  },
+  {
+    "code": "MAA",
+    "city": "Chennai",
+    "lat": 12.9941,
+    "lon": 80.1709,
+    "runways": 2,
+    "gates": 8
+  },
+  {
+    "code": "CCU",
+    "city": "Kolkata",
+    "lat": 22.6547,
+    "lon": 88.4467,
+    "runways": 2,
+    "gates": 7
+  },
+  {
+    "code": "AMD",
+    "city": "Ahmedabad",
+    "lat": 23.0772,
+    "lon": 72.6347,
+    "runways": 1,
+    "gates": 5
+  },
+  {
+    "code": "COK",
+    "city": "Kochi",
+    "lat": 10.152,
+    "lon": 76.4019,
+    "runways": 1,
+    "gates": 5
+  },
+  {
+    "code": "GOX",
+    "city": "Goa",
+    "lat": 15.7443,
+    "lon": 73.8606,
+    "runways": 1,
+    "gates": 5
+  },
+  {
+    "code": "PNQ",
+    "city": "Pune",
+    "lat": 18.5793,
+    "lon": 73.9089,
+    "runways": 1,
+    "gates": 5
+  }
+]

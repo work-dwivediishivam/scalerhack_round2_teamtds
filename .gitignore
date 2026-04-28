@@ -18,6 +18,9 @@ dist/
 node_modules/
 .next/
 out/
+!web/out/
+!web/out/**
+web/out/**/*.png
 .vercel/
 
 # OS / editors

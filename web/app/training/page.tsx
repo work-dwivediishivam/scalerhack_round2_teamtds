@@ -39,6 +39,7 @@ const hostedGrpoRuns = [
   hfGptOssJson as HostedGrpoRun,
   hfGemmaJson as HostedGrpoRun,
 ];
+const plotBaseUrl = "https://project-2pdc2.vercel.app/pitch/plots";
 
 const models = Array.from(new Map(results.map((row) => [row.model, row])).values());
 const stages = [1, 2, 3, 4];
@@ -129,7 +130,10 @@ export default function TrainingPage() {
         {stages.map((stage) => (
           <article className="plotPanel" key={stage}>
             <h2>Level {stage}: recovery score improvement</h2>
-            <img src={`/pitch/plots/stage${stage}_reward_comparison.png`} alt={`Level ${stage} reward comparison`} />
+            <img
+              src={`${plotBaseUrl}/stage${stage}_reward_comparison.png`}
+              alt={`Level ${stage} reward comparison`}
+            />
           </article>
         ))}
       </section>
@@ -139,7 +143,7 @@ export default function TrainingPage() {
           <article className="plotPanel" key={model.model}>
             <h2>{model.label}: GRPO curve</h2>
             <img
-              src={`/pitch/plots/${model.short.toLowerCase().replaceAll("-", "").replaceAll(".", "")}_training_curve.png`}
+              src={`${plotBaseUrl}/${model.short.toLowerCase().replaceAll("-", "").replaceAll(".", "")}_training_curve.png`}
               alt={`${model.label} training curve`}
             />
           </article>

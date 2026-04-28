@@ -112,6 +112,32 @@ export default function LandingPage() {
         </div>
       </section>
 
+      <section className="spaceNotice">
+        <div>
+          <p className="eyebrow">Hugging Face Space</p>
+          <h2>The Space runs the OpenEnv environment; the large-model training evidence is linked here.</h2>
+          <p>
+            The public Space keeps the reset, step, state, and close API live for evaluation. The
+            7B, 14B, 31B, and 120B LLM training runs were executed as GPU GRPO jobs, then exported as
+            adapters, trainer states, replay traces, and plots. Keeping those models loaded inside a
+            public demo Space would make the judge experience slow and unreliable, so this page opens
+            the exact replay UI and links the notebooks and artifacts used to verify training.
+          </p>
+        </div>
+        <div className="spaceLinks">
+          <a href="/api">OpenEnv API metadata</a>
+          <a href="/state">Live environment state</a>
+          <a href="/training/">Training evidence GUI</a>
+          <a href="https://huggingface.co/spaces/work-dwivediishivam/runway-zero/blob/main/notebooks/04_llm_grpo_all_stages.ipynb">
+            GRPO notebook
+          </a>
+          <a href="https://huggingface.co/work-dwivediishivam/runway-zero-training-artifacts">
+            Hosted training artifacts
+          </a>
+          <a href="https://project-2pdc2.vercel.app/sim/?stage=4">External full replay</a>
+        </div>
+      </section>
+
       <section className="judgeStory">
         <div>
           <p className="eyebrow">Hackathon Story</p>
