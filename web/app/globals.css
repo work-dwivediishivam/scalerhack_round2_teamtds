@@ -1185,6 +1185,13 @@ h2 span {
   font-weight: 900;
 }
 
+.heroActions .wideHeroAction {
+  flex-basis: 100%;
+  justify-content: center;
+  max-width: 760px;
+  text-align: center;
+}
+
 .heroActions a:first-child,
 .proofStrip a {
   background: var(--ink);

@@ -93,11 +93,12 @@ export default function LandingPage() {
               Training evidence <BarChart3 size={18} />
             </a>
             <a
-              href="https://huggingface.co/spaces/work-dwivediishivam/runway-zero"
+              className="wideHeroAction"
+              href="https://huggingface.co/spaces/work-dwivediishivam/openmonopoly-india"
               target="_blank"
               rel="noreferrer"
             >
-              HF Space <RadioTower size={18} />
+              HF Space: Monopoly Game played by RL Agents in YouTube Demo background <RadioTower size={18} />
             </a>
           </div>
         </div>
