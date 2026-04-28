@@ -166,12 +166,8 @@ export default function TrainingPage() {
               <em>{run.max_steps} update steps</em>
             </div>
             <div className="runLinks">
-              <a href={run.job_url} target="_blank" rel="noreferrer">
-                Job log
-              </a>
-              <a href={run.artifact_url} target="_blank" rel="noreferrer">
-                Adapter artifact
-              </a>
+              <a href={run.job_url}>Job log</a>
+              <a href={run.artifact_url}>Adapter artifact</a>
             </div>
           </article>
         ))}
