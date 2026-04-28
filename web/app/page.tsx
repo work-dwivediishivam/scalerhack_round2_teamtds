@@ -70,6 +70,15 @@ export default function LandingPage() {
         <div className="heroCopy">
           <p className="eyebrow">Runway Zero</p>
           <h1>RL-trained LLMs recover airport crises that rule-based systems cannot solve end to end.</h1>
+          <p className="spaceTierNotice">Space Redeployed to preserve GPU; switched to FREE TIER</p>
+          <a
+            className="vercelNotice"
+            href="https://project-2pdc2.vercel.app/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Link to Vercel Site - https://project-2pdc2.vercel.app/
+          </a>
           <p>
             Airlines still depend on highly trained operations-control teams when disruption cascades
             across aircraft, crews, passengers, runways, airline economics, and fairness. Runway Zero
@@ -128,13 +137,12 @@ export default function LandingPage() {
           <a href="/api">OpenEnv API metadata</a>
           <a href="/state">Live environment state</a>
           <a href="/training/">Training evidence GUI</a>
-          <a href="https://huggingface.co/spaces/work-dwivediishivam/runway-zero/blob/main/notebooks/04_llm_grpo_all_stages.ipynb">
+          <a href="https://huggingface.co/spaces/work-dwivediishivam/runway-zero/tree/main/notebooks">
             GRPO notebook
           </a>
           <a href="https://huggingface.co/work-dwivediishivam/runway-zero-training-artifacts">
             Hosted training artifacts
           </a>
-          <a href="https://project-2pdc2.vercel.app/sim/?stage=4">External full replay</a>
         </div>
       </section>
 

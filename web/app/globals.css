@@ -1134,8 +1134,8 @@ h2 span {
 
 .heroCopy h1 {
   max-width: 1060px;
-  font-size: clamp(48px, 7.8vw, 108px);
-  line-height: 0.98;
+  font-size: clamp(38px, 6.1vw, 82px);
+  line-height: 1;
 }
 
 .heroCopy p {
@@ -1143,6 +1143,24 @@ h2 span {
   color: var(--muted);
   font-size: 19px;
   line-height: 1.45;
+}
+
+.heroCopy .spaceTierNotice {
+  margin: 18px 0 6px;
+  max-width: 920px;
+  color: var(--red);
+  font-size: 19px;
+  font-weight: 950;
+  line-height: 1.3;
+}
+
+.vercelNotice {
+  display: inline-flex;
+  color: var(--blue);
+  font-size: 18px;
+  font-weight: 900;
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
 
 .heroActions,
